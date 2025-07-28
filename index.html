@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experts Section</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/cdf9a174a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header  -->
+    <!-- social icon  -->
+
+    <div class="overlay" id="overlay"></div>
+    <div class="container-fluid py-2 bg-white border">
+      <div class="container social-links-wrapper">
+        <div class="social-links d-flex">
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- nav-menu  -->
+
+    <header class="" id="header">
+      <nav class="navbar container">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="./lederman--logo.png" alt="" />
+          </a>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+          <span class="menu-open"><i class="fa-solid fa-bars"></i></span>
+          <span class="menu-close"><i class="fa-solid fa-x"></i></span>
+        </div>
+        <div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="./index.html" class="current">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li class="dropdown">
+              <a href=""
+                >Solutions <span><i class="fa-solid fa-angle-down"></i></span
+              ></a>
+              <ul class="dropdown-content">
+                <li><a href="">Receivables Management</a></li>
+                <li><a href="">Credit Risk Assessment</a></li>
+                <li><a href="">Debt Recovery Services</a></li>
+              </ul>
+            </li>
+            <!-- <li class="dropdown">
+              <a href=""
+                >Pages
+                <span><i class="fa-solid fa-angle-down"></i></span>
+              </a>
+              <ul class="dropdown-content">
+                <li><a href="">Banking</a></li>
+                <li><a href="">Healthcare</a></li>
+                <li><a href="">Education</a></li>
+              </ul>
+            </li> -->
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <button>Register</button>
+          <!-- <button>Contact</button> -->
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO  -->
+    <style>
+      .hero-section {
+        --bs-body-color: #373572;
+        --bs-body-bg: #fff;
+        --ezy-theme-color: rgb(13, 110, 253);
+        --ezy-theme-color-rgb: 13, 110, 253;
+        --ezy-shadow: 0px 4px 44px rgba(159, 190, 218, 0.37);
+        background-color: var(--bs-body-bg);
+        overflow: hidden;
+        padding: 60px 0 0 0;
+        position: relative;
+      }
+
+      @media (min-width: 768px) {
+        .hero-section {
+          padding: 100px 0 0 0;
+        }
+      }
+
+      .gray .hero-section,
+      .hero-section.gray {
+        --bs-body-bg: #fffbf7;
+      }
+
+      .dark-gray .hero-section,
+      .hero-section.dark-gray {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(30, 39, 53);
+        --ezy-shadow: 0px 4px 44px rgba(0, 0, 0, 0.37);
+      }
+
+      .dark .hero-section,
+      .hero-section.dark {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(11, 23, 39);
+        --ezy-shadow: 0px 4px 44px rgba(0, 0, 0, 0.37);
+      }
+
+      .hero-heading {
+        font-weight: 700;
+        font-size: 35px !important;
+        line-height: 45px !important;
+        color: var(--bs-body-color);
+      }
+
+      @media (min-width: 768px) {
+        .hero-heading {
+          font-size: 70px;
+          line-height: 85px;
+        }
+      }
+
+      .hero-subheading {
+        /* color: var(--bs-body-color); */
+        font-size: 18px;
+        line-height: 1.5;
+        opacity: 0.8;
+      }
+
+      .hero-content-wrapper {
+        padding-bottom: 60px;
+      }
+
+      @media (min-width: 991px) {
+        .hero-content-wrapper {
+          padding-top: 60px;
+          padding-bottom: 130px;
+        }
+      }
+
+      .hero-button {
+        padding: 12px 30px;
+        background-color: var(--ezy-theme-color);
+        border-color: var(--ezy-theme-color);
+        color: #fff;
+        box-shadow: var(--ezy-shadow);
+      }
+
+      .hero-button:hover {
+        background-color: rgba(var(--ezy-theme-color-rgb), 0.9);
+        border-color: rgba(var(--ezy-theme-color-rgb), 0.9);
+      }
+
+      .hero-shape-1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .hero-shape-2 {
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        top: 0;
+      }
+
+      @media (min-width: 991px) {
+        .hero-shape-2 {
+          left: 45%;
+        }
+      }
+
+      .hero-thumbnail {
+        /* additional thumbnail styling if needed */
+      }
+    </style>
+
+    <section class="hero-section">
+      <svg
+        class="hero-shape-1"
+        width="765"
+        height="352"
+        viewBox="0 0 765 352"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M-198.142 351.446C-198.142 351.446 -215.983 270.082 -156.926 249.4C-107.838 232.209 -37.0917 306.522 10.4495 285.434C59.5477 263.655 76.7688 193.419 127.58 175.997C180.496 157.854 191.203 187.805 246.09 176.984C310.815 164.224 276.625 71.699 337.945 47.3818C399.762 22.8672 492.184 91.1712 557.292 77.6067C641.701 60.0211 726.004 -99.9998 726.004 -99.9998"
+          stroke="var(--ezy-theme-color)"
+          stroke-opacity="0.37"
+          stroke-width="2"
+          stroke-dasharray="4 2.5"
+        />
+      </svg>
+      <div class="container position-relative">
+        <div class="row justify-content-between">
+          <div
+            class="col-lg-6 pe-xl-5 text-center text-lg-start"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="hero-content-wrapper">
+              <h2 class="hero-heading mb-4">
+                Empowering Growth Through Financial Precision
+              </h2>
+              <p class="hero-subheading">
+                <strong>Ledgermen</strong> empowers startups, NRIs, and global
+                businesses with expert accounting, tax, and strategy—so you can
+                scale with clarity.
+              </p>
+              <a href="" class="btn btn-primary hero-button fs-5 mt-4 mt-md-5"
+                >Get Started</a
+              >
+            </div>
+          </div>
+          <div
+            class="col-lg-6 d-flex align-items-center justify-content-center position-relative pb-4"
+          >
+            <svg
+              class="hero-shape-2"
+              width="765"
+              height="616"
+              viewBox="0 0 765 616"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1413_1802)">
+                <path
+                  d="M2 308C2 138.449 139.449 1 309 1H763V615H309C139.449 615 2 477.551 2 308V308Z"
+                  fill="var(--ezy-theme-color)"
+                />
+                <path
+                  d="M88.3318 766.511C88.3318 766.511 80.9409 654.626 125.572 610.73C162.67 574.244 217.971 608.05 252.008 568.698C287.159 528.058 234.829 470.327 273.387 432.897C313.543 393.918 370.941 452.433 416.001 419.237C469.138 380.091 431.731 318.789 476.86 270.64C522.356 222.1 567.607 222.135 620.748 182.098C689.642 130.192 732.267 -35.9998 732.267 -35.9998"
+                  stroke="white"
+                  stroke-width="2"
+                />
+                <path
+                  d="M150.839 825.443C150.839 825.443 100.019 759.446 144.628 715.563C181.706 679.089 277.378 716.159 311.396 676.819C346.528 636.19 332.169 565.313 370.708 527.896C410.844 488.929 433.295 511.459 478.334 478.276C531.447 439.145 461.081 370.018 506.186 321.884C551.658 273.359 664.378 295.754 717.494 255.732C786.355 203.846 794.41 23.1564 794.41 23.1564"
+                  stroke="#EEEDEB"
+                  stroke-opacity="0.37"
+                  stroke-width="2"
+                  stroke-dasharray="4 2.5"
+                />
+              </g>
+            </svg>
+            <img
+              src="ledgermen-hero.png"
+              alt=""
+              class="rounded img-fluid hero-thumbnail position-relative"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE   -->
+    <style>
+      .feature-section {
+        --bs-body-color: #1e2329;
+        --bs-body-bg: rgb(255, 255, 255);
+
+        --theme-color: rgb(13, 110, 253);
+        --theme-color-rgb: 13, 110, 253;
+
+        background-color: var(--bs-body-bg);
+        color: var(--bs-body-color);
+        overflow: hidden;
+        padding: 60px 0;
+      }
+
+      @media (min-width: 768px) {
+        .feature-section {
+          padding: 100px 0;
+        }
+      }
+
+      .gray .feature-section,
+      .feature-section.gray {
+        --bs-body-bg: rgb(246, 246, 246);
+      }
+
+      .dark-gray .feature-section,
+      .feature-section.dark-gray {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(30, 39, 53);
+      }
+
+      .dark .feature-section,
+      .feature-section.dark {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(11, 23, 39);
+      }
+
+      .feature-section-heading {
+        font-size: 32px;
+        line-height: 1;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .feature-section-subheading {
+        opacity: 0.7;
+      }
+
+      .feature-section img {
+        border-radius: 15px;
+      }
+
+      .feature-section-divider {
+        color: var(--theme-color);
+        height: 2px !important;
+        border-radius: 3px;
+        width: 50px;
+        opacity: 1;
+      }
+
+      .feature-section .text-primary {
+        color: var(--theme-color) !important;
+      }
+
+      .feature-section-features hr {
+        width: 90%;
+      }
+
+      .feature-section-btn {
+        background-color: var(--bs-body-color);
+        color: var(--bs-body-bg);
+        padding: 8px 25px;
+        transition: 0.5s;
+      }
+
+      .feature-section-btn:hover {
+        color: var(--bs-body-bg);
+        opacity: 0.9;
+      }
+    </style>
+
+    <section class="feature-section" id="feature-section">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-12 col-lg-6 mb-5 mb-lg-0">
+            <div class="mt-5 mt-lg-0">
+              <img
+                src="ledgermen-feature-section.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
+            </div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <h1 class="feature-section-heading">Your Trusted Partner</h1>
+            <hr class="feature-section-divider my-4" />
+            <p
+              class="feature-section-subheading"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              At Ledgermen, we simplify finance so you can focus on scaling your
+              business. Our expert team delivers tailored accounting, tax
+              compliance, and financial strategies to help startups, NRIs, and
+              global companies thrive in a dynamic world.
+            </p>
+            <ul class="nav flex-column feature-section-features mt-5">
+              <li data-aos="fade-up" data-aos-delay="500">
+                <span class="fas fa-check text-primary me-2 mb-3 small"></span>
+                <span class="opacity-75 small">
+                  End-to-end bookkeeping and financial reporting solutions.
+                </span>
+              </li>
+              <hr class="my-2" />
+              <li data-aos="fade-up" data-aos-delay="600">
+                <span class="fas fa-check text-primary me-2 mb-3 small"></span>
+                <span class="opacity-75 small">
+                  Expert tax filing and NRI compliance made seamless.
+                </span>
+              </li>
+              <hr class="my-2" />
+              <li data-aos="fade-up" data-aos-delay="700">
+                <span class="fas fa-check text-primary me-2 mb-3 small"></span>
+                <span class="opacity-75 small">
+                  Financial forecasting and strategic growth planning.
+                </span>
+              </li>
+              <hr class="my-2" />
+              <li data-aos="fade-up" data-aos-delay="800">
+                <span class="fas fa-check text-primary me-2 mb-3 small"></span>
+                <span class="opacity-75 small">
+                  Tailored solutions for startups, SaaS firms, and global
+                  founders.
+                </span>
+              </li>
+              <hr class="my-2" />
+              <li data-aos="fade-up" data-aos-delay="900">
+                <span class="fas fa-check text-primary me-2 small"></span>
+                <span class="opacity-75 small">
+                  Transparent pricing and clear communication at every step.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE SWIPER -->
+
+    <style>
+      #why-tekalgo {
+        width: 100%;
+
+        background-color: #0d6efd;
+        position: relative;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+        padding-bottom: 10px;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 80px;
+      }
+
+      #why-tekalgo .swiper-wrapper {
+        /* margin-bottom: 50px; */
+        /* border: 2px solid red; */
+      }
+      #why-tekalgo .swiper-pagination-bullet {
+        background-color: #ffffff;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      #why-tekalgo .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 50px;
+      }
+
+      #why-tekalgo .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        border: 1px solid #ccc;
+
+        color: white;
+        padding: 20px;
+        min-height: 100%;
+        background-color: #ffffff;
+        border-radius: 10px;
+      }
+
+      #why-tekalgo .industry-slider {
+        width: 100%;
+        height: auto;
+      }
+
+      #why-tekalgo .swiper-container {
+        height: auto !important;
+      }
+
+      #why-tekalgo .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+      }
+
+      #why-tekalgo .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+
+        color: black;
+        padding: 48px 40px;
+        height: 100%;
+        min-height: 100%;
+        background-color: white;
+        /* border-bottom: 10px solid #fecc00; */
+        /* text-align: center; */
+        box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+      }
+      #why-tekalgo .swiper-slide h1 {
+        /* color: rgb(50, 62, 80); */
+        font-weight: 700 !important;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      #why-tekalgo .swiper-slide p {
+        color: rgb(50, 62, 80);
+        opacity: 0.8;
+      }
+
+      #why-tekalgo .swiper {
+        overflow: hidden;
+      }
+
+      #why-tekalgo .swiper-wrapper {
+        display: flex;
+        align-items: stretch;
+        transition-timing-function: ease-in-out !important;
+
+        padding-bottom: 50px;
+      }
+      #why-tekalgo .swiper-wrapper .icon-box {
+        text-align: center;
+        border: 1px solid #ebebeb;
+
+        padding: 20px;
+        transition: all ease-in-out 0.3s;
+        background: #fff;
+        width: 100%;
+        border: 2px solid red !important;
+      }
+
+      #why-tekalgo .swiper-wrapper .icon {
+        /* margin: 0 auto; */
+
+        margin-bottom: 32px;
+        transition: 0.3s;
+        border-radius: 50%;
+
+        font-size: 30px;
+        padding: 20px;
+        width: 70px;
+        height: 70px;
+        color: #fff;
+        background-color: transparent;
+        box-shadow: 0px 20px 40px 0px rgba(234, 233, 233, 0.92);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #why-tekalgo .swiper-wrapper .icon i {
+        color: #0d0f39;
+        font-size: 28px;
+        transition: ease-in-out 0.3s;
+      }
+
+      #why-tekalgo .swiper-slide:nth-child(1) .icon i {
+        color: #ffc107;
+      }
+      #why-tekalgo .swiper-slide:nth-child(2) .icon i {
+        color: #ff6400;
+      }
+      #why-tekalgo .swiper-slide:nth-child(3) .icon i {
+        color: #2f80ed;
+      }
+      #why-tekalgo .swiper-slide:nth-child(4) .icon i {
+        color: #3abdbb;
+      }
+      #why-tekalgo .swiper-slide:nth-child(5) .icon i {
+        color: #04004d;
+      }
+      #why-tekalgo .swiper-slide:nth-child(6) .icon i {
+        color: #ff1f1f;
+      }
+    </style>
+    <section id="why-tekalgo" class="why-tekalgo">
+      <div class="container" data-aos="zoom-in">
+        <div class="swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-search-dollar"></i></div>
+              <h1>Financial Due Diligence</h1>
+              <p>
+                In-depth financial assessments and reports to support M&A,
+                investment, and compliance decisions.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-chart-line"></i></div>
+              <h1>Financial Planning</h1>
+              <p>
+                Tailored strategies for wealth growth, retirement planning, tax
+                saving, and long-term financial stability.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-user-shield"></i></div>
+              <h1>Regulatory Advisory</h1>
+              <p>
+                Guidance on evolving compliance frameworks, FEMA, RBI
+                regulations, and corporate governance.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h1>Accounting & Bookkeeping</h1>
+              <p>
+                End-to-end accounting support to ensure your finances are always
+                compliant, organized, and audit-ready.
+              </p>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-calculator"></i></div>
+              <h1>Tax Compliance & Filing</h1>
+              <p>
+                Expert handling of Indian tax laws, including ITR filing, GST,
+                and TDS compliance for individuals and businesses.
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <div class="icon"><i class="fas fa-globe-asia"></i></div>
+              <h1>NRI & International Taxation</h1>
+              <p>
+                Specialized services for NRIs, expatriates, and international
+                clients navigating Indian tax obligations.
+              </p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function setEqualHeight() {
+        let slides = document.querySelectorAll("#why-tekalgo .swiper-slide");
+        let maxHeight = 0;
+
+        // Reset height to auto first
+        slides.forEach((slide) => {
+          slide.style.height = "auto";
+        });
+
+        // Find the tallest slide
+        slides.forEach((slide) => {
+          let slideHeight = slide.clientHeight;
+          if (slideHeight > maxHeight) {
+            maxHeight = slideHeight;
+          }
+        });
+
+        // Apply max height to all slides
+        slides.forEach((slide) => {
+          slide.style.height = maxHeight + "px";
+        });
+      }
+
+      var swiper = new Swiper("#why-tekalgo .swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+
+        speed: 800, // Smooth animation speed
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          // dynamicBullets: true,
+        },
+        autoplay: {
+          delay: 2500, // Adjusted for smoother transitions
+          disableOnInteraction: false, // Keeps autoplay running after interaction
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          992: {
+            slidesPerView: 3,
+            loopedSlides: 3, // Ensures smooth looping in this view
+          },
+          768: {
+            slidesPerView: 2,
+            loopedSlides: 2, // Ensures correct loop behavior
+          },
+          0: {
+            slidesPerView: 1,
+          },
+        },
+        on: {
+          init: setEqualHeight, // Adjust height when Swiper initializes
+          slideChangeTransitionEnd: setEqualHeight, // Adjust height smoothly
+        },
+      });
+
+      // Adjust height on window resize
+      window.addEventListener("resize", setEqualHeight);
+    </script>
+
+    <!-- === End SERVICE ======= -->
+
+    <!-- STATS  -->
+    <style>
+      .stats-section {
+        --bs-body-color: #161b22;
+        --bs-body-bg: rgb(255, 255, 255);
+
+        --theme-color: rgb(13, 110, 253);
+        --theme-color-rgb: 13, 110, 253;
+
+        background-color: var(--bs-body-bg);
+        padding: 60px 0;
+      }
+
+      @media (min-width: 768px) {
+        .stats-section {
+          padding: 100px 0;
+        }
+      }
+
+      .gray .stats-section,
+      .stats-section.gray {
+        --bs-body-bg: rgb(246, 246, 246);
+      }
+
+      .dark-gray .stats-section,
+      .stats-section.dark-gray {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(30, 39, 53);
+      }
+
+      .dark .stats-section,
+      .stats-section.dark {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(11, 23, 39);
+      }
+
+      .stats-heading {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.3;
+        /* color: var(--bs-body-color); */
+      }
+
+      @media (min-width: 768px) {
+        .stats-heading {
+          font-size: 45px;
+        }
+      }
+
+      .stats-subheading {
+        /* font-size: 18px; */
+        line-height: 25px;
+        color: var(--bs-body-color);
+        opacity: 0.8;
+      }
+
+      .stats-section .card {
+        background-color: transparent !important;
+        color: var(--bs-body-color);
+      }
+
+      .stats-section .card h3 {
+        font-size: 45px;
+        font-weight: 900;
+      }
+
+      .stats-section .card h5 {
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .stats-section .card p {
+        font-size: 16px;
+        opacity: 0.8;
+      }
+
+      .stats-section img {
+        border-radius: 10px;
+      }
+    </style>
+
+    <section class="stats-section">
+      <div class="container">
+        <!-- heading -->
+        <div class="row justify-content-between">
+          <div class="col-12 col-lg-7">
+            <div
+              class="stats-content-wrapper"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            >
+              <h1 class="stats-heading mb-3">Key Numbers That Define Us</h1>
+              <p class="stats-subheading mb-5">
+                Backed by a decade of experience, we help individuals and
+                businesses stay compliant and financially sound—across India and
+                globally.
+              </p>
+            </div>
+
+            <!-- cards -->
+            <div class="d-flex flex-column flex-sm-row">
+              <div
+                class="card border-0 mb-3"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="card-body">
+                  <h3 class="mb-3">1500+</h3>
+                  <h5>Returns Filed</h5>
+                  <p class="mb-0">
+                    Income tax, TDS, and GST returns filed accurately and on
+                    time for clients across sectors.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="card border-0 mb-3"
+                data-aos="fade-up"
+                data-aos-delay="600"
+              >
+                <div class="card-body">
+                  <h3 class="mb-3">500+</h3>
+                  <h5>Clients Served</h5>
+                  <p class="mb-0">
+                    Individuals, freelancers, NRIs, and businesses trust us for
+                    tax, accounting, and advisory needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row">
+              <div
+                class="card border-0 mb-3"
+                data-aos="fade-up"
+                data-aos-delay="700"
+              >
+                <div class="card-body">
+                  <h3 class="mb-3">12+</h3>
+                  <h5>Years of Expertise</h5>
+                  <p class="mb-0">
+                    Helping clients navigate India’s complex financial and tax
+                    system with confidence and ease.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="card border-0 mb-3"
+                data-aos="fade-up"
+                data-aos-delay="800"
+              >
+                <div class="card-body">
+                  <h3 class="mb-3">20+</h3>
+                  <h5>Countries Served</h5>
+                  <p class="mb-0">
+                    Specialized in NRI taxation, remittances, and global
+                    financial advisory across multiple jurisdictions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-12 col-lg-5 d-flex justify-content-center align-items-center"
+          >
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script>
+        const ctx = document.getElementById("myChart").getContext("2d");
+
+        const chart = new Chart(ctx, {
+          type: "doughnut",
+          data: {
+            labels: ["Red", "Blue", "Yellow", "Green"],
+            datasets: [
+              {
+                data: [1500, 500, 12, 20],
+                backgroundColor: [
+                  "rgb(255, 99, 132)",
+                  "rgb(54, 162, 235)",
+                  "rgb(255, 205, 86)",
+                  "rgb(75, 192, 192)",
+                ],
+                borderColor: "#fff",
+                borderWidth: 2,
+                hoverOffset: 8,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: "bottom",
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const label = context.label || "";
+                    const value = context.parsed;
+                    const descriptions = {
+                      Red: "Returns Filed",
+                      Blue: "Clients Served",
+                      Yellow: "Years of Expertise",
+                      Green: "Countries Served",
+                    };
+                    return ` ${value}+ ${descriptions[label] || ""}`;
+                  },
+                },
+              },
+            },
+          },
+        });
+      </script>
+    </section>
+
+    <!-- EXTRA SERVICE  -->
+    <style>
+      .service-section {
+        --bs-body-color: #28303b;
+        --bs-body-bg: rgb(255, 255, 255);
+        --ezy-theme-color: rgb(13, 110, 253);
+        --ezy-theme-color-rgb: 13, 110, 253;
+        --ezy-card-bg: #ffffff;
+        --ezy-card-box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+
+        background-color: var(--bs-body-bg);
+        color: var(--bs-body-color);
+        position: relative;
+        padding: 60px 0;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      @media (min-width: 768px) {
+        .service-section {
+          padding: 100px 0;
+        }
+      }
+
+      .gray .service-section,
+      .service-section.gray {
+        --bs-body-bg: rgb(246, 246, 246);
+        --ezy-card-bg: #f6f6f6;
+      }
+
+      .dark-gray .service-section,
+      .service-section.dark-gray {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(30, 39, 53);
+        --ezy-card-bg: rgb(30, 39, 53);
+        --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark .service-section,
+      .service-section.dark {
+        --bs-body-color: #ffffff;
+        --bs-body-bg: rgb(11, 23, 39);
+        --ezy-card-bg: rgb(11, 23, 39);
+        --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+      }
+
+      .service-heading {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 1.5;
+      }
+
+      @media (min-width: 768px) {
+        .service-heading {
+          font-size: 40px;
+        }
+      }
+
+      .service-subheading {
+        /* font-size: 17px; */
+        line-height: 1.5;
+        opacity: 0.8;
+      }
+
+      .service-shape-one {
+        z-index: -1;
+        bottom: -20%;
+        left: 0;
+      }
+
+      .service-shape-two {
+        z-index: -1;
+        top: -20%;
+      }
+
+      .service-card {
+        background-color: var(--ezy-card-bg);
+        box-shadow: var(--ezy-card-box-shadow);
+      }
+
+      .service-icon {
+        font-size: 40px;
+        color: var(--ezy-theme-color);
+      }
+
+      .service-cards-wrapper {
+        /* structure unchanged, just renamed */
+      }
+    </style>
+
+    <section class="service-section">
+      <!-- shape one -->
+      <svg
+        class="service-shape-one position-absolute"
+        width="405"
+        height="626"
+        viewBox="0 0 405 626"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          x="-302.65"
+          y="296.986"
+          width="433.92"
+          height="140"
+          rx="73.8464"
+          transform="rotate(-33.796 -302.65 296.986)"
+          fill="#7434F8"
+          fill-opacity="0.5"
+        />
+        <rect
+          x="-315"
+          y="502.403"
+          width="666.584"
+          height="140"
+          rx="73.8464"
+          transform="rotate(-33.796 -315 502.403)"
+          fill="#FAA515"
+          fill-opacity="0.5"
+        />
+      </svg>
+
+      <!-- shape two -->
+      <svg
+        class="service-shape-two position-absolute end-0"
+        width="340"
+        height="658"
+        viewBox="0 0 495 778"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="389"
+          cy="389"
+          r="389"
+          fill="var(--ezy-theme-color)"
+          fill-opacity="0.19"
+        />
+      </svg>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="500">
+            <h2 class="service-heading mb-3">
+              Smart Solutions Beyond Tax. What We Also Offer...
+            </h2>
+            <p class="service-subheading">
+              In a digital-first world, clients need more than compliance. We
+              provide tools and insights that empower better decisions,
+              financial clarity, and business growth.
+            </p>
+          </div>
+          <div class="col-12 col-md-8">
+            <div class="row service-cards-wrapper">
+              <div class="col-12 col-md-6">
+                <div>
+                  <!-- Card 1 -->
+                  <div
+                    class="card service-card rounded-0 border-0 p-3"
+                    data-aos="fade-up"
+                    data-aos-delay="500"
+                  >
+                    <div class="card-body">
+                      <div class="service-icon mb-2">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                      </div>
+                      <h5 class="my-4">Digital Document Vault</h5>
+                      <p class="opacity-75 mt-3">
+                        Secure, cloud-based storage for tax files, invoices, and
+                        important financial documents—accessible anytime.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div
+                    class="card service-card rounded-0 border-0 p-3 mt-4"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                  >
+                    <div class="card-body">
+                      <div class="service-icon mb-2">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                      </div>
+                      <h5 class="my-4">Invoicing & eBilling</h5>
+                      <p class="opacity-75 mt-3">
+                        Simplify client billing with branded, GST-compliant
+                        e-invoices integrated with payment tracking.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="mt-md-5">
+                  <!-- Card 3 -->
+                  <div
+                    class="card service-card rounded-0 border-0 p-3 mt-4"
+                    data-aos="fade-up"
+                    data-aos-delay="700"
+                  >
+                    <div class="card-body">
+                      <div class="service-icon mb-2">
+                        <i class="fas fa-chart-line"></i>
+                      </div>
+                      <h5 class="my-4">Business Performance Reports</h5>
+                      <p class="opacity-75 mt-3">
+                        Monthly insights on cash flow, tax outgo, and
+                        profitability— tailored for startups, SMEs, and
+                        freelancers.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Card 4 -->
+                  <div
+                    class="card service-card rounded-0 border-0 p-3 mt-4"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                  >
+                    <div class="card-body">
+                      <div class="service-icon mb-2">
+                        <i class="fas fa-user-shield"></i>
+                      </div>
+                      <h5 class="my-4">KYC & Compliance Toolkit</h5>
+                      <p class="opacity-75 mt-3">
+                        Automate and manage KYC, PAN validation, and ROC filings
+                        with ease—ideal for startups and agencies.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- awards  -->
+    <!-- <section class="ezy__numbers11_bnpjajDq">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-12">
+            <h2 class="ezy__numbers11_bnpjajDq-heading">
+              Awards & Recognitions
+            </h2>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+              <div class="mb-4">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <h5 class="mb-0">Top 100 Tax Consultants in India - 2024</h5>
+            </div>
+          </div>
+
+       
+          <div class="col-12 col-md-4">
+            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+              <div class="mb-4">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <h5 class="mb-0">
+                Excellence in GST Compliance Solutions – MSME Awards 2024
+              </h5>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+              <div class="mb-4">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <h5 class="mb-0">
+                Recognized by Startup India for Financial Process Innovation
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- FOOTER  -->
+    <section class="footer-section">
+      <div class="container">
+        <div class="row text-start text-sm-start">
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <img
+              src="./lederman--logo.png"
+              width="180px"
+              alt=""
+              style="margin-bottom: 16px"
+            />
+            <p style="margin-bottom: 8px; color: #6c757d; opacity: 0.85">
+              <span style="margin-right: 15px"
+                ><i class="fa-solid fa-house" style="font-size: 17px"></i></span
+              >New Delhi, India
+            </p>
+            <p style="margin-bottom: 8px; color: #6c757d; opacity: 0.85">
+              <span style="margin-right: 15px">
+                <i
+                  class="fa-solid fa-envelope-open"
+                  style="font-size: 17px"
+                ></i></span
+              >Ledgremen@gmail.com
+            </p>
+          </div>
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Quick Links</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li><a href="#">Terms & Conditions</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Refund Policy</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Social Media</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                  <li><a href="#">Twitter</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Job Info</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li><a href="#">Select</a></li>
+                  <li><a href="#">Service</a></li>
+                  <li><a href="#">Payment</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <ul class="footer-social d-inline-flex nav mt-2">
+                <li>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-twitter-square"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-youtube"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-facebook-square"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-3 opacity-50 footer-copyright">
+              <span>Copyright &copy; Ledgermen, All rights reserved</span>
+              <a class="ms-2" href="#">Terms & Conditions</a>
+              <a class="ms-2" href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: "true",
+      });
+    </script>
+    <script src="script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
