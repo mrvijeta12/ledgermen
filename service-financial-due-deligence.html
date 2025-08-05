@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experts Section</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/cdf9a174a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="overlay" id="overlay"></div>
+    <div class="container-fluid py-2 bg-white border">
+      <div class="container social-links-wrapper">
+        <div class="company-details d-flex align-items-center">
+          <strong class="me-md-5 mb-0"
+            ><span class="me-2"><i class="fa-solid fa-phone"></i></span>+91
+            8699231964</strong
+          >
+          <strong class="me-md-5 mb-0 email"
+            ><span class="me-2"><i class="fa-solid fa-envelope"></i></span
+            >support@ledgermen.com</strong
+          >
+        </div>
+        <div class="social-links d-flex">
+          <a href="https://www.facebook.com/share/1AG5CotsDq/" target="_blank"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/ledgermenn/" target="_blank"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+            target="_blank"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <header class="" id="header">
+      <nav class="navbar container">
+        <div class="logo">
+          <a href="./index.html">
+            <img src="images/lederman--logo.png" alt="" />
+          </a>
+        </div>
+        <div class="menu-icon" id="menu-icon">
+          <span class="menu-open"><i class="fa-solid fa-bars"></i></span>
+          <span class="menu-close"><i class="fa-solid fa-x"></i></span>
+        </div>
+        <div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./our-services.html">Our Services</a></li>
+
+            <!-- <li class="dropdown">
+              <a href=""
+                >Pages
+                <span><i class="fa-solid fa-angle-down"></i></span>
+              </a>
+              <ul class="dropdown-content">
+                <li><a href="">Banking</a></li>
+                <li><a href="">Healthcare</a></li>
+                <li><a href="">Education</a></li>
+              </ul>
+            </li> -->
+            <li><a href="./contact.html" class="">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <button>Book a Consultation</button></a
+          >
+        </div>
+      </nav>
+    </header>
+    <!-- HERO  -->
+
+    <section
+      class="hero__servicesCommon light"
+      style="background-image: url(images/service-common-hero.jpg)"
+    >
+      <div class="container z-3 position-relative">
+        <div class="row justify-content-center text-center">
+          <div class="col-12 col-lg-9" data-aos="zoom-in" data-aos-delay="500">
+            <h1 class="hero__servicesCommon-heading text-white">
+              Financial Due Diligence
+            </h1>
+            <!-- <p class="hero__servicesCommon-sub-heading px-5 py-4">
+          Vitae bibendum egestas magna sit elit non. Netus volutpat
+          dignissim pharetra felis. Orci commodo mauris adipiscing semper
+          amet.
+        </p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE -->
+    <section class="ledgerman__features light">
+      <div class="container">
+        <div class="row justify-content-around">
+          <div
+            class="col-12 col-md-6"
+            data-aos="fade-right"
+            data-aos-delay="500"
+          >
+            <img
+              src="./images/financial-due-diligence.jpg"
+              alt="Financial Due Diligence Feature"
+              class="img-fluid h-100"
+            />
+          </div>
+          <div class="col-12 col-md-6 ledgerman__features-cards-wrapper">
+            <!-- Feature 1 -->
+            <div
+              class="d-flex align-items-center ledgerman__feature-card mt-5 mt-md-0"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="me-3">
+                <span class="ledgerman__feature-icon">
+                  <i class="fas fa-search-dollar"></i>
+                </span>
+              </div>
+              <div>
+                <p class="ledgerman__feature-content mb-0">
+                  In-depth financial analysis to uncover red flags, hidden
+                  risks, and irregularities before your transaction.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              class="d-flex align-items-center ledgerman__feature-card mt-5"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <div class="me-3">
+                <span class="ledgerman__feature-icon">
+                  <i class="fas fa-balance-scale-left"></i>
+                </span>
+              </div>
+              <div>
+                <p class="ledgerman__feature-content mb-0">
+                  Legal and financial compliance checks to ensure the target
+                  company meets statutory and regulatory standards.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              class="d-flex align-items-center ledgerman__feature-card mt-5"
+              data-aos="fade-up"
+              data-aos-delay="700"
+            >
+              <div class="me-3">
+                <span class="ledgerman__feature-icon">
+                  <i class="fas fa-file-contract"></i>
+                </span>
+              </div>
+              <div>
+                <p class="ledgerman__feature-content mb-0">
+                  Analysis of historical financial performance and future
+                  sustainability of earnings and cash flows.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div
+              class="d-flex align-items-center ledgerman__feature-card mt-5"
+              data-aos="fade-up"
+              data-aos-delay="800"
+            >
+              <div class="me-3">
+                <span class="ledgerman__feature-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </span>
+              </div>
+              <div>
+                <p class="ledgerman__feature-content mb-0">
+                  Risk identification and mitigation strategies to protect your
+                  investment and ensure deal success.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 5 -->
+            <div
+              class="d-flex align-items-center ledgerman__feature-card mt-5"
+              data-aos="fade-up"
+              data-aos-delay="900"
+            >
+              <div class="me-3">
+                <span class="ledgerman__feature-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </span>
+              </div>
+              <div>
+                <p class="ledgerman__feature-content mb-0">
+                  Clear, concise reporting that supports investment decisions
+                  and negotiation leverage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE OFFER -->
+    <section class="what-we-offer light">
+      <div class="container">
+        <div class="row" data-aos="zoom-in" data-aos-delay="500">
+          <div class="col-12">
+            <h3 class="what-we-offer-heading">What We Offer</h3>
+          </div>
+        </div>
+
+        <div class="row what-we-offer-row mt-5">
+          <!-- Financial Analysis -->
+          <div
+            class="col-sm-6 col-lg-3 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="card what-we-offer-card p-2 px-xl-3 border-0 rounded-0">
+              <div class="card-body p-0 d-flex align-items-center">
+                <div class="what-we-offer-card-icon me-3">
+                  <i class="fas fa-file-invoice"></i>
+                </div>
+                <h5>Financial Analysis</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compliance Review -->
+          <div
+            class="col-sm-6 col-lg-3 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="card what-we-offer-card p-2 px-xl-3 border-0 rounded-0">
+              <div class="card-body p-0 d-flex align-items-center">
+                <div class="what-we-offer-card-icon me-3">
+                  <i class="fas fa-gavel"></i>
+                </div>
+                <h5>Compliance Review</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Earnings Quality -->
+          <div
+            class="col-sm-6 col-lg-3 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="card what-we-offer-card p-2 px-xl-3 border-0 rounded-0">
+              <div class="card-body p-0 d-flex align-items-center">
+                <div class="what-we-offer-card-icon me-3">
+                  <i class="fas fa-coins"></i>
+                </div>
+                <h5>Earnings Quality</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk Profiling -->
+          <div
+            class="col-sm-6 col-lg-3 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div class="card what-we-offer-card p-2 px-xl-3 border-0 rounded-0">
+              <div class="card-body p-0 d-flex align-items-center">
+                <div class="what-we-offer-card-icon me-3">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h5>Risk Profiling</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deal Advisory -->
+          <div
+            class="col-sm-6 col-lg-3 mt-4"
+            data-aos="fade-up"
+            data-aos-delay="900"
+          >
+            <div class="card what-we-offer-card p-2 px-xl-3 border-0 rounded-0">
+              <div class="card-body p-0 d-flex align-items-center">
+                <div class="what-we-offer-card-icon me-3">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h5>Deal Advisory</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="common-why-us-section light">
+      <div class="container position-relative">
+        <div class="common-why-us-shape"></div>
+
+        <div class="row mb-md-4" data-aos="zoom-in" data-aos-delay="500">
+          <div class="col-lg-6">
+            <h2 class="common-why-us-heading mb-4">
+              Why Choose Our Due Diligence Services
+            </h2>
+            <p class="common-why-us-subheading mb-0">
+              Our Financial Due Diligence experts ensure your investment
+              decisions are backed by facts, mitigating risk and maximizing
+              value in every transaction.
+            </p>
+          </div>
+        </div>
+
+        <div class="row common-why-us-card-wrapper">
+          <!-- Card 1 -->
+          <div class="col-md-4 mt-5" data-aos="fade-up" data-aos-delay="500">
+            <div class="card common-why-us-card mt-5">
+              <div class="card-body py-0">
+                <div class="common-why-us-icon">
+                  <i class="fas fa-search-dollar"></i>
+                </div>
+              </div>
+              <div class="card-body px-lg-4 pt-4 pb-lg-5">
+                <h4 class="common-why-us-title fs-4 mb-3">
+                  Thorough Financial Vetting
+                </h4>
+                <p class="common-why-us-content mb-0">
+                  We conduct detailed financial investigations to uncover any
+                  hidden liabilities or irregularities.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-4 mt-5" data-aos="fade-up" data-aos-delay="600">
+            <div class="card common-why-us-card mt-5">
+              <div class="card-body py-0">
+                <div class="common-why-us-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+              </div>
+              <div class="card-body px-lg-4 pt-4 pb-lg-5">
+                <h4 class="common-why-us-title fs-4 mb-3">
+                  Regulatory Compliance
+                </h4>
+                <p class="common-why-us-content mb-0">
+                  Ensure your target meets all legal, tax, and financial
+                  reporting obligations to avoid surprises later.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-4 mt-5" data-aos="fade-up" data-aos-delay="700">
+            <div class="card common-why-us-card mt-5">
+              <div class="card-body py-0">
+                <div class="common-why-us-icon">
+                  <i class="fas fa-hand-holding-usd"></i>
+                </div>
+              </div>
+              <div class="card-body px-lg-4 pt-4 pb-lg-5">
+                <h4 class="common-why-us-title fs-4 mb-3">
+                  Investor Confidence
+                </h4>
+                <p class="common-why-us-content mb-0">
+                  Gain credibility with investors and stakeholders through
+                  transparent reporting and objective evaluations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-subscribe position-relative">
+      <div class="cta-subscribe-shape position-absolute start-0 top-0"></div>
+      <div class="cta-subscribe-shape position-absolute end-0 bottom-0"></div>
+
+      <div class="container position-relative">
+        <div
+          class="row justify-content-center text-center text-white"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          <div class="col-lg-6">
+            <h2 class="cta-subscribe-heading mb-4">
+              Ensure Your Next Deal is a Smart One
+            </h2>
+            <p class="cta-subscribe-subheading mb-5">
+              Let our Financial Due Diligence team validate the numbers,
+              identify risks, and help you invest with confidence.
+            </p>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+              <button type="submit" class="btn btn-light cta-subscribe-btn">
+                Schedule a Consultation
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer  -->
+    <section class="footer-section">
+      <div class="container">
+        <div class="row text-start text-sm-start">
+          <div class="col-lg-3 mt-4 mt-lg-0">
+            <a href="index.html">
+              <img
+                src="images/lederman--logo.png"
+                width="180px"
+                alt=""
+                style="margin-bottom: 16px"
+              />
+            </a>
+            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
+              <div style="margin-right: 15px">
+                <i class="fa-solid fa-house" style="font-size: 17px"></i>
+              </div>
+              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
+                NA 131, Jalandhar <br />
+                Punjab, India
+              </p>
+            </div>
+            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
+              <div style="margin-right: 15px">
+                <i
+                  class="fa-solid fa-envelope-open"
+                  style="font-size: 17px"
+                ></i>
+              </div>
+              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
+                support@ledgermen.com
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="row">
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Quick Links</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="our-services.html">Our Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Social Media</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li>
+                    <a
+                      href="https://www.facebook.com/share/1AG5CotsDq/"
+                      target="_blank"
+                      >Facebook</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/ledgermenn/"
+                      target="_blank"
+                      >Instagram</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                      target="_blank"
+                      >LinkedIn</a
+                    >
+                  </li>
+                  <!-- <li><a href="#">Twitter</a></li> -->
+                </ul>
+              </div>
+              <div class="col-sm-4 mt-4 mt-lg-0">
+                <h5>Important Links</h5>
+                <ul class="nav flex-column footer-quick-links">
+                  <li><a href="#">Terms & Conditions</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <!-- <li><a href="#">Refund Policy</a></li> -->
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <ul class="footer-social d-inline-flex nav mt-2">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.facebook.com/share/1AG5CotsDq/"
+                    target="_blank"
+                    ><i class="fab fa-facebook-square"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/ledgermenn/"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="mt-3 opacity-50 footer-copyright">
+              <span>Copyright &copy; Ledgermen, All rights reserved</span>
+              <a class="ms-2" href="#">Terms & Conditions</a>
+              <a class="ms-2" href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Form Modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content position-relative shadow-lg">
+          <div class="modal-header">
+            <div>
+              <img src="images/popup-contact-ledgerman.png" alt="" />
+            </div>
+            <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
+              Get In Touch <br />
+              With Us
+            </h2>
+            <button
+              type="button"
+              class="custom-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="myForm meetForm">
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                  name="name"
+                />
+                <div id="nameError" class="error-message"></div>
+              </div>
+              <div class="row">
+                <!-- Email Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Email*</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="name@example.com"
+                    required
+                    name="email"
+                  />
+                  <div id="emailError" class="error-message"></div>
+                </div>
+
+                <!-- Mobile Number Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="mobile" class="form-label">Mobile No*</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="mobile"
+                    placeholder="Enter 10 digit number"
+                    required
+                    name="mobile"
+                  />
+                  <div id="numberError" class="error-message"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <label for="service" class="form-label">Client Type</label>
+                  <select
+                    class="form-select"
+                    id="service"
+                    required
+                    autocomplete="off"
+                    name="service"
+                  >
+                    <option value="" disabled selected hidden>
+                      Select Type
+                    </option>
+                    <option value="website-development">Individual</option>
+                    <option value="mobile-app-development">Company</option>
+                    <!-- <option value="digital-marketing">Investment</option> -->
+                  </select>
+                </div>
+                <!-- Company Name -->
+                <div class="mb-3 col-md-6">
+                  <label for="company-name" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-name"
+                    placeholder="Company Name"
+                    name="company-name"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Date Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-date" class="form-label">Date*</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="appointment-date"
+                    name="appointment_date"
+                    required
+                  />
+                  <div id="dateError" class="error-message"></div>
+                </div>
+
+                <!-- Time Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-time" class="form-label">Time*</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="appointment-time"
+                    name="appointment_time"
+                    required
+                  />
+                  <div id="timeError" class="error-message"></div>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Message*</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  placeholder="Tell us about your financial goals, questions, or how we can assist you..."
+                  required
+                  name="message"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100">
+                Submit
+              </button>
+
+              <!-- <small class="d-flex justify-content-center mt-1"
+                >In just 1 hr you will get a response</small
+              > -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const formData = new FormData(form);
+
+          try {
+            const resp = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+            });
+
+            const data = await resp.json();
+
+            if (data.status === "success") {
+              showToast(data.message, "success");
+              form.reset();
+            } else {
+              showToast(data.message, "error");
+            }
+          } catch (err) {
+            showToast("Submission failed: " + err.message, "error");
+          }
+        });
+
+      function showToast(message, type = "success") {
+        const container = document.getElementById("toast-container");
+        const toast = document.createElement("div");
+
+        toast.className = `toast align-items-center text-white bg-${
+          type === "success" ? "success" : "danger"
+        }`;
+        toast.setAttribute("role", "alert");
+        toast.setAttribute("aria-live", "assertive");
+        toast.setAttribute("aria-atomic", "true");
+
+        toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+
+        container.appendChild(toast);
+
+        const bsToast = new bootstrap.Toast(toast, {
+          delay: 3000,
+        });
+        bsToast.show();
+
+        toast.addEventListener("hidden.bs.toast", () => toast.remove());
+      }
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: "true",
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

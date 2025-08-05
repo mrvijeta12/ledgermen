@@ -25,10 +25,28 @@
     <div class="overlay" id="overlay"></div>
     <div class="container-fluid py-2 bg-white border">
       <div class="container social-links-wrapper">
+        <div class="company-details d-flex align-items-center">
+          <strong class="me-md-5 mb-0"
+            ><span class="me-2"><i class="fa-solid fa-phone"></i></span>+91
+            8699231964</strong
+          >
+          <strong class="me-md-5 mb-0 email"
+            ><span class="me-2"><i class="fa-solid fa-envelope"></i></span
+            >support@ledgermen.com</strong
+          >
+        </div>
         <div class="social-links d-flex">
-          <a href=""><i class="bi bi-facebook"></i></a>
-          <a href=""><i class="bi bi-instagram"></i></a>
-          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/share/1AG5CotsDq/" target="_blank"
+            ><i class="bi bi-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/ledgermenn/" target="_blank"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+            target="_blank"
+            ><i class="bi bi-linkedin"></i
+          ></a>
         </div>
       </div>
     </div>
@@ -47,16 +65,8 @@
           <ul class="nav-links" id="nav-links">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about.html" class="current">About</a></li>
-            <li class="dropdown">
-              <a href=""
-                >Solutions <span><i class="fa-solid fa-angle-down"></i></span
-              ></a>
-              <ul class="dropdown-content">
-                <li><a href="">Receivables Management</a></li>
-                <li><a href="">Credit Risk Assessment</a></li>
-                <li><a href="">Debt Recovery Services</a></li>
-              </ul>
-            </li>
+            <li><a href="./our-services.html">Our Services</a></li>
+
             <!-- <li class="dropdown">
               <a href=""
                 >Pages
@@ -72,7 +82,9 @@
           </ul>
         </div>
         <div>
-          <button>Register</button>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <button>Book a Consultation</button>
+          </a>
           <!-- <button>Contact</button> -->
         </div>
       </nav>
@@ -83,7 +95,7 @@
       .about-hero-section {
         --bs-body-color: #0f111a;
         --bs-body-bg: #fff;
-        --ezy-theme-color: rgb(13, 110, 253);
+        --ezy-theme-color: #283851;
         --ezy-theme-color-rgb: 13, 110, 253;
         --ezy-card-bg: rgba(243, 245, 248, 0.73);
 
@@ -139,11 +151,15 @@
         border-color: var(--ezy-theme-color);
         font-size: 20px;
         font-weight: 400;
+        border-radius: 6px;
+        display: block;
+        width: fit-content;
+        margin: 0px auto;
       }
 
       .about-hero-btn:hover {
-        background-color: rgba(var(--ezy-theme-color-rgb), 0.9);
-        border-color: rgba(var(--ezy-theme-color-rgb), 0.9);
+        background-color: #3b4d6a;
+        border-color: #3b4d6a;
       }
 
       .about-hero-wrapper {
@@ -176,6 +192,9 @@
           width: 60vw;
           left: 40%;
         }
+        .about-hero-btn {
+          margin: 0px !important;
+        }
       }
     </style>
 
@@ -202,7 +221,11 @@
                 Simple, secure tools to organize your financial data and stay in
                 control.
               </p>
-              <a href="" class="btn btn-primary about-hero-btn mt-4"
+              <a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
+                class="about-hero-btn mt-4 text-white"
                 >Let's Talk</a
               >
             </div>
@@ -753,10 +776,11 @@
               />
               <div class="team-content mt-3">
                 <h4 class="mb-1">Akshay Mehta</h4>
-                <p class="mb-3 small">Head of ARG Services</p>
+                <p class="mb-3 small">Chief Financial Officer (CFO)</p>
                 <p class="opacity-50 mb-0">
-                  Strategic leader with 15+ years in finance, driving
-                  LedgerMen's vision and innovation.
+                  Oversees the company’s financial strategy, budgeting, and
+                  long-term growth plans with over 15 years of corporate finance
+                  experience.
                 </p>
               </div>
             </div>
@@ -777,10 +801,10 @@
               />
               <div class="team-content mt-3">
                 <h4 class="mb-1">Raima</h4>
-                <p class="mb-3 small">Director of Client Operations</p>
+                <p class="mb-3 small">Tax & Compliance Manager</p>
                 <p class="opacity-50 mb-0">
-                  Expert in managing client relationships and aligning services
-                  to business goals.
+                  Specializes in tax planning, GST, and regulatory compliance,
+                  ensuring clients meet statutory obligations efficiently.
                 </p>
               </div>
             </div>
@@ -801,10 +825,10 @@
               />
               <div class="team-content mt-3">
                 <h4 class="mb-1">Arjun Kapur</h4>
-                <p class="mb-3 small">Head of Technology</p>
+                <p class="mb-3 small">Audit & Assurance Speacialist</p>
                 <p class="opacity-50 mb-0">
-                  Leads tech development to build secure, scalable financial
-                  tools tailored to client needs.
+                  Conducts statutory, internal, and compliance audits, ensuring
+                  transparency and accuracy in financial reporting.
                 </p>
               </div>
             </div>
@@ -825,10 +849,10 @@
               />
               <div class="team-content mt-3">
                 <h4 class="mb-1">Neha Bansal</h4>
-                <p class="mb-3 small">Marketing Strategist</p>
+                <p class="mb-3 small">Risk & Compliance Analyst</p>
                 <p class="opacity-50 mb-0">
-                  Crafts digital campaigns and lead strategies to expand
-                  LedgerMen’s market presence.
+                  Identifies potential financial risks, strengthens internal
+                  controls, and ensures adherence to industry regulations.
                 </p>
               </div>
             </div>
@@ -1270,51 +1294,79 @@
       <div class="container">
         <div class="row text-start text-sm-start">
           <div class="col-lg-3 mt-4 mt-lg-0">
-            <img
-              src="images/lederman--logo.png"
-              width="180px"
-              alt=""
-              style="margin-bottom: 16px"
-            />
-            <p style="margin-bottom: 8px; color: #6c757d; opacity: 0.85">
-              <span style="margin-right: 15px"
-                ><i class="fa-solid fa-house" style="font-size: 17px"></i></span
-              >New Delhi, India
-            </p>
-            <p style="margin-bottom: 8px; color: #6c757d; opacity: 0.85">
-              <span style="margin-right: 15px">
+            <a href="index.html">
+              <img
+                src="images/lederman--logo.png"
+                width="180px"
+                alt=""
+                style="margin-bottom: 16px"
+              />
+            </a>
+            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
+              <div style="margin-right: 15px">
+                <i class="fa-solid fa-house" style="font-size: 17px"></i>
+              </div>
+              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
+                NA 131, Jalandhar <br />
+                Punjab, India
+              </p>
+            </div>
+            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
+              <div style="margin-right: 15px">
                 <i
                   class="fa-solid fa-envelope-open"
                   style="font-size: 17px"
-                ></i></span
-              >Ledgermen@gmail.com
-            </p>
+                ></i>
+              </div>
+              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
+                support@ledgermen.com
+              </p>
+            </div>
           </div>
           <div class="col-lg-9">
             <div class="row">
               <div class="col-sm-4 mt-4 mt-lg-0">
                 <h5>Quick Links</h5>
                 <ul class="nav flex-column footer-quick-links">
-                  <li><a href="#">Terms & Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Refund Policy</a></li>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="our-services.html">Our Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
                 </ul>
               </div>
               <div class="col-sm-4 mt-4 mt-lg-0">
                 <h5>Social Media</h5>
                 <ul class="nav flex-column footer-quick-links">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">LinkedIn</a></li>
-                  <li><a href="#">Twitter</a></li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com/share/1AG5CotsDq/"
+                      target="_blank"
+                      >Facebook</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/ledgermenn/"
+                      target="_blank"
+                      >Instagram</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                      target="_blank"
+                      >LinkedIn</a
+                    >
+                  </li>
+                  <!-- <li><a href="#">Twitter</a></li> -->
                 </ul>
               </div>
               <div class="col-sm-4 mt-4 mt-lg-0">
-                <h5>Job Info</h5>
+                <h5>Important Links</h5>
                 <ul class="nav flex-column footer-quick-links">
-                  <li><a href="#">Select</a></li>
-                  <li><a href="#">Service</a></li>
-                  <li><a href="#">Payment</a></li>
+                  <li><a href="#">Terms & Conditions</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <!-- <li><a href="#">Refund Policy</a></li> -->
                 </ul>
               </div>
             </div>
@@ -1322,16 +1374,27 @@
             <div>
               <ul class="footer-social d-inline-flex nav mt-2">
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a
+                    href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.facebook.com/share/1AG5CotsDq/"
+                    target="_blank"
+                    ><i class="fab fa-facebook-square"></i
+                  ></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-twitter-square"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fab fa-facebook-square"></i></a>
+                  <a
+                    href="https://www.instagram.com/ledgermenn/"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -1344,6 +1407,166 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact Form Modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content position-relative shadow-lg">
+          <div class="modal-header">
+            <div>
+              <img src="images/popup-contact-ledgerman.png" alt="" />
+            </div>
+            <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
+              Get In Touch <br />
+              With Us
+            </h2>
+            <button
+              type="button"
+              class="custom-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="myForm meetForm">
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                  name="name"
+                />
+                <div id="nameError" class="error-message"></div>
+              </div>
+              <div class="row">
+                <!-- Email Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Email*</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="name@example.com"
+                    required
+                    name="email"
+                  />
+                  <div id="emailError" class="error-message"></div>
+                </div>
+
+                <!-- Mobile Number Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="mobile" class="form-label">Mobile No*</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="mobile"
+                    placeholder="Enter 10 digit number"
+                    required
+                    name="mobile"
+                  />
+                  <div id="numberError" class="error-message"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <label for="service" class="form-label">Client Type</label>
+                  <select
+                    class="form-select"
+                    id="service"
+                    required
+                    autocomplete="off"
+                    name="service"
+                  >
+                    <option value="" disabled selected hidden>
+                      Select Type
+                    </option>
+                    <option value="website-development">Individual</option>
+                    <option value="mobile-app-development">Company</option>
+                    <!-- <option value="digital-marketing">Investment</option> -->
+                  </select>
+                </div>
+                <!-- Company Name -->
+                <div class="mb-3 col-md-6">
+                  <label for="company-name" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-name"
+                    placeholder="Company Name"
+                    name="company-name"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Date Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-date" class="form-label">Date*</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="appointment-date"
+                    name="appointment_date"
+                    required
+                  />
+                  <div id="dateError" class="error-message"></div>
+                </div>
+
+                <!-- Time Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-time" class="form-label">Time*</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="appointment-time"
+                    name="appointment_time"
+                    required
+                  />
+                  <div id="timeError" class="error-message"></div>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Message*</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  placeholder="Tell us about your financial goals, questions, or how we can assist you..."
+                  required
+                  name="message"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100">
+                Submit
+              </button>
+
+              <!-- <small class="d-flex justify-content-center mt-1"
+                >In just 1 hr you will get a response</small
+              > -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
