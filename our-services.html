@@ -84,8 +84,9 @@
           </ul>
         </div>
         <div>
-          <button>Book a Consultation</button>
-          <!-- <button>Contact</button> -->
+          <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+            <button>Book a Consultation</button>
+          </a>
         </div>
       </nav>
     </header>
@@ -151,16 +152,29 @@
         line-height: 1.5;
         opacity: 0.8;
       }
+      @media (min-width: 991px) {
+        .hero-cta {
+          margin: 0px !important;
+        }
+      }
 
       .hero-cta {
         padding: 12px 25px;
-        background-color: var(--theme-color);
-        border-color: var(--theme-color);
+        background-color: #283851;
+        border-color: #283851;
+        color: #fff;
+        box-shadow: #283851;
+        border-radius: 6px;
+
+        display: block;
+        width: fit-content;
+        margin: 0px auto;
       }
 
       .hero-cta:hover {
         background-color: #3b4d6a;
         border-color: #3b4d6a;
+        color: white;
       }
 
       .hero-card {
@@ -220,7 +234,13 @@
                 organizations build resilient finance functions that drive
                 growth and compliance.
               </p>
-              <a href="#" class="btn btn-primary hero-cta mt-4">Let's Talk</a>
+              <a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#contactModal"
+                class="our-service-hero-btn hero-cta mt-4"
+                >Let's Talk</a
+              >
             </div>
           </div>
         </div>
@@ -736,6 +756,165 @@
         </div>
       </div>
     </section>
+    <!-- Contact Form Modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content position-relative shadow-lg">
+          <div class="modal-header">
+            <div>
+              <img src="images/popup-contact-ledgerman.png" alt="" />
+            </div>
+            <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
+              Get In Touch <br />
+              With Us
+            </h2>
+            <button
+              type="button"
+              class="custom-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="myForm meetForm">
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Name*</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                  name="name"
+                />
+                <div id="nameError" class="error-message"></div>
+              </div>
+              <div class="row">
+                <!-- Email Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="email" class="form-label">Email*</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="name@example.com"
+                    required
+                    name="email"
+                  />
+                  <div id="emailError" class="error-message"></div>
+                </div>
+
+                <!-- Mobile Number Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="mobile" class="form-label">Mobile No*</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="mobile"
+                    placeholder="Enter 10 digit number"
+                    required
+                    name="mobile"
+                  />
+                  <div id="numberError" class="error-message"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <label for="service" class="form-label">Client Type</label>
+                  <select
+                    class="form-select"
+                    id="service"
+                    required
+                    autocomplete="off"
+                    name="service"
+                  >
+                    <option value="" disabled selected hidden>
+                      Select Type
+                    </option>
+                    <option value="website-development">Individual</option>
+                    <option value="mobile-app-development">Company</option>
+                    <!-- <option value="digital-marketing">Investment</option> -->
+                  </select>
+                </div>
+                <!-- Company Name -->
+                <div class="mb-3 col-md-6">
+                  <label for="company-name" class="form-label"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="company-name"
+                    placeholder="Company Name"
+                    name="company-name"
+                  />
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Date Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-date" class="form-label">Date*</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="appointment-date"
+                    name="appointment_date"
+                    required
+                  />
+                  <div id="dateError" class="error-message"></div>
+                </div>
+
+                <!-- Time Field -->
+                <div class="col-md-6 mb-3">
+                  <label for="appointment-time" class="form-label">Time*</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="appointment-time"
+                    name="appointment_time"
+                    required
+                  />
+                  <div id="timeError" class="error-message"></div>
+                </div>
+              </div>
+
+              <!-- Message Field -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Message*</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="3"
+                  placeholder="Tell us about your financial goals, questions, or how we can assist you..."
+                  required
+                  name="message"
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100">
+                Submit
+              </button>
+
+              <!-- <small class="d-flex justify-content-center mt-1"
+                >In just 1 hr you will get a response</small
+              > -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
