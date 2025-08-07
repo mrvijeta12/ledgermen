@@ -376,8 +376,8 @@ header {
 # PopUp Form
 --------------------------------------------------------------*/
 .modal-content {
-  height: 500px;
-  overflow-y: auto;
+  /* height: auto; */
+  /* overflow-y: auto; */
 }
 .form-label {
   font-weight: 500;
@@ -424,8 +424,8 @@ button[type="submit"].btn:active {
 }
 
 .modal-content {
-  height: 500px;
-  overflow-y: auto;
+  /* height: 500px;
+  overflow-y: auto; */
   scrollbar-width: none;
   margin-top: 20px;
 }
