@@ -418,8 +418,14 @@
     <!-- ------------- # Why Us Section -------------------- -->
     <style>
       .why-us .img-bg {
-        min-height: 500px;
+        height: 450px;
         position: relative;
+      }
+      @media (max-width: 992px) {
+        .why-us .img-bg {
+          height: 400px;
+          position: relative;
+        }
       }
 
       .why-us .img-bg img {
@@ -756,9 +762,14 @@
         padding-bottom: 100px;
         padding-top: 100px;
       }
+      .industry-services img {
+        height: 450px;
+        border-radius: 20px;
+      }
 
-      @media (min-width: 768px) {
-        .industry-services {
+      @media (min-width: 992px) {
+        .industry-services img {
+          height: 400px;
         }
       }
 
@@ -836,14 +847,11 @@
           </div>
           <!-- img -->
           <div class="col-12 col-lg-6 text-center order-1 order-lg-2">
-            <div
-              class="industry-services-bg-holder"
-              style="
-                background-image: url(https://tekalgo.com/new_images/company-reg-senior-led.jpg);
-              "
-              data-aos="zoom-in"
-              data-aos-delay="500"
-            ></div>
+            <img
+              src="https://tekalgo.com/new_images/company-reg-senior-led.jpg"
+              alt=""
+              class="img-fluid"
+            />
           </div>
           <!-- cards -->
           <div
