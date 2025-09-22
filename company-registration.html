@@ -312,7 +312,7 @@
         font-size: 32px !important;
       }
       .custom-img {
-        height: 100% !important;
+        height: 450px !important;
       }
       @media screen and (max-width: 768px) {
         .custom-heading h1 {
@@ -322,7 +322,7 @@
       }
       @media screen and (max-width: 992px) {
         .custom-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -417,23 +417,17 @@
     </section>
     <!-- ------------- # Why Us Section -------------------- -->
     <style>
-      .why-us .img-bg {
+      /* .why-us .img-bg {
         height: 450px;
         position: relative;
-      }
-      @media (max-width: 992px) {
-        .why-us .img-bg {
-          height: 400px;
-          position: relative;
-        }
-      }
+      } */
 
-      .why-us .img-bg img {
-        position: absolute;
+      .why-us img {
+        /* position: absolute;
         inset: 0;
-        display: block;
+        display: block; */
         width: 100%;
-        height: 100%;
+        height: 450px;
         object-fit: cover;
         z-index: 1;
         border-radius: 20px;
@@ -516,8 +510,8 @@
         }
       }
       @media (max-width: 992px) {
-        .why-us .img-bg img {
-          height: 400px;
+        .why-us img {
+          height: auto;
         }
         .why-us .swiper {
           margin-top: 0px;
@@ -548,7 +542,7 @@
       <div class="container">
         <div class="row g-0">
           <div
-            class="col-lg-5 img-bg d-flex align-items-center justify-content-center mb-4 mb-lg-0"
+            class="col-lg-5 d-flex align-items-center justify-content-center mb-3 mb-lg-0"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -763,13 +757,13 @@
         padding-top: 100px;
       }
       .industry-services img {
-        height: 450px;
+        height: auto !important;
         border-radius: 20px;
       }
 
       @media (min-width: 992px) {
         .industry-services img {
-          height: 400px;
+          height: 450px !important;
         }
       }
 
@@ -833,6 +827,11 @@
         border-radius: 10px;
         font-size: 18px;
       }
+      @media (max-width: 992px) {
+        .industry-services {
+          padding-top: 0px;
+        }
+      }
     </style>
     <section class="industry-services">
       <div class="container">
@@ -847,7 +846,7 @@
           </div>
           <!-- img -->
           <div
-            class="col-12 col-lg-6 text-center order-1 order-lg-2"
+            class="col-12 col-lg-6 text-center order-1 order-lg-2 mb-3 mb-lg-0"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
@@ -953,10 +952,10 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          padding-bottom: 15px;
         }
         .comprehensive-sec-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -976,16 +975,14 @@
       >
         <div class="container">
           <div class="row lg-5 align-items-stretch">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-              <div class="mt-5 mt-lg-0 h-100">
-                <img
-                  src="https://tekalgo.com/new_images/company-reg-how-we-work.jpg"
-                  alt="Ledgermen Services"
-                  class="img-fluid h-100 comprehensive-sec-img"
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                />
-              </div>
+            <div class="col-12 col-lg-5 mb-3 mb-lg-0">
+              <img
+                src="https://tekalgo.com/new_images/company-reg-how-we-work.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid h-100 comprehensive-sec-img"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
             </div>
             <div
               class="col-12 col-lg-7 comprehensive-sec"

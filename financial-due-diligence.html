@@ -312,7 +312,8 @@
         font-size: 32px !important;
       }
       .custom-img {
-        height: 100% !important;
+        height: 450px !important;
+        border-radius: 20px;
       }
       .industry-services-heading {
         font-size: 45px;
@@ -329,7 +330,7 @@
       }
       @media screen and (max-width: 992px) {
         .custom-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -503,14 +504,14 @@
             <img
               src="https://tekalgo.com/new_images/comprehensive-due-diligence.jpeg"
               alt=""
-              class="img-fluid my-5 my-md-0 custom-img"
+              class="img-fluid my-5 my-md-0"
               data-aos="zoom-in"
               data-aos-delay="500"
             />
           </div>
         </div>
         <!-- cards -->
-        <div class="row mt-5">
+        <div class="row mt-lg-5">
           <!-- card starts -->
           <div
             class="col-12 col-md-6 col-lg-4 mb-3"
@@ -596,14 +597,15 @@
 
         height: var(--cardHeight);
 
-        padding: 24px;
-        background: url(https://tekalgo.com/new_images/due-diligence-expertise.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        /* padding: 24px; */
+
         color: white;
         border-radius: 10px;
         object-fit: cover;
+      }
+      .sticky-sidebar img {
+        border-radius: 10px;
+        height: 100%;
       }
 
       .sticky-sidebar h2 {
@@ -650,8 +652,6 @@
         box-sizing: border-box;
         padding: 30px 30px;
 
-        /* box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3); */
-        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
         box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
         height: var(--cardHeight);
         display: flex;
@@ -661,12 +661,10 @@
 
         background-color: #f9f9f9;
         border-radius: 10px;
-        /* padding-top: 8px;
-        padding-bottom: 8px; */
+
         border: 1px solid #ccc;
       }
       .custom-card-body h4 {
-        /* color: #0d0f39; */
         font-weight: 700;
       }
 
@@ -685,16 +683,37 @@
         color: black;
       }
 
-      /* Responsive adjustments */
+      /* ✅ Fix sticky sidebar responsiveness */
       @media (max-width: 992px) {
         .sticky-sidebar {
           position: relative;
-          margin-bottom: 100px;
-          height: 400px;
-          padding: 40px 24px;
+          margin-bottom: 20px; /* reduce space */
+          height: auto;
+          top: auto; /* remove sticky offset */
         }
+
+        .sticky-sidebar img {
+          width: 100%; /* responsive width */
+          height: auto; /* maintain aspect ratio */
+          object-fit: cover; /* crop if needed */
+          border-radius: 10px;
+          display: block;
+        }
+      }
+
+      /* ✅ Ensure no unwanted gap between image & content */
+      .row.border {
+        margin: 0; /* remove row negative margins */
+      }
+      .row.border > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* ✅ Adjust card side padding only on larger screens */
+      @media (max-width: 992px) {
         .custom-card-body {
-          /* height: 300px; */
+          padding: 20px;
         }
       }
     </style>
@@ -718,11 +737,17 @@
         </div>
         <div class="row">
           <!-- Left Sidebar Section -->
-          <div class="col-lg-6 col-12 sticky-sidebar"></div>
+          <div class="col-lg-6 col-12 sticky-sidebar">
+            <img
+              src="https://tekalgo.com/new_images/due-diligence-expertise.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
 
           <!-- Right Content Section -->
           <!-- Cards Section -->
-          <div class="col-lg-6 px-lg-3 px-0">
+          <div class="col-lg-6 px-lg-3">
             <div class="custom-card-container">
               <div class="custom-card" id="custom-card1">
                 <div class="custom-card-body">
@@ -989,7 +1014,8 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          /* padding: 25px 0px; */
+          padding-bottom: 15px;
         }
         .comprehensive-sec-img {
           height: 400px !important;
@@ -1012,16 +1038,14 @@
       >
         <div class="container">
           <div class="row lg-5 align-items-stretch">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-              <div class="mt-5 mt-lg-0 h-100">
-                <img
-                  src="https://tekalgo.com/new_images/why-choose-due-diligence.jpg"
-                  alt="Ledgermen Services"
-                  class="img-fluid h-100 comprehensive-sec-img"
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                />
-              </div>
+            <div class="col-12 col-lg-5 mb-3 mb-lg-0">
+              <img
+                src="https://tekalgo.com/new_images/why-choose-due-diligence.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid h-100 custom-img"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
             </div>
             <div
               class="col-12 col-lg-7 comprehensive-sec"

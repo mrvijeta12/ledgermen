@@ -310,7 +310,8 @@
         font-size: 32px !important;
       }
       .custom-img {
-        height: 100% !important;
+        height: 450px !important;
+        border: 20px;
       }
       .industry-services-heading {
         font-size: 45px;
@@ -327,7 +328,7 @@
       }
       @media screen and (max-width: 992px) {
         .custom-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -352,7 +353,7 @@
             <img
               src="https://tekalgo.com/new_images/financial-analytics-intro.jpg"
               alt="Accounting & Bookkeeping Feature"
-              class="img-fluid h-100 custom-img"
+              class="img-fluid custom-img"
               style="border-radius: 20px"
               data-aos="zoom-in"
               data-aos-delay="500"
@@ -413,6 +414,7 @@
     <style>
       .comprehensive-sec-img {
         border-radius: 20px;
+        height: 450px;
       }
       .comprehensive-sec i,
       .fa-check-double {
@@ -430,10 +432,11 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          /* padding: 25px 0px; */
+          padding-bottom: 15px;
         }
         .comprehensive-sec-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -453,16 +456,14 @@
       >
         <div class="container">
           <div class="row lg-5 align-items-stretch">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0 order-1 order-lg-2">
-              <div class="mt-5 mt-lg-0 h-100">
-                <img
-                  src="https://tekalgo.com/new_images/financial-analytics-matters-today.jpg"
-                  alt="Ledgermen Services"
-                  class="img-fluid h-100 comprehensive-sec-img"
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                />
-              </div>
+            <div class="col-12 col-lg-5 mb-3 mb-lg-0 order-1 order-lg-2">
+              <img
+                src="https://tekalgo.com/new_images/financial-analytics-matters-today.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid h-100 comprehensive-sec-img"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
             </div>
             <div
               class="col-12 col-lg-7 comprehensive-sec order-2 order-lg-1"
@@ -534,14 +535,10 @@
         top: 75px;
 
         height: var(--cardHeight);
-
-        padding: 24px;
-        background: url(https://tekalgo.com/new_images/financial-analytics-evolution.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: white;
+      }
+      .sticky-sidebar img {
         border-radius: 10px;
+        height: 100%;
       }
 
       .sticky-sidebar h2 {
@@ -624,13 +621,45 @@
       }
 
       /* Responsive adjustments */
-      @media (max-width: 992px) {
+      /* @media (max-width: 992px) {
         .sticky-sidebar {
           position: relative;
           margin-bottom: 100px;
           height: 400px;
           padding: 40px 24px;
         }
+        .custom-card-body {
+          padding: 6px;
+        }
+      } */
+
+      /* ✅ Fix sticky sidebar responsiveness */
+      @media (max-width: 992px) {
+        .sticky-sidebar {
+          position: relative;
+          margin-bottom: 20px; /* reduce space */
+          height: auto;
+          top: auto; /* remove sticky offset */
+        }
+
+        .sticky-sidebar img {
+          width: 100%; /* responsive width */
+          height: auto; /* maintain aspect ratio */
+          object-fit: cover; /* crop if needed */
+          border-radius: 10px;
+          display: block;
+        }
+      }
+
+      /* ✅ Ensure no unwanted gap between image & content */
+      .row.border {
+        margin: 0; /* remove row negative margins */
+      }
+      .row.border > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      @media (max-width: 992px) {
         .custom-card-body {
           padding: 6px;
         }
@@ -643,7 +672,13 @@
       <div class="container">
         <div class="row">
           <!-- Left Sidebar Section -->
-          <div class="col-lg-6 col-12 sticky-sidebar"></div>
+          <div class="col-lg-6 col-12 sticky-sidebar px-0">
+            <img
+              src="https://tekalgo.com/new_images/financial-analytics-evolution.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
 
           <!-- Right Content Section -->
           <!-- Cards Section -->
@@ -927,16 +962,14 @@
     <section class="feature-section pb-0" id="feature-section">
       <div class="container">
         <div class="row align-items-center mb-5">
-          <div class="col-12 col-lg-6 mb-5 mb-lg-0 order-1 order-lg-2">
-            <div class="mt-5 mt-lg-0">
-              <img
-                src="https://tekalgo.com/new_images/financila-analytics-benefits.jpg"
-                alt="Ledgermen Services"
-                class="img-fluid"
-                data-aos="zoom-in"
-                data-aos-delay="500"
-              />
-            </div>
+          <div class="col-12 col-lg-6 mb-3 mb-lg-0 order-1 order-lg-2">
+            <img
+              src="https://tekalgo.com/new_images/financila-analytics-benefits.jpg"
+              alt="Ledgermen Services"
+              class="img-fluid"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            />
           </div>
           <div
             class="col-12 col-lg-6 order-2 order-lg-1"
@@ -988,6 +1021,8 @@
     <style>
       .comprehensive-sec-img {
         border-radius: 20px;
+        /* height: 450px !important; */
+        height: 100%;
       }
       .comprehensive-sec i {
         color: rgb(13, 110, 253);
@@ -1004,10 +1039,11 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          /* padding: 25px 0px; */
+          padding-bottom: 15px;
         }
         .comprehensive-sec-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -1027,16 +1063,14 @@
       >
         <div class="container">
           <div class="row lg-5 align-items-stretch">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-              <div class="mt-5 mt-lg-0 h-100">
-                <img
-                  src="https://tekalgo.com/new_images/financial-analytics-advance-planning.jpg"
-                  alt="Ledgermen Services"
-                  class="img-fluid h-100 comprehensive-sec-img"
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                />
-              </div>
+            <div class="col-12 col-lg-5 mb-3 mb-lg-0">
+              <img
+                src="https://tekalgo.com/new_images/financial-analytics-advance-planning.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid h-100 comprehensive-sec-img"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
             </div>
             <div
               class="col-12 col-lg-7 comprehensive-sec"
@@ -1415,16 +1449,14 @@
     <section class="feature-section pb-0" id="feature-section">
       <div class="container">
         <div class="row align-items-center mb-5">
-          <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-            <div class="mt-5 mt-lg-0">
-              <img
-                src="https://tekalgo.com/new_images/financial-analytics-choose.jpg"
-                alt="Ledgermen Services"
-                class="img-fluid"
-                data-aos="zoom-in"
-                data-aos-delay="500"
-              />
-            </div>
+          <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+            <img
+              src="https://tekalgo.com/new_images/financial-analytics-choose.jpg"
+              alt="Ledgermen Services"
+              class="img-fluid custom-img"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            />
           </div>
           <div class="col-12 col-lg-6" data-aos="zoom-in" data-aos-delay="500">
             <h1 class="feature-section-heading">
@@ -1485,6 +1517,7 @@
     <style>
       .comprehensive-sec-img {
         border-radius: 20px;
+        height: 450px;
       }
       .comprehensive-sec i {
         color: rgb(13, 110, 253);
@@ -1501,10 +1534,11 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          /* padding: 25px 0px; */
+          padding-bottom: 15px;
         }
         .comprehensive-sec-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -1524,19 +1558,17 @@
       >
         <div class="container">
           <div class="row lg-5 align-items-stretch">
-            <div class="col-12 col-lg-5 mb-5 mb-lg-0">
-              <div class="mt-5 mt-lg-0 h-100">
-                <img
-                  src="https://tekalgo.com/new_images/financila-analytics-highlights.jpg"
-                  alt="Ledgermen Services"
-                  class="img-fluid h-100 comprehensive-sec-img"
-                  data-aos="zoom-in"
-                  data-aos-delay="500"
-                />
-              </div>
+            <div class="col-12 col-lg-5 mb-3 mb-lg-0 order-1 order-lg-2">
+              <img
+                src="https://tekalgo.com/new_images/financila-analytics-highlights.jpg"
+                alt="Ledgermen Services"
+                class="img-fluid h-100 comprehensive-sec-img"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              />
             </div>
             <div
-              class="col-12 col-lg-7 comprehensive-sec"
+              class="col-12 col-lg-7 comprehensive-sec order-2 order-lg-1"
               data-aos="fade-up"
               data-aos-delay="500"
             >

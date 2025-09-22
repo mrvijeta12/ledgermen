@@ -318,10 +318,10 @@
       }
       @media screen and (max-width: 992px) {
         .comprehensive-sec h1 {
-          padding: 25px 0px;
+          padding: 15px 0px;
         }
         .comprehensive-sec-img {
-          height: 400px !important;
+          height: auto !important;
           width: 100%;
         }
       }
@@ -342,7 +342,7 @@
         <div class="container">
           <div class="row align-items-stretch">
             <div
-              class="col-12 col-lg-6 mb-5 mb-lg-0 order-1 order-lg-2 d-flex align-items-center"
+              class="col-12 col-lg-6 mb-3 mb-lg-0 order-1 order-lg-2 d-flex align-items-center"
             >
               <img
                 src="https://tekalgo.com/new_images/global-tax-intro.jpg"
@@ -432,21 +432,11 @@
         .why-us {
           padding-bottom: 0px;
         }
-        .why-us .img-bg {
-          height: 400px;
-        }
-      }
-      .why-us .img-bg {
-        height: 450px;
-        position: relative;
       }
 
-      .why-us .img-bg img {
-        position: absolute;
-        inset: 0;
-        display: block;
+      .why-us img {
         width: 100%;
-        height: 100%;
+        height: 450px;
         object-fit: cover;
         z-index: 1;
         border-radius: 20px;
@@ -529,8 +519,8 @@
         }
       }
       @media (max-width: 992px) {
-        .why-us .img-bg img {
-          height: 400px;
+        .why-us img {
+          height: auto;
         }
         .why-us .swiper {
           margin-top: 0px;
@@ -561,7 +551,7 @@
       <div class="container" data-aos="zoom-in" data-aos-delay="500">
         <div class="row g-0">
           <div
-            class="col-lg-5 img-bg d-flex align-items-center"
+            class="col-lg-5 d-flex align-items-center mb-3 mb-lg-0"
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -925,8 +915,8 @@
       :root {
         --cards: 4;
 
-        /* --cardHeight: 450px; */
         --cardHeight: 400px;
+        /* --cardHeight: 90vh; */
 
         --cardTopPadding: 1.5em;
         --cardMargin: 4vw;
@@ -938,13 +928,15 @@
 
         height: var(--cardHeight);
 
-        padding: 24px;
-        background: url(https://tekalgo.com/new_images/global-tax-irs.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        /* padding: 24px; */
+
         color: white;
         border-radius: 10px;
+        object-fit: cover;
+      }
+      .sticky-sidebar img {
+        border-radius: 10px;
+        height: 100%;
       }
 
       .sticky-sidebar h2 {
@@ -989,10 +981,8 @@
 
       .custom-card-body {
         box-sizing: border-box;
-        padding: 0px 30px;
+        padding: 30px 30px;
 
-        /* box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3); */
-        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
         box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
         height: var(--cardHeight);
         display: flex;
@@ -1002,12 +992,10 @@
 
         background-color: #f9f9f9;
         border-radius: 10px;
-        padding-top: 24px;
-        padding-bottom: 24px;
+
         border: 1px solid #ccc;
       }
       .custom-card-body h4 {
-        /* color: #0d0f39; */
         font-weight: 700;
       }
 
@@ -1026,17 +1014,37 @@
         color: black;
       }
 
-      /* Responsive adjustments */
+      /* ✅ Fix sticky sidebar responsiveness */
       @media (max-width: 992px) {
         .sticky-sidebar {
           position: relative;
-          margin-bottom: 100px;
-          height: 400px;
-          padding: 40px 24px;
+          margin-bottom: 20px; /* reduce space */
+          height: auto;
+          top: auto; /* remove sticky offset */
         }
+
+        .sticky-sidebar img {
+          width: 100%; /* responsive width */
+          height: auto; /* maintain aspect ratio */
+          object-fit: cover; /* crop if needed */
+          border-radius: 10px;
+          display: block;
+        }
+      }
+
+      /* ✅ Ensure no unwanted gap between image & content */
+      .row.border {
+        margin: 0; /* remove row negative margins */
+      }
+      .row.border > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* ✅ Adjust card side padding only on larger screens */
+      @media (max-width: 992px) {
         .custom-card-body {
-          height: 430px;
-          padding: 6px;
+          padding: 20px;
         }
       }
     </style>
@@ -1055,7 +1063,13 @@
         </div>
         <div class="row">
           <!-- Left Sidebar Section -->
-          <div class="col-lg-6 col-12 sticky-sidebar"></div>
+          <div class="col-lg-6 col-12 sticky-sidebar px-0">
+            <img
+              src="https://tekalgo.com/new_images/global-tax-irs.jpg"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
 
           <!-- Right Content Section -->
           <!-- Cards Section -->
