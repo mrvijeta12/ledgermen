@@ -212,7 +212,10 @@
       <nav class="navbar container">
         <div class="logo">
           <a href="./index.html">
-            <img src="images/lederman--logo.png" alt="" />
+            <img
+              src="https://tekalgo.com/new_images/lederman--logo.png"
+              alt=""
+            />
           </a>
         </div>
         <div class="menu-icon" id="menu-icon">
@@ -282,7 +285,7 @@
 
       @media (min-width: 768px) {
         .hero-section {
-          padding: 100px 0 0 0;
+          padding: 40px 0 0 0;
         }
       }
 
@@ -326,17 +329,16 @@
         opacity: 0.8;
       }
 
-      .hero-content-wrapper {
-        padding-bottom: 60px;
-      }
-
       @media (min-width: 991px) {
         .hero-content-wrapper {
           padding-top: 60px;
-          padding-bottom: 130px;
+          padding-bottom: 50px;
         }
         .hero-button {
           margin: 0px !important;
+        }
+        .hero-content-wrapper {
+          padding-bottom: 60px;
         }
       }
 
@@ -371,15 +373,39 @@
         left: 25%;
         top: 0;
       }
+      .hero-thumbnail {
+        animation: floatY 2s ease-in-out infinite;
+      }
+
+      @keyframes floatY {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px); /* adjust how high it moves */
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
 
       @media (min-width: 991px) {
         .hero-shape-2 {
           left: 45%;
         }
+        .hero-thumbnail {
+          height: 360px;
+        }
       }
-
-      .hero-thumbnail {
-        /* additional thumbnail styling if needed */
+      @media (max-width: 990px) {
+        .hero-thumbnail {
+          height: 360px;
+        }
+      }
+      @media (max-width: 576px) {
+        .hero-thumbnail {
+          height: auto;
+        }
       }
     </style>
 
@@ -403,12 +429,12 @@
       <div class="container position-relative">
         <div class="row justify-content-between">
           <div
-            class="col-lg-6 pe-xl-5 text-center text-lg-start"
+            class="col-lg-6 pe-xl-5 text-center text-lg-start order-2 order-lg-1"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
             <div class="hero-content-wrapper">
-              <h2 class="hero-heading mb-4">
+              <h2 class="hero-heading mb-4 mt-5 mt-lg-0">
                 Empowering Growth Through Financial Precision
               </h2>
               <p class="hero-subheading">
@@ -426,9 +452,9 @@
             </div>
           </div>
           <div
-            class="col-lg-6 d-flex align-items-center justify-content-center position-relative pb-4"
+            class="col-lg-6 d-flex align-items-center justify-content-center position-relative pb-4 order-1 order-lg-2"
           >
-            <svg
+            <!-- <svg
               class="hero-shape-2"
               width="765"
               height="616"
@@ -454,9 +480,9 @@
                   stroke-dasharray="4 2.5"
                 />
               </g>
-            </svg>
+            </svg> -->
             <img
-              src="images/ledgermen-hero.png"
+              src="https://tekalgo.com/new_images/ledgermen-hero.jpg"
               alt=""
               class="rounded img-fluid hero-thumbnail position-relative"
               data-aos="zoom-in"
@@ -507,9 +533,9 @@
 
       .feature-section-heading {
         font-size: 32px;
-        line-height: 1;
+        line-height: 1.3;
         font-weight: 700;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         letter-spacing: 0.5px;
       }
 
@@ -548,25 +574,28 @@
         color: var(--bs-body-bg);
         opacity: 0.9;
       }
+      @media (max-width: 768px) {
+        .feature-section-heading {
+          font-size: 28px;
+        }
+      }
     </style>
 
     <section class="feature-section" id="feature-section">
       <div class="container">
-        <div class="row align-items-center mb-5">
-          <div class="col-12 col-lg-6 mb-5 mb-lg-0">
-            <div class="mt-5 mt-lg-0">
-              <img
-                src="https://tekalgo.com/new_images/ledgermen-feature-section.jpg"
-                alt="Ledgermen Services"
-                class="img-fluid"
-                data-aos="zoom-in"
-                data-aos-delay="500"
-              />
-            </div>
+        <div class="row align-items-stretch mb-5">
+          <div class="col-12 col-lg-6 mb-3 mb-lg-0">
+            <img
+              src="https://tekalgo.com/new_images/ledgermen-feature-section.jpg"
+              alt="Ledgermen Services"
+              class="img-fluid h-100"
+              data-aos="zoom-in"
+              data-aos-delay="500"
+            />
           </div>
           <div class="col-12 col-lg-6" data-aos="zoom-in" data-aos-delay="500">
             <h1 class="feature-section-heading">Your Trusted Partner</h1>
-            <hr class="feature-section-divider my-4" />
+            <hr class="feature-section-divider" />
             <p
               class="feature-section-subheading"
               data-aos="zoom-in"
@@ -577,7 +606,7 @@
               compliance, and financial strategies to help startups, NRIs, and
               global companies thrive in a dynamic world.
             </p>
-            <ul class="nav flex-column feature-section-features mt-5">
+            <ul class="nav flex-column feature-section-features mt-3">
               <li data-aos="fade-up" data-aos-delay="500">
                 <span class="fas fa-check text-primary me-2 mb-3 small"></span>
                 <span class="opacity-75 small">
@@ -633,7 +662,7 @@
         background-attachment: fixed;
 
         padding-bottom: 10px;
-        height: 100vh;
+        max-height: 100vh;
         display: flex;
         align-items: center;
         padding-top: 80px;
@@ -781,6 +810,16 @@
       #why-tekalgo .swiper-slide:nth-child(6) .icon i {
         color: #ff1f1f;
       }
+
+      @media (max-width: 992px) {
+        #why-tekalgo {
+          padding-top: 20px;
+          /* height: 80vh; */
+        }
+        #why-tekalgo .swiper-wrapper {
+          padding-bottom: 0px;
+        }
+      }
     </style>
     <section id="why-tekalgo" class="why-tekalgo">
       <div class="container" data-aos="zoom-in">
@@ -890,7 +929,7 @@
           // dynamicBullets: true,
         },
         autoplay: {
-          delay: 2500, // Adjusted for smoother transitions
+          delay: 4500, // Adjusted for smoother transitions
           disableOnInteraction: false, // Keeps autoplay running after interaction
         },
         navigation: {
@@ -967,7 +1006,7 @@
 
       @media (min-width: 768px) {
         .stats-heading {
-          font-size: 45px;
+          font-size: 32px;
         }
       }
 
@@ -984,8 +1023,14 @@
       }
 
       .stats-section .card h3 {
-        font-size: 45px;
-        font-weight: 900;
+        font-size: 32px;
+        font-weight: 700;
+      }
+      @media (max-width: 768px) {
+        .stats-section .card h3 {
+          font-size: 28px;
+          font-weight: 700;
+        }
       }
 
       .stats-section .card h5 {
@@ -1014,7 +1059,7 @@
               data-aos-delay="500"
             >
               <h1 class="stats-heading mb-3">Key Numbers That Define Us</h1>
-              <p class="stats-subheading mb-5">
+              <p class="stats-subheading">
                 Backed by a decade of experience, we help individuals and
                 businesses stay compliant and financially sound—across India and
                 globally.
@@ -1028,12 +1073,12 @@
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <div class="card-body">
-                  <h3 class="mb-3">1500+</h3>
-                  <h5>Returns Filed</h5>
+                <div class="card-body p-2">
+                  <h3 class="mb-1">97%</h3>
+                  <h5>Projects delivered</h5>
                   <p class="mb-0">
-                    Income tax, TDS, and GST returns filed accurately and on
-                    time for clients across sectors.
+                    Delivering projects on time with accuracy, efficiency, and
+                    client satisfaction.
                   </p>
                 </div>
               </div>
@@ -1042,8 +1087,8 @@
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <div class="card-body">
-                  <h3 class="mb-3">500+</h3>
+                <div class="card-body p-2">
+                  <h3 class="mb-1">500+</h3>
                   <h5>Clients Served</h5>
                   <p class="mb-0">
                     Individuals, freelancers, NRIs, and businesses trust us for
@@ -1059,12 +1104,12 @@
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <div class="card-body">
-                  <h3 class="mb-3">12+</h3>
-                  <h5>Years of Expertise</h5>
+                <div class="card-body p-2">
+                  <h3 class="mb-1">95.5%</h3>
+                  <h5>Client retention rate</h5>
                   <p class="mb-0">
-                    Helping clients navigate India’s complex financial and tax
-                    system with confidence and ease.
+                    Trusted by clients year after year for consistent results
+                    and lasting partnerships.
                   </p>
                 </div>
               </div>
@@ -1073,8 +1118,8 @@
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
-                <div class="card-body">
-                  <h3 class="mb-3">20+</h3>
+                <div class="card-body p-2">
+                  <h3 class="mb-1">20+</h3>
                   <h5>Countries Served</h5>
                   <p class="mb-0">
                     Specialized in NRI taxation, remittances, and global
@@ -1148,302 +1193,333 @@
       </script>
     </section>
 
-    <!-- EXTRA SERVICE  -->
+    <!-- Testimonila  -->
     <style>
-      .service-section {
-        --bs-body-color: #28303b;
-        --bs-body-bg: rgb(255, 255, 255);
-        --ezy-theme-color: rgb(13, 110, 253);
-        --ezy-theme-color-rgb: 13, 110, 253;
-        --ezy-card-bg: #ffffff;
-        --ezy-card-box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+      .home_testimonial {
+        --ezy-rating-rgb: 255, 215, 0;
+        --ezy-item-bg: #ffffff;
+        --ezy-item-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+        --ezy-arrow-shadow: -8px 25px 40px 0 rgba(0, 0, 0, 0.2);
 
         background-color: var(--bs-body-bg);
         color: var(--bs-body-color);
-        position: relative;
-        padding: 60px 0;
-        z-index: 1;
         overflow: hidden;
+        /* padding: 60px 0; */
+        padding-bottom: 40px;
       }
 
       @media (min-width: 768px) {
-        .service-section {
-          padding: 100px 0;
+        .home_testimonial {
+          /* padding: 100px 0;
+          padding-top: 0px; */
         }
       }
 
-      .gray .service-section,
-      .service-section.gray {
-        --bs-body-bg: rgb(246, 246, 246);
-        --ezy-card-bg: #f6f6f6;
-      }
-
-      .dark-gray .service-section,
-      .service-section.dark-gray {
-        --bs-body-color: #ffffff;
-        --bs-body-bg: rgb(30, 39, 53);
-        --ezy-card-bg: rgb(30, 39, 53);
-        --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
-      }
-
-      .dark .service-section,
-      .service-section.dark {
-        --bs-body-color: #ffffff;
-        --bs-body-bg: rgb(11, 23, 39);
-        --ezy-card-bg: rgb(11, 23, 39);
-        --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
-      }
-
-      .service-heading {
+      .home_testimonial-heading {
         font-weight: bold;
-        font-size: 25px;
-        line-height: 1.5;
+        font-size: 28px;
+        line-height: 1.3;
       }
 
       @media (min-width: 768px) {
-        .service-heading {
-          font-size: 40px;
+        .home_testimonial-heading {
+          font-size: 32px;
+          line-height: 1.3;
         }
       }
 
-      .service-subheading {
-        /* font-size: 17px; */
-        line-height: 1.5;
+      .home_testimonial-sub-heading {
+        font-size: 18px;
+        line-height: 1.6;
         opacity: 0.8;
       }
 
-      .service-shape-one {
-        z-index: -1;
-        bottom: -20%;
-        left: 0;
+      .home_testimonial-item {
+        background-color: var(--ezy-item-bg);
+        box-shadow: var(--ezy-item-shadow);
+        border-radius: 15px;
+        transition: transform 0.25s ease-in-out;
       }
 
-      .service-shape-two {
-        z-index: -1;
-        top: -20%;
+      .home_testimonial-item:hover {
+        transform: translateY(-5px);
       }
 
-      .service-card {
-        background-color: var(--ezy-card-bg);
-        box-shadow: var(--ezy-card-box-shadow);
+      .home_testimonial-item > img {
+        border-radius: 15px;
+        margin-top: -85px;
       }
 
-      .service-icon {
-        font-size: 40px;
-        color: var(--ezy-theme-color);
+      .home_testimonial-content * {
+        color: var(--bs-body-color);
       }
 
-      .service-cards-wrapper {
-        /* structure unchanged, just renamed */
+      .home_testimonial-social-links a {
+        display: inline-block;
+        opacity: 0.6;
+        transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out,
+          color 0.25s ease-in-out;
+      }
+
+      .home_testimonial-social-links a:hover {
+        transform: translateY(5px);
+        color: var(--bs-body-color);
+        opacity: 1;
+      }
+
+      .home_testimonial-rating [class*="fa-"]:not(.active),
+      .home_testimonial-rating [class*="fa-"]:not(.active) * {
+        font-size: 22px;
+        color: rgba(var(--ezy-rating-rgb), 0.2);
+      }
+
+      .home_testimonial-rating [class*="fa-"].active,
+      .home_testimonial-rating [class*="fa-"].active * {
+        font-size: 22px;
+        color: rgba(var(--ezy-rating-rgb), 1);
+      }
+
+      .home_testimonial .carousel-control-prev,
+      .home_testimonial .carousel-control-next {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--ezy-arrow-shadow);
+        color: var(--bs-body-color);
+      }
+
+      .home_testimonial .carousel-control-prev:hover,
+      .home_testimonial .carousel-control-next:hover {
+        color: var(--bs-body-color) !important;
+      }
+
+      .home_testimonial-text {
+        line-height: 1.8;
+        opacity: 0.8;
+      }
+      .home_testimonial .home_testimonial-sub-heading .fa-star {
+        color: rgba(var(--ezy-rating-rgb), 1);
       }
     </style>
-
-    <section class="service-section">
-      <!-- shape one -->
-      <svg
-        class="service-shape-one position-absolute"
-        width="405"
-        height="626"
-        viewBox="0 0 405 626"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          x="-302.65"
-          y="296.986"
-          width="433.92"
-          height="140"
-          rx="73.8464"
-          transform="rotate(-33.796 -302.65 296.986)"
-          fill="#7434F8"
-          fill-opacity="0.5"
-        />
-        <rect
-          x="-315"
-          y="502.403"
-          width="666.584"
-          height="140"
-          rx="73.8464"
-          transform="rotate(-33.796 -315 502.403)"
-          fill="#FAA515"
-          fill-opacity="0.5"
-        />
-      </svg>
-
-      <!-- shape two -->
-      <svg
-        class="service-shape-two position-absolute end-0"
-        width="340"
-        height="658"
-        viewBox="0 0 495 778"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          cx="389"
-          cy="389"
-          r="389"
-          fill="var(--ezy-theme-color)"
-          fill-opacity="0.19"
-        />
-      </svg>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="500">
-            <h2 class="service-heading mb-3">
-              Smart Solutions Beyond Tax. What We Also Offer...
+    <section class="home_testimonial">
+      <div class="container position-relative">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9 text-center">
+            <h2 class="home_testimonial-heading mb-2">
+              Some testimonials from our customers
             </h2>
-            <p class="service-subheading">
-              In a digital-first world, clients need more than compliance. We
-              provide tools and insights that empower better decisions,
-              financial clarity, and business growth.
+            <p class="home_testimonial-sub-heading mb-0">
+              Our customers say <span class="fas fa-star active"></span>
+              <span class="fas fa-star active"></span>
+              <span class="fas fa-star active"></span>
+              <span class="fas fa-star active"></span>
+              <span class="fas fa-star active"></span> 4.9 out of 5 based on 634
+              reviews
             </p>
           </div>
-          <div class="col-12 col-md-8">
-            <div class="row service-cards-wrapper">
-              <div class="col-12 col-md-6">
-                <div>
-                  <!-- Card 1 -->
-                  <div
-                    class="card service-card rounded-0 border-0 p-3"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                  >
-                    <div class="card-body">
-                      <div class="service-icon mb-2">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                      </div>
-                      <h5 class="my-4">Digital Document Vault</h5>
-                      <p class="opacity-75 mt-3">
-                        Secure, cloud-based storage for tax files, invoices, and
-                        important financial documents—accessible anytime.
-                      </p>
-                    </div>
-                  </div>
+        </div>
 
-                  <!-- Card 2 -->
-                  <div
-                    class="card service-card rounded-0 border-0 p-3 mt-4"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                  >
-                    <div class="card-body">
-                      <div class="service-icon mb-2">
-                        <i class="fas fa-file-invoice-dollar"></i>
+        <div class="row">
+          <div class="col-12">
+            <div
+              id="home_testimonial-controls"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner overflow-visible">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                  <div class="row mt-2">
+                    <!-- Testimonial 1 (always visible) -->
+                    <div class="col-12 col-sm-6 mt-4">
+                      <div class="home_testimonial-item px-4 py-4">
+                        <div class="home_testimonial-content mt-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-2">
+                                <img
+                                  src="https://tekalgo.com/new_images/ledgermen-home-client-1.jpg"
+                                  alt=""
+                                  class="img-fluid rounded-circle border"
+                                  width="47"
+                                />
+                              </div>
+                              <div>
+                                <h5 class="mb-0">Akshay Patel</h5>
+                              </div>
+                            </div>
+                            <p class="mb-0 home_testimonial-rating">
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star"></span>
+                            </p>
+                          </div>
+                          <p class="mb-4 home_testimonial-text">
+                            Ledgermen significantly simplified our financial
+                            reporting and compliance. Their ARG services saved
+                            us time, reduced risks, and let us focus on scaling
+                            confidently.
+                          </p>
+                        </div>
                       </div>
-                      <h5 class="my-4">Invoicing & eBilling</h5>
-                      <p class="opacity-75 mt-3">
-                        Simplify client billing with branded, GST-compliant
-                        e-invoices integrated with payment tracking.
-                      </p>
+                    </div>
+
+                    <!-- Testimonial 2 (only shows on md and larger) -->
+                    <div class="col-12 col-sm-6 mt-4">
+                      <div class="home_testimonial-item px-4 py-4">
+                        <div class="home_testimonial-content mt-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-2">
+                                <img
+                                  src="https://tekalgo.com/new_images/ledgermen-home-client-2.jpg"
+                                  alt=""
+                                  class="img-fluid rounded-circle border"
+                                  width="47"
+                                />
+                              </div>
+                              <div>
+                                <h5 class="mb-0">Raima Shen</h5>
+                              </div>
+                            </div>
+                            <p class="mb-0 home_testimonial-rating">
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star-half-alt active"></span>
+                            </p>
+                          </div>
+                          <p class="mb-4 home_testimonial-text">
+                            Professional and detail-oriented, Ledgermen made
+                            governance clear and efficient. Their accounting and
+                            reporting expertise built trust and streamlined our
+                            processes effectively.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="col-12 col-md-6">
-                <div class="mt-md-5">
-                  <!-- Card 3 -->
-                  <div
-                    class="card service-card rounded-0 border-0 p-3 mt-4"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                  >
-                    <div class="card-body">
-                      <div class="service-icon mb-2">
-                        <i class="fas fa-chart-line"></i>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                  <div class="row mt-2">
+                    <div class="col-12 col-sm-6 mt-4">
+                      <div class="home_testimonial-item px-4 py-4">
+                        <div class="home_testimonial-content mt-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-2">
+                                <img
+                                  src="https://tekalgo.com/new_images/ledgermen-home-client-3.jpg"
+                                  alt=""
+                                  class="img-fluid rounded-circle border"
+                                  width="47"
+                                />
+                              </div>
+                              <div>
+                                <h5 class="mb-0">Rohan Mehta</h5>
+                              </div>
+                            </div>
+                            <p class="mb-0 home_testimonial-rating">
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                            </p>
+                          </div>
+                          <p class="mb-4 home_testimonial-text">
+                            Choosing Ledgermen was the best decision for our
+                            finance team. Their structured reporting and
+                            governance expertise gave us confidence in every
+                            presentation.
+                          </p>
+                        </div>
                       </div>
-                      <h5 class="my-4">Business Performance Reports</h5>
-                      <p class="opacity-75 mt-3">
-                        Monthly insights on cash flow, tax outgo, and
-                        profitability— tailored for startups, SMEs, and
-                        freelancers.
-                      </p>
                     </div>
-                  </div>
-
-                  <!-- Card 4 -->
-                  <div
-                    class="card service-card rounded-0 border-0 p-3 mt-4"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                  >
-                    <div class="card-body">
-                      <div class="service-icon mb-2">
-                        <i class="fas fa-user-shield"></i>
+                    <div class="col-12 col-sm-6 mt-4">
+                      <div class="home_testimonial-item px-4 py-4">
+                        <div class="home_testimonial-content mt-3">
+                          <div
+                            class="d-flex justify-content-between align-items-center mb-4"
+                          >
+                            <div class="d-flex align-items-center">
+                              <div class="me-2">
+                                <img
+                                  src="https://tekalgo.com/new_images/ledgermen-home-client-4.jpg"
+                                  alt=""
+                                  class="img-fluid rounded-circle border"
+                                  width="47"
+                                />
+                              </div>
+                              <div>
+                                <h5 class="mb-0">Ananya Singh</h5>
+                              </div>
+                            </div>
+                            <p class="mb-0 home_testimonial-rating">
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star active"></span>
+                              <span class="fas fa-star-half-alt active"></span>
+                            </p>
+                          </div>
+                          <p class="mb-4 home_testimonial-text">
+                            Ledgermen doesn’t just deliver numbers—they provide
+                            insights. Their ARG services helped us improve
+                            decisions and stay compliant without stressing our
+                            teams.
+                          </p>
+                        </div>
                       </div>
-                      <h5 class="my-4">KYC & Compliance Toolkit</h5>
-                      <p class="opacity-75 mt-3">
-                        Automate and manage KYC, PAN validation, and ROC filings
-                        with ease—ideal for startups and agencies.
-                      </p>
                     </div>
                   </div>
                 </div>
+
+                <!-- Add more slides as needed -->
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Controls -->
+        <div
+          class="position-relative d-flex justify-content-center align-items-center my-3"
+        >
+          <button
+            class="carousel-control-prev me-4"
+            type="button"
+            data-bs-target="#home_testimonial-controls"
+            data-bs-slide="prev"
+          >
+            <i class="fas fa-angle-left"></i>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#home_testimonial-controls"
+            data-bs-slide="next"
+          >
+            <i class="fas fa-angle-right"></i>
+          </button>
         </div>
       </div>
     </section>
-
-    <!-- awards  -->
-    <!-- <section class="ezy__numbers11_bnpjajDq">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-12">
-            <h2 class="ezy__numbers11_bnpjajDq-heading">
-              Awards & Recognitions
-            </h2>
-          </div>
-
-          <div class="col-12 col-md-4">
-            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
-              <div class="mb-4">
-                <img
-                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>
-              <h5 class="mb-0">Top 100 Tax Consultants in India - 2024</h5>
-            </div>
-          </div>
-
-       
-          <div class="col-12 col-md-4">
-            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
-              <div class="mb-4">
-                <img
-                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>
-              <h5 class="mb-0">
-                Excellence in GST Compliance Solutions – MSME Awards 2024
-              </h5>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-4">
-            <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
-              <div class="mb-4">
-                <img
-                  src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
-                  alt=""
-                  class="img-fluid"
-                />
-              </div>
-              <h5 class="mb-0">
-                Recognized by Startup India for Financial Process Innovation
-              </h5>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
     <!-- footer  -->
     <section class="footer-section">
@@ -1452,7 +1528,7 @@
           <div class="col-lg-3 mt-4 mt-lg-0">
             <a href="index.html">
               <img
-                src="images/lederman--logo.png"
+                src="https://tekalgo.com/new_images/lederman--logo.png"
                 width="180px"
                 alt=""
                 style="margin-bottom: 16px"
@@ -1576,7 +1652,10 @@
         <div class="modal-content position-relative shadow-lg">
           <div class="modal-header">
             <div>
-              <img src="images/popup-contact-ledgerman.png" alt="" />
+              <img
+                src="https://tekalgo.com/new_images/popup-contact-ledgerman.png"
+                alt=""
+              />
             </div>
             <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
               Get In Touch <br />

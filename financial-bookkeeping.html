@@ -230,7 +230,10 @@
       <nav class="navbar container">
         <div class="logo">
           <a href="./index.html">
-            <img src="images/lederman--logo.png" alt="" />
+            <img
+              src="https://tekalgo.com/new_images/lederman--logo.png"
+              alt=""
+            />
           </a>
         </div>
         <div class="menu-icon" id="menu-icon">
@@ -299,15 +302,14 @@
               class="hero__servicesCommon-heading text-white"
               id="service-heading"
             >
-              Expert Accounting & <br />
-              Bookkeeping Services Tailored for Small Businesses
+              Accounting & <br />
+              Bookkeeping Services
             </h1>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE -->
     <style>
       .custom-heading h1 {
         margin-left: 71px;
@@ -316,12 +318,7 @@
       }
       .custom-img {
         height: 450px !important;
-      }
-      @media screen and (max-width: 768px) {
-        .custom-heading h1 {
-          margin-top: 25px;
-          margin-left: 0px;
-        }
+        border-radius: 20px;
       }
       @media screen and (max-width: 992px) {
         .custom-img {
@@ -329,117 +326,203 @@
           width: 100%;
         }
       }
+      @media screen and (max-width: 768px) {
+        .custom-heading h1 {
+          margin-top: 25px;
+          margin-left: 0px;
+        }
+      }
     </style>
-    <section class="ledgerman__features light">
+
+    <!-- Industry Services -->
+    <style>
+      .industry-services {
+        --bs-body-bg: rgb(255, 255, 255);
+        --ezy-theme-color: rgb(13, 110, 253);
+        --ezy-card-bg: transparent;
+        background-color: var(--bs-body-bg);
+        padding-bottom: 100px;
+        padding-top: 100px;
+      }
+
+      @media (min-width: 768px) {
+        .industry-services {
+        }
+      }
+
+      .industry-services-heading {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      @media (min-width: 768px) {
+        .industry-services-heading {
+          font-size: 32px;
+        }
+      }
+
+      .industry-services-sub-heading {
+        font-size: 18px;
+        line-height: 30px;
+        opacity: 0.8;
+      }
+
+      /* img */
+      .industry-services-bg-holder {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 20px;
+        height: 100%;
+        height: 400px;
+      }
+
+      @media (min-width: 991px) {
+        .industry-services-bg-holder {
+          height: 100%;
+        }
+      }
+
+      /* card */
+      .industry-services .card {
+        background-color: var(--ezy-card-bg);
+        color: var(--bs-body-color);
+        border: 0 !important;
+      }
+
+      .industry-services-card-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .industry-services-card-text {
+        font-size: 16px;
+
+        /* line-height: 1.3; */
+      }
+
+      .industry-services-card-icon {
+        background-color: var(--ezy-theme-color);
+        color: #ffffff;
+        min-width: 60px !important;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 18px;
+      }
+    </style>
+    <section class="industry-services">
       <div class="container">
         <div class="row">
           <!--  heading-->
-          <div class="col-12 col-lg-9" data-aos="zoom-in" data-aos-delay="500">
-            <div class="mb-5">
-              <h1 class="industry-services-heading mb-3">
-                Why Professional Bookkeeping Services Matter
-              </h1>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-around">
+          <!-- <div class="col-12 col-lg-9" data-aos="zoom-in" data-aos-delay="500">
+            <h1 class="industry-services-heading mb-4">Global Knowledge Hub</h1>
+          </div> -->
+          <!-- img -->
           <div
-            class="col-12 col-lg-6 order-1 order-lg-2 d-flex align-items-center"
+            class="col-12 col-lg-6 d-flex align-items-center text-center order-1 order-lg-2 mb-3 mb-lg-0 pt-5 pt-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="500"
           >
             <img
               src="https://tekalgo.com/new_images/bookkeeping-intro.jpg"
-              alt="Accounting & Bookkeeping Feature"
+              alt=""
               class="img-fluid custom-img"
               style="border-radius: 20px"
-              data-aos="zoom-in"
-              data-aos-delay="500"
             />
           </div>
+          <!-- cards -->
           <div
-            class="col-12 col-lg-6 order-2 order-lg-1 ledgerman__features-cards-wrapper"
+            class="col-12 col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1"
           >
-            <!-- Feature 1 -->
-            <div
-              class="d-flex align-items-center ledgerman__feature-card mt-5"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="me-3">
-                <span class="ledgerman__feature-icon">
-                  <i class="fas fa-business-time"></i>
-                </span>
-              </div>
-              <div>
-                <p class="ledgerman__feature-content mb-0">
-                  Managing a growing business is challenging—especially when
-                  financial accuracy and compliance are at stake, and small
-                  errors can compound into cash flow gaps, penalties, and
-                  strategic blind spots over time.
-                </p>
+            <h1 class="industry-services-heading mb-2">
+              Why Professional Bookkeeping Services Matter
+            </h1>
+            <!-- card starts -->
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
+                <div
+                  class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
+                >
+                  <i class="fa-solid fa-file-invoice-dollar"></i>
+                </div>
+                <div class="px-3">
+                  <h5 class="industry-services-card-title mb-1">
+                    Financial Accuracy & Compliance
+                  </h5>
+                  <p class="industry-services-card-text mb-0">
+                    Even small errors in books can snowball into cash flow gaps,
+                    penalties, or compliance risks—professional bookkeeping
+                    prevents these.
+                  </p>
+                </div>
               </div>
             </div>
+            <!-- card ends -->
 
-            <!-- Feature 2 -->
-            <div
-              class="d-flex align-items-center ledgerman__feature-card mt-5"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="me-3">
-                <span class="ledgerman__feature-icon">
-                  <i class="fas fa-balance-scale"></i>
-                </span>
-              </div>
-              <div>
-                <p class="ledgerman__feature-content mb-0">
-                  Bookkeeping isn’t just recording numbers; it’s building the
-                  financial backbone for pricing, margins, funding, and tax
-                  planning decisions that actually move the business forward.
-                </p>
+            <!-- card starts -->
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex justify-content-center p-2">
+                <div
+                  class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
+                >
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="px-3">
+                  <h5 class="industry-services-card-title mb-1">
+                    Strategic Decision Support
+                  </h5>
+                  <p class="industry-services-card-text mb-0">
+                    Bookkeeping builds the financial backbone for pricing,
+                    margins, funding, and tax planning that drive business
+                    growth.
+                  </p>
+                </div>
               </div>
             </div>
+            <!-- card ends -->
 
-            <!-- Feature 3 -->
-            <div
-              class="d-flex align-items-center ledgerman__feature-card mt-5"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="me-3">
-                <span class="ledgerman__feature-icon">
-                  <i class="fas fa-user-tie"></i>
-                </span>
-              </div>
-              <div>
-                <p class="ledgerman__feature-content mb-0">
-                  With 15+ years of experience, the founding team has helped
-                  small businesses, startups, and multi-location operations
-                  streamline systems and close books on time with audit-ready
-                  confidence.
-                </p>
+            <!-- card starts -->
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex justify-content-center p-2">
+                <div
+                  class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
+                >
+                  <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="px-3">
+                  <h5 class="industry-services-card-title mb-1">
+                    Proven Expertise
+                  </h5>
+                  <p class="industry-services-card-text mb-0">
+                    15+ years of helping startups, SMBs, and enterprises close
+                    books on time—audit-ready.
+                  </p>
+                </div>
               </div>
             </div>
+            <!-- card ends -->
 
-            <!-- Feature 4 -->
-            <div
-              class="d-flex align-items-center ledgerman__feature-card mt-5"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <div class="me-3">
-                <span class="ledgerman__feature-icon">
-                  <i class="fas fa-laptop-house"></i>
-                </span>
-              </div>
-              <div>
-                <p class="ledgerman__feature-content mb-0">
-                  Whether searching for bookkeeping services for small business,
-                  an online accountant for small business, or a virtual
-                  bookkeeper, the operating model prioritizes efficiency,
-                  compliance, and cost control.
-                </p>
+            <!-- card starts -->
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex justify-content-center p-2">
+                <div
+                  class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
+                >
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div class="px-3">
+                  <h5 class="industry-services-card-title mb-1">
+                    Efficiency & Cost Control
+                  </h5>
+                  <p class="industry-services-card-text mb-0">
+                    Virtual bookkeeping ensures streamlined processes,
+                    compliance, and cost savings.
+                  </p>
+                </div>
               </div>
             </div>
+            <!-- card ends -->
           </div>
         </div>
       </div>
@@ -472,7 +555,7 @@
         );
       }
       .why-us-heading {
-        font-size: 45px;
+        font-size: 32px;
         line-height: 1.3;
       }
 
@@ -488,7 +571,7 @@
       }
 
       .why-us .swiper {
-        margin: 100px;
+        margin: 0px 80px;
         overflow: hidden;
       }
 
@@ -503,11 +586,11 @@
       }
 
       .why-us .swiper-button-prev {
-        left: 50px;
+        left: 30px;
       }
 
       .why-us .swiper-button-next {
-        right: 50px;
+        right: 30px;
       }
       .why-us .swiper-button-prev,
       .why-us .swiper-button-next {
@@ -516,7 +599,7 @@
       }
 
       .why-us .swiper-pagination {
-        margin-top: 30px;
+        margin-top: 10px;
         position: relative;
       }
 
@@ -551,6 +634,7 @@
       @media (max-width: 768px) {
         .why-us-heading {
           font-size: 28px;
+          /* margin: 15px 0px; */
         }
       }
 
@@ -562,9 +646,9 @@
     </style>
     <section id="why-us" class="why-us section">
       <div class="container">
-        <div class="row mb-md-4" data-aos="zoom-in" data-aos-delay="500">
+        <div class="row mb-3" data-aos="zoom-in" data-aos-delay="500">
           <div class="col-lg-9">
-            <h2 class="why-us-heading mb-4">
+            <h2 class="why-us-heading">
               Our Comprehensive Bookkeeping Solutions
             </h2>
           </div>
@@ -801,7 +885,8 @@
 
       @media (min-width: 768px) {
         .industry-services-heading {
-          font-size: 45px;
+          font-size: 32px;
+          line-height: 1.3;
         }
       }
 
@@ -859,43 +944,48 @@
         <div class="row">
           <!--  heading-->
           <div class="col-12 col-lg-9" data-aos="zoom-in" data-aos-delay="500">
-            <div class="mb-5">
+            <div class="mb-3">
               <h1 class="industry-services-heading mb-3">
                 Benefits of Outsourcing Accounting & Bookkeeping
               </h1>
             </div>
           </div>
+        </div>
+        <div class="row">
           <!-- img -->
           <div
-            class="col-12 col-lg-6 text-center order-1 order-lg-2 d-flex align-items-center"
+            class="col-12 col-lg-6 text-center order-1 order-lg-2 d-flex align-items-start mb-3 mb-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="500"
           >
             <img
               src="https://tekalgo.com/new_images/bookeeping-benefits.jpg"
               alt=""
               style="width: 100%; border-radius: 20px"
-              class="custom-img"
+              class="img-fluid h-100"
             />
           </div>
           <!-- cards -->
           <div
             class="col-12 col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1"
           >
+            <!-- <h1 class="industry-services-heading mb-3">
+              Benefits of Outsourcing Accounting & Bookkeeping
+            </h1> -->
             <!-- card starts -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <div class="card-body d-flex justify-content-center p-4">
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
                 <div
                   class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
                 >
                   <i class="fa-solid fa-piggy-bank"></i>
                 </div>
                 <div class="px-3">
-                  <h5 class="industry-services-card-title mb-3">
+                  <h5 class="industry-services-card-title mb-1">
                     Cost Savings
                   </h5>
                   <p class="industry-services-card-text mb-0">
-                    Reduce hiring, software, and overhead—outsourced bookkeeping
-                    for small business can cut costs by up to 50% versus
-                    in-house.
+                    Cut costs up to 50% with outsourced bookkeeping.
                   </p>
                 </div>
               </div>
@@ -903,19 +993,17 @@
             <!-- card ends -->
 
             <!-- card starts -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <div class="card-body d-flex justify-content-center p-4">
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
                 <div
                   class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
                 >
                   <i class="fa-solid fa-chart-line"></i>
                 </div>
                 <div class="px-3">
-                  <h5 class="industry-services-card-title mb-3">Scalability</h5>
+                  <h5 class="industry-services-card-title mb-1">Scalability</h5>
                   <p class="industry-services-card-text mb-0">
-                    Stage-appropriate packages for startups through growing
-                    multi-location businesses without the friction of frequent
-                    staffing changes.
+                    Flexible packages for startups to multi-location businesses.
                   </p>
                 </div>
               </div>
@@ -923,18 +1011,17 @@
             <!-- card ends -->
 
             <!-- card starts -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <div class="card-body d-flex justify-content-center p-4">
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
                 <div
                   class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
                 >
                   <i class="fa-solid fa-user-tie"></i>
                 </div>
                 <div class="px-3">
-                  <h5 class="industry-services-card-title mb-3">Expertise</h5>
+                  <h5 class="industry-services-card-title mb-1">Expertise</h5>
                   <p class="industry-services-card-text mb-0">
-                    15+ years of collective domain knowledge across compliance,
-                    taxation, and workflow automation.
+                    15+ years in compliance, taxation, and automation.
                   </p>
                 </div>
               </div>
@@ -942,20 +1029,19 @@
             <!-- card ends -->
 
             <!-- card starts -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <div class="card-body d-flex justify-content-center p-4">
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
                 <div
                   class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
                 >
                   <i class="fa-solid fa-robot"></i>
                 </div>
                 <div class="px-3">
-                  <h5 class="industry-services-card-title mb-3">
+                  <h5 class="industry-services-card-title mb-1">
                     Technology-Driven
                   </h5>
                   <p class="industry-services-card-text mb-0">
-                    AI bookkeeping, rules, and integrations reduce manual errors
-                    and accelerate monthly close.
+                    AI tools reduce errors and speed monthly closing.
                   </p>
                 </div>
               </div>
@@ -963,20 +1049,19 @@
             <!-- card ends -->
 
             <!-- card starts -->
-            <div class="card" data-aos="fade-up" data-aos-delay="500">
-              <div class="card-body d-flex justify-content-center p-4">
+            <div class="card mb-2" data-aos="fade-up" data-aos-delay="500">
+              <div class="card-body d-flex p-2">
                 <div
                   class="industry-services-card-icon d-flex justify-content-center align-items-center mb-4"
                 >
                   <i class="fa-solid fa-bullseye"></i>
                 </div>
                 <div class="px-3">
-                  <h5 class="industry-services-card-title mb-3">
+                  <h5 class="industry-services-card-title mb-1">
                     Focus on Growth
                   </h5>
                   <p class="industry-services-card-text mb-0">
-                    Leadership bandwidth shifts from spreadsheets to sales,
-                    customer success, and operations.
+                    Free leadership time for sales and operations.
                   </p>
                 </div>
               </div>
@@ -1266,6 +1351,15 @@
       #why-tekalgo .swiper-slide:nth-child(6) .icon i {
         color: #ff1f1f;
       }
+      @media (max-width: 992px) {
+        #why-tekalgo {
+          padding-top: 20px;
+          /* height: 80vh; */
+        }
+        #why-tekalgo .swiper-wrapper {
+          padding-bottom: 0px;
+        }
+      }
     </style>
     <section id="why-tekalgo" class="why-tekalgo">
       <div class="container" data-aos="zoom-in">
@@ -1356,7 +1450,7 @@
           // dynamicBullets: true,
         },
         autoplay: {
-          delay: 2500, // Adjusted for smoother transitions
+          delay: 4500, // Adjusted for smoother transitions
           disableOnInteraction: false, // Keeps autoplay running after interaction
         },
         navigation: {
@@ -1490,7 +1584,11 @@
         <div class="site-cta-form-card">
           <div class="row m-0">
             <div class="col-lg-6 site-cta-form-card-media text-center p-3">
-              <img src="images/service-cta.png" alt="" class="img-fluid" />
+              <img
+                src="https://tekalgo.com/new_images/service-cta.png"
+                alt=""
+                class="img-fluid"
+              />
             </div>
             <div class="col-lg-6 p-0">
               <div class="d-flex align-items-center h-100 py-5 px-4 px-sm-5">
@@ -1530,7 +1628,7 @@
           <div class="col-lg-3 mt-4 mt-lg-0">
             <a href="index.html">
               <img
-                src="images/lederman--logo.png"
+                src="https://tekalgo.com/new_images/lederman--logo.png"
                 width="180px"
                 alt=""
                 style="margin-bottom: 16px"
@@ -1654,7 +1752,10 @@
         <div class="modal-content position-relative shadow-lg">
           <div class="modal-header">
             <div>
-              <img src="images/popup-contact-ledgerman.png" alt="" />
+              <img
+                src="https://tekalgo.com/new_images/popup-contact-ledgerman.png"
+                alt=""
+              />
             </div>
             <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
               Get In Touch <br />

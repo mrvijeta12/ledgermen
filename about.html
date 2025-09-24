@@ -208,7 +208,10 @@
       <nav class="navbar container">
         <div class="logo">
           <a href="./index.html">
-            <img src="images/lederman--logo.png" alt="" />
+            <img
+              src="https://tekalgo.com/new_images/lederman--logo.png"
+              alt=""
+            />
           </a>
         </div>
         <div class="menu-icon" id="menu-icon">
@@ -273,7 +276,7 @@
 
         background-color: var(--bs-body-bg);
         overflow: hidden;
-        padding: 60px 0 0 0;
+        padding: 40px 0 0 0;
         position: relative;
       }
 
@@ -374,7 +377,9 @@
       <div class="container position-relative">
         <div
           class="about-hero-bg d-none d-md-block"
-          style="background-image: url(images/about-hero.jpg)"
+          style="
+            background-image: url(https://tekalgo.com/new_images/about-hero.jpg);
+          "
           data-aos="zoom-in"
           data-aos-delay="500"
         ></div>
@@ -420,7 +425,7 @@
 
         background-color: var(--bs-body-bg);
         overflow: hidden;
-        padding: 60px 0;
+        padding: 50px 0;
       }
 
       @media (min-width: 768px) {
@@ -456,15 +461,15 @@
 
       .mission-heading {
         font-weight: bold;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 28px;
+        line-height: 1.3;
         /* color: var(--bs-body-color); */
       }
 
       @media (min-width: 768px) {
         .mission-heading {
-          font-size: 45px;
-          line-height: 45px;
+          font-size: 32px;
+          line-height: 1.3;
         }
       }
 
@@ -493,7 +498,7 @@
         min-height: 350px;
         width: 100%;
         float: right;
-        box-shadow: var(--ezy-bg-holder-shadow);
+        /* box-shadow: var(--ezy-bg-holder-shadow); */
       }
 
       @media (min-width: 991px) {
@@ -510,14 +515,14 @@
         /* color: var(--bs-body-color); */
         opacity: 0.7;
       }
-
+      /* 
       .mission-shape {
         height: 100%;
         position: relative;
         z-index: 1;
-      }
+      } */
 
-      .mission-shape::before {
+      /* .mission-shape::before {
         content: "";
         position: absolute;
         right: -45px;
@@ -527,46 +532,55 @@
         background-color: #0d6efd;
         z-index: -1;
         border-radius: 200px 0 200px 200px;
-      }
+      } */
 
-      @media (min-width: 991px) {
+      /* @media (min-width: 991px) {
         .mission-shape:before {
           border-radius: 50% 0 50% 50%;
+        }
+      } */
+
+      .custom-img {
+        height: 450px !important;
+        border-radius: 20px;
+      }
+      @media screen and (max-width: 992px) {
+        .custom-img {
+          height: auto !important;
+          width: 100%;
         }
       }
     </style>
     <section class="mission-section">
       <div class="container">
-        <div class="row mb-5 text-center justify-content-center">
+        <div class="row mb-2 text-center justify-content-center">
           <div class="col-lg-10" data-aos="zoom-in" data-aos-delay="500">
-            <h2 class="mission-heading mb-4">Our Mission</h2>
-            <p class="mission-subheading mb-4">
+            <h2 class="mission-heading mb-2">Our Mission</h2>
+            <p class="mission-subheading">
               To empower businesses with smart, secure, and scalable financial
               tools that simplify receivables, enhance transparency, and drive
               long-term financial success.
             </p>
           </div>
         </div>
-        <div class="row pt-md-5">
-          <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
-            <div class="mission-shape">
-              <div
-                class="mission-image h-100"
-                style="
-                  background-image: url(images/about-mission.jpg);
-                  background-position: center;
-                  background-size: cover;
-                "
-                data-aos="zoom-in"
-                data-aos-delay="500"
-              ></div>
-            </div>
+        <div class="row pt-md-2">
+          <div
+            class="col-lg-6 mb-4 mb-lg-0 order-lg-2"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <img
+              src="https://tekalgo.com/new_images/about-mission.jpg"
+              alt=""
+              class="img-fluid"
+              style="border-radius: 20px"
+            />
           </div>
           <div class="col-lg-6">
             <div class="me-lg-4 me-xl-5">
               <!-- Mission 1 -->
               <div
-                class="d-flex mission-item position-relative p-3 p-md-4 p-xl-5 mb-3 mb-lg-4"
+                class="d-flex mission-item position-relative p-2 mb-3"
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
@@ -574,17 +588,17 @@
                   <i class="fas fa-lock"></i>
                 </div>
                 <div>
-                  <h4 class="mission-title fs-4 mb-3">Prioritize Security</h4>
+                  <h4 class="mission-title fs-4 mb-1">Prioritize Security</h4>
                   <p class="mission-text mb-0">
-                    We ensure your financial data is protected with
-                    industry-leading encryption and compliance standards.
+                    Protecting financial data with top encryption and
+                    compliance.
                   </p>
                 </div>
               </div>
 
               <!-- Mission 2 -->
               <div
-                class="d-flex mission-item position-relative p-3 p-md-4 p-xl-5 mb-3 mb-lg-4"
+                class="d-flex mission-item position-relative p-2 mb-3"
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
@@ -592,10 +606,9 @@
                   <i class="fas fa-chart-line"></i>
                 </div>
                 <div>
-                  <h4 class="mission-title fs-4 mb-3">Support Growth</h4>
+                  <h4 class="mission-title fs-4 mb-1">Support Growth</h4>
                   <p class="mission-text mb-0">
-                    Our solutions are built to scale with you—designed to
-                    streamline operations and support sustainable financial
+                    Scalable solutions streamlining operations for sustainable
                     growth.
                   </p>
                 </div>
@@ -603,7 +616,7 @@
 
               <!-- Mission 3 -->
               <div
-                class="d-flex mission-item position-relative p-3 p-md-4 p-xl-5"
+                class="d-flex mission-item position-relative p-3 mb-3"
                 data-aos="fade-up"
                 data-aos-delay="500"
               >
@@ -611,10 +624,9 @@
                   <i class="fas fa-user-check"></i>
                 </div>
                 <div>
-                  <h4 class="mission-title fs-4 mb-3">Build Trust</h4>
+                  <h4 class="mission-title fs-4 mb-1">Build Trust</h4>
                   <p class="mission-text mb-0">
-                    Transparency and reliability are at the core of our
-                    mission—ensuring you stay informed and confident in every
+                    Transparent, reliable services ensuring confidence in every
                     transaction.
                   </p>
                 </div>
@@ -634,12 +646,13 @@
         --ezy-theme-color-rgb: 13, 110, 253;
 
         background-color: var(--bs-body-bg);
-        padding: 60px 0;
+        padding: 50px 0;
       }
 
       @media (min-width: 768px) {
         .section-vision {
           padding: 100px 0;
+          padding-top: 0px;
         }
       }
 
@@ -666,13 +679,13 @@
       .section-vision-heading {
         font-size: 28px;
         font-weight: 700;
-        line-height: 1.2;
+        line-height: 1.3;
         /* color: var(--bs-body-color); */
       }
 
       @media (min-width: 768px) {
         .section-vision-heading {
-          font-size: 45px;
+          font-size: 32px;
         }
       }
 
@@ -736,8 +749,8 @@
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h1 class="section-vision-heading mb-3">Our Vision</h1>
-            <p class="section-vision-sub-heading mb-5">
+            <h1 class="section-vision-heading mb-2">Our Vision</h1>
+            <p class="section-vision-sub-heading">
               To redefine financial clarity and control for businesses through
               efficient, secure, and intelligent ledger solutions.
             </p>
@@ -745,14 +758,14 @@
         </div>
 
         <!-- cards -->
-        <div class="row section-vision-list">
+        <div class="row section-vision-list g-4">
           <!-- Card 1 -->
           <div
             class="col-md-6 col-lg-3"
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="card section-vision-card p-3 mt-4 h-100">
+            <div class="card section-vision-card p-3 h-100">
               <div class="card-body py-4 p-lg-4">
                 <div class="section-vision-icon mb-3">
                   <i class="fas fa-file-invoice-dollar"></i>
@@ -772,7 +785,7 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="card section-vision-card p-3 mt-4 h-100">
+            <div class="card section-vision-card p-3 h-100">
               <div class="card-body py-4 p-lg-4">
                 <div class="section-vision-icon mb-3">
                   <i class="fas fa-balance-scale"></i>
@@ -792,7 +805,7 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="card section-vision-card p-3 mt-4 h-100">
+            <div class="card section-vision-card p-3 h-100">
               <div class="card-body py-4 p-lg-4">
                 <div class="section-vision-icon mb-3">
                   <i class="fas fa-user-shield"></i>
@@ -812,7 +825,7 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="card section-vision-card p-3 mt-4 h-100">
+            <div class="card section-vision-card p-3 h-100">
               <div class="card-body py-4 p-lg-4">
                 <div class="section-vision-icon mb-3">
                   <i class="fas fa-chart-pie"></i>
@@ -837,16 +850,17 @@
         --ezy-theme-color: rgb(13, 110, 253);
         --ezy-theme-color-rgb: 13, 110, 253;
         --ezy-item-bg: #ffffff;
-        --ezy-item-shadow: 0px 4px 44px rgba(159, 190, 218, 0.37);
+        --ezy-item-shadow: 0 20px 34px rgba(18, 13, 13, 0.18);
 
         background: var(--bs-body-bg);
         overflow: hidden;
-        padding: 60px 0;
+        padding: 50px 0;
       }
 
       @media (min-width: 768px) {
         .team-section {
           padding: 100px 0;
+          padding-top: 0px;
         }
       }
 
@@ -875,15 +889,15 @@
 
       .team-heading {
         font-weight: bold;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 28px;
+        line-height: 1.3;
         /* color: var(--bs-body-color); */
       }
 
       @media (min-width: 768px) {
         .team-heading {
-          font-size: 45px;
-          line-height: 45px;
+          font-size: 32px;
+          line-height: 1.3;
         }
       }
 
@@ -917,14 +931,14 @@
     </style>
     <section class="team-section">
       <div class="container">
-        <div class="row justify-content-center mb-md-5">
+        <div class="row justify-content-center">
           <div
             class="col-lg-10 col-xl-10 text-center"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h2 class="team-heading mb-3">Meet Our Experts</h2>
-            <p class="team-subheading mb-4">
+            <h2 class="team-heading mb-2">Meet Our Experts</h2>
+            <p class="team-subheading">
               Our leadership team blends financial expertise and operational
               strategy to ensure seamless service delivery for clients across
               industries.
@@ -939,9 +953,9 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="team-card px-4 py-4 h-100">
+            <div class="team-card px-2 py-4 h-100">
               <img
-                src="https://cdn.easyfrontend.com/pictures/users/user27.jpg"
+                src="https://tekalgo.com/new_images/about-client-1.jpg"
                 alt="CEO"
                 class="img-fluid rounded-circle border border-3 border-primary"
                 width="120"
@@ -964,9 +978,9 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="team-card active px-4 py-4 h-100">
+            <div class="team-card active px-2 py-4 h-100">
               <img
-                src="images/client-7.jpg"
+                src="https://tekalgo.com/new_images/ledgermen-about-client2.jpg"
                 alt="Business Head"
                 class="img-fluid rounded-circle border border-3 border-primary"
                 width="120"
@@ -988,9 +1002,9 @@
             data-aos="fade-up"
             data-aos-delay="500"
           >
-            <div class="team-card px-4 py-4 h-100">
+            <div class="team-card px-2 py-4 h-100">
               <img
-                src="https://cdn.easyfrontend.com/pictures/users/user28.jpg"
+                src="https://tekalgo.com/new_images/ledgermen-about-client3.jpg"
                 alt="Technology"
                 class="img-fluid rounded-circle border border-3 border-primary"
                 width="120"
@@ -1014,7 +1028,7 @@
           >
             <div class="team-card px-4 py-4 h-100">
               <img
-                src="images/client-5.jpg"
+                src="https://tekalgo.com/new_images/ledgermen-about-client4.jpg"
                 alt="Marketing"
                 class="img-fluid rounded-circle border border-3 border-primary"
                 width="120"
@@ -1047,7 +1061,7 @@
 
         background-color: var(--bs-body-bg);
         overflow: hidden;
-        padding: 60px 0;
+        padding: 50px 0;
         position: relative;
         z-index: 1;
       }
@@ -1055,6 +1069,7 @@
       @media (min-width: 768px) {
         .how-we-work-section {
           padding: 100px 0;
+          padding-top: 0px;
         }
       }
 
@@ -1087,15 +1102,15 @@
       /* Heading */
       .how-we-work-heading {
         font-weight: bold;
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 28px;
+        line-height: 1.3;
         /* color: var(--bs-body-color); */
       }
 
       @media (min-width: 768px) {
         .how-we-work-heading {
-          font-size: 45px;
-          line-height: 45px;
+          font-size: 32px;
+          line-height: 1.3;
         }
       }
 
@@ -1160,14 +1175,14 @@
     <section class="how-we-work-section">
       <div class="container">
         <!-- Heading -->
-        <div class="row justify-content-center mb-5">
+        <div class="row justify-content-center">
           <div
             class="col-lg-6 text-center"
             data-aos="zoom-in"
             data-aos-delay="500"
           >
-            <h2 class="how-we-work-heading mb-4">How We Work</h2>
-            <p class="how-we-work-subheading mb-4">
+            <h2 class="how-we-work-heading mb-2">How We Work</h2>
+            <p class="how-we-work-subheading">
               From capturing leads to delivering financial clarity, LedgerMen
               ensures a seamless journey for every client.
             </p>
@@ -1259,13 +1274,7 @@
         background-color: var(--bs-body-bg);
         color: var(--bs-body-color);
         position: relative;
-        padding: 60px 0;
-      }
-
-      @media (min-width: 768px) {
-        .testimonial-section {
-          padding: 100px 0;
-        }
+        /* padding: 60px 0; */
       }
 
       .gray .testimonial-section,
@@ -1335,12 +1344,20 @@
         opacity: 1;
         width: 50px;
       }
+      @media (min-width: 768px) {
+        .testimonial-section {
+          /* padding: 100px 0;
+          padding-top: 0px; */
+        }
+        .testimonial-heading {
+          font-size: 28px;
+          line-height: 1.3;
+        }
+      }
     </style>
     <section class="testimonial-section">
       <div class="container">
-        <div
-          class="row align-items-center justify-content-between mb-4 mb-md-5"
-        >
+        <div class="row align-items-center justify-content-between">
           <div
             class="col-12 text-center"
             data-aos="zoom-in"
@@ -1370,7 +1387,7 @@
                       <div class="d-flex align-items-center mb-4">
                         <div class="me-3">
                           <img
-                            src="https://cdn.easyfrontend.com/pictures/testimonial/testimonial_square_1.jpeg"
+                            src="https://tekalgo.com/new_images/ledgermen-about-test1.jpeg"
                             alt=""
                             class="img-fluid rounded-circle border"
                             width="85"
@@ -1401,7 +1418,7 @@
                       <div class="d-flex align-items-center mb-4">
                         <div class="me-3">
                           <img
-                            src="https://cdn.easyfrontend.com/pictures/testimonial/testimonial_square_2.jpeg"
+                            src="https://tekalgo.com/new_images/ledgermen-about-test2.jpeg"
                             alt=""
                             class="img-fluid rounded-circle border"
                             width="85"
@@ -1432,7 +1449,7 @@
                       <div class="d-flex align-items-center mb-4">
                         <div class="me-3">
                           <img
-                            src="https://cdn.easyfrontend.com/pictures/testimonial/testimonial_square_3.jpeg"
+                            src="https://tekalgo.com/new_images/ledgermen-about-test3.jpeg"
                             alt=""
                             class="img-fluid rounded-circle border"
                             width="85"
@@ -1466,7 +1483,7 @@
           <div class="col-lg-3 mt-4 mt-lg-0">
             <a href="index.html">
               <img
-                src="images/lederman--logo.png"
+                src="https://tekalgo.com/new_images/lederman--logo.png"
                 width="180px"
                 alt=""
                 style="margin-bottom: 16px"
@@ -1590,7 +1607,10 @@
         <div class="modal-content position-relative shadow-lg">
           <div class="modal-header">
             <div>
-              <img src="images/popup-contact-ledgerman.png" alt="" />
+              <img
+                src="https://tekalgo.com/new_images/popup-contact-ledgerman.png"
+                alt=""
+              />
             </div>
             <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
               Get In Touch <br />
