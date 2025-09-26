@@ -257,13 +257,15 @@
                 </li>
               </ul>
             </li>
+            <li><a href="./insights.html">Insights</a></li>
+            <li><a href="./success-story.html">Success Story</a></li>
 
             <li><a href="./contact.html">Contact</a></li>
           </ul>
         </div>
         <div>
           <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
-            <button>Book a Consultation</button>
+            <button class="animated-button">Book a Consultation</button>
           </a>
         </div>
       </nav>
@@ -344,8 +346,8 @@
 
       .hero-button {
         padding: 12px 25px;
-        background-color: #283851;
-        border-color: #283851;
+        /* background-color: #283851;
+        border-color: #283851; */
         color: #fff;
         box-shadow: var(--ezy-shadow);
         border-radius: 6px;
@@ -355,11 +357,11 @@
         margin: 0px auto;
       }
 
-      .hero-button:hover {
+      /* .hero-button:hover {
         background-color: #3b4d6a;
         border-color: #3b4d6a;
         color: white;
-      }
+      } */
 
       .hero-shape-1 {
         position: absolute;
@@ -431,7 +433,7 @@
           <div
             class="col-lg-6 pe-xl-5 text-center text-lg-start order-2 order-lg-1"
             data-aos="zoom-in"
-            data-aos-delay="500"
+            data-aos-delay="200"
           >
             <div class="hero-content-wrapper">
               <h2 class="hero-heading mb-4 mt-5 mt-lg-0">
@@ -444,7 +446,7 @@
               </p>
               <a
                 href="#"
-                class="hero-button fs-5 mt-2"
+                class="hero-button animated-button fs-5 mt-2"
                 data-bs-toggle="modal"
                 data-bs-target="#contactModal"
                 >Get Started</a
@@ -486,7 +488,7 @@
               alt=""
               class="rounded img-fluid hero-thumbnail position-relative"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             />
           </div>
         </div>
@@ -590,16 +592,16 @@
               alt="Ledgermen Services"
               class="img-fluid h-100"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             />
           </div>
-          <div class="col-12 col-lg-6" data-aos="zoom-in" data-aos-delay="500">
+          <div class="col-12 col-lg-6" data-aos="zoom-in" data-aos-delay="200">
             <h1 class="feature-section-heading">Your Trusted Partner</h1>
             <hr class="feature-section-divider" />
             <p
               class="feature-section-subheading"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               At Ledgermen, we simplify finance so you can focus on scaling your
               business. Our expert team delivers tailored accounting, tax
@@ -607,28 +609,28 @@
               global companies thrive in a dynamic world.
             </p>
             <ul class="nav flex-column feature-section-features mt-3">
-              <li data-aos="fade-up" data-aos-delay="500">
+              <li data-aos="fade-up" data-aos-delay="200">
                 <span class="fas fa-check text-primary me-2 mb-3 small"></span>
                 <span class="opacity-75 small">
                   End-to-end bookkeeping and financial reporting solutions.
                 </span>
               </li>
               <hr class="my-2" />
-              <li data-aos="fade-up" data-aos-delay="500">
+              <li data-aos="fade-up" data-aos-delay="200">
                 <span class="fas fa-check text-primary me-2 mb-3 small"></span>
                 <span class="opacity-75 small">
                   Expert tax filing and NRI compliance made seamless.
                 </span>
               </li>
               <hr class="my-2" />
-              <li data-aos="fade-up" data-aos-delay="500">
+              <li data-aos="fade-up" data-aos-delay="200">
                 <span class="fas fa-check text-primary me-2 mb-3 small"></span>
                 <span class="opacity-75 small">
                   Financial forecasting and strategic growth planning.
                 </span>
               </li>
               <hr class="my-2" />
-              <li data-aos="fade-up" data-aos-delay="500">
+              <li data-aos="fade-up" data-aos-delay="200">
                 <span class="fas fa-check text-primary me-2 mb-3 small"></span>
                 <span class="opacity-75 small">
                   Tailored solutions for startups, SaaS firms, and global
@@ -636,7 +638,7 @@
                 </span>
               </li>
               <hr class="my-2" />
-              <li data-aos="fade-up" data-aos-delay="500">
+              <li data-aos="fade-up" data-aos-delay="200">
                 <span class="fas fa-check text-primary me-2 small"></span>
                 <span class="opacity-75 small">
                   Transparent pricing and clear communication at every step.
@@ -665,7 +667,7 @@
         max-height: 100vh;
         display: flex;
         align-items: center;
-        padding-top: 80px;
+        padding-top: 20px;
       }
 
       #why-tekalgo .swiper-wrapper {
@@ -720,7 +722,7 @@
         align-items: stretch;
 
         color: black;
-        padding: 48px 40px;
+        padding: 20px;
         height: 100%;
         min-height: 100%;
         background-color: white;
@@ -810,6 +812,10 @@
       #why-tekalgo .swiper-slide:nth-child(6) .icon i {
         color: #ff1f1f;
       }
+      .custom-title {
+        font-size: 32px;
+        line-height: 1.3;
+      }
 
       @media (max-width: 992px) {
         #why-tekalgo {
@@ -819,10 +825,23 @@
         #why-tekalgo .swiper-wrapper {
           padding-bottom: 0px;
         }
+        .custom-title {
+          font-size: 28px;
+          line-height: 1.3;
+        }
       }
     </style>
     <section id="why-tekalgo" class="why-tekalgo">
       <div class="container" data-aos="zoom-in">
+        <div class="row">
+          <div class="col-lg-9 text-center mx-auto">
+            <h1 class="custom-title mb-2 text-white">Our Services</h1>
+            <p class="text-white">
+              Comprehensive financial services to guide your investments,
+              compliance, and growth.
+            </p>
+          </div>
+        </div>
         <div class="swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -1056,7 +1075,7 @@
             <div
               class="stats-content-wrapper"
               data-aos="zoom-in"
-              data-aos-delay="500"
+              data-aos-delay="200"
             >
               <h1 class="stats-heading mb-3">Key Numbers That Define Us</h1>
               <p class="stats-subheading">
@@ -1071,7 +1090,7 @@
               <div
                 class="card border-0 mb-3"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <div class="card-body p-2">
                   <h3 class="mb-1">97%</h3>
@@ -1085,7 +1104,7 @@
               <div
                 class="card border-0 mb-3"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <div class="card-body p-2">
                   <h3 class="mb-1">500+</h3>
@@ -1102,7 +1121,7 @@
               <div
                 class="card border-0 mb-3"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <div class="card-body p-2">
                   <h3 class="mb-1">95.5%</h3>
@@ -1116,7 +1135,7 @@
               <div
                 class="card border-0 mb-3"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="200"
               >
                 <div class="card-body p-2">
                   <h3 class="mb-1">20+</h3>
@@ -1139,7 +1158,7 @@
       </div>
 
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
+      <!-- <script>
         const ctx = document.getElementById("myChart").getContext("2d");
 
         const chart = new Chart(ctx, {
@@ -1190,6 +1209,76 @@
             },
           },
         });
+      </script> -->
+
+      <script>
+        // Flag to make sure chart is created only once
+        let chartCreated = false;
+
+        // Function to create the chart
+        function createChart() {
+          const ctx = document.getElementById("myChart").getContext("2d");
+
+          new Chart(ctx, {
+            type: "doughnut",
+            data: {
+              labels: [
+                "Returns Filed",
+                "Clients Served",
+                "Years of Expertise",
+                "Countries Served",
+              ],
+              datasets: [
+                {
+                  data: [1500, 500, 12, 20],
+                  backgroundColor: [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 205, 86)",
+                    "rgb(75, 192, 192)",
+                  ],
+                  borderColor: "#fff",
+                  borderWidth: 2,
+                  hoverOffset: 8,
+                },
+              ],
+            },
+            options: {
+              responsive: true,
+              animation: {
+                duration: 1500,
+              },
+              plugins: {
+                legend: { position: "bottom" },
+                tooltip: {
+                  callbacks: {
+                    label: function (context) {
+                      const label = context.label || "";
+                      const value = context.parsed;
+                      return ` ${value}+ ${label}`;
+                    },
+                  },
+                },
+              },
+            },
+          });
+        }
+
+        // Intersection Observer to detect when chart enters viewport
+        const chartSection = document.getElementById("myChart");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !chartCreated) {
+                createChart();
+                chartCreated = true; // Ensure it runs only once
+              }
+            });
+          },
+          { threshold: 0.5 }
+        ); // Trigger when 30% of canvas is visible
+
+        observer.observe(chartSection);
       </script>
     </section>
 
@@ -1309,7 +1398,11 @@
     <section class="home_testimonial">
       <div class="container position-relative">
         <div class="row justify-content-center">
-          <div class="col-12 col-lg-9 text-center">
+          <div
+            class="col-12 col-lg-9 text-center"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
             <h2 class="home_testimonial-heading mb-2">
               Some testimonials from our customers
             </h2>
@@ -1324,7 +1417,7 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-12">
             <div
               id="home_testimonial-controls"
@@ -1521,6 +1614,563 @@
       </div>
     </section>
 
+    <!-- FAQ  -->
+    <style>
+      .common-faq {
+        --ezy-item-bg: #fefefe;
+        --ezy-icon-bg: rgb(255, 255, 255);
+        color: var(--bs-body-color);
+        overflow: hidden;
+        padding: 60px 0;
+        padding-bottom: 40px;
+      }
+
+      .common-faq-heading {
+        font-weight: bolder;
+        font-size: 28px;
+        line-height: 1.3;
+      }
+
+      .common-faq .faq-header {
+        font-weight: 700 !important;
+        font-family: var(--heading-font);
+        opacity: 0.8 !important;
+        line-height: 1.3;
+        font-size: 16px;
+      }
+      @media (min-width: 768px) {
+        .common-faq-heading {
+          font-size: 32px;
+          line-height: 1.3;
+        }
+      }
+
+      .common-faq-item {
+        background-color: var(--ezy-item-bg);
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+      }
+
+      .common-faq-btn-collapse [class*="fa-"] {
+        transition: transform 0.25s ease-in-out;
+      }
+
+      .common-faq-btn-collapse:focus {
+        box-shadow: none;
+      }
+
+      .common-faq-btn-collapse.active [class*="fa-"],
+      .common-faq-btn-collapse[aria-expanded="true"] [class*="fa-"] {
+        transform: rotate(-180deg);
+      }
+
+      .common-faq-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--ezy-icon-bg);
+      }
+    </style>
+
+    <section class="common-faq">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 col-xl-7 text-center">
+            <h2 class="common-faq-heading mb-3">Frequently Asked Questions</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="accordion" id="faqAccordionLeft">
+              <!-- FAQ Item 1 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-1"
+                  role="button"
+                  aria-expanded="true"
+                  aria-controls="ezy-faq18-collapse-1"
+                >
+                  <h5 class="faq-header">
+                    Which accounting software do you use, and can you work with
+                    our existing systems?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse show"
+                  id="ezy-faq18-collapse-1"
+                  data-bs-parent="#faqAccordionLeft"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      We work with QuickBooks, Xero, FreshBooks, Wave, Sage, and
+                      other leading platforms. We can also adapt to your
+                      existing software and customize our services accordingly.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- FAQ Item 9 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-6"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-6"
+                >
+                  <h5 class="faq-header">
+                    Is there a long-term contract, or can I adjust services as
+                    needed?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-6"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      We offer flexible, month-to-month agreements and hourly
+                      agreements allowing you to scale services based on your
+                      business needs without long-term commitments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-2"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-2"
+                >
+                  <h5 class="faq-header">
+                    How does outsourced bookkeeping work, and how do you ensure
+                    accuracy?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-2"
+                  data-bs-parent="#faqAccordionLeft"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      We handle all bookkeeping tasks remotely using secure
+                      cloud-based accounting software. Our team follows strict
+                      quality control measures, regular reconciliations, and
+                      multi-level reviews to ensure accuracy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 3 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-3"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-3"
+                >
+                  <h5 class="faq-header">
+                    ow do you ensure data security and confidentiality?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-3"
+                  data-bs-parent="#faqAccordionLeft"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      We use encrypted connections, secure cloud storage, and
+                      follow strict non-disclosure agreements (NDAs) to
+                      safeguard your financial information.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- FAQ Item 8 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-6"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-6"
+                >
+                  <h5 class="faq-header">
+                    How do I get started with your bookkeeping and accounting
+                    services?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-6"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      Simply contact us, and our team will guide you through a
+                      seamless onboarding process, including data transfer,
+                      software setup, and workflow integration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="accordion" id="faqAccordionRight">
+              <!-- FAQ Item 4 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-4"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-4"
+                >
+                  <h5 class="faq-header">
+                    Will I lose control over my financial data if I outsource
+                    bookkeeping?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-4"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      No, you will always have real-time access to your
+                      financial reports. We work as an extension of your team,
+                      keeping you informed while handling routine financial
+                      tasks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 5 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-5"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-5"
+                >
+                  <h5 class="faq-header">
+                    Do you provide customized financial reports for better
+                    decision-making?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-5"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      Yes, we generate tailored financial reports, including
+                      cash flow statements, profit & loss reports, and
+                      management analysis, to help you make informed business
+                      decisions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 6 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-6"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-6"
+                >
+                  <h5 class="faq-header">
+                    What are the cost benefits of outsourcing bookkeeping and
+                    accounting?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-6"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      Outsourcing reduces overhead costs by eliminating expenses
+                      for in-house staff, training, payroll taxes, office space,
+                      and software licenses while ensuring expert financial
+                      management.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- FAQ Item 7 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-6"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-6"
+                >
+                  <h5 class="faq-header">
+                    How do I communicate with your team, and what is the
+                    response time?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-6"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      We provide dedicated account managers and communicate via
+                      email, Zoom, or phone. Our response time is quick,
+                      ensuring prompt support.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- FAQ Item 8 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-8"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-8"
+                >
+                  <h5 class="faq-header">
+                    Can I schedule regular financial check-ins with your team?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-8"
+                  data-bs-parent="#faqAccordionRight"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
+                      Yes, we offer flexible scheduling for monthly, quarterly,
+                      or custom financial review meetings to keep your business
+                      on track.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA  -->
+    <style>
+      .home-cta {
+        margin-top: 100px;
+        margin-bottom: 40px;
+      }
+      .site-cta-btn {
+        color: #fff;
+        padding: 12px 28px;
+        background: #283851;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px !important;
+        font-weight: 700;
+        position: relative;
+        cursor: pointer;
+        /* animation */
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+
+      /* scale up and down infinitely */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.03); /* slightly bigger */
+          box-shadow: 0 5px 25px 5px rgba(34, 133, 245, 0.35);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .site-cta-btn:hover {
+        color: #fff;
+        background-color: #3b4d6a;
+        border-color: #3b4d6a;
+      }
+      .home-cta input,
+      .home-cta textarea {
+        border-radius: 6px;
+        border: none;
+        padding: 10px;
+      }
+      .home-cta input::placeholder,
+      .home-cta textarea::placeholder {
+        font-size: 14px;
+      }
+      .home-cta input:focus,
+      .home-cta textarea:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    </style>
+    <div
+      class="container-fluid py-5 home-cta"
+      style="background-color: #eff4fd"
+    >
+      <div class="container">
+        <div class="row mb-2 text-center">
+          <div class="col-md-8 mx-auto">
+            <h2 class="common-faq-heading mb-3">
+              Get Your Instant Consultation
+            </h2>
+          </div>
+        </div>
+        <form action="">
+          <div class="row mb-3 d-flex justify-content-center">
+            <div class="col-md-4">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Enter Your Name"
+                class="w-100"
+                required
+              />
+            </div>
+            <div class="col-md-4">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter Your Email"
+                class="w-100"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row mb-3 d-flex justify-content-center">
+            <div class="col-md-8">
+              <textarea
+                name="message"
+                id="animatedTextarea"
+                placeholder="Enter Your Message"
+                rows="2"
+                class="w-100"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-4">
+            <div class="col-md-4 mb-2">
+              <button type="button" class="site-cta-btn w-100">Book Now</button>
+            </div>
+            <div class="col-md-4 mb-2">
+              <button type="button" class="site-cta-btn w-100">
+                Schedule an Instant Call
+              </button>
+            </div>
+          </div>
+        </form>
+        <script>
+          const textarea = document.getElementById("animatedTextarea");
+          const text =
+            "Please enter your message here, and our team will assist you within an hour..."; // placeholder text
+          let i = 0;
+          let forward = true;
+
+          function animatePlaceholder() {
+            if (forward) {
+              // typing forward
+              textarea.setAttribute("placeholder", text.substring(0, i + 1));
+              i++;
+              if (i === text.length) {
+                forward = false;
+                setTimeout(animatePlaceholder, 1000); // wait before deleting
+                return;
+              }
+            } else {
+              // deleting backward
+              textarea.setAttribute("placeholder", text.substring(0, i - 1));
+              i--;
+              if (i === 0) {
+                forward = true;
+              }
+            }
+            setTimeout(animatePlaceholder, 30); // speed of typing/deleting
+          }
+
+          // start animation
+          animatePlaceholder();
+        </script>
+      </div>
+    </div>
+
     <!-- footer  -->
     <section class="footer-section">
       <div class="container">
@@ -1553,6 +2203,33 @@
               <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
                 support@ledgermen.com
               </p>
+            </div>
+            <div>
+              <ul class="footer-social d-inline-flex nav mt-2">
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                    target="_blank"
+                    ><i class="fab fa-linkedin"></i
+                  ></a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.facebook.com/share/1AG5CotsDq/"
+                    target="_blank"
+                    ><i class="fab fa-facebook-square"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/ledgermenn/"
+                    target="_blank"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="col-lg-9">
@@ -1603,33 +2280,6 @@
               </div>
             </div>
 
-            <div>
-              <ul class="footer-social d-inline-flex nav mt-2">
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
-                    target="_blank"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://www.facebook.com/share/1AG5CotsDq/"
-                    target="_blank"
-                    ><i class="fab fa-facebook-square"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/ledgermenn/"
-                    target="_blank"
-                  >
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
             <div class="mt-3 opacity-50 footer-copyright">
               <span>Copyright &copy; Ledgermen, All rights reserved</span>
               <a class="ms-2" href="#">Terms & Conditions</a>
@@ -1679,7 +2329,7 @@
                   type="text"
                   class="form-control"
                   id="name"
-                  placeholder="Your Name"
+                  placeholder="Enter Your Name"
                   required
                   name="name"
                 />
@@ -1702,13 +2352,12 @@
 
                 <!-- Mobile Number Field -->
                 <div class="col-md-6 mb-3">
-                  <label for="mobile" class="form-label">Mobile No*</label>
+                  <label for="mobile" class="form-label">Mobile No</label>
                   <input
                     type="tel"
                     class="form-control"
                     id="mobile"
-                    placeholder="Enter 10 digit number"
-                    required
+                    placeholder="Enter Mob No."
                     name="mobile"
                   />
                   <div id="numberError" class="error-message"></div>
@@ -1717,13 +2366,12 @@
 
               <!-- Message Field -->
               <div class="mb-3">
-                <label for="message" class="form-label">Message*</label>
+                <label for="message" class="form-label">Message</label>
                 <textarea
                   class="form-control"
                   id="message"
                   rows="3"
                   placeholder="Tell us about your financial goals, questions, or how we can assist you..."
-                  required
                   name="message"
                 ></textarea>
               </div>

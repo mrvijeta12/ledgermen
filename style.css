@@ -92,9 +92,11 @@ p {
   font-size: 16px;
 }
 
-@media screen and (max-width: 772px) {
+@media screen and (max-width: 768px) {
   .social-links-wrapper {
     min-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   .company-details .email {
     display: none;
@@ -218,14 +220,17 @@ header {
   background-color: #3b4d6a;
   color: white !important;
 }
-
-@media screen and (max-width: 772px) {
-  .logo img {
-    width: 120px;
-  }
+@media screen and (max-width: 768px) {
   .navbar {
     min-width: 100%;
   }
+}
+
+@media screen and (max-width: 992px) {
+  .logo img {
+    width: 120px;
+  }
+
   .nav-links {
     position: absolute;
     flex-direction: column;
@@ -303,12 +308,12 @@ header {
 
   background-color: var(--bs-body-bg);
   color: var(--bs-body-color);
-  padding: 60px 0;
+  /* padding: 10px 0; */
 }
 
 @media (min-width: 768px) {
   .footer-section {
-    padding: 60px 0 100px 0;
+    padding: 60px 0 10px 0;
   }
 }
 
@@ -371,6 +376,9 @@ header {
 .footer-quick-links li a:hover {
   color: var(--bs-body-color);
   opacity: 1;
+}
+.footer-copyright {
+  margin-top: 30px !important;
 }
 
 .footer-copyright a {
@@ -909,4 +917,19 @@ button[type="submit"].btn:active {
 }
 .cta-subscribe-btn:hover {
   background-color: #f9db63 !important;
+}
+
+/* ANIMATED BUTTON  */
+.animated-button {
+  background: linear-gradient(to bottom left, #fecc00 50%, #3b4d6a 50%);
+  background-size: 200% 200%;
+  background-position: top right;
+  transition: background-position 0.3s ease-in-out;
+  color: #000 !important;
+  font-weight: 500;
+}
+
+.animated-button:hover {
+  background-position: bottom left;
+  color: #fff !important;
 }
