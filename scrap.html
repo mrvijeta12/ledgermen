@@ -1108,3 +1108,80 @@
     </div>
   </div>
 </section>
+
+<!-- CHART  -->
+<div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  // Flag to make sure chart is created only once
+  let chartCreated = false;
+
+  // Function to create the chart
+  function createChart() {
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Returns Filed",
+          "Clients Served",
+          "Years of Expertise",
+          "Countries Served",
+        ],
+        datasets: [
+          {
+            data: [1500, 500, 12, 20],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+            ],
+            borderColor: "#fff",
+            borderWidth: 2,
+            hoverOffset: 8,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+        },
+        plugins: {
+          legend: { position: "bottom" },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const label = context.label || "";
+                const value = context.parsed;
+                return ` ${value}+ ${label}`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  // Intersection Observer to detect when chart enters viewport
+  const chartSection = document.getElementById("myChart");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !chartCreated) {
+          createChart();
+          chartCreated = true; // Ensure it runs only once
+        }
+      });
+    },
+    { threshold: 0.5 }
+  ); // Trigger when 30% of canvas is visible
+
+  observer.observe(chartSection);
+</script>
