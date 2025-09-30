@@ -61,6 +61,10 @@ p {
 .logo {
   width: 150px;
 }
+.social-section-wrapper {
+  position: relative;
+  z-index: 1050;
+}
 .social-links a {
   display: flex;
   align-items: center;
@@ -91,6 +95,18 @@ p {
 .company-details strong {
   font-size: 16px;
 }
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.overlay.visible {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 @media screen and (max-width: 768px) {
   .social-links-wrapper {
@@ -114,6 +130,7 @@ header {
   transition: box-shadow 0.3s linear;
   box-shadow: none;
   z-index: 1050;
+  position: relative;
 }
 #header.fixed {
   position: fixed !important;
@@ -197,15 +214,7 @@ header {
 .dropdown.show i {
   transform: rotate(180deg);
 }
-.overlay {
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  display: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-}
+
 #header button {
   color: white;
   padding: 10px;

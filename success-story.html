@@ -172,7 +172,7 @@
     <!-- social icon  -->
 
     <div class="overlay" id="overlay"></div>
-    <div class="container-fluid py-2 bg-white border">
+    <div class="container-fluid py-2 bg-white border social-section-wrapper">
       <div class="container social-links-wrapper">
         <div class="company-details d-flex align-items-center">
           <strong class="me-md-5 mb-0"
@@ -1063,6 +1063,57 @@
         </div>
       </div>
     </div>
+
+    <!-- WHATSAPP  -->
+
+    <style>
+      .whatsapp-btn {
+        position: fixed;
+        right: 20px; /* Distance from the right side */
+        top: 50%; /* Vertical center */
+        transform: translateY(-50%); /* Adjust to true center */
+        background-color: #25d366; /* WhatsApp green */
+        color: white;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 3; /* Keep above other elements */
+        text-decoration: none;
+        font-size: 30px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .whatsapp-btn.show-icon {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #1ebe5d;
+      }
+    </style>
+
+    <a href="#" class="whatsapp-btn" target="">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <script>
+      const whatsAppBtn = document.querySelector(".whatsapp-btn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > window.innerHeight * 0.75) {
+          whatsAppBtn.classList.add("show-icon");
+        } else {
+          whatsAppBtn.classList.remove("show-icon");
+        }
+      });
+    </script>
+    <!-- WHATSAPP END  -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
