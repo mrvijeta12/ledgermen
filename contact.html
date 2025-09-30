@@ -266,7 +266,7 @@
 
       @media screen and (max-width: 992px) {
         .contact-hero-section {
-          margin-bottom: 650px;
+          /* margin-bottom: 650px; */
           /* border: 2px solid red; */
         }
       }
@@ -288,17 +288,26 @@
     <section class="contact-hero-section d-flex mt-5">
       <div class="container">
         <div class="row justify-content-between h-100">
-          <div class="col-lg-6 h-100 d-flex align-items-start">
+          <div
+            class="col-lg-6 d-flex align-items-start"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <img
               src="https://tekalgo.com/new_images/ledgermen-get-in-touch.jpg"
               alt=""
               class="img-fluid h-100"
+              style="border-radius: 20px"
             />
           </div>
-          <div class="col-lg-6" data-aos="fade-up-left" data-aos-delay="200">
+          <div
+            class="col-lg-6 mt-3 mt-lg-0"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <div class="row align-items-center h-100">
               <div class="col-12">
-                <div class="card contact-form-card">
+                <div class="card contact-form-card" style="border-radius: 20px">
                   <div class="card-body p-3">
                     <h2 class="contact-form-heading mb-3 fw-bold">
                       Get In Touch
@@ -343,46 +352,43 @@
                               </div>
                             </div> -->
 
-                            <div class="row">
-                              <div class="col-12 col-lg-6">
-                                <div class="form-group mb-4">
-                                  <label for="email" class="mb-2">Email*</label>
-                                  <input
-                                    type="email"
-                                    class="form-control"
-                                    id="email"
-                                    placeholder="Enter Your Email "
-                                    name="email"
-                                    required
-                                  />
-                                </div>
-                              </div>
-                              <div class="col-12 col-lg-6">
-                                <div class="form-group mb-4">
-                                  <label for="phone" class="mb-2"
-                                    >Contact Number</label
-                                  >
-                                  <input
-                                    type="tel"
-                                    class="form-control"
-                                    id="phone"
-                                    placeholder="Enter Mob No."
-                                    name="phone"
-                                  />
-                                </div>
+                            <div class="col-12 col-lg-6">
+                              <div class="form-group mb-4">
+                                <label for="email" class="mb-2">Email*</label>
+                                <input
+                                  type="email"
+                                  class="form-control"
+                                  id="email"
+                                  placeholder="Enter Your Email "
+                                  name="email"
+                                  required
+                                />
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-12">
-                                <label for="phone" class="mb-2">Message</label>
-                                <textarea
-                                  name="message"
-                                  id="animatedTextarea"
-                                  placeholder="Enter Your Message"
-                                  rows="4"
+                            <div class="col-12 col-lg-6">
+                              <div class="form-group mb-4">
+                                <label for="phone" class="mb-2"
+                                  >Contact Number</label
+                                >
+                                <input
+                                  type="tel"
                                   class="form-control"
-                                ></textarea>
+                                  id="phone"
+                                  placeholder="Enter Mob No."
+                                  name="phone"
+                                />
                               </div>
+                            </div>
+
+                            <div class="col-12">
+                              <label for="phone" class="mb-2">Message</label>
+                              <textarea
+                                name="message"
+                                id="animatedTextarea"
+                                placeholder="Enter Your Message"
+                                rows="4"
+                                class="form-control"
+                              ></textarea>
                             </div>
                           </div>
 
