@@ -292,37 +292,107 @@
     </section> -->
 
     <style>
-      .hero-back {
-        background: url(./images/dotted.png);
-        height: 100vh;
-        background-repeat: no-repeat;
-      }
       .animated-hero .row .col-md-3 {
         position: relative;
       }
+
       .animated-hero .animate-card-1 {
-        /* border: 2px solid black; */
-        margin-top: 210px;
-        margin-left: 10px;
+        padding-top: 260px;
+        padding-left: 25px;
         text-align: start;
       }
       .animated-hero .animate-card-2 {
-        /* border: 2px solid black; */
-        margin-top: 190px;
-        margin-left: 40px;
+        padding-top: 235px;
+        padding-left: 200px;
         text-align: start;
       }
       .animated-hero .animate-card-3 {
-        /* border: 2px solid black; */
-        margin-top: 125px;
-        margin-left: 50px;
+        padding-top: 155px;
+        padding-left: 220px;
         text-align: start;
       }
       .animated-hero .animate-card-4 {
-        /* border: 2px solid black; */
-        margin-top: 10px;
-        margin-left: 35px;
+        padding-top: 50px;
         text-align: start;
+        position: relative;
+        left: 40px;
+      }
+      @media (max-width: 1200px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 215px;
+          padding-left: 25px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-2 {
+          padding-top: 195px;
+          padding-left: 170px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-3 {
+          padding-top: 115px;
+          padding-left: 190px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-4 {
+          padding-top: 28px;
+          text-align: start;
+          position: relative;
+          left: 15px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 165px;
+          padding-left: 10px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-2 {
+          padding-top: 145px;
+          padding-left: 110px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-3 {
+          padding-top: 85px;
+          padding-left: 145px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-4 {
+          padding-top: 20px;
+          text-align: end;
+          position: relative;
+          left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 120px;
+          padding-left: 10px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-2 {
+          padding-top: 105px;
+          padding-left: 100px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-3 {
+          padding-top: 65px;
+          padding-left: 110px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-4 {
+          padding-top: 20px;
+          text-align: end;
+          position: relative;
+          left: 0;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .wrapper h2 {
+          font-size: 28px;
+        }
       }
     </style>
     <section class="container animated-hero">
@@ -334,30 +404,39 @@
           numbers you see below.
         </p>
       </div>
-
-      <div class="row text-center hero-back">
-        <div class="col-md-3 mb-4 border border-danger">
-          <div class="animate-card-1">
-            <h2 class="display-4 counter text-primary" data-target="120">0</h2>
-            <p class="fw-bold">Projects Completed</p>
-          </div>
+      <div class="position-relative wrapper">
+        <div class="w-100">
+          <img src="./images/dotted.png" alt="" class="w-100" />
         </div>
-        <div class="col-md-3 mb-4 border border-danger">
-          <div class="animate-card-2">
-            <h2 class="display-4 counter text-success" data-target="85">0</h2>
-            <p class="fw-bold">Clients Served</p>
+        <div class="w-100 d-flex position-absolute start-0 top-0 z-1">
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-1">
+              <h2 class="display-4 counter text-primary" data-target="120">
+                0
+              </h2>
+              <p class="fw-bold">Projects Completed</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-4 border border-danger">
-          <div class="animate-card-3">
-            <h2 class="display-4 counter text-warning" data-target="15">0</h2>
-            <p class="fw-bold">Years of Experience</p>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-2">
+              <h2 class="display-4 counter text-success" data-target="85">0</h2>
+              <p class="fw-bold">Clients Served</p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3 mb-4 border border-danger">
-          <div class="animate-card-4">
-            <h2 class="display-4 counter text-danger" data-target="50">0</h2>
-            <p class="fw-bold">Awards Won</p>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-3">
+              <h2 class="display-4 counter text-warning" data-target="15">0</h2>
+              <p class="fw-bold">Years of Experience</p>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-4">
+              <h2 class="display-4 counter text-danger" data-target="50">0</h2>
+              <p class="fw-bold">
+                Awards <br />
+                Won
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -383,563 +462,8 @@
       </script>
     </section>
 
-    <main>
-      <style>
-        .blog {
-          /* Bootstrap variables */
-          /* --bs-body-color: #28303b;
-          --bs-body-bg: #fff; */
-
-          /* easy frontend variables */
-          --ezy-theme-color: rgb(13, 110, 253);
-          --ezy-theme-color-rgb: 13, 110, 253;
-          --ezy-card-bg: #fff;
-          --ezy-card-shadow: 0 25px 41px rgba(89, 88, 109, 0.15);
-
-          background-color: var(--bs-body-bg);
-          padding: 0;
-        }
-
-        .blog .blog-wrapper {
-          padding: 60px 0;
-        }
-
-        @media (min-width: 768px) {
-          .blog .blog-wrapper {
-            padding: 60px 0 100px 0;
-          }
-        }
-        .blog-heading {
-          font-size: 28px;
-        }
-
-        /* .blog-sub-heading {
-         
-          font-size: 16px;
-          font-weight: 500;
-          line-height: 26px;
-          opacity: 0.8;
-        } */
-
-        @media (min-width: 768px) {
-          .blog-heading {
-            font-size: 32px;
-          }
-        }
-
-        .blog-post {
-          display: flex;
-          flex-direction: column; /* stack image and content vertically */
-          border-radius: 10px;
-          background-color: var(--ezy-card-bg);
-          box-shadow: var(--ezy-card-shadow);
-          overflow: hidden;
-          height: 100%; /* ensure it fills parent column */
-        }
-        .blog-post .blog-content {
-          flex: 1; /* stretch content to fill remaining height */
-          display: flex;
-          flex-direction: column; /* stack author, title, description, button */
-          justify-content: space-between; /* push button to bottom */
-        }
-
-        .blog-calendar {
-          background-color: var(--ezy-card-bg);
-          /* color: var(--bs-body-color); */
-          font-weight: 900;
-          font-size: 18px;
-          line-height: 24px;
-          border-radius: 10px;
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          opacity: 0.85;
-        }
-
-        .blog-author {
-          /* color: var(--bs-body-color) !important; */
-          font-weight: 300;
-          font-size: 14px;
-          line-height: 24px;
-          margin-bottom: 0;
-        }
-
-        .blog-title {
-          font-weight: 500;
-          margin-top: 0 !important;
-          /* color: var(--bs-body-color); */
-        }
-
-        .blog-description {
-          color: var(--bs-body-color);
-          opacity: 0.6;
-        }
-
-        .blog-btn {
-          padding: 12px 30px;
-          font-weight: bold;
-          color: #ffffff;
-          /* background-color: var(--ezy-theme-color); */
-          /* border-color: var(--ezy-theme-color); */
-        }
-
-        .blog-btn:hover {
-          color: #ffffff;
-          background-color: rgba(var(--ezy-theme-color-rgb), 0.9);
-        }
-
-        .blog-btn-read-more {
-          /* all: unset; */
-          padding: 7px 20px;
-          /* color: var(--bs-body-color); */
-          /* border-color: var(--ezy-theme-color); */
-          width: fit-content;
-          background-color: #283851;
-          color: white;
-          border-radius: 6px;
-          cursor: pointer;
-          border: none;
-        }
-
-        .blog-btn-read-more:hover {
-          background-color: #3b4d6a;
-          color: #ffffff;
-        }
-
-        .blog-author a {
-          color: var(--ezy-theme-color);
-        }
-        /* .blog .blog-post button {
-          background-color: red;
-          all: unset;
-        } */
-      </style>
-      <section class="blog">
-        <div class="blog-wrapper">
-          <div class="container">
-            <div class="row" data-aos="zoom-in" data-aos-delay="200">
-              <div class="col-lg-9 mx-auto">
-                <h2 class="blog-heading mb-3 mt-0 text-center">
-                  Client Success Stories
-                </h2>
-              </div>
-            </div>
-            <div class="row mt-2 d-flex align-items-stretch">
-              <!-- Success Story 1 -->
-              <div
-                class="col-12 col-md-6 col-lg-4 mb-3"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <article class="blog-post h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.pexels.com/photos/5945806/pexels-photo-5945806.jpeg"
-                      alt="Startup Accounting"
-                      class="img-fluid w-100 ezy-blog7-banner"
-                    />
-                  </div>
-                  <div class="p-3 blog-content">
-                    <h4 class="mt-1 blog-title fs-4">
-                      Streamlining Startup Finances
-                    </h4>
-                    <p class="blog-description mb-2">
-                      Ledgermen helped a tech startup implement structured
-                      bookkeeping and cash flow management, enabling them to
-                      scale operations efficiently.
-                    </p>
-                    <button
-                      type="button"
-                      class="blog-btn-read-more animated-button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#startupFinancesModal"
-                    >
-                      Read More
-                    </button>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Success Story 2 -->
-              <div
-                class="col-12 col-md-6 col-lg-4 mb-3"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <article class="blog-post h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://images.pexels.com/photos/6963017/pexels-photo-6963017.jpeg"
-                      alt="Financial Advisory"
-                      class="img-fluid w-100 ezy-blog7-banner"
-                    />
-                  </div>
-                  <div class="p-3 blog-content">
-                    <h4 class="mt-1 blog-title fs-4">
-                      Maximizing Tax Efficiency
-                    </h4>
-                    <p class="blog-description mb-2">
-                      Our expert advisory services helped a mid-sized company
-                      optimize their tax strategy, reducing liabilities and
-                      increasing profitability.
-                    </p>
-                    <button
-                      type="button"
-                      class="blog-btn-read-more animated-button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#startupFinancesModal"
-                    >
-                      Read More
-                    </button>
-                  </div>
-                </article>
-              </div>
-
-              <!-- Success Story 3 -->
-              <div
-                class="col-12 col-md-6 col-lg-4 mb-3"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <article class="blog-post h-100">
-                  <div class="position-relative">
-                    <img
-                      src="https://cdn.easyfrontend.com/pictures/blog/blog_9.jpg"
-                      alt="Bookkeeping Services"
-                      class="img-fluid w-100 ezy-blog7-banner"
-                    />
-                  </div>
-                  <div class="p-3 blog-content">
-                    <h4 class="mt-1 blog-title fs-4">
-                      Enhancing Financial Accuracy
-                    </h4>
-                    <p class="blog-description mb-2">
-                      With Ledgermen’s bookkeeping services, a growing business
-                      gained accurate financial reporting, enabling better
-                      strategic decisions and investor confidence.
-                    </p>
-                    <button
-                      type="button"
-                      class="blog-btn-read-more animated-button"
-                      data-bs-toggle="modal"
-                      data-bs-target="#startupFinancesModal"
-                    >
-                      Read More
-                    </button>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Modal -->
-      <!-- <style>
-        .modal .btn-close {
-          background-color: transparent;
-          color: white !important;
-        }
-      </style> -->
-      <style>
-        .modal-title {
-          margin-bottom: 0 !important;
-          margin-top: 0px;
-          line-height: var(--bs-modal-title-line-height);
-          color: white;
-        }
-        /* .modal.show .modal-dialog {
-          max-height: 80vh;
-          overflow-y: auto;
-        } */
-      </style>
-      <div
-        class="modal fade"
-        id="startupFinancesModal"
-        tabindex="-1"
-        aria-labelledby="startupFinancesModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="startupFinancesModalLabel">
-                Streamlining Startup Finances
-              </h5>
-              <button
-                type="button"
-                class="btn-close btn-close-white"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <p>
-                <strong>Client Overview:</strong> A tech startup with rapid
-                growth potential but struggling with unorganized financial
-                records, inconsistent cash flow, and difficulty making strategic
-                decisions due to lack of clarity in their accounting systems.
-              </p>
-
-              <p>
-                <strong>Challenges:</strong>
-              </p>
-              <ul>
-                <li>
-                  Poor bookkeeping practices leading to missing or inconsistent
-                  financial data.
-                </li>
-                <li>
-                  Lack of structured cash flow management causing liquidity
-                  issues during rapid expansion.
-                </li>
-                <li>
-                  Difficulty in preparing accurate financial reports for
-                  investors and stakeholders.
-                </li>
-                <li>
-                  High risk of non-compliance with local tax and regulatory
-                  requirements.
-                </li>
-              </ul>
-
-              <p>
-                <strong>How Ledgermen Addressed the Problem:</strong>
-              </p>
-              <ul>
-                <li>
-                  Implemented a structured and automated bookkeeping system
-                  tailored to the startup’s needs.
-                </li>
-                <li>
-                  Designed a robust cash flow management framework with
-                  forecasting to prevent liquidity issues.
-                </li>
-                <li>
-                  Generated monthly, detailed financial reports and dashboards
-                  to provide management with actionable insights.
-                </li>
-                <li>
-                  Ensured full compliance with all local accounting and tax
-                  regulations, minimizing legal and financial risk.
-                </li>
-                <li>
-                  Provided strategic advisory sessions to optimize operational
-                  costs and support sustainable growth.
-                </li>
-              </ul>
-
-              <p>
-                <strong>Results:</strong>
-              </p>
-              <ul>
-                <li>
-                  Achieved full financial transparency, enabling informed
-                  decision-making by founders and investors.
-                </li>
-                <li>
-                  Improved cash flow stability, allowing the startup to scale
-                  without financial disruptions.
-                </li>
-                <li>
-                  Reduced accounting errors and eliminated missed deadlines for
-                  statutory filings.
-                </li>
-                <li>
-                  Enabled a successful funding round by presenting clear and
-                  accurate financial records to investors.
-                </li>
-                <li>
-                  Overall operational efficiency increased, setting a foundation
-                  for long-term growth.
-                </li>
-              </ul>
-
-              <p>
-                Ledgermen’s intervention not only solved immediate financial
-                challenges but also equipped the startup with scalable systems
-                and processes for future success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- cta  -->
-      <style>
-        .site-cta {
-          --bs-body-bg: rgb(255, 255, 255);
-
-          --ezy-theme-color: rgb(13, 110, 253);
-          --ezy-theme-color-rgb: 13, 110, 253;
-          --ezy-form-card-bg: #eff4fd;
-
-          background-color: var(--bs-body-bg);
-          overflow: hidden;
-          margin-bottom: 40px;
-        }
-        /* @media screen and (max-width: 992px) {
-        .site-cta-form-card-media img {
-          height: 400px;
-        }
-      } */
-
-        @media (min-width: 992px) {
-          .site-cta {
-            padding-bottom: 80px;
-          }
-        }
-
-        .site-cta-heading {
-          font-weight: bold;
-          font-size: 25px;
-          /* line-height: 1.5; */
-        }
-
-        @media (min-width: 768px) {
-          .site-cta-heading {
-            font-size: 40px;
-            line-height: 40px;
-            /* line-height: 1.3; */
-          }
-        }
-
-        .site-cta-sub-heading {
-          font-size: 18px;
-          line-height: 28px;
-          opacity: 0.8;
-          color: white;
-        }
-
-        .site-cta-form-card {
-          background-color: var(--ezy-form-card-bg);
-          border-radius: 30px;
-          overflow: hidden;
-        }
-        .site-cta {
-          background: url("https://images.pexels.com/photos/3153201/pexels-photo-3153201.jpeg");
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          padding: 40px 0px;
-          position: relative; /* needed for pseudo-element positioning */
-          color: #fff; /* ensures text is readable */
-        }
-
-        .site-cta::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.7); /* black overlay */
-          z-index: 1; /* sits above the image but below content */
-          border-radius: inherit; /* optional if your card has rounded corners */
-        }
-
-        .site-cta > * {
-          position: relative;
-          z-index: 2; /* ensures content sits above overlay */
-        }
-
-        .site-cta-form-card-media {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .site-cta .form-control {
-          min-height: 48px;
-          line-height: 26px;
-          border: none;
-          background: rgba(255, 255, 255, 1);
-        }
-
-        .site-cta .form-control:focus {
-          box-shadow: none;
-        }
-
-        .site-cta .btn-outline-primary {
-          padding: 12px 30px;
-          min-width: 110px;
-          height: 48px;
-          background-color: transparent;
-          border-color: var(--ezy-theme-color);
-        }
-        .site-cta-btn {
-          color: #fff;
-          padding: 12px 28px;
-          background: #283851;
-          border: none;
-          border-radius: 6px;
-          font-size: 16px !important;
-          font-weight: 700;
-          position: relative;
-          cursor: pointer;
-          transform-origin: center;
-          display: inline-block;
-          /* animation */
-          animation: pulse 1s ease-in-out infinite;
-        }
-
-        /* scale up and down infinitely */
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.04); /* slightly bigger */
-            box-shadow: 0 5px 25px 5px rgba(34, 133, 245, 0.35);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-        .site-cta-btn:hover {
-          color: #fff;
-          background-color: #3b4d6a;
-          border-color: #3b4d6a;
-        }
-      </style>
-      <section class="site-cta container-fluid">
-        <div class="row m-0" data-aos="zoom-in" data-aos-delay="200">
-          <!-- src="https://tekalgo.com/new_images/service-cta.png" -->
-          <!-- <div class="col-lg-6 site-cta-form-card-media text-center p-3">
-      <img
-        src="https://images.pexels.com/photos/3153201/pexels-photo-3153201.jpeg"
-        alt=""
-        class="img-fluid"
-      />
-    </div> -->
-          <div class="col-lg-6 p-0 mx-auto text-center">
-            <div class="d-flex align-items-center h-100 py-5 px-4 px-sm-5">
-              <div>
-                <p class="site-cta-sub-heading mb-5">
-                  Inspired by our client success stories? Partner with Ledgermen
-                  to optimize your financial operations and achieve measurable
-                  growth. Whether you need expert bookkeeping, tax advisory, or
-                  full-service accounting solutions, we can craft a plan
-                  tailored to your business needs.
-                </p>
-
-                <div>
-                  <a
-                    href="#"
-                    class="site-cta-btn fs-5 mt-2"
-                    data-bs-toggle="modal"
-                    data-bs-target="#contactModal"
-                  >
-                    Request Your Free Consultation
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
     <!-- footer  -->
-    <section class="footer-section">
+    <section class="footer-section" style="margin-top: 100px">
       <div class="container">
         <div class="row text-start text-sm-start">
           <div class="col-lg-3 mt-4 mt-lg-0">

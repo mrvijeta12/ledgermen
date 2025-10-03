@@ -74,15 +74,6 @@
         --gradient-end: #3b4d6a;
       }
     </style>
-    <!-- Favicons -->
-    <link
-      href="https://tekalgo.com/new_images/ledgermen_favicon.png"
-      rel="icon"
-    />
-    <link
-      href="https://tekalgo.com/new_images/ledgermen_apple_touch_icon.png"
-      rel="apple-touch-icon"
-    />
 
     <!-- Bootstrap CSS  -->
     <link
@@ -187,7 +178,7 @@
     <!-- social icon  -->
 
     <div class="overlay" id="overlay"></div>
-    <div class="container-fluid py-2 bg-white border social-section-wrapper">
+    <div class="container-fluid py-2 bg-white border">
       <div class="container social-links-wrapper">
         <div class="company-details d-flex align-items-center">
           <strong class="me-md-5 mb-0"
@@ -231,8 +222,8 @@
         </div>
         <div>
           <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html" class="">Home</a></li>
-            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
             <!-- <li><a href="./our-services.html"></a></li> -->
             <li class="dropdown">
               <a href="#"
@@ -249,9 +240,7 @@
                   >
                 </li>
                 <li>
-                  <a href="financial-planning-analysis.html"
-                    >Financial Planning & Analysis</a
-                  >
+                  <a href="financial-planning.html">Financial Planning</a>
                 </li>
                 <li>
                   <a href="global-tax-advisory.html">Global Tax Advisory</a>
@@ -261,13 +250,15 @@
                     >NRI Taxation & Financial Services</a
                   >
                 </li>
-                <!-- <li>
+                <li>
                   <a href="company-registration.html">Company Registration</a>
-                </li> -->
+                </li>
               </ul>
             </li>
-            <!-- <li><a href="./insights.html">Insights</a></li> -->
-            <li><a href="./success-story.html">Success Story</a></li>
+            <li><a href="./insights.html">Insights</a></li>
+            <li>
+              <a href="./success-story.html" class="current">Success Story</a>
+            </li>
 
             <li><a href="./contact.html">Contact</a></li>
           </ul>
@@ -282,11 +273,9 @@
 
     <!-- HERO  -->
 
-    <section
+    <!-- <section
       class="hero__servicesCommon light"
-      style="
-        background-image: url(https://images.pexels.com/photos/6964138/pexels-photo-6964138.jpeg);
-      "
+      style="background-image: url(./images/dotted.png)"
     >
       <div class="container z-3 position-relative">
         <div class="row justify-content-center text-center">
@@ -295,455 +284,222 @@
               class="hero__servicesCommon-heading text-white"
               id="service-heading"
             >
-              Strategies for Long-Term Wealth Management
+              Transforming Finances Into Strategic Advantage
             </h1>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <main>
-      <style>
-        .insight {
-          /* Bootstrap variables */
-          --bs-body-bg: rgb(255, 255, 255);
+    <style>
+      .hero-back {
+        /* background: url(./images/dotted.png);
+          height: 100vh;
+          background-repeat: no-repeat; */
+      }
+      .animated-hero .row .col-md-3 {
+        position: relative;
+      }
+      .wrapper {
+        max-width: 100%;
+      }
 
-          /* Easy Frontend variables */
-          --ezy-theme-color: rgb(13, 110, 253);
-          --ezy-theme-color-rgb: 13, 110, 253;
-          --ezy-blog-top-color: #21252d;
-
-          background-color: var(--bs-body-bg);
-          color: var(--bs-body-color);
-          overflow: hidden;
-          padding: 60px 0;
+      .animated-hero .animate-card-1 {
+        padding-top: 260px;
+        padding-left: 25px;
+        text-align: start;
+      }
+      .animated-hero .animate-card-2 {
+        padding-top: 235px;
+        padding-left: 200px;
+        text-align: start;
+      }
+      .animated-hero .animate-card-3 {
+        padding-top: 155px;
+        padding-left: 220px;
+        text-align: start;
+      }
+      .animated-hero .animate-card-4 {
+        padding-top: 50px;
+        text-align: start;
+        position: relative;
+        left: 40px;
+      }
+      @media (max-width: 1200px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 215px;
+          padding-left: 25px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-2 {
+          padding-top: 195px;
+          padding-left: 170px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-3 {
+          padding-top: 115px;
+          padding-left: 190px;
+          text-align: start;
+        }
+        .animated-hero .animate-card-4 {
+          padding-top: 28px;
+          text-align: start;
           position: relative;
+          left: 15px;
         }
-        .insight-item {
-          cursor: pointer;
+      }
+
+      @media (max-width: 992px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 165px;
+          padding-left: 10px;
+          text-align: start;
         }
-        .insight-item span {
-          color: rgb(50, 62, 80) !important;
+        .animated-hero .animate-card-2 {
+          padding-top: 145px;
+          padding-left: 110px;
+          text-align: start;
         }
-
-        @media (min-width: 768px) {
-          .insight {
-            padding: 100px 0;
-          }
+        .animated-hero .animate-card-3 {
+          padding-top: 85px;
+          padding-left: 145px;
+          text-align: start;
         }
-
-        .insight-heading {
-          font-weight: 700;
-          font-size: 25px;
-          line-height: 1;
+        .animated-hero .animate-card-4 {
+          padding-top: 20px;
+          text-align: end;
+          position: relative;
+          left: 0;
         }
+      }
 
-        @media (min-width: 768px) {
-          .insight-heading {
-            font-size: 45px;
-          }
+      @media (max-width: 768px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 120px;
+          padding-left: 10px;
+          text-align: start;
         }
-
-        .insight-social a {
-          color: var(--bs-body-color);
-          font-size: 22px;
+        .animated-hero .animate-card-2 {
+          padding-top: 105px;
+          padding-left: 100px;
+          text-align: start;
         }
-
-        /* sidebar */
-        .insight-top {
-          background-color: var(--ezy-blog-top-color);
-          color: #fff;
-          border-radius: 10px 10px 0 0;
+        .animated-hero .animate-card-3 {
+          padding-top: 65px;
+          padding-left: 110px;
+          text-align: start;
         }
-
-        .insight hr {
-          color: var(--ezy-theme-color);
+        .animated-hero .animate-card-4 {
+          padding-top: 20px;
+          text-align: end;
+          position: relative;
+          left: 0;
         }
-
-        /* Content style */
-        /* .insight-content,
-        .insight-content p {
-          color: var(--bs-body-color);
-          font-size: 16px;
-          line-height: 25px;
-          opacity: 0.8;
-        } */
-      </style>
-      <section class="insight" id="insight">
-        <div class="container">
-          <!-- <div class="row">
-            <div class="col-12 col-md-8">
-              <h1 class="insight-heading mb-5">
-                Strategies for Long-Term Wealth Management
-              </h1>
-            </div>
-          </div> -->
-          <div class="row">
-            <div class="col-12 col-md-8">
-              <img
-                src="https://cdn.easyfrontend.com/pictures/blog/blog_3.jpg"
-                alt="Wealth Management"
-                class="img-fluid rounded"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              />
-              <div class="d-flex justify-content-between my-5 me-5">
-                <div
-                  class="d-flex align-items-center"
-                  data-aos="zoom-in"
-                  data-aos-delay="200"
-                >
-                  <div class="me-2">
-                    <img
-                      src="https://cdn.easyfrontend.com/pictures/testimonial/testimonial_square_1.jpeg"
-                      alt="Author"
-                      class="img-fluid rounded-circle border"
-                      width="47"
-                    />
-                  </div>
-                  <div>
-                    <p class="mb-0">By <b>Alex Morgan</b></p>
-                  </div>
-                  <p class="mb-0 ms-3">January 15th, 2024</p>
-                </div>
-                <div
-                  class="insight-social"
-                  data-aos="zoom-in"
-                  data-aos-delay="200"
-                >
-                  <ul class="nav ezy__footer13_vZyfysIX-quick-links">
-                    <a href="#"><i class="fab fa-facebook me-3"></i></a>
-                    <a href="#"><i class="fab fa-instagram me-3"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in me-3"></i></a>
-                    <a href="#"><i class="fab fa-twitter me-3"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp me-3"></i></a>
-                  </ul>
-                </div>
-              </div>
-              <div
-                class="insight-content"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <p>
-                  Long-term wealth management is about creating a structured
-                  plan to grow, protect, and preserve your assets over time. It
-                  requires a strategic approach to investing, risk management,
-                  and financial planning.
-                </p>
-                <p>
-                  In this article, we explore the key strategies that can help
-                  you achieve long-term financial stability and growth.
-                </p>
-
-                <br />
-                <h5>1. Diversify Your Investments</h5>
-                <p>
-                  Spreading investments across multiple asset classes—stocks,
-                  bonds, real estate, and alternative investments—reduces risk
-                  and improves the potential for consistent returns.
-                </p>
-
-                <br />
-                <h5>2. Establish an Emergency Fund</h5>
-                <p>
-                  Maintaining 3-6 months of living expenses in a liquid account
-                  protects you from unexpected financial shocks and ensures your
-                  long-term investment strategy remains intact.
-                </p>
-
-                <br />
-                <h5>3. Focus on Tax-Efficient Strategies</h5>
-                <p>
-                  Utilize tax-advantaged accounts such as retirement plans,
-                  ISAs, or tax-deferred investment vehicles to maximize wealth
-                  accumulation while minimizing tax liabilities.
-                </p>
-
-                <br />
-                <h5>4. Monitor and Rebalance Your Portfolio</h5>
-                <p>
-                  Regularly reviewing your investments and rebalancing according
-                  to risk tolerance and market conditions helps maintain your
-                  desired asset allocation and long-term growth trajectory.
-                </p>
-
-                <br />
-                <h5>5. Plan for Retirement Early</h5>
-                <p>
-                  Starting early with retirement contributions allows compound
-                  interest to work in your favor, ensuring financial security in
-                  later years.
-                </p>
-
-                <br />
-                <h5>6. Seek Professional Financial Advice</h5>
-                <p>
-                  Consulting with certified financial planners or wealth
-                  management professionals can provide personalized strategies,
-                  risk assessments, and investment guidance tailored to your
-                  goals.
-                </p>
-
-                <br />
-                <h5>7. Review Estate Planning</h5>
-                <p>
-                  Establishing wills, trusts, and other estate planning
-                  instruments ensures your wealth is preserved and transferred
-                  according to your wishes, reducing potential legal or tax
-                  complications for heirs.
-                </p>
-              </div>
-            </div>
-
-            <!-- RECENT BLOG  -->
-
-            <div
-              class="col-12 col-md-4"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <div class="insight-top py-4 px-3 mb-4">
-                <h5 class="mb-0 text-white">Recent Blogs</h5>
-              </div>
-
-              <!-- Blog item 1 -->
-              <a href="#" style="text-decoration: none">
-                <div
-                  class="insight-item d-flex justify-content-between align-items-start mb-4"
-                >
-                  <img
-                    src="https://cdn.easyfrontend.com/pictures/blog/blog_12_2.png"
-                    alt="Market Insights"
-                    class="img-fluid rounded"
-                  />
-                  <div class="ms-3">
-                    <h6>Understanding Market Volatility</h6>
-                    <div class="d-flex flex-wrap opacity-50">
-                      <span class="me-3">Feb 28</span>
-                      <span>By <b>Samantha Lee</b></span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- Blog item 2 -->
-              <a href="#" style="text-decoration: none">
-                <div
-                  class="insight-item d-flex justify-content-between align-items-start mb-4"
-                >
-                  <img
-                    src="https://cdn.easyfrontend.com/pictures/blog/blog_12_3.png"
-                    alt="Investment Tips"
-                    class="img-fluid rounded"
-                  />
-                  <div class="ms-3">
-                    <h6>Tax-Efficient Investment Strategies</h6>
-                    <div class="d-flex flex-wrap opacity-50">
-                      <span class="me-3">Mar 10</span>
-                      <span>By <b>David Kim</b></span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- Blog item 3 -->
-              <a href="#" style="text-decoration: none">
-                <div
-                  class="insight-item d-flex justify-content-between align-items-start mb-4"
-                >
-                  <img
-                    src="https://cdn.easyfrontend.com/pictures/blog/blog_12_4.png"
-                    alt="Retirement Planning"
-                    class="img-fluid rounded"
-                  />
-                  <div class="ms-3">
-                    <h6>Planning for a Secure Retirement</h6>
-                    <div class="d-flex flex-wrap opacity-50">
-                      <span class="me-3">Jan 20</span>
-                      <span>By <b>Alex Morgan</b></span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- Blog item 4 -->
-              <a href="#" style="text-decoration: none">
-                <div
-                  class="insight-item d-flex justify-content-between align-items-start mb-4"
-                >
-                  <img
-                    src="https://cdn.easyfrontend.com/pictures/blog/blog_12_5.png"
-                    alt="Wealth Preservation"
-                    class="img-fluid rounded"
-                  />
-                  <div class="ms-3">
-                    <h6>Wealth Preservation Strategies</h6>
-                    <div class="d-flex flex-wrap opacity-50">
-                      <span class="me-3">Jan 15</span>
-                      <span>By <b>Alex Morgan</b></span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- cta  -->
-      <style>
-        .site-cta {
-          --bs-body-bg: rgb(255, 255, 255);
-
-          --ezy-theme-color: rgb(13, 110, 253);
-          --ezy-theme-color-rgb: 13, 110, 253;
-          --ezy-form-card-bg: #eff4fd;
-
-          background-color: var(--bs-body-bg);
-          /* overflow: hidden; */
-          padding-bottom: 80px;
+      }
+      @media (max-width: 360px) {
+        .animated-hero .animate-card-1 {
+          padding-top: 80px;
+          padding-left: 0px;
+          text-align: start;
         }
-        @media screen and (max-width: 992px) {
-          .site-cta-form-card-media img {
-            height: 400px;
-          }
+        .animated-hero .animate-card-2 {
+          padding-top: 70px;
+          padding-left: 50px;
+          text-align: start;
         }
-
-        @media (min-width: 992px) {
-          .site-cta {
-          }
+        .animated-hero .animate-card-3 {
+          padding-top: 48px;
+          padding-left: 55px;
+          text-align: start;
         }
+        .animated-hero .animate-card-4 {
+          padding-top: 20px;
+          text-align: end;
+          position: relative;
+          left: 0;
+        }
+        .wrapper h2 {
+          font-size: 20px;
+        }
+        .wrapper p {
+          font-size: 14px;
+        }
+      }
 
-        .site-cta-heading {
-          font-weight: bold;
+      @media (max-width: 992px) {
+        .wrapper h2 {
           font-size: 28px;
-          line-height: 1.5;
         }
-
-        @media (min-width: 768px) {
-          .site-cta-heading {
-            font-size: 32px;
-            line-height: 40px;
-            line-height: 1.3;
-          }
-        }
-
-        .site-cta-sub-heading {
-          font-size: 18px;
-          line-height: 28px;
-
-          opacity: 0.8;
-        }
-
-        .site-cta-form-card {
-          background-color: var(--ezy-form-card-bg);
-          border-radius: 30px;
-          overflow: hidden;
-        }
-
-        .site-cta-form-card-media {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .site-cta .form-control {
-          min-height: 48px;
-          line-height: 26px;
-          border: none;
-          background: rgba(255, 255, 255, 1);
-        }
-
-        .site-cta .form-control:focus {
-          box-shadow: none;
-        }
-
-        .site-cta .btn-outline-primary {
-          padding: 12px 30px;
-          min-width: 110px;
-          height: 48px;
-          background-color: transparent;
-          border-color: var(--ezy-theme-color);
-        }
-
-        .site-cta-btn {
-          color: #fff;
-          padding: 12px 28px;
-          background: #283851;
-          border: none;
-          border-radius: 6px;
-          font-size: 16px !important;
-          font-weight: 700;
-          position: relative;
-          cursor: pointer;
-          transform-origin: center;
-          display: inline-block;
-          /* animation */
-          animation: pulse 1s ease-in-out infinite;
-        }
-
-        /* scale up and down infinitely */
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.04); /* slightly bigger */
-            box-shadow: 0 5px 25px 5px rgba(34, 133, 245, 0.35);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
-
-        .site-cta-btn:hover {
-          color: #fff;
-          background-color: #3b4d6a;
-          border-color: #3b4d6a;
-        }
-      </style>
-      <section class="site-cta" data-aos="zoom-in" data-aos-delay="200">
-        <div class="container">
-          <div class="site-cta-form-card">
-            <div class="row m-0">
-              <div class="col-lg-8 p-0 mx-auto">
-                <div class="d-flex align-items-center h-100 py-5 px-4 px-sm-5">
-                  <div class="d-flex flex-column text-center">
-                    <!-- <h2 class="site-cta-heading">
-                    Drive Smarter Decisions with FP&A-Focused Analytics
-                  </h2> -->
-                    <p class="site-cta-sub-heading mb-5">
-                      Gain actionable insights from our latest articles and
-                      success stories. Partner with our senior-led team to
-                      streamline accounting, ensure compliance, and make
-                      informed financial decisions. Request your tailored
-                      assessment and accelerate your growth with confidence
-                      today.
-                    </p>
-
-                    <div>
-                      <a
-                        href="#"
-                        class="site-cta-btn fs-5 mt-2"
-                        data-bs-toggle="modal"
-                        data-bs-target="#contactModal"
-                      >
-                        Schedule a Free Consultation</a
-                      >
-                      <!-- <button class="btn site-cta-btn">
-                      Schedule a Free Consultation
-                    </button> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
+      }
+    </style>
+    <section class="container animated-hero">
+      <div class="row">
+        <h2>10+ Years of Success</h2>
+        <p>
+          Ledgermen partnered with multiple startups, helping them overcome
+          critical financial challenges. Our success is reflected in the
+          numbers you see below.
+        </p>
+      </div>
+      <div class="position-relative wrapper">
+        <div class="w-100">
+          <img src="./images/dotted.png" alt="" class="w-100" />
+        </div>
+        <div class="w-100 d-flex position-absolute start-0 top-0 z-1">
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-1">
+              <h2 class="display-4 counter text-primary" data-target="120">
+                0
+              </h2>
+              <p class="fw-bold">Projects Completed</p>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-2">
+              <h2 class="display-4 counter text-success" data-target="85">0</h2>
+              <p class="fw-bold">Clients Served</p>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-3">
+              <h2 class="display-4 counter text-warning" data-target="15">0</h2>
+              <p class="fw-bold">Years of Experience</p>
+            </div>
+          </div>
+          <div class="flex-grow-1 mb-4 border border-danger">
+            <div class="animate-card-4">
+              <h2 class="display-4 counter text-danger" data-target="50">0</h2>
+              <p class="fw-bold">
+                Awards <br />
+                Won
+              </p>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
 
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const counters = document.querySelectorAll(".counter");
+          counters.forEach((counter) => {
+            const animate = () => {
+              const target = +counter.getAttribute("data-target");
+              const count = +counter.innerText;
+              const increment = Math.ceil(target / 200); // adjust speed
+              if (count < target) {
+                counter.innerText = count + increment;
+                requestAnimationFrame(animate);
+              } else {
+                counter.innerText = target;
+              }
+            };
+            animate();
+          });
+        });
+      </script>
+    </section>
     <!-- footer  -->
-    <section class="footer-section">
+    <section class="footer-section" style="margin-top: 100px">
       <div class="container">
         <div class="row text-start text-sm-start">
           <div class="col-lg-3 mt-4 mt-lg-0">
@@ -967,57 +723,6 @@
         </div>
       </div>
     </div>
-
-    <!-- WHATSAPP  -->
-
-    <style>
-      .whatsapp-btn {
-        position: fixed;
-        right: 20px; /* Distance from the right side */
-        top: 50%; /* Vertical center */
-        transform: translateY(-50%); /* Adjust to true center */
-        background-color: #25d366; /* WhatsApp green */
-        color: white;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        z-index: 3; /* Keep above other elements */
-        text-decoration: none;
-        font-size: 30px;
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
-      }
-
-      .whatsapp-btn.show-icon {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .whatsapp-btn:hover {
-        background-color: #1ebe5d;
-      }
-    </style>
-
-    <a href="#" class="whatsapp-btn" target="">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <script>
-      const whatsAppBtn = document.querySelector(".whatsapp-btn");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > window.innerHeight * 0.75) {
-          whatsAppBtn.classList.add("show-icon");
-        } else {
-          whatsAppBtn.classList.remove("show-icon");
-        }
-      });
-    </script>
-    <!-- WHATSAPP END  -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

@@ -83,6 +83,15 @@
         --gradient-end: #3b4d6a;
       }
     </style>
+    <!-- Favicons -->
+    <link
+      href="https://tekalgo.com/new_images/ledgermen_favicon.png"
+      rel="icon"
+    />
+    <link
+      href="https://tekalgo.com/new_images/ledgermen_apple_touch_icon.png"
+      rel="apple-touch-icon"
+    />
 
     <!-- Bootstrap CSS  -->
     <link
@@ -206,9 +215,7 @@
           <a href="https://www.instagram.com/ledgermenn/" target="_blank"
             ><i class="bi bi-instagram"></i
           ></a>
-          <a
-            href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
-            target="_blank"
+          <a href="https://www.linkedin.com/company/ledgermen/" target="_blank"
             ><i class="bi bi-linkedin"></i
           ></a>
         </div>
@@ -401,7 +408,7 @@
                     promoters, digital entrepreneurs, and expats.
                   </p>
                 </div>
-                <div
+                <!-- <div
                   class="d-flex mb-3"
                   data-aos="fade-up"
                   data-aos-delay="200"
@@ -411,7 +418,7 @@
                     Technology-enabled execution using industry-proven tools
                     such as Thomson Reuters OneSource, Vertex, and Xero.
                   </p>
-                </div>
+                </div> -->
                 <div
                   class="d-flex mb-3"
                   data-aos="fade-up"
@@ -430,287 +437,262 @@
         </div>
       </div>
     </section>
-    <!-- ------------- # Why Us Section -------------------- -->
+
+    <!-- change  -->
+    <!-- ======== Why choose us =======  -->
     <style>
-      .why-us {
-        padding: 100px 0px;
-        padding-bottom: 60px;
-      }
-      /* @media (max-width: 976px) {
-        .why-us {
-          padding-bottom: 60px !important;
-        }
-      } */
+      :root {
+        --cards: 4;
 
-      .why-us img {
-        width: 100%;
-        height: 450px;
+        --cardHeight: 500px;
+        /* --cardHeight: 90vh; */
+
+        --cardTopPadding: 1.5em;
+        --cardMargin: 4vw;
+      }
+
+      .sticky-sidebar {
+        position: sticky;
+        top: 75px;
+
+        height: var(--cardHeight);
+
+        /* padding: 24px; */
+
+        color: white;
+        border-radius: 10px;
         object-fit: cover;
-        z-index: 1;
-        border-radius: 20px;
+      }
+      .sticky-sidebar img {
+        border-radius: 10px;
+        height: 100%;
       }
 
-      .why-us .slides {
-        background-color: color-mix(
-          in srgb,
-          var(--default-color),
-          transparent 97%
-        );
-      }
-      .why-us-heading {
-        font-size: 32px;
-        line-height: 1.3;
+      .sticky-sidebar h2 {
+        font-weight: 700;
+        margin-bottom: 20px;
       }
 
-      .why-us h3 {
-        font-size: 24px;
+      .left-sidebar img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+      }
+
+      .right-content {
+        padding: 20px;
+        border: 1px solid #ddd;
+      }
+
+      .content-box {
+        margin-bottom: 20px;
+        padding: 20px;
+
+        background-color: #f9f9f9;
+      }
+
+      .content-box h3 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .content-box p {
+        font-size: 14px;
+        color: #333;
+      }
+
+      /* ======= card stack =======  */
+
+      .custom-card-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .custom-card-body {
+        box-sizing: border-box;
+        padding: 15px;
+
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+        height: var(--cardHeight);
+        display: flex;
+        flex-direction: column;
+
+        transition: all 0.5s;
+
+        background-color: #f9f9f9;
+        border-radius: 10px;
+
+        border: 1px solid #ccc;
+      }
+      .custom-card-body h4 {
         font-weight: 700;
       }
 
-      .why-us h4 {
-        font-size: 18px;
-        font-weight: 300;
-        color: color-mix(in srgb, var(--default-color), transparent 30%);
+      .custom-card {
+        position: sticky;
+        top: 80px;
       }
 
-      .why-us .swiper {
-        margin: 15px 60px;
-        overflow: hidden;
+      h2 {
+        font-size: 2.5em;
+      }
+      .why-choose-tilted-btn {
+        background-color: #fecc00;
+      }
+      .why-choose-tilted-btn a {
+        color: black;
       }
 
-      .why-us .swiper-wrapper {
-        height: auto;
-      }
-
-      .why-us .swiper-button-prev:after,
-      .why-us .swiper-button-next:after {
-        font-size: 24px;
-        color: color-mix(in srgb, var(--default-color), transparent 50%);
-      }
-
-      .why-us .swiper-button-prev {
-        left: 20px;
-      }
-
-      .why-us .swiper-button-next {
-        right: 50px;
-      }
-      .why-us .swiper-button-prev,
-      .why-us .swiper-button-next {
-        position: absolute;
-        top: var(--swiper-navigation-top-offset, 40%);
-      }
-
-      .why-us .swiper-pagination {
-        margin-top: 10px;
-        position: relative;
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet {
-        background-color: color-mix(in srgb, #2b180d, transparent 50%);
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: rgb(13, 110, 253);
-      }
-
-      @media (max-width: 1200px) {
-        .why-us .swiper {
-          margin: 20px 60px;
-        }
-
-        .why-us .swiper-button-prev {
-          left: 10px;
-        }
-        .why-us .swiper-button-next {
-          right: 10px;
-        }
-      }
+      /* ✅ Fix sticky sidebar responsiveness */
       @media (max-width: 992px) {
-        .why-us img {
+        .sticky-sidebar {
+          position: relative;
+          margin-bottom: 20px; /* reduce space */
           height: auto;
+          top: auto; /* remove sticky offset */
         }
-        .why-us .swiper {
-          margin-top: 0px;
-        }
-      }
-      @media (max-width: 768px) {
-        .why-us-heading {
-          font-size: 28px;
+
+        .sticky-sidebar img {
+          width: 100%; /* responsive width */
+          height: auto; /* maintain aspect ratio */
+          object-fit: cover; /* crop if needed */
+          border-radius: 10px;
+          display: block;
         }
       }
 
-      @media (max-width: 575px) {
-        .why-us .swiper {
-          margin: 0px 40px 20px 40px;
+      /* ✅ Ensure no unwanted gap between image & content */
+      .row.border {
+        margin: 0; /* remove row negative margins */
+      }
+      .row.border > [class*="col-"] {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* ✅ Adjust card side padding only on larger screens */
+      @media (max-width: 992px) {
+        .custom-card-body {
+          padding: 10px;
         }
       }
     </style>
-    <section id="why-us" class="why-us section">
+    <div
+      class="container-fluid"
+      style="background-color: #f9f9f9; padding-bottom: 60px"
+    >
       <div class="container">
-        <div class="row mb-md-2" data-aos="zoom-in" data-aos-delay="200">
+        <div class="row mb-md-4" data-aos="zoom-in" data-aos-delay="200">
           <div class="col-lg-9">
-            <h2 class="why-us-heading">
+            <h1 class="our-expertise-heading my-4">
               India Tax – Direct & Indirect Advisory
-            </h2>
+            </h1>
           </div>
         </div>
-      </div>
-      <div class="container" data-aos="zoom-in" data-aos-delay="200">
-        <div class="row g-0">
-          <div
-            class="col-lg-5 d-flex align-items-start mb-3 mb-lg-0"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
+        <div class="row">
+          <!-- Left Sidebar Section -->
+          <div class="col-lg-6 col-12 sticky-sidebar px-0">
             <img
               src="https://tekalgo.com/new_images/global-tax-india.jpg"
               alt=""
+              class="img-fluid"
             />
           </div>
 
-          <div class="col-lg-7 slides position-relative">
-            <div class="swiper init-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">
-                      Direct Tax Services (Income Tax & Capital Gains)
-                    </h3>
-                    <p>
-                      Our India direct tax desk provides end-to-end solutions to
-                      individuals, corporates, and HNIs:
-                    </p>
+          <!-- Right Content Section -->
+          <!-- Cards Section -->
+          <div class="col-lg-6 px-lg-3 px-0">
+            <div class="custom-card-container">
+              <div class="custom-card" id="custom-card1">
+                <div class="custom-card-body">
+                  <h4>Direct Tax Services (Income Tax & Capital Gains)</h4>
+                  <p>
+                    End-to-end tax solutions for individuals, corporates, and
+                    HNIs:
+                  </p>
 
-                    <div class="flex-column feature-section-features mt-3">
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          A multi-jurisdictional approach covering India, US,
-                          UK, and UAE under one roof.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Comprehensive income tax planning and filing.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Capital gain statement reconciliation with ICICI
-                          Direct & other brokers, including corporate actions.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Assistance with AI Statement (AIS) & SFT
-                          reconciliation to pre-empt mismatch notices.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Interpretation of CBDT circulars, case laws, and
-                          latest Budget updates.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Advisory on direct vs indirect tax interaction in
-                          business contracts.
-                        </p>
-                      </div>
-                    </div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Multi-jurisdictional expertise: India, US, UK & UAE.
+                    </p>
                   </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Indirect Tax (GST)</h3>
-                    <p>
-                      GST remains the backbone of India’s indirect tax system.
-                      We assist with:
-                    </p>
 
-                    <div class="flex-column feature-section-features mt-3">
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Registrations, migration, and amendments.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Refunds through MASTTAXRFD (exports, inverted duty
-                          structure).
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Export bond filings under LUT/Bond processes.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          CGST, SGST, and IGST compliance with real-world
-                          examples.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Annual return filing (GSTR 9/9C) and departmental
-                          audits.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Automation & integrations with SAP using OneSource
-                          Indirect Tax or Vertex Indirect Tax for large
-                          enterprises.
-                        </p>
-                      </div>
-                    </div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">Income tax planning & filing.</p>
+                  </div>
+
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Capital gains reconciliation with brokers & corporate
+                      actions.
+                    </p>
+                  </div>
+
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      AIS & SFT reconciliation to avoid notices.
+                    </p>
+                  </div>
+
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Interpretation of CBDT updates & case laws.
+                    </p>
+                  </div>
+
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Advisory on tax impact in business contracts.
+                    </p>
                   </div>
                 </div>
               </div>
+              <div class="custom-card" id="custom-card1">
+                <div class="custom-card-body">
+                  <h4>Indirect Tax (GST)</h4>
+                  <p>
+                    GST remains the backbone of India’s indirect tax system. We
+                    assist with:
+                  </p>
 
-              <div class="swiper-pagination"></div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Registrations, migration, and amendments.
+                    </p>
+                  </div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      CGST, SGST, and IGST compliance with real-world examples.
+                    </p>
+                  </div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Annual return filing (GSTR 9/9C) and departmental audits.
+                    </p>
+                  </div>
+                  <div class="d-flex mb-lg-2 mb-1">
+                    <i class="fas fa-check-double me-2 mt-1"></i>
+                    <p class="mb-0">
+                      Automation & integrations with SAP using OneSource
+                      Indirect Tax or Vertex Indirect Tax for large enterprises.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
           </div>
         </div>
       </div>
-
-      <script>
-        new Swiper(".init-swiper", {
-          loop: true,
-          speed: 600,
-          autoplay: {
-            delay: 3000,
-          },
-          slidesPerView: "auto",
-          centeredSlides: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
-      </script>
-    </section>
+    </div>
 
     <!-- why choose  -->
     <style>
@@ -899,266 +881,282 @@
     </section>
 
     <!-- ======== Why choose us =======  -->
+
+    <!-- change  -->
+    <!-- ------------- # Why Us Section -------------------- -->
     <style>
-      :root {
-        --cards: 4;
-
-        --cardHeight: 500px;
-        /* --cardHeight: 90vh; */
-
-        --cardTopPadding: 1.5em;
-        --cardMargin: 4vw;
+      .why-us {
+        padding: 100px 0px;
+        padding-bottom: 60px;
+        padding-top: 0px;
       }
+      /* @media (max-width: 976px) {
+        .why-us {
+          padding-bottom: 60px !important;
+        }
+      } */
 
-      .sticky-sidebar {
-        position: sticky;
-        top: 75px;
-
-        height: var(--cardHeight);
-
-        /* padding: 24px; */
-
-        color: white;
-        border-radius: 10px;
-        object-fit: cover;
-      }
-      .sticky-sidebar img {
-        border-radius: 10px;
-        height: 100%;
-      }
-
-      .sticky-sidebar h2 {
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .left-sidebar img {
+      .why-us img {
         width: 100%;
-        max-height: 300px;
+        /* height: 450px; */
         object-fit: cover;
+        z-index: 1;
+        border-radius: 20px;
       }
 
-      .right-content {
-        padding: 20px;
-        border: 1px solid #ddd;
+      .why-us .slides {
+        background-color: color-mix(
+          in srgb,
+          var(--default-color),
+          transparent 97%
+        );
+      }
+      .why-us-heading {
+        font-size: 32px;
+        line-height: 1.3;
       }
 
-      .content-box {
-        margin-bottom: 20px;
-        padding: 20px;
-
-        background-color: #f9f9f9;
-      }
-
-      .content-box h3 {
-        font-size: 18px;
-        font-weight: bold;
-      }
-
-      .content-box p {
-        font-size: 14px;
-        color: #333;
-      }
-
-      /* ======= card stack =======  */
-
-      .custom-card-container {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .custom-card-body {
-        box-sizing: border-box;
-        padding: 30px 30px;
-
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-        height: var(--cardHeight);
-        display: flex;
-        flex-direction: column;
-
-        transition: all 0.5s;
-
-        background-color: #f9f9f9;
-        border-radius: 10px;
-
-        border: 1px solid #ccc;
-      }
-      .custom-card-body h4 {
+      .why-us h3 {
+        font-size: 24px;
         font-weight: 700;
       }
 
-      .custom-card {
-        position: sticky;
-        top: 80px;
+      .why-us h4 {
+        font-size: 18px;
+        font-weight: 300;
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
       }
 
-      h2 {
-        font-size: 2.5em;
-      }
-      .why-choose-tilted-btn {
-        background-color: #fecc00;
-      }
-      .why-choose-tilted-btn a {
-        color: black;
+      .why-us .swiper {
+        margin: 15px 60px;
+        overflow: hidden;
       }
 
-      /* ✅ Fix sticky sidebar responsiveness */
+      .why-us .swiper-wrapper {
+        height: auto;
+      }
+
+      .why-us .swiper-button-prev:after,
+      .why-us .swiper-button-next:after {
+        font-size: 24px;
+        color: color-mix(in srgb, var(--default-color), transparent 50%);
+      }
+
+      .why-us .swiper-button-prev {
+        left: 20px;
+      }
+
+      .why-us .swiper-button-next {
+        right: 50px;
+      }
+      .why-us .swiper-button-prev,
+      .why-us .swiper-button-next {
+        position: absolute;
+        top: var(--swiper-navigation-top-offset, 40%);
+      }
+
+      .why-us .swiper-pagination {
+        margin-top: 10px;
+        position: relative;
+      }
+
+      .why-us .swiper-pagination .swiper-pagination-bullet {
+        background-color: color-mix(in srgb, #2b180d, transparent 50%);
+      }
+
+      .why-us .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: rgb(13, 110, 253);
+      }
+
+      @media (max-width: 1200px) {
+        .why-us .swiper {
+          margin: 20px 60px;
+        }
+
+        .why-us .swiper-button-prev {
+          left: 10px;
+        }
+        .why-us .swiper-button-next {
+          right: 10px;
+        }
+      }
       @media (max-width: 992px) {
-        .sticky-sidebar {
-          position: relative;
-          margin-bottom: 20px; /* reduce space */
+        .why-us img {
           height: auto;
-          top: auto; /* remove sticky offset */
         }
-
-        .sticky-sidebar img {
-          width: 100%; /* responsive width */
-          height: auto; /* maintain aspect ratio */
-          object-fit: cover; /* crop if needed */
-          border-radius: 10px;
-          display: block;
+        .why-us .swiper {
+          margin-top: 0px;
         }
       }
-
-      /* ✅ Ensure no unwanted gap between image & content */
-      .row.border {
-        margin: 0; /* remove row negative margins */
-      }
-      .row.border > [class*="col-"] {
-        padding-left: 0;
-        padding-right: 0;
+      @media (max-width: 768px) {
+        .why-us-heading {
+          font-size: 28px;
+        }
       }
 
-      /* ✅ Adjust card side padding only on larger screens */
-      @media (max-width: 992px) {
-        .custom-card-body {
-          padding: 15px;
+      @media (max-width: 575px) {
+        .why-us .swiper {
+          margin: 0px 40px 20px 40px;
         }
       }
     </style>
-    <div
-      class="container-fluid"
-      style="background-color: #f9f9f9; padding-bottom: 60px"
-    >
+    <section id="why-us" class="why-us section">
       <div class="container">
-        <div class="row mb-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="row mb-md-2" data-aos="zoom-in" data-aos-delay="200">
           <div class="col-lg-9">
-            <h1 class="our-expertise-heading my-4">
+            <h2 class="why-us-heading">
               United States – Expat & Non-Resident Taxation
-            </h1>
-          </div>
-        </div>
-        <div class="row">
-          <!-- Left Sidebar Section -->
-          <div class="col-lg-6 col-12 sticky-sidebar px-0">
-            <img
-              src="https://tekalgo.com/new_images/global-tax-irs.jpg"
-              alt=""
-              class="img-fluid"
-            />
-          </div>
-
-          <!-- Right Content Section -->
-          <!-- Cards Section -->
-          <div class="col-lg-6 px-lg-3 px-0">
-            <div class="custom-card-container">
-              <div class="custom-card" id="custom-card1">
-                <div class="custom-card-body">
-                  <h4>Filing US Taxes from Abroad</h4>
-                  <p>
-                    Whether you’re an expat, dual-resident, or non-resident
-                    alien (NRA), we help you remain compliant with IRS
-                    reporting:
-                  </p>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Filing Form 1040 / 1040-NR with state returns.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Optimizing Foreign Tax Credit (FTC), Foreign Earned Income
-                      Exclusion (FEIE), and housing exclusions.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Reconciling PFIC reporting, capital gains, and brokerage
-                      accounts.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Handling late filings under “reasonable cause” provisions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="custom-card" id="custom-card1">
-                <div class="custom-card-body">
-                  <h4>ITIN Holders Direct Assistance Program</h4>
-
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      ITIN applications, renewals, and dependent claims.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Certified Acceptance Agent support (if required).
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Alignment of ITIN with correct filing obligations.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="custom-card" id="custom-card1">
-                <div class="custom-card-body">
-                  <h4>IRS Payments & Compliance</h4>
-
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      IRS Direct Pay and EFTPS portal guidance.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Payment plans and safe harbor calculations.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Payroll tax assistance for remote workers and multi-state
-                      compliance.
-                    </p>
-                  </div>
-                  <div class="d-flex mb-3">
-                    <i class="fas fa-check-double me-2 mt-1"></i>
-                    <p class="mb-0">
-                      Treaty applications with Canada & UK to avoid double
-                      taxation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </h2>
           </div>
         </div>
       </div>
-    </div>
+      <div class="container" data-aos="zoom-in" data-aos-delay="200">
+        <div class="row g-0">
+          <div
+            class="col-lg-5 d-flex align-items-start mb-3 mb-lg-0"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://tekalgo.com/new_images/global-tax-irs.jpg"
+              alt="img-fluid h-100"
+            />
+          </div>
+
+          <div class="col-lg-7 slides position-relative">
+            <div class="swiper init-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">Filing US Taxes from Abroad</h3>
+                    <p>
+                      Whether you’re an expat, dual-resident, or non-resident
+                      alien (NRA), we help you remain compliant with IRS
+                      reporting:
+                    </p>
+
+                    <div class="flex-column feature-section-features mt-3">
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Filing Form 1040 / 1040-NR with state returns.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Optimizing Foreign Tax Credit (FTC), Foreign Earned
+                          Income Exclusion (FEIE), and housing exclusions.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Reconciling PFIC reporting, capital gains, and
+                          brokerage accounts.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Handling late filings under “reasonable cause”
+                          provisions.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">ITIN Holders Direct Assistance Program</h3>
+
+                    <div class="flex-column feature-section-features mt-3">
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          ITIN applications, renewals, and dependent claims.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Certified Acceptance Agent support (if required).
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Alignment of ITIN with correct filing obligations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <h3 class="mb-3">IRS Payments & Compliance</h3>
+
+                    <div class="flex-column feature-section-features mt-3">
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          IRS Direct Pay and EFTPS portal guidance.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Payment plans and safe harbor calculations.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Payroll tax assistance for remote workers and
+                          multi-state compliance.
+                        </p>
+                      </div>
+                      <div class="d-flex mb-3">
+                        <i class="fas fa-check-double me-2 mt-1"></i>
+                        <p class="mb-0">
+                          Treaty applications with Canada & UK to avoid double
+                          taxation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        new Swiper(".init-swiper", {
+          loop: true,
+          speed: 600,
+          autoplay: {
+            delay: 3000,
+          },
+          slidesPerView: "auto",
+          centeredSlides: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
+    </section>
 
     <!-- ======== Why choose us  =======  -->
 
@@ -1961,7 +1959,7 @@
               <ul class="footer-social d-inline-flex nav mt-2">
                 <li>
                   <a
-                    href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
+                    href="https://www.linkedin.com/company/ledgermen/"
                     target="_blank"
                     ><i class="fab fa-linkedin"></i
                   ></a>
@@ -1987,50 +1985,58 @@
           </div>
           <div class="col-lg-9">
             <div class="row">
-              <div class="col-sm-4 mt-4 mt-lg-0">
-                <h5>Quick Links</h5>
-                <ul class="nav flex-column footer-quick-links">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="our-services.html">Our Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                </ul>
+              <div
+                class="col-sm-6 mt-4 mt-lg-0 d-flex flex-column align-items-lg-center"
+              >
+                <div>
+                  <h5>Quick Links</h5>
+                  <ul class="nav flex-column footer-quick-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="our-services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="col-sm-4 mt-4 mt-lg-0">
-                <h5>Social Media</h5>
-                <ul class="nav flex-column footer-quick-links">
-                  <li>
-                    <a
-                      href="https://www.facebook.com/share/1AG5CotsDq/"
-                      target="_blank"
-                      >Facebook</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/ledgermenn/"
-                      target="_blank"
-                      >Instagram</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/company/ledgermen/about/?viewAsMember=true"
-                      target="_blank"
-                      >LinkedIn</a
-                    >
-                  </li>
-                  <!-- <li><a href="#">Twitter</a></li> -->
-                </ul>
+              <div
+                class="col-sm-6 mt-4 mt-lg-0 d-flex flex-column align-items-lg-center"
+              >
+                <div>
+                  <h5>Social Media</h5>
+                  <ul class="nav flex-column footer-quick-links">
+                    <li>
+                      <a
+                        href="https://www.facebook.com/share/1AG5CotsDq/"
+                        target="_blank"
+                        >Facebook</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.instagram.com/ledgermenn/"
+                        target="_blank"
+                        >Instagram</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/company/ledgermen/"
+                        target="_blank"
+                        >LinkedIn</a
+                      >
+                    </li>
+                    <!-- <li><a href="#">Twitter</a></li> -->
+                  </ul>
+                </div>
               </div>
-              <div class="col-sm-4 mt-4 mt-lg-0">
+              <!-- <div class="col-sm-4 mt-4 mt-lg-0">
                 <h5>Important Links</h5>
                 <ul class="nav flex-column footer-quick-links">
                   <li><a href="#">Terms & Conditions</a></li>
                   <li><a href="#">Privacy Policy</a></li>
-                  <!-- <li><a href="#">Refund Policy</a></li> -->
+                 
                 </ul>
-              </div>
+              </div> -->
             </div>
 
             <div class="mt-3 opacity-50 footer-copyright">
