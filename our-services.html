@@ -221,7 +221,7 @@
           <a href="./index.html">
             <img
               src="https://tekalgo.com/new_images/lederman--logo.png"
-              alt=""
+              alt="ledgermen logo"
             />
           </a>
         </div>
@@ -552,7 +552,6 @@
         opacity: 0.7;
       }
     </style>
-
     <section class="services-section">
       <div class="container">
         <div class="row justify-content-center">
@@ -570,7 +569,7 @@
         </div>
         <div class="row services-row">
           <!-- Service 1 -->
-          <div class="col-md-4">
+          <div class="col-md-4 mt-4">
             <div
               class="service-item p-4 px-lg-5 pb-lg-5 h-100"
               data-aos="fade-up"
@@ -591,7 +590,7 @@
           </div>
 
           <!-- Service 2 -->
-          <div class="col-md-4 mt-4 mt-md-0">
+          <div class="col-md-4 mt-4">
             <div
               class="service-item p-4 px-lg-5 pb-lg-5 h-100"
               data-aos="fade-up"
@@ -611,7 +610,7 @@
           </div>
 
           <!-- Service 3 -->
-          <div class="col-md-4 mt-4 mt-md-0">
+          <div class="col-md-4 mt-4">
             <div
               class="service-item p-4 px-lg-5 pb-lg-5 h-100"
               data-aos="fade-up"
@@ -629,206 +628,219 @@
               </p>
             </div>
           </div>
+          <!-- Service 4 -->
+
+          <div class="col-md-4 mt-4">
+            <div
+              class="service-item p-4 px-lg-5 pb-lg-5 h-100"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="service-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h4 class="service-title fs-4 fw-bold mb-3">
+                Global Tax Advisory
+              </h4>
+              <p class="service-description mb-0">
+                End-to-end advisory on cross-border taxation, transfer pricing,
+                and international compliance to optimize global tax efficiency.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+
+          <div class="col-md-4 mt-4">
+            <div
+              class="service-item p-4 px-lg-5 pb-lg-5 h-100"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="service-icon">
+                <i class="fas fa-plane-departure"></i>
+              </div>
+              <h4 class="service-title fs-4 fw-bold mb-3">
+                NRI Taxation & Financial Services
+              </h4>
+              <p class="service-description mb-0">
+                Specialized solutions for NRIs including tax filing, investment
+                structuring, repatriation planning, and compliance with Indian &
+                overseas regulations.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICE TWO  -->
+    <!-- cta  -->
     <style>
-      :root {
-        --theme-color: rgb(13, 110, 253);
-        --theme-color-rgb: 13, 110, 253;
-      }
-
-      .secondary-services {
-        --bs-body-color: rgb(50, 62, 80);
+      .site-cta {
         --bs-body-bg: rgb(255, 255, 255);
 
-        color: var(--bs-body-color);
+        --ezy-theme-color: rgb(13, 110, 253);
+        --ezy-theme-color-rgb: 13, 110, 253;
+        --ezy-form-card-bg: #eff4fd;
+
         background-color: var(--bs-body-bg);
-        /* padding: 60px 0; */
-        padding-top: 40px;
-        padding-bottom: 100px;
+        overflow: hidden;
+        margin-bottom: 40px;
       }
+      /* @media screen and (max-width: 992px) {
+        .site-cta-form-card-media img {
+          height: 400px;
+        }
+      } */
 
-      @media (min-width: 768px) {
-        .secondary-services {
-          padding-top: 0px;
-          padding-bottom: 40px;
+      @media (min-width: 992px) {
+        .site-cta {
+          padding-bottom: 80px;
         }
       }
 
-      .secondary-services.gray,
-      .gray .secondary-services {
-        --bs-body-bg: rgb(246, 246, 246);
-      }
-
-      .secondary-services.dark-gray,
-      .dark-gray .secondary-services {
-        --bs-body-color: #ffffff;
-        --bs-body-bg: rgb(30, 39, 53);
-      }
-
-      .secondary-services.dark,
-      .dark .secondary-services {
-        --bs-body-color: #ffffff;
-        --bs-body-bg: rgb(11, 23, 39);
-      }
-
-      .secondary-heading {
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 1.3;
-        /* color: var(--bs-body-color); */
+      .site-cta-heading {
+        font-weight: bold;
+        font-size: 25px;
+        /* line-height: 1.5; */
       }
 
       @media (min-width: 768px) {
-        .secondary-heading {
-          font-size: 32px;
-          line-height: 1.3;
+        .site-cta-heading {
+          font-size: 40px;
+          line-height: 40px;
+          /* line-height: 1.3; */
         }
       }
 
-      .secondary-subheading {
-        /* font-size: 18px; */
-        /* line-height: 30px; */
-        line-height: 1.3;
-        color: var(--bs-body-color);
+      .site-cta-sub-heading {
+        font-size: 18px;
+        line-height: 28px;
         opacity: 0.8;
+        color: white;
       }
 
-      .image-block img {
-        border-radius: 15px;
+      .site-cta-form-card {
+        background-color: var(--ezy-form-card-bg);
+        border-radius: 30px;
+        overflow: hidden;
+      }
+      .site-cta {
+        background: url("https://images.pexels.com/photos/3153201/pexels-photo-3153201.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 40px 0px;
+        position: relative; /* needed for pseudo-element positioning */
+        color: #fff; /* ensures text is readable */
+      }
+
+      .site-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        display: block;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* black overlay */
+        z-index: 1; /* sits above the image but below content */
+        border-radius: inherit; /* optional if your card has rounded corners */
       }
 
-      .feature-card {
-        background-color: transparent;
+      .site-cta > * {
+        position: relative;
+        z-index: 2; /* ensures content sits above overlay */
+      }
+
+      .site-cta-form-card-media {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      .site-cta .form-control {
+        min-height: 48px;
+        line-height: 26px;
         border: none;
-        text-align: center;
-        margin-top: 1rem;
+        background: rgba(255, 255, 255, 1);
       }
 
-      .feature-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        font-size: 24px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background-color: rgb(13, 110, 253);
+      .site-cta .form-control:focus {
+        box-shadow: none;
+      }
+
+      .site-cta .btn-outline-primary {
+        padding: 12px 30px;
+        min-width: 110px;
+        height: 48px;
+        background-color: transparent;
+        border-color: var(--ezy-theme-color);
+      }
+      .site-cta-btn {
         color: #fff;
-        margin-bottom: 1rem;
+        padding: 12px 28px;
+        background: #283851;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px !important;
+        font-weight: 700;
+        position: relative;
+        cursor: pointer;
+        transform-origin: center;
+        display: inline-block;
+        /* animation */
+        animation: pulse 1s ease-in-out infinite;
       }
 
-      .feature-content {
-        opacity: 0.8;
+      /* scale up and down infinitely */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.04); /* slightly bigger */
+          box-shadow: 0 5px 25px 5px rgba(34, 133, 245, 0.35);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .site-cta-btn:hover {
+        color: #fff;
+        background-color: #3b4d6a;
+        border-color: #3b4d6a;
       }
     </style>
+    <section class="site-cta container-fluid">
+      <div class="row m-0" data-aos="zoom-in" data-aos-delay="200">
+        <!-- src="https://tekalgo.com/new_images/service-cta.png" -->
+        <!-- <div class="col-lg-6 site-cta-form-card-media text-center p-3">
+      <img
+        src="https://images.pexels.com/photos/3153201/pexels-photo-3153201.jpeg"
+        alt=""
+        class="img-fluid"
+      />
+    </div> -->
+        <div class="col-lg-6 p-0 mx-auto text-center">
+          <div class="d-flex align-items-center h-100 py-5 px-4 px-sm-5">
+            <div>
+              <p class="site-cta-sub-heading mb-5">
+                Looking for expert support to manage taxes, compliance, and
+                financial growth? Explore our tailored services designed for
+                individuals, businesses, and NRIs— from bookkeeping and planning
+                to global tax advisory and beyond.
+              </p>
 
-    <section class="secondary-services">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div
-            class="col-lg-9 text-center"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
-            <h2 class="secondary-heading">
-              Our Comprehensive Financial Services
-            </h2>
-            <p class="secondary-subheading mb-0">
-              We offer a full spectrum of Audit, Risk, and Governance solutions
-              — from compliance and taxation to strategic financial planning —
-              designed to support individuals, businesses, and global clients.
-            </p>
-          </div>
-        </div>
-        <div class="row pt-5">
-          <div class="col-lg-4 order-lg-2">
-            <div
-              class="image-block"
-              style="background: none"
-              data-aos="zoom-in"
-              data-aos-delay="200"
-            >
-              <img
-                src="https://tekalgo.com/new_images/our-service-secondary.jpg"
-                alt="our-services"
-              />
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <div
-              class="card feature-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="card-body">
-                <div class="feature-icon mb-4">
-                  <i class="fas fa-file-invoice-dollar"></i>
-                </div>
-                <h4 class="fs-4 mb-3">Indian Tax Compliance & Regulations</h4>
-                <p class="feature-content mb-0">
-                  GST, income tax, and regulatory filings to keep your business
-                  compliant with Indian laws.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="card feature-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="card-body">
-                <div class="feature-icon mb-4">
-                  <i class="fas fa-tasks"></i>
-                </div>
-                <h4 class="fs-4 mb-3">Ad-hoc Project Support</h4>
-                <p class="feature-content mb-0">
-                  Flexible financial and compliance support for one-time or
-                  special business projects.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 order-lg-3">
-            <div
-              class="card feature-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="card-body">
-                <div class="feature-icon mb-4">
-                  <i class="fas fa-shield-alt"></i>
-                </div>
-                <h4 class="fs-4 mb-3">Risk Management & Internal Controls</h4>
-                <p class="feature-content mb-0">
-                  Identify, assess, and mitigate financial and operational risks
-                  through strong internal control frameworks.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="card feature-card"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="card-body">
-                <div class="feature-icon mb-4">
-                  <i class="fas fa-money-check-alt"></i>
-                </div>
-                <h4 class="fs-4 mb-3">Payroll Processing & Compliance</h4>
-                <p class="feature-content mb-0">
-                  End-to-end payroll management ensuring timely salary
-                  disbursements, tax deductions, and statutory compliance.
-                </p>
+              <div>
+                <a
+                  href="#"
+                  class="site-cta-btn fs-5 mt-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contactModal"
+                >
+                  Schedule a Free Consultation</a
+                >
+                <!-- <button class="btn site-cta-btn">
+              Schedule a Free Consultation
+            </button> -->
               </div>
             </div>
           </div>
@@ -845,7 +857,7 @@
               <img
                 src="https://tekalgo.com/new_images/lederman--logo.png"
                 width="180px"
-                alt=""
+                alt="ledgermen logo"
                 style="margin-bottom: 16px"
               />
             </a>
@@ -975,7 +987,7 @@
             <div>
               <img
                 src="https://tekalgo.com/new_images/popup-contact-ledgerman.png"
-                alt=""
+                alt="Get In Touch"
               />
             </div>
             <h2 class="modal-title text-white fw-bold" id="contactModalLabel">

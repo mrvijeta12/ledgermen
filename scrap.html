@@ -1185,3 +1185,184 @@
 
   observer.observe(chartSection);
 </script>
+
+<!-- SERVICE TWO  -->
+<style>
+  :root {
+    --theme-color: rgb(13, 110, 253);
+    --theme-color-rgb: 13, 110, 253;
+  }
+
+  .secondary-services {
+    --bs-body-color: rgb(50, 62, 80);
+    --bs-body-bg: rgb(255, 255, 255);
+
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    /* padding: 60px 0; */
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+
+  @media (min-width: 768px) {
+    .secondary-services {
+      padding-top: 0px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .secondary-services.gray,
+  .gray .secondary-services {
+    --bs-body-bg: rgb(246, 246, 246);
+  }
+
+  .secondary-services.dark-gray,
+  .dark-gray .secondary-services {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(30, 39, 53);
+  }
+
+  .secondary-services.dark,
+  .dark .secondary-services {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(11, 23, 39);
+  }
+
+  .secondary-heading {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    /* color: var(--bs-body-color); */
+  }
+
+  @media (min-width: 768px) {
+    .secondary-heading {
+      font-size: 32px;
+      line-height: 1.3;
+    }
+  }
+
+  .secondary-subheading {
+    /* font-size: 18px; */
+    /* line-height: 30px; */
+    line-height: 1.3;
+    color: var(--bs-body-color);
+    opacity: 0.8;
+  }
+
+  .image-block img {
+    border-radius: 15px;
+    width: 100%;
+    display: block;
+  }
+
+  .feature-card {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(13, 110, 253);
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .feature-content {
+    opacity: 0.8;
+  }
+</style>
+
+<section class="secondary-services">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 text-center" data-aos="zoom-in" data-aos-delay="200">
+        <h2 class="secondary-heading">Our Comprehensive Financial Services</h2>
+        <p class="secondary-subheading mb-0">
+          We offer a full spectrum of Audit, Risk, and Governance solutions —
+          from compliance and taxation to strategic financial planning —
+          designed to support individuals, businesses, and global clients.
+        </p>
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div class="col-lg-4 order-lg-2">
+        <div
+          class="image-block"
+          style="background: none"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <img
+            src="https://tekalgo.com/new_images/our-service-secondary.jpg"
+            alt="our-services"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <div class="feature-icon mb-4">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h4 class="fs-4 mb-3">Indian Tax Compliance & Regulations</h4>
+            <p class="feature-content mb-0">
+              GST, income tax, and regulatory filings to keep your business
+              compliant with Indian laws.
+            </p>
+          </div>
+        </div>
+
+        <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <div class="feature-icon mb-4">
+              <i class="fas fa-tasks"></i>
+            </div>
+            <h4 class="fs-4 mb-3">Ad-hoc Project Support</h4>
+            <p class="feature-content mb-0">
+              Flexible financial and compliance support for one-time or special
+              business projects.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 order-lg-3">
+        <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <div class="feature-icon mb-4">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h4 class="fs-4 mb-3">Risk Management & Internal Controls</h4>
+            <p class="feature-content mb-0">
+              Identify, assess, and mitigate financial and operational risks
+              through strong internal control frameworks.
+            </p>
+          </div>
+        </div>
+
+        <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-body">
+            <div class="feature-icon mb-4">
+              <i class="fas fa-money-check-alt"></i>
+            </div>
+            <h4 class="fs-4 mb-3">Payroll Processing & Compliance</h4>
+            <p class="feature-content mb-0">
+              End-to-end payroll management ensuring timely salary
+              disbursements, tax deductions, and statutory compliance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
