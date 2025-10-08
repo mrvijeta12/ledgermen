@@ -561,337 +561,366 @@
       </div>
     </section>
 
-    <!-- ------------- # Why Us Section -------------------- -->
+    <!-- ======= Flip Card Our Services ===  -->
     <style>
-      .why-us .img-bg {
-        /* height: 450px; */
-        position: relative;
-        border: 2px solid red;
-      }
-
-      .why-us img {
-        /* position: absolute; */
-        /* inset: 0; */
-        /* display: block; */
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        z-index: 1;
-        border-radius: 20px;
-      }
-
-      .why-us .slides {
-        background-color: color-mix(
-          in srgb,
-          var(--default-color),
-          transparent 97%
-        );
-      }
-      .why-us-heading {
+      .custom-title {
         font-size: 32px;
         line-height: 1.3;
       }
-
-      .why-us h3 {
-        font-size: 24px;
-        font-weight: 700;
-      }
-
-      .why-us h4 {
-        font-size: 18px;
-        font-weight: 300;
-        color: color-mix(in srgb, var(--default-color), transparent 30%);
-      }
-
-      .why-us .swiper {
-        margin: 0px 80px;
-        overflow: hidden;
-      }
-
-      .why-us .swiper-wrapper {
-        height: auto;
-      }
-
-      .why-us .swiper-button-prev:after,
-      .why-us .swiper-button-next:after {
-        font-size: 24px;
-        color: color-mix(in srgb, var(--default-color), transparent 50%);
-      }
-
-      .why-us .swiper-button-prev {
-        left: 30px;
-      }
-
-      .why-us .swiper-button-next {
-        right: 30px;
-      }
-      .why-us .swiper-button-prev,
-      .why-us .swiper-button-next {
-        position: absolute;
-        top: var(--swiper-navigation-top-offset, 40%);
-      }
-
-      .why-us .swiper-pagination {
-        margin-top: 10px;
-        position: relative;
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet {
-        background-color: color-mix(in srgb, #2b180d, transparent 50%);
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: rgb(13, 110, 253);
-      }
-
-      @media (max-width: 1200px) {
-        .why-us .swiper {
-          margin: 60px 60px 40px 60px;
-        }
-
-        .why-us .swiper-button-prev {
-          left: 10px;
-        }
-        .why-us .swiper-button-next {
-          right: 10px;
-        }
-      }
-      @media (max-width: 992px) {
-        .why-us img {
-          height: auto;
-        }
-        .why-us .swiper {
-          margin-top: 0px;
-        }
-      }
-      @media (max-width: 768px) {
-        .why-us-heading {
+      @media screen and(max-width:768px) {
+        .custom-title {
           font-size: 28px;
-          /* margin: 15px 0px; */
+          line-height: 1.3;
+        }
+      }
+      .flip-card .card {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        border: 1px solid #eee;
+        /* border-radius: 12px; */
+        background-color: #fff;
+        box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+      }
+      .flip-card .icon {
+        /* margin-bottom: 32px; */
+        transition: 0.3s;
+        border-radius: 50%;
+        font-size: 30px;
+        padding: 20px;
+        width: 70px;
+        height: 70px;
+        color: #fff;
+        background-color: transparent;
+        box-shadow: 0px 20px 40px 0px rgba(234, 233, 233, 0.92);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
+      }
+
+      .flip-card .card-icon {
+        font-size: 28px;
+        color: rgb(13, 110, 253);
+        /* margin-top: 20px; */
+        transition: transform 0.3s ease;
+      }
+      .flip-card a {
+        text-decoration: none;
+      }
+
+      .flip-card .card-title {
+        font-weight: 700;
+        /* font-size: 24px; */
+        margin: 1rem 0;
+        position: relative;
+        color: #283851;
+      }
+
+      .flip-card .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+        color: #283851;
+        margin-left: 10px;
+      }
+
+      .flip-card .card-text {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        color: #555;
+      }
+
+      /* Hover effect for desktop */
+      @media (min-width: 768px) {
+        .flip-card .card:hover {
+          border: 1px solid #ffc107;
+        }
+        .flip-card .card:hover .card-text {
+          opacity: 1;
+          max-height: 100%;
+          margin-bottom: 1rem;
+        }
+        .flip-card .card:hover .card-title {
+          /* color: #ffc107; */
+        }
+
+        .flip-card .card:hover .arrow-icon {
+          transform: rotate(180deg);
+          /* color: #ffc107; */
         }
       }
 
-      @media (max-width: 575px) {
-        .why-us .swiper {
-          margin: 0px 40px 20px 40px;
-        }
+      /* Active (for mobile toggle) */
+      .flip-card .card.active {
+        border: 1px solid #ffc107;
+      }
+      .flip-card .card.active .card-text {
+        opacity: 1;
+        max-height: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .flip-card .card.active .arrow-icon {
+        transform: rotate(180deg);
+      }
+      .flip-card .col-md-6:nth-child(1) .card-icon {
+        color: #007bff; /* blue */
+      }
+
+      .flip-card .col-md-6:nth-child(2) .card-icon {
+        color: #ffc107;
+      }
+
+      .flip-card .col-md-6:nth-child(3) .card-icon {
+        color: #04004d;
+      }
+
+      .flip-card .col-md-6:nth-child(4) .card-icon {
+        color: #ff1f1f;
+      }
+
+      .flip-card .col-md-6:nth-child(5) .card-icon {
+        color: #6f42c1;
+      }
+      .flip-card .col-md-6:nth-child(6) .card-icon {
+        color: #3abdbb;
+      }
+      .flip-card .col-md-6:nth-child(7) .card-icon {
+        color: #fd7e14;
+      }
+      .flip-card .col-md-6:nth-child(8) .card-icon {
+        color: #28a745;
       }
     </style>
-    <section id="why-us" class="why-us section">
-      <div class="container">
-        <div class="row mb-3" data-aos="zoom-in" data-aos-delay="200">
-          <div class="col-lg-9">
-            <h2 class="why-us-heading">
-              Our Comprehensive Bookkeeping Solutions
-            </h2>
-          </div>
+    <section class="container flip-card">
+      <div class="row">
+        <div
+          class="col-lg-9 text-center mx-auto"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <h1 class="custom-title mb-2">
+            Our Comprehensive Bookkeeping Solutions
+          </h1>
+          <!-- <p class="">
+            Accurate and reliable bookkeeping solutions to manage your accounts,
+            track expenses, and maintain financial clarity for your business.
+          </p> -->
         </div>
       </div>
-      <div class="container">
-        <div class="row g-0">
-          <div
-            class="col-lg-5 d-flex align-items-center mb-3 mb-lg-0"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="images/bookeeping-expertise.jpg"
-              alt="Our Comprehensive Bookkeeping Solutions"
-            />
-          </div>
-
-          <div
-            class="col-lg-7 slides position-relative"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div class="swiper init-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">
-                      Online Bookkeeping & Virtual Bookkeepers
-                    </h3>
-
-                    <p>
-                      Cloud-first monthly bookkeeping with secure dashboards,
-                      automated bank feeds, and near real-time reconciliations
-                      for accurate month-end closes.
-                    </p>
-
-                    <p>
-                      Remote bookkeepers handle AR/AP, cleanup, catch-up
-                      bookkeeping, and monthly management reports so owners can
-                      focus on growth.
-                    </p>
-                    <p>
-                      Flexible engagement: ongoing monthly, fractional, or
-                      project-based support for small business bookkeeping and
-                      freelance bookkeeping needs.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">QuickBooks, Xero, NetSuite Bookkeeping</h3>
-
-                    <p>
-                      Certified expertise across QuickBooks Online, Xero, and
-                      NetSuite for end-to-end bookkeeping, reporting, and
-                      workflow automation.
-                    </p>
-                    <p>
-                      Advisory on app stack: expenses, invoicing, inventory,
-                      payments, and receipt capture to reduce manual work and
-                      improve accuracy.
-                    </p>
-                    <p>
-                      Custom packages designed to fit stage and complexity,
-                      including guidance on QuickBooks Online setup and cost
-                      optimization for licenses and add-ons.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Ecommerce Bookkeeping</h3>
-
-                    <p>
-                      Channel-wise sales reconciliation across Shopify, Amazon,
-                      Flipkart, WooCommerce, and marketplaces; fees/chargebacks
-                      mapped correctly to COGS and margins.
-                    </p>
-                    <p>
-                      Inventory and landed cost tracking, returns/refunds
-                      handling, sales tax/GST mapping, and payout reconciliation
-                      to avoid revenue leakage.
-                    </p>
-                    <p>
-                      Monthly SKU-level profitability views, cohort and
-                      CAC-payback insights, and cash flow forecasting for
-                      reorders and seasonal peaks.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Automobile Stores Bookkeeping</h3>
-
-                    <p>
-                      Dealer accounting for new/used vehicle sales, F&I income,
-                      floor plan interest, and OEM incentives/spiffs captured to
-                      correct GL buckets.
-                    </p>
-
-                    <p>
-                      Parts and service department P&L separation, warranty
-                      claims management, labor rate tracking, and inventory
-                      capitalization policies.
-                    </p>
-                    <p>
-                      Compliance-ready documentation, bank/F&I reconciliations,
-                      and monthly composite-style reporting for decision
-                      visibility.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Real Estate Bookkeeping</h3>
-
-                    <p>
-                      Property-wise income/expense tracking, security deposits,
-                      CAM reconciliations, and loan schedules for rental
-                      portfolios and developers.
-                    </p>
-                    <p>
-                      Draw schedules, retainers, and job-costing with
-                      project-based reporting and lender-ready statements.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Nonprofit Bookkeeping</h3>
-
-                    <p>
-                      Fund accounting, donor restrictions, grant tracking, and
-                      transparent reporting for board and regulatory needs.
-                    </p>
-                    <p>
-                      Audit-ready books with consistent documentation and
-                      reconciliations for compliance.
-                    </p>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Restaurant Bookkeeping</h3>
-
-                    <p>
-                      Daily sales summaries, POS integrations, vendor/bills,
-                      tips, payroll, and food cost controls with weekly flash
-                      reports.
-                    </p>
-                    <p>
-                      Variance analysis on COGS, wastage, and promotions to
-                      protect margins.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Payroll Services</h3>
-
-                    <p>
-                      Integrated payroll setup, processing, and compliance for
-                      employees and contractors with automated filings and
-                      on-time payments.
-                    </p>
-                    <p>
-                      Benefits, reimbursements, TDS/GST linkage where
-                      applicable, and clean GL postings for error-free
-                      month-end.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-pagination"></div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-cloud card-icon"></i>
             </div>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <h5 class="card-title">
+              Online Bookkeeping & Virtual Bookkeepers
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Cloud-first monthly bookkeeping with secure dashboards, automated
+              bank feeds, and near real-time reconciliations for accurate
+              month-end closes.
+              <br />
+              Remote bookkeepers handle AR/AP, cleanup, catch-up bookkeeping,
+              and monthly management reports so owners can focus on growth.
+              <br />
+              Flexible engagement: ongoing monthly, fractional, or project-based
+              support for small business bookkeeping and freelance bookkeeping
+              needs.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon"><i class="fas fa-sync-alt card-icon"></i></div>
+
+            <h5 class="card-title">
+              QuickBooks, Xero, NetSuite Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Certified expertise across QuickBooks Online, Xero, and NetSuite
+              for end-to-end bookkeeping, reporting, and workflow automation.
+              <br />
+              Advisory on app stack: expenses, invoicing, inventory, payments,
+              and receipt capture to reduce manual work and improve accuracy.
+              <br />
+              Custom packages designed to fit stage and complexity, including
+              guidance on QuickBooks Online setup and cost optimization for
+              licenses and add-ons.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-shopping-cart card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Ecommerce Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Channel-wise sales reconciliation across Shopify, Amazon,
+              Flipkart, WooCommerce, and marketplaces; fees/chargebacks mapped
+              correctly to COGS and margins.
+              <br />
+              Inventory and landed cost tracking, returns/refunds handling,
+              sales tax/GST mapping, and payout reconciliation to avoid revenue
+              leakage.
+              <br />
+              Monthly SKU-level profitability views, cohort and CAC-payback
+              insights, and cash flow forecasting for reorders and seasonal
+              peaks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-car card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Automobile Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Dealer accounting for new/used vehicle sales, F&I income, floor
+              plan interest, and OEM incentives/spiffs captured to correct GL
+              buckets.
+              <br />
+              Parts and service department P&L separation, warranty claims
+              management, labor rate tracking, and inventory capitalization
+              policies.
+              <br />
+              Compliance-ready documentation, bank/F&I reconciliations, and
+              monthly composite-style reporting for decision visibility.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-building card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Real Estate Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Property-wise income/expense tracking, security deposits, CAM
+              reconciliations, and loan schedules for rental portfolios and
+              developers.
+              <br />
+              Draw schedules, retainers, and job-costing with project-based
+              reporting and lender-ready statements.
+            </p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-hand-holding-heart card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Nonprofit Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Fund accounting, donor restrictions, grant tracking, and
+              transparent reporting for board and regulatory needs.
+              <br />
+              Audit-ready books with consistent documentation and
+              reconciliations for compliance.
+            </p>
+          </div>
+        </div>
+        <!-- Card 7 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-utensils card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Restaurant Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Daily sales summaries, POS integrations, vendor/bills, tips,
+              payroll, and food cost controls with weekly flash reports.
+              <br />
+              Variance analysis on COGS, wastage, and promotions to protect
+              margins.
+            </p>
+          </div>
+        </div>
+        <!-- Card 8 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-user-clock card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Payroll Services
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Integrated payroll setup, processing, and compliance for employees
+              and contractors with automated filings and on-time payments.
+              <br />
+              Benefits, reimbursements, TDS/GST linkage where applicable, and
+              clean GL postings for error-free month-end.
+            </p>
           </div>
         </div>
       </div>
-
-      <script>
-        new Swiper(".init-swiper", {
-          loop: true,
-          speed: 600,
-          autoplay: {
-            delay: 5000,
-          },
-          slidesPerView: "auto",
-          centeredSlides: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
-      </script>
     </section>
+
+    <script>
+      // Toggle for mobile
+      function toggleCard(card) {
+        if (window.innerWidth < 768) {
+          card.classList.toggle("active");
+        }
+      }
+    </script>
+
+    <!-- ======= End Flip Card Our Services ===  -->
 
     <!-- Industry Services -->
     <style>
@@ -1962,7 +1991,7 @@
       }
     </style>
 
-    <a href="#" class="whatsapp-btn" target="">
+    <a href="https://wa.me/8699231964" class="whatsapp-btn" target="blank">
       <i class="fab fa-whatsapp"></i>
     </a>
     <script>

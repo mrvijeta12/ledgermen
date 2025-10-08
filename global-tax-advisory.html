@@ -902,285 +902,185 @@
       </div>
     </section>
 
-    <!-- ======== Why choose us =======  -->
-
-    <!-- change  -->
-    <!-- ------------- # Why Us Section -------------------- -->
+    <!-- ========   Key Features of Our CMMS Maintenance Management System ======  -->
     <style>
-      .why-us {
-        padding: 100px 0px;
-        padding-bottom: 60px;
-        padding-top: 0px;
-      }
-      /* @media (max-width: 976px) {
-        .why-us {
-          padding-bottom: 60px !important;
-        }
-      } */
-
-      .why-us img {
-        width: 100%;
-        /* height: 450px; */
-        object-fit: cover;
-        z-index: 1;
-        border-radius: 20px;
-      }
-
-      .why-us .slides {
-        background-color: color-mix(
-          in srgb,
-          var(--default-color),
-          transparent 97%
-        );
-      }
-      .why-us-heading {
+      .custom-title {
         font-size: 32px;
         line-height: 1.3;
       }
-
-      .why-us h3 {
-        font-size: 24px;
-        font-weight: 700;
-      }
-
-      .why-us h4 {
-        font-size: 18px;
-        font-weight: 300;
-        color: color-mix(in srgb, var(--default-color), transparent 30%);
-      }
-
-      .why-us .swiper {
-        margin: 15px 60px;
-        overflow: hidden;
-      }
-
-      .why-us .swiper-wrapper {
-        height: auto;
-      }
-
-      .why-us .swiper-button-prev:after,
-      .why-us .swiper-button-next:after {
-        font-size: 24px;
-        color: color-mix(in srgb, var(--default-color), transparent 50%);
-      }
-
-      .why-us .swiper-button-prev {
-        left: 20px;
-      }
-
-      .why-us .swiper-button-next {
-        right: 50px;
-      }
-      .why-us .swiper-button-prev,
-      .why-us .swiper-button-next {
-        position: absolute;
-        top: var(--swiper-navigation-top-offset, 40%);
-      }
-
-      .why-us .swiper-pagination {
-        margin-top: 10px;
-        position: relative;
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet {
-        background-color: color-mix(in srgb, #2b180d, transparent 50%);
-      }
-
-      .why-us .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: rgb(13, 110, 253);
-      }
-
-      @media (max-width: 1200px) {
-        .why-us .swiper {
-          margin: 20px 60px;
-        }
-
-        .why-us .swiper-button-prev {
-          left: 10px;
-        }
-        .why-us .swiper-button-next {
-          right: 10px;
-        }
-      }
-      @media (max-width: 992px) {
-        .why-us img {
-          height: auto;
-        }
-        .why-us .swiper {
-          margin-top: 0px;
-        }
-      }
-      @media (max-width: 768px) {
-        .why-us-heading {
+      @media screen and(max-width:768px) {
+        .custom-title {
           font-size: 28px;
+          line-height: 1.3;
         }
       }
+      #cmms-key-features {
+        padding-top: 5px;
+        padding-bottom: 100px;
+      }
 
-      @media (max-width: 575px) {
-        .why-us .swiper {
-          margin: 0px 40px 20px 40px;
+      #cmms-key-features .icon-box {
+        text-align: center;
+        border: 1px solid #ebebeb;
+
+        padding: 8px;
+        transition: all ease-in-out 0.3s;
+        background: #fff;
+        width: 100%;
+        border-radius: 20px;
+      }
+      /*
+      #cmms-key-features .icon-box:hover {
+        transform: translateY(-10px);
+        border-color: #fff;
+        box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+      } */
+
+      #cmms-key-features .icon-box .icon {
+        margin: 0 auto;
+        margin-bottom: 0px;
+        width: 64px;
+        height: 64px;
+        background: #fff;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        transition: 0.3s;
+        background-color: transparent;
+        box-shadow: 0px 20px 40px 0px rgba(234, 233, 233, 0.92);
+        border-radius: 50%;
+      }
+
+      #cmms-key-features .icon-box ul {
+        text-align: left;
+        list-style: none;
+        padding-left: 0;
+      }
+
+      #cmms-key-features .icon-box ul li {
+        position: relative;
+        padding-left: 25px;
+      }
+
+      #cmms-key-features .icon-box ul li::before {
+        content: "\f560";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        color: rgb(13, 110, 253);
+        font-size: 16px;
+      }
+
+      #cmms-key-features .icon-box .icon i {
+        color: rgb(13, 110, 253);
+        font-size: 28px;
+        transition: ease-in-out 0.3s;
+      }
+
+      #cmms-key-features .icon-box h4 {
+        /* color: #0d0f39; */
+        font-weight: 700 !important;
+      }
+
+      @media screen and (max-width: 992px) {
+        #cmms-key-features {
+          padding-bottom: 0px;
         }
       }
     </style>
-    <section id="why-us" class="why-us section">
+    <section id="cmms-key-features" class="cmms-key-features">
       <div class="container">
-        <div class="row mb-md-2" data-aos="zoom-in" data-aos-delay="200">
-          <div class="col-lg-9">
-            <h2 class="why-us-heading">
-              United States – Expat & Non-Resident Taxation
-            </h2>
+        <div class="row" data-aos="fade-up" data-aos-delay="150">
+          <div class="col-lg-9 mx-auto">
+            <div class="section-title">
+              <h2 class="custom-title">
+                United States – Expat & Non-Resident Taxation
+              </h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="container" data-aos="zoom-in" data-aos-delay="200">
-        <div class="row g-0">
+
+        <div class="row g-4 d-flex flex-wrap">
           <div
-            class="col-lg-5 d-flex align-items-start mb-3 mb-lg-0"
-            data-aos="fade-up"
+            class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch"
+            data-aos="zoom-in"
             data-aos-delay="100"
           >
-            <img
-              src="images/global-tax-irs.jpg"
-              alt="United States – Expat & Non-Resident Taxation"
-            />
-          </div>
-
-          <div class="col-lg-7 slides position-relative">
-            <div class="swiper init-swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">Filing US Taxes from Abroad</h3>
-                    <p>
-                      Whether you’re an expat, dual-resident, or non-resident
-                      alien (NRA), we help you remain compliant with IRS
-                      reporting:
-                    </p>
-
-                    <div class="flex-column feature-section-features mt-3">
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Filing Form 1040 / 1040-NR with state returns.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Optimizing Foreign Tax Credit (FTC), Foreign Earned
-                          Income Exclusion (FEIE), and housing exclusions.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Reconciling PFIC reporting, capital gains, and
-                          brokerage accounts.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Handling late filings under “reasonable cause”
-                          provisions.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">ITIN Holders Direct Assistance Program</h3>
-
-                    <div class="flex-column feature-section-features mt-3">
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          ITIN applications, renewals, and dependent claims.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Certified Acceptance Agent support (if required).
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Alignment of ITIN with correct filing obligations.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="item">
-                    <h3 class="mb-3">IRS Payments & Compliance</h3>
-
-                    <div class="flex-column feature-section-features mt-3">
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          IRS Direct Pay and EFTPS portal guidance.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Payment plans and safe harbor calculations.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Payroll tax assistance for remote workers and
-                          multi-state compliance.
-                        </p>
-                      </div>
-                      <div class="d-flex mb-3">
-                        <i class="fas fa-check-double me-2 mt-1"></i>
-                        <p class="mb-0">
-                          Treaty applications with Canada & UK to avoid double
-                          taxation.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="swiper-pagination"></div>
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-globe-americas"></i></div>
+              <h4>Filing US Taxes from Abroad</h4>
+              <p style="opacity: 1; color: rgb(40, 56, 81)">
+                Whether you’re an expat, dual-resident, or non-resident alien
+                (NRA), we help you remain compliant with IRS reporting.
+              </p>
+              <ul>
+                <li class="mb-2">
+                  Filing Form 1040 / 1040-NR with state returns.
+                </li>
+                <li>
+                  Optimizing Foreign Tax Credit (FTC), Foreign Earned Income
+                  Exclusion (FEIE), and housing exclusions.
+                </li>
+                <li>
+                  Reconciling PFIC reporting, capital gains, and brokerage
+                  accounts.
+                </li>
+                <li>
+                  Handling late filings under “reasonable cause” provisions.
+                </li>
+              </ul>
             </div>
+          </div>
+          <div
+            class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-id-card"></i></div>
+              <h4>ITIN Holders Direct Assistance Program</h4>
+              <ul>
+                <li class="mb-2">
+                  ITIN applications, renewals, and dependent claims.
+                </li>
+                <li>Certified Acceptance Agent support (if required).</li>
+                <li>Alignment of ITIN with correct filing obligations.</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h4>IRS Payments & Compliance</h4>
+              <ul>
+                <li class="mb-2">IRS Direct Pay and EFTPS portal guidance.</li>
 
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+                <li>Payment plans and safe harbor calculations.</li>
+
+                <li>
+                  Payroll tax assistance for remote workers and multi-state
+                  compliance.
+                </li>
+                <li>
+                  Treaty applications with Canada & UK to avoid double taxation.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-
-      <script>
-        new Swiper(".init-swiper", {
-          loop: true,
-          speed: 600,
-          autoplay: {
-            delay: 3000,
-          },
-          slidesPerView: "auto",
-          centeredSlides: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
-      </script>
     </section>
 
-    <!-- ======== Why choose us  =======  -->
+    <!-- ======== End of  Key Features of Our CMMS Maintenance Management System ======  -->
 
     <!-- why choose  -->
     <style>
@@ -1229,7 +1129,7 @@
       }
 
       .our-expertise-card .card-body ul li::before {
-        content: "\f105";
+        content: "\f560";
         font-family: "Font Awesome 6 Free";
         font-weight: 900;
         position: absolute;
@@ -2211,7 +2111,7 @@
       }
     </style>
 
-    <a href="#" class="whatsapp-btn" target="">
+    <a href="https://wa.me/8699231964" class="whatsapp-btn" target="blank">
       <i class="fab fa-whatsapp"></i>
     </a>
     <script>

@@ -684,132 +684,33 @@
       </div>
     </section>
 
-    <!-- SERVICE SWIPER -->
-
+    <!-- ======= Flip Card Our Services ===  -->
     <style>
-      #why-tekalgo {
-        width: 100%;
-
-        background-color: #0d6efd;
+      .custom-title {
+        font-size: 32px;
+        line-height: 1.3;
+      }
+      @media (max-width: 768px) {
+        .custom-title {
+          font-size: 28px;
+          line-height: 1.3;
+        }
+      }
+      .flip-card .card {
         position: relative;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-
-        padding-bottom: 10px;
-        max-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding-top: 20px;
-      }
-
-      #why-tekalgo .swiper-wrapper {
-        /* margin-bottom: 50px; */
-        /* border: 2px solid red; */
-      }
-      #why-tekalgo .swiper-pagination-bullet {
-        background-color: #ffffff;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-      }
-
-      #why-tekalgo .swiper-wrapper {
-        display: flex;
-        align-items: stretch;
-        margin-bottom: 50px;
-      }
-
-      #why-tekalgo .swiper-slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
-        border: 1px solid #ccc;
-
-        color: white;
-        padding: 20px;
-        min-height: 100%;
-        background-color: #ffffff;
-        border-radius: 10px;
-      }
-
-      #why-tekalgo .industry-slider {
-        width: 100%;
-        height: auto;
-      }
-
-      #why-tekalgo .swiper-container {
-        height: auto !important;
-      }
-
-      #why-tekalgo .swiper-wrapper {
-        display: flex;
-        align-items: stretch;
-      }
-
-      #why-tekalgo .swiper-slide {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: stretch;
-
-        color: black;
-        padding: 20px;
-        height: 100%;
-        min-height: 100%;
-        background-color: white;
-        /* border-bottom: 10px solid #fecc00; */
-        /* text-align: center; */
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        border: 1px solid #eee;
+        /* border-radius: 12px; */
+        background-color: #fff;
         box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
       }
-      #why-tekalgo .swiper-slide h1 {
-        /* color: rgb(50, 62, 80); */
-        font-weight: 700 !important;
-        font-size: 24px;
-        margin-bottom: 15px;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-      }
-
-      #why-tekalgo .swiper-slide p {
-        color: rgb(50, 62, 80);
-        opacity: 0.8;
-      }
-      #why-tekalgo .swiper-slide:hover h1 {
-        color: #fecc00;
-      }
-
-      #why-tekalgo .swiper {
-        overflow: hidden;
-      }
-
-      #why-tekalgo .swiper-wrapper {
-        display: flex;
-        align-items: stretch;
-        transition-timing-function: ease-in-out !important;
-
-        padding-bottom: 50px;
-      }
-      #why-tekalgo .swiper-wrapper .icon-box {
-        text-align: center;
-        border: 1px solid #ebebeb;
-
-        padding: 20px;
-        transition: all ease-in-out 0.3s;
-        background: #fff;
-        width: 100%;
-        border: 2px solid red !important;
-      }
-
-      #why-tekalgo .swiper-wrapper .icon {
-        /* margin: 0 auto; */
-
-        margin-bottom: 32px;
+      .flip-card .icon {
+        /* margin-bottom: 32px; */
         transition: 0.3s;
         border-radius: 50%;
-
         font-size: 30px;
         padding: 20px;
         width: 70px;
@@ -821,198 +722,232 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-      #why-tekalgo .swiper-wrapper .icon i {
-        color: #0d0f39;
-        font-size: 28px;
-        transition: ease-in-out 0.3s;
+        margin: 0px auto;
       }
 
-      #why-tekalgo .swiper-slide:nth-child(1) .icon i {
+      .flip-card .card-icon {
+        font-size: 28px;
+        color: rgb(13, 110, 253);
+        /* margin-top: 20px; */
+        transition: transform 0.3s ease;
+      }
+      .flip-card a {
+        text-decoration: none;
+      }
+
+      .flip-card .card-title {
+        font-weight: 700;
+        /* font-size: 24px; */
+        margin: 1rem 0;
+        position: relative;
+        color: #283851;
+      }
+
+      .flip-card .arrow-icon {
+        position: absolute;
+        right: 10px;
+        top: 0;
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+        color: #283851;
+      }
+
+      .flip-card .card-text {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        color: #555;
+      }
+
+      /* Hover effect for desktop */
+      @media (min-width: 768px) {
+        .flip-card .card:hover {
+          border: 1px solid #ffc107;
+        }
+        .flip-card .card:hover .card-text {
+          opacity: 1;
+          max-height: 200px;
+          margin-bottom: 1rem;
+        }
+        .flip-card .card:hover .card-title {
+          /* color: #ffc107; */
+        }
+
+        .flip-card .card:hover .arrow-icon {
+          transform: rotate(180deg);
+          /* color: #ffc107; */
+        }
+      }
+
+      /* Active (for mobile toggle) */
+      .flip-card .card.active {
+        border: 1px solid #ffc107;
+      }
+      .flip-card .card.active .card-text {
+        opacity: 1;
+        max-height: 200px;
+        margin-bottom: 1rem;
+      }
+
+      .flip-card .card.active .arrow-icon {
+        transform: rotate(180deg);
+      }
+      .flip-card .col-md-6:nth-child(1) .card-icon {
+        color: #007bff; /* blue */
+      }
+
+      .flip-card .col-md-6:nth-child(2) .card-icon {
         color: #ffc107;
       }
-      #why-tekalgo .swiper-slide:nth-child(2) .icon i {
-        color: #ff6400;
-      }
-      #why-tekalgo .swiper-slide:nth-child(3) .icon i {
-        color: #2f80ed;
-      }
-      #why-tekalgo .swiper-slide:nth-child(4) .icon i {
-        color: #3abdbb;
-      }
-      #why-tekalgo .swiper-slide:nth-child(5) .icon i {
+
+      .flip-card .col-md-6:nth-child(3) .card-icon {
         color: #04004d;
       }
-      #why-tekalgo .swiper-slide:nth-child(6) .icon i {
+
+      .flip-card .col-md-6:nth-child(4) .card-icon {
         color: #ff1f1f;
       }
-      .custom-title {
-        font-size: 32px;
-        line-height: 1.3;
-      }
 
-      @media (max-width: 992px) {
-        #why-tekalgo {
-          padding-top: 20px;
-          /* height: 80vh; */
-        }
-        #why-tekalgo .swiper-wrapper {
-          padding-bottom: 0px;
-        }
-        .custom-title {
-          font-size: 28px;
-          line-height: 1.3;
-        }
+      .flip-card .col-md-6:nth-child(5) .card-icon {
+        color: #6f42c1;
+      }
+      .flip-card .col-md-6:nth-child(6) .card-icon {
+        color: #3abdbb;
       }
     </style>
-    <section id="why-tekalgo" class="why-tekalgo">
-      <div class="container" data-aos="zoom-in">
-        <div class="row">
-          <div class="col-lg-9 text-center mx-auto">
-            <h1 class="custom-title mb-2 text-white">Our Services</h1>
-            <p class="text-white">
-              Comprehensive financial services to guide your investments,
-              compliance, and growth.
+    <section class="container flip-card">
+      <div class="row">
+        <div
+          class="col-lg-9 text-center mx-auto"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <h1 class="custom-title mb-2">Our Services</h1>
+          <p class="">
+            Comprehensive financial services to guide your investments,
+            compliance, and growth.
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-search-dollar card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Financial Due Diligence
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              In-depth financial assessments and reports to support M&A,
+              investment, and compliance decisions.
             </p>
           </div>
         </div>
-        <div class="swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-search-dollar"></i></div>
-              <a href="financial-due-diligence.html"
-                ><h1>Financial Due Diligence</h1></a
-              >
-              <p>
-                In-depth financial assessments and reports to support M&A,
-                investment, and compliance decisions.
-              </p>
-            </div>
 
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-chart-line"></i></div>
-              <a href="financial-planning.html"><h1>Financial Planning</h1></a>
-              <p>
-                Tailored strategies for wealth growth, retirement planning, tax
-                saving, and long-term financial stability.
-              </p>
-            </div>
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon"><i class="fas fa-chart-line card-icon"></i></div>
 
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-user-shield"></i></div>
-              <a href="regulatory-advisory.html"
-                ><h1>Regulatory Advisory</h1></a
-              >
-              <p>
-                Guidance on evolving compliance frameworks, FEMA, RBI
-                regulations, and corporate governance.
-              </p>
-            </div>
+            <h5 class="card-title">
+              Financial Planning
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
 
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-file-invoice-dollar"></i></div>
-              <a href="financial-bookkeeping.html">
-                <h1>Accounting & Bookkeeping</h1></a
-              >
-              <p>
-                End-to-end accounting support to ensure your finances are always
-                compliant, organized, and audit-ready.
-              </p>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-calculator"></i></div>
-              <a href="tax-compliance-filing.html">
-                <h1>Tax Compliance & Filing</h1></a
-              >
-              <p>
-                Expert handling of Indian tax laws, including ITR filing, GST,
-                and TDS compliance for individuals and businesses.
-              </p>
-            </div>
-            <div class="swiper-slide">
-              <div class="icon"><i class="fas fa-globe-asia"></i></div>
-              <a href="nri-internation-taxation.html">
-                <h1>NRI & International Taxation</h1></a
-              >
-              <p>
-                Specialized services for NRIs, expatriates, and international
-                clients navigating Indian tax obligations.
-              </p>
-            </div>
+            <p class="card-text">
+              Tailored strategies for wealth growth, retirement planning, tax
+              saving, and long-term financial stability.
+            </p>
           </div>
-          <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon"><i class="fas fa-user-shield card-icon"></i></div>
+
+            <h5 class="card-title">
+              Regulatory Advisory
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Guidance on evolving compliance frameworks, FEMA, RBI regulations,
+              and corporate governance.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon">
+              <i class="fas fa-file-invoice-dollar card-icon"></i>
+            </div>
+
+            <h5 class="card-title">
+              Accounting & Bookkeeping
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              End-to-end accounting support to ensure your finances are always
+              compliant, organized, and audit-ready.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon"><i class="fas fa-calculator card-icon"></i></div>
+
+            <h5 class="card-title">
+              Tax Compliance & Filing
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Expert handling of Indian tax laws, including ITR filing, GST, and
+              TDS compliance for individuals and businesses.
+            </p>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-1" onclick="toggleCard(this)">
+            <div class="icon"><i class="fas fa-globe-asia card-icon"></i></div>
+
+            <h5 class="card-title">
+              NRI & International Taxation
+              <i class="fas fa-chevron-down arrow-icon"></i>
+            </h5>
+
+            <p class="card-text">
+              Specialized services for NRIs, expatriates, and international
+              clients navigating Indian tax obligations.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <script>
-      function setEqualHeight() {
-        let slides = document.querySelectorAll("#why-tekalgo .swiper-slide");
-        let maxHeight = 0;
-
-        // Reset height to auto first
-        slides.forEach((slide) => {
-          slide.style.height = "auto";
-        });
-
-        // Find the tallest slide
-        slides.forEach((slide) => {
-          let slideHeight = slide.clientHeight;
-          if (slideHeight > maxHeight) {
-            maxHeight = slideHeight;
-          }
-        });
-
-        // Apply max height to all slides
-        slides.forEach((slide) => {
-          slide.style.height = maxHeight + "px";
-        });
+      // Toggle for mobile
+      function toggleCard(card) {
+        if (window.innerWidth < 768) {
+          card.classList.toggle("active");
+        }
       }
-
-      var swiper = new Swiper("#why-tekalgo .swiper", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        loop: true,
-
-        speed: 800, // Smooth animation speed
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-          // dynamicBullets: true,
-        },
-        autoplay: {
-          delay: 4500, // Adjusted for smoother transitions
-          disableOnInteraction: false, // Keeps autoplay running after interaction
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          992: {
-            slidesPerView: 3,
-            loopedSlides: 3, // Ensures smooth looping in this view
-          },
-          768: {
-            slidesPerView: 2,
-            loopedSlides: 2, // Ensures correct loop behavior
-          },
-          0: {
-            slidesPerView: 1,
-          },
-        },
-        on: {
-          init: setEqualHeight, // Adjust height when Swiper initializes
-          slideChangeTransitionEnd: setEqualHeight, // Adjust height smoothly
-        },
-      });
-
-      // Adjust height on window resize
-      window.addEventListener("resize", setEqualHeight);
     </script>
 
-    <!-- === End SERVICE ======= -->
+    <!-- ======= End Flip Card Our Services ===  -->
 
     <!-- STATS  -->
     <style>
@@ -2328,7 +2263,7 @@
       }
     </style>
 
-    <a href="#" class="whatsapp-btn" target="">
+    <a href="https://wa.me/8699231964" class="whatsapp-btn" target="blank">
       <i class="fab fa-whatsapp"></i>
     </a>
     <script>
