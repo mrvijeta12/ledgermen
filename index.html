@@ -703,12 +703,11 @@
         transition: all 0.3s ease;
         text-align: center;
         border: 1px solid #eee;
-        /* border-radius: 12px; */
+
         background-color: #fff;
         box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
       }
       .flip-card .icon {
-        /* margin-bottom: 32px; */
         transition: 0.3s;
         border-radius: 50%;
         font-size: 30px;
@@ -728,7 +727,7 @@
       .flip-card .card-icon {
         font-size: 28px;
         color: rgb(13, 110, 253);
-        /* margin-top: 20px; */
+
         transition: transform 0.3s ease;
       }
       .flip-card a {
@@ -737,7 +736,7 @@
 
       .flip-card .card-title {
         font-weight: 700;
-        /* font-size: 24px; */
+
         margin: 1rem 0;
         position: relative;
         color: #283851;
@@ -770,13 +769,9 @@
           max-height: 200px;
           margin-bottom: 1rem;
         }
-        .flip-card .card:hover .card-title {
-          /* color: #ffc107; */
-        }
 
         .flip-card .card:hover .arrow-icon {
           transform: rotate(180deg);
-          /* color: #ffc107; */
         }
       }
 
@@ -794,7 +789,7 @@
         transform: rotate(180deg);
       }
       .flip-card .col-md-6:nth-child(1) .card-icon {
-        color: #007bff; /* blue */
+        color: #007bff;
       }
 
       .flip-card .col-md-6:nth-child(2) .card-icon {
@@ -840,7 +835,9 @@
 
             <h5 class="card-title">
               Financial Due Diligence
-              <i class="fas fa-chevron-down arrow-icon"></i>
+              <span>
+                <i class="fas fa-chevron-down arrow-icon"></i>
+              </span>
             </h5>
 
             <p class="card-text">
@@ -1548,39 +1545,6 @@
                   </div>
                 </div>
               </div>
-              <!-- FAQ Item 9 -->
-              <div class="common-faq-item mt-4">
-                <a
-                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
-                  data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-6"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-6"
-                >
-                  <h5 class="faq-header">
-                    Is there a long-term contract, or can I adjust services as
-                    needed?
-                  </h5>
-                  <div class="common-faq-icon">
-                    <span class="fas fa-chevron-down"></span>
-                  </div>
-                </a>
-                <div
-                  class="collapse"
-                  id="ezy-faq18-collapse-6"
-                  data-bs-parent="#faqAccordionRight"
-                >
-                  <div class="common-faq-content p-3">
-                    <p class="opacity-50 mb-0">
-                      We offer flexible, month-to-month agreements and hourly
-                      agreements allowing you to scale services based on your
-                      business needs without long-term commitments.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               <!-- FAQ Item 2 -->
               <div class="common-faq-item mt-4">
                 <a
@@ -1592,8 +1556,8 @@
                   aria-controls="ezy-faq18-collapse-2"
                 >
                   <h5 class="faq-header">
-                    How does outsourced bookkeeping work, and how do you ensure
-                    accuracy?
+                    Is there a long-term contract, or can I adjust services as
+                    needed?
                   </h5>
                   <div class="common-faq-icon">
                     <span class="fas fa-chevron-down"></span>
@@ -1606,10 +1570,9 @@
                 >
                   <div class="common-faq-content p-3">
                     <p class="opacity-50 mb-0">
-                      We handle all bookkeeping tasks remotely using secure
-                      cloud-based accounting software. Our team follows strict
-                      quality control measures, regular reconciliations, and
-                      multi-level reviews to ensure accuracy.
+                      We offer flexible, month-to-month agreements and hourly
+                      agreements allowing you to scale services based on your
+                      business needs without long-term commitments.
                     </p>
                   </div>
                 </div>
@@ -1626,7 +1589,8 @@
                   aria-controls="ezy-faq18-collapse-3"
                 >
                   <h5 class="faq-header">
-                    ow do you ensure data security and confidentiality?
+                    How does outsourced bookkeeping work, and how do you ensure
+                    accuracy?
                   </h5>
                   <div class="common-faq-icon">
                     <span class="fas fa-chevron-down"></span>
@@ -1639,6 +1603,39 @@
                 >
                   <div class="common-faq-content p-3">
                     <p class="opacity-50 mb-0">
+                      We handle all bookkeeping tasks remotely using secure
+                      cloud-based accounting software. Our team follows strict
+                      quality control measures, regular reconciliations, and
+                      multi-level reviews to ensure accuracy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="common-faq-item mt-4">
+                <a
+                  class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
+                  data-bs-toggle="collapse"
+                  href="#ezy-faq18-collapse-4"
+                  role="button"
+                  aria-expanded="false"
+                  aria-controls="ezy-faq18-collapse-4"
+                >
+                  <h5 class="faq-header">
+                    How do you ensure data security and confidentiality?
+                  </h5>
+                  <div class="common-faq-icon">
+                    <span class="fas fa-chevron-down"></span>
+                  </div>
+                </a>
+                <div
+                  class="collapse"
+                  id="ezy-faq18-collapse-4"
+                  data-bs-parent="#faqAccordionLeft"
+                >
+                  <div class="common-faq-content p-3">
+                    <p class="opacity-50 mb-0">
                       We use encrypted connections, secure cloud storage, and
                       follow strict non-disclosure agreements (NDAs) to
                       safeguard your financial information.
@@ -1646,15 +1643,15 @@
                   </div>
                 </div>
               </div>
-              <!-- FAQ Item 8 -->
+              <!-- FAQ Item 5 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-6"
+                  href="#ezy-faq18-collapse-5"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-6"
+                  aria-controls="ezy-faq18-collapse-5"
                 >
                   <h5 class="faq-header">
                     How do I get started with your bookkeeping and accounting
@@ -1666,8 +1663,8 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-6"
-                  data-bs-parent="#faqAccordionRight"
+                  id="ezy-faq18-collapse-5"
+                  data-bs-parent="#faqAccordionLeft"
                 >
                   <div class="common-faq-content p-3">
                     <p class="opacity-50 mb-0">
@@ -1683,15 +1680,15 @@
 
           <div class="col-md-6">
             <div class="accordion" id="faqAccordionRight">
-              <!-- FAQ Item 4 -->
+              <!-- FAQ Item 6 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-4"
+                  href="#ezy-faq18-collapse-6"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-4"
+                  aria-controls="ezy-faq18-collapse-6"
                 >
                   <h5 class="faq-header">
                     Will I lose control over my financial data if I outsource
@@ -1703,7 +1700,7 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-4"
+                  id="ezy-faq18-collapse-6"
                   data-bs-parent="#faqAccordionRight"
                 >
                   <div class="common-faq-content p-3">
@@ -1717,15 +1714,15 @@
                 </div>
               </div>
 
-              <!-- FAQ Item 5 -->
+              <!-- FAQ Item 7 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-5"
+                  href="#ezy-faq18-collapse-7"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-5"
+                  aria-controls="ezy-faq18-collapse-7"
                 >
                   <h5 class="faq-header">
                     Do you provide customized financial reports for better
@@ -1737,7 +1734,7 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-5"
+                  id="ezy-faq18-collapse-7"
                   data-bs-parent="#faqAccordionRight"
                 >
                   <div class="common-faq-content p-3">
@@ -1751,15 +1748,15 @@
                 </div>
               </div>
 
-              <!-- FAQ Item 6 -->
+              <!-- FAQ Item 8 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-6"
+                  href="#ezy-faq18-collapse-8"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-6"
+                  aria-controls="ezy-faq18-collapse-8"
                 >
                   <h5 class="faq-header">
                     What are the cost benefits of outsourcing bookkeeping and
@@ -1771,7 +1768,7 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-6"
+                  id="ezy-faq18-collapse-8"
                   data-bs-parent="#faqAccordionRight"
                 >
                   <div class="common-faq-content p-3">
@@ -1784,15 +1781,15 @@
                   </div>
                 </div>
               </div>
-              <!-- FAQ Item 7 -->
+              <!-- FAQ Item 9 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-6"
+                  href="#ezy-faq18-collapse-9"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-6"
+                  aria-controls="ezy-faq18-collapse-9"
                 >
                   <h5 class="faq-header">
                     How do I communicate with your team, and what is the
@@ -1804,7 +1801,7 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-6"
+                  id="ezy-faq18-collapse-9"
                   data-bs-parent="#faqAccordionRight"
                 >
                   <div class="common-faq-content p-3">
@@ -1816,15 +1813,15 @@
                   </div>
                 </div>
               </div>
-              <!-- FAQ Item 8 -->
+              <!-- FAQ Item 10 -->
               <div class="common-faq-item mt-4">
                 <a
                   class="btn p-3 p-lg-4 w-100 text-start d-flex justify-content-between align-items-center common-faq-btn-collapse"
                   data-bs-toggle="collapse"
-                  href="#ezy-faq18-collapse-8"
+                  href="#ezy-faq18-collapse-10"
                   role="button"
                   aria-expanded="false"
-                  aria-controls="ezy-faq18-collapse-8"
+                  aria-controls="ezy-faq18-collapse-10"
                 >
                   <h5 class="faq-header">
                     Can I schedule regular financial check-ins with your team?
@@ -1835,7 +1832,7 @@
                 </a>
                 <div
                   class="collapse"
-                  id="ezy-faq18-collapse-8"
+                  id="ezy-faq18-collapse-10"
                   data-bs-parent="#faqAccordionRight"
                 >
                   <div class="common-faq-content p-3">
