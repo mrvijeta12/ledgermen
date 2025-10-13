@@ -1,0 +1,92 @@
+<!-- contact-modal.html -->
+<div
+  class="modal fade"
+  id="contactModal"
+  tabindex="-1"
+  aria-labelledby="contactModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content position-relative shadow-lg">
+      <div class="modal-header">
+        <div>
+          <img src="images/popup-contact-ledgerman.png" alt="Get In Touch" />
+        </div>
+        <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
+          Get In Touch <br />
+          With Us
+        </h2>
+        <button
+          type="button"
+          class="custom-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST" id="contactForm">
+          <input type="hidden" name="page" value="popup" />
+          <!-- Name Field -->
+          <div class="mb-3">
+            <label for="name" class="mb-2">Name*</label>
+            <input
+              type="text"
+              class="form-control"
+              id="first-name"
+              placeholder="Enter Your  Name"
+              name="name"
+              required
+            />
+            <div id="nameError" class="error-message"></div>
+          </div>
+
+          <div class="row">
+            <!-- Email Field -->
+            <div class="col-md-6 mb-3">
+              <label for="email" class="mb-2">Email*</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter Your Email "
+                name="email"
+                required
+              />
+              <div id="emailError" class="error-message"></div>
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div class="col-md-6 mb-3">
+              <label for="phone" class="mb-2">Contact Number*</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                placeholder="+91 Mobile No."
+                name="phone"
+              />
+              <div id="numberError" class="error-message"></div>
+            </div>
+          </div>
+
+          <!-- Message Field -->
+          <div class="mb-3">
+            <label for="message" class="mb-2">Message</label>
+            <textarea
+              name="message"
+              id="animatedTextarea"
+              placeholder="Tell us about your financial goals, questions, or how we can assist you..."
+              rows="4"
+              class="form-control"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

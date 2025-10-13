@@ -219,69 +219,9 @@
         </div>
       </div>
     </div>
+
     <!-- nav-menu  -->
-
-    <header class="" id="header">
-      <nav class="navbar container">
-        <div class="logo">
-          <a href="./index.html">
-            <img src="images/ledgermen-logo.png" alt="Ledgermen logo" />
-          </a>
-        </div>
-        <div class="menu-icon" id="menu-icon">
-          <span class="menu-open"><i class="fa-solid fa-bars"></i></span>
-          <span class="menu-close"><i class="fa-solid fa-x"></i></span>
-        </div>
-        <div>
-          <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About Us</a></li>
-            <!-- <li><a href="./our-services.html"></a></li> -->
-            <li class="dropdown">
-              <a href="#"
-                >What We Do
-                <span><i class="fa-solid fa-angle-down"></i></span>
-              </a>
-              <ul class="dropdown-content">
-                <li>
-                  <a href="financial-bookkeeping.html">Financial Bookkeeping</a>
-                </li>
-                <li>
-                  <a href="financial-due-diligence.html"
-                    >Financial Due Diligence</a
-                  >
-                </li>
-                <li>
-                  <a href="financial-planning-analysis.html"
-                    >Financial Planning & Analysis</a
-                  >
-                </li>
-                <li>
-                  <a href="global-tax-advisory.html">Global Tax Advisory</a>
-                </li>
-                <li>
-                  <a href="nri-internation-taxation.html"
-                    >NRI Taxation & Financial Services</a
-                  >
-                </li>
-                <!-- <li>
-                  <a href="company-registration.html">Company Registration</a>
-                </li> -->
-              </ul>
-            </li>
-            <!-- <li><a href="./insights.html">Insights</a></li> -->
-            <li><a href="./success-story.html">Success Story</a></li>
-
-            <li><a href="./contact.html" class="current">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
-            <button class="animated-button">Book a Consultation</button>
-          </a>
-        </div>
-      </nav>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- HERO  -->
     <style>
@@ -352,36 +292,24 @@
                           id="contactForm"
                         >
                           <div class="row">
+                            <input
+                              type="hidden"
+                              name="page"
+                              value="contactpage"
+                            />
                             <div class="col-12">
                               <div class="form-group mb-4">
-                                <label for="first-name" class="mb-2">
-                                  Name</label
-                                >
+                                <label for="name" class="mb-2"> Name</label>
                                 <input
                                   type="text"
                                   class="form-control"
                                   id="first-name"
-                                  placeholder="Enter Your  Name"
-                                  name="first_name"
+                                  placeholder="Enter Your Name"
+                                  name="name"
                                   required
                                 />
                               </div>
                             </div>
-                            <!-- <div class="col-lg-6">
-                              <div class="form-group mb-4">
-                                <label for="last-name" class="mb-2"
-                                  >Last Name*</label
-                                >
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="last-name"
-                                  placeholder="Your Last Name"
-                                  name="last_name"
-                                  required
-                                />
-                              </div>
-                            </div> -->
 
                             <div class="col-12 col-lg-6">
                               <div class="form-group mb-4">
@@ -405,14 +333,14 @@
                                   type="tel"
                                   class="form-control"
                                   id="phone"
-                                  placeholder="Enter Mob No."
+                                  placeholder="+91 Phone No With Country Code"
                                   name="phone"
                                 />
                               </div>
                             </div>
 
                             <div class="col-12">
-                              <label for="phone" class="mb-2">Message</label>
+                              <label for="message" class="mb-2">Message</label>
                               <textarea
                                 name="message"
                                 id="animatedTextarea"
@@ -664,230 +592,10 @@
     ></div>
 
     <!-- footer  -->
-    <section class="footer-section">
-      <div class="container">
-        <div class="row text-start text-sm-start">
-          <div class="col-lg-3 mt-4 mt-lg-0">
-            <a href="index.html">
-              <img
-                src="images/ledgermen-logo.png"
-                width="180px"
-                alt="Ledgermen logo"
-                style="margin-bottom: 16px"
-              />
-            </a>
-            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
-              <div style="margin-right: 15px">
-                <i class="fa-solid fa-house" style="font-size: 17px"></i>
-              </div>
-              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
-                India, US, UK, UAE
-              </p>
-            </div>
-            <div style="color: #6c757d; opacity: 0.85" class="d-flex">
-              <div style="margin-right: 15px">
-                <i
-                  class="fa-solid fa-envelope-open"
-                  style="font-size: 17px"
-                ></i>
-              </div>
-              <p style="color: #6c757d; opacity: 0.85; margin-bottom: 8px">
-                support@ledgermen.com
-              </p>
-            </div>
-            <div>
-              <ul class="footer-social d-inline-flex nav mt-2">
-                <li>
-                  <a
-                    href="https://www.linkedin.com/company/ledgermen/"
-                    target="_blank"
-                    ><i class="fab fa-linkedin"></i
-                  ></a>
-                </li>
-
-                <li>
-                  <a
-                    href="https://www.facebook.com/share/1AG5CotsDq/"
-                    target="_blank"
-                    ><i class="fab fa-facebook-square"></i
-                  ></a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/ledgermenn/"
-                    target="_blank"
-                  >
-                    <i class="fab fa-instagram"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-9">
-            <div class="row">
-              <div
-                class="col-sm-6 mt-4 mt-lg-0 d-flex flex-column align-items-lg-center"
-              >
-                <div>
-                  <h5>Quick Links</h5>
-                  <ul class="nav flex-column footer-quick-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="our-services.html">Our Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div
-                class="col-sm-6 mt-4 mt-lg-0 d-flex flex-column align-items-lg-center"
-              >
-                <div>
-                  <h5>Social Media</h5>
-                  <ul class="nav flex-column footer-quick-links">
-                    <li>
-                      <a
-                        href="https://www.facebook.com/share/1AG5CotsDq/"
-                        target="_blank"
-                        >Facebook</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.instagram.com/ledgermenn/"
-                        target="_blank"
-                        >Instagram</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.linkedin.com/company/ledgermen/"
-                        target="_blank"
-                        >LinkedIn</a
-                      >
-                    </li>
-                    <!-- <li><a href="#">Twitter</a></li> -->
-                  </ul>
-                </div>
-              </div>
-              <!-- <div class="col-sm-4 mt-4 mt-lg-0">
-                <h5>Important Links</h5>
-                <ul class="nav flex-column footer-quick-links">
-                  <li><a href="#">Terms & Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                 
-                </ul>
-              </div> -->
-            </div>
-
-            <div class="mt-3 opacity-50 footer-copyright">
-              <span>Copyright &copy; Ledgermen, All rights reserved</span>
-              <a class="ms-2" href="#">Terms & Conditions</a>
-              <a class="ms-2" href="#">Privacy Policy</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div id="footer-placeholder"></div>
 
     <!-- Contact Form Modal -->
-    <div
-      class="modal fade"
-      id="contactModal"
-      tabindex="-1"
-      aria-labelledby="contactModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content position-relative shadow-lg">
-          <div class="modal-header">
-            <div>
-              <img
-                src="images/popup-contact-ledgerman.png"
-                alt="Get In Touch"
-              />
-            </div>
-            <h2 class="modal-title text-white fw-bold" id="contactModalLabel">
-              Get In Touch <br />
-              With Us
-            </h2>
-            <button
-              type="button"
-              class="custom-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              &times;
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="myForm meetForm">
-              <!-- Name Field -->
-              <div class="mb-3">
-                <label for="name" class="form-label">Name*</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Enter Your Name"
-                  required
-                  name="name"
-                />
-                <div id="nameError" class="error-message"></div>
-              </div>
-              <div class="row">
-                <!-- Email Field -->
-                <div class="col-md-6 mb-3">
-                  <label for="email" class="form-label">Email*</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    placeholder="name@example.com"
-                    required
-                    name="email"
-                  />
-                  <div id="emailError" class="error-message"></div>
-                </div>
-
-                <!-- Mobile Number Field -->
-                <div class="col-md-6 mb-3">
-                  <label for="mobile" class="form-label">Mobile No</label>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="mobile"
-                    placeholder="Enter Mob No."
-                    name="mobile"
-                  />
-                  <div id="numberError" class="error-message"></div>
-                </div>
-              </div>
-
-              <!-- Message Field -->
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea
-                  class="form-control"
-                  id="message"
-                  rows="3"
-                  placeholder="Tell us about your financial goals, questions, or how we can assist you..."
-                  name="message"
-                ></textarea>
-              </div>
-
-              <!-- Submit Button -->
-              <button type="submit" class="btn btn-primary w-100">
-                Submit
-              </button>
-
-              <!-- <small class="d-flex justify-content-center mt-1"
-                >In just 1 hr you will get a response</small
-              > -->
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div id="contact-modal-placeholder"></div>
 
     <!-- WHATSAPP  -->
 
