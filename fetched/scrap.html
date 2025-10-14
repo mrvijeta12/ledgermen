@@ -1,0 +1,1187 @@
+<!-- EXTRA SERVICE  -->
+<style>
+  .service-section {
+    --bs-body-color: #28303b;
+    --bs-body-bg: rgb(255, 255, 255);
+    --ezy-theme-color: rgb(13, 110, 253);
+    --ezy-theme-color-rgb: 13, 110, 253;
+    --ezy-card-bg: #ffffff;
+    --ezy-card-box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    position: relative;
+    padding: 60px 0;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .service-section {
+      padding: 100px 0;
+    }
+  }
+
+  .gray .service-section,
+  .service-section.gray {
+    --bs-body-bg: rgb(246, 246, 246);
+    --ezy-card-bg: #f6f6f6;
+  }
+
+  .dark-gray .service-section,
+  .service-section.dark-gray {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(30, 39, 53);
+    --ezy-card-bg: rgb(30, 39, 53);
+    --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+  }
+
+  .dark .service-section,
+  .service-section.dark {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(11, 23, 39);
+    --ezy-card-bg: rgb(11, 23, 39);
+    --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+  }
+
+  .service-heading {
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 768px) {
+    .service-heading {
+      font-size: 40px;
+    }
+  }
+
+  .service-subheading {
+    /* font-size: 17px; */
+    line-height: 1.5;
+    opacity: 0.8;
+  }
+
+  .service-shape-one {
+    z-index: -1;
+    bottom: -20%;
+    left: 0;
+  }
+
+  .service-shape-two {
+    z-index: -1;
+    top: -20%;
+  }
+
+  .service-card {
+    background-color: var(--ezy-card-bg);
+    box-shadow: var(--ezy-card-box-shadow);
+  }
+
+  .service-icon {
+    font-size: 40px;
+    color: var(--ezy-theme-color);
+  }
+
+  .service-cards-wrapper {
+    /* structure unchanged, just renamed */
+  }
+</style>
+
+<section class="service-section">
+  <!-- shape one -->
+  <svg
+    class="service-shape-one position-absolute"
+    width="405"
+    height="626"
+    viewBox="0 0 405 626"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="-302.65"
+      y="296.986"
+      width="433.92"
+      height="140"
+      rx="73.8464"
+      transform="rotate(-33.796 -302.65 296.986)"
+      fill="#7434F8"
+      fill-opacity="0.5"
+    />
+    <rect
+      x="-315"
+      y="502.403"
+      width="666.584"
+      height="140"
+      rx="73.8464"
+      transform="rotate(-33.796 -315 502.403)"
+      fill="#FAA515"
+      fill-opacity="0.5"
+    />
+  </svg>
+
+  <!-- shape two -->
+  <svg
+    class="service-shape-two position-absolute end-0"
+    width="340"
+    height="658"
+    viewBox="0 0 495 778"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="389"
+      cy="389"
+      r="389"
+      fill="var(--ezy-theme-color)"
+      fill-opacity="0.19"
+    />
+  </svg>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4" data-aos="zoom-in" data-aos-delay="500">
+        <h2 class="service-heading mb-3">
+          Smart Solutions Beyond Tax. What We Also Offer...
+        </h2>
+        <p class="service-subheading">
+          In a digital-first world, clients need more than compliance. We
+          provide tools and insights that empower better decisions, financial
+          clarity, and business growth.
+        </p>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="row service-cards-wrapper">
+          <div class="col-12 col-md-6">
+            <div>
+              <!-- Card 1 -->
+              <div
+                class="card service-card rounded-0 border-0 p-3"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="card-body">
+                  <div class="service-icon mb-2">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </div>
+                  <h5 class="my-4">Digital Document Vault</h5>
+                  <p class="opacity-75 mt-3">
+                    Secure, cloud-based storage for tax files, invoices, and
+                    important financial documents—accessible anytime.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div
+                class="card service-card rounded-0 border-0 p-3 mt-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="card-body">
+                  <div class="service-icon mb-2">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                  </div>
+                  <h5 class="my-4">Invoicing & eBilling</h5>
+                  <p class="opacity-75 mt-3">
+                    Simplify client billing with branded, GST-compliant
+                    e-invoices integrated with payment tracking.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="mt-md-5">
+              <!-- Card 3 -->
+              <div
+                class="card service-card rounded-0 border-0 p-3 mt-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="card-body">
+                  <div class="service-icon mb-2">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h5 class="my-4">Business Performance Reports</h5>
+                  <p class="opacity-75 mt-3">
+                    Monthly insights on cash flow, tax outgo, and profitability—
+                    tailored for startups, SMEs, and freelancers.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div
+                class="card service-card rounded-0 border-0 p-3 mt-4"
+                data-aos="fade-up"
+                data-aos-delay="500"
+              >
+                <div class="card-body">
+                  <div class="service-icon mb-2">
+                    <i class="fas fa-user-shield"></i>
+                  </div>
+                  <h5 class="my-4">KYC & Compliance Toolkit</h5>
+                  <p class="opacity-75 mt-3">
+                    Automate and manage KYC, PAN validation, and ROC filings
+                    with ease—ideal for startups and agencies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- awards  -->
+<section class="ezy__numbers11_bnpjajDq">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="ezy__numbers11_bnpjajDq-heading">Awards & Recognitions</h2>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+          <div class="mb-4">
+            <img
+              src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+          <h5 class="mb-0">Top 100 Tax Consultants in India - 2024</h5>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+          <div class="mb-4">
+            <img
+              src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+          <h5 class="mb-0">
+            Excellence in GST Compliance Solutions – MSME Awards 2024
+          </h5>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4">
+        <div class="card ezy__numbers11_bnpjajDq-card border-0 mt-5">
+          <div class="mb-4">
+            <img
+              src="https://cdn.easyfrontend.com/pictures/logos/award-logo.png"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+          <h5 class="mb-0">
+            Recognized by Startup India for Financial Process Innovation
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- stats  -->
+<!-- STATS  -->
+<style>
+  .stats-section {
+    --bs-body-color: #161b22;
+    --bs-body-bg: rgb(255, 255, 255);
+
+    --theme-color: rgb(13, 110, 253);
+    --theme-color-rgb: 13, 110, 253;
+
+    background-color: var(--bs-body-bg);
+    padding: 60px 0;
+  }
+
+  @media (min-width: 768px) {
+    .stats-section {
+      padding: 100px 0;
+    }
+  }
+
+  .gray .stats-section,
+  .stats-section.gray {
+    --bs-body-bg: rgb(246, 246, 246);
+  }
+
+  .dark-gray .stats-section,
+  .stats-section.dark-gray {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(30, 39, 53);
+  }
+
+  .dark .stats-section,
+  .stats-section.dark {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(11, 23, 39);
+  }
+
+  .stats-heading {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    /* color: var(--bs-body-color); */
+  }
+
+  @media (min-width: 768px) {
+    .stats-heading {
+      font-size: 45px;
+    }
+  }
+
+  .stats-subheading {
+    /* font-size: 18px; */
+    line-height: 25px;
+    color: var(--bs-body-color);
+    opacity: 0.8;
+  }
+
+  .stats-section .card {
+    background-color: transparent !important;
+    color: var(--bs-body-color);
+  }
+
+  .stats-section .card h3 {
+    font-size: 45px;
+    font-weight: 900;
+  }
+
+  .stats-section .card h5 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .stats-section .card p {
+    font-size: 16px;
+    opacity: 0.8;
+  }
+
+  .stats-section img {
+    border-radius: 10px;
+  }
+</style>
+
+<section class="stats-section">
+  <div class="container">
+    <!-- heading -->
+    <div class="row justify-content-between">
+      <div class="col-12 col-lg-7">
+        <div
+          class="stats-content-wrapper"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          <h1 class="stats-heading mb-3">Key Numbers That Define Us</h1>
+          <p class="stats-subheading mb-5">
+            Backed by a decade of experience, we help individuals and businesses
+            stay compliant and financially sound—across India and globally.
+          </p>
+        </div>
+
+        <!-- cards -->
+        <div class="d-flex flex-column flex-sm-row">
+          <div
+            class="card border-0 mb-3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="card-body">
+              <h3 class="mb-3">1500+</h3>
+              <h5>Returns Filed</h5>
+              <p class="mb-0">
+                Income tax, TDS, and GST returns filed accurately and on time
+                for clients across sectors.
+              </p>
+            </div>
+          </div>
+          <div
+            class="card border-0 mb-3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="card-body">
+              <h3 class="mb-3">500+</h3>
+              <h5>Clients Served</h5>
+              <p class="mb-0">
+                Individuals, freelancers, NRIs, and businesses trust us for tax,
+                accounting, and advisory needs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row">
+          <div
+            class="card border-0 mb-3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="card-body">
+              <h3 class="mb-3">12+</h3>
+              <h5>Years of Expertise</h5>
+              <p class="mb-0">
+                Helping clients navigate India’s complex financial and tax
+                system with confidence and ease.
+              </p>
+            </div>
+          </div>
+          <div
+            class="card border-0 mb-3"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="card-body">
+              <h3 class="mb-3">20+</h3>
+              <h5>Countries Served</h5>
+              <p class="mb-0">
+                Specialized in NRI taxation, remittances, and global financial
+                advisory across multiple jurisdictions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-12 col-lg-5 d-flex justify-content-center align-items-center"
+      >
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    const chart = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Returns Filed",
+          "Clients Served",
+          "Years of Expertise",
+          "Countries Served",
+        ],
+        datasets: [
+          {
+            data: [1500, 500, 12, 20],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+            ],
+            borderColor: "#fff",
+            borderWidth: 2,
+            hoverOffset: 8,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const label = context.label || "";
+                const value = context.parsed;
+                const descriptions = {
+                  Red: "Returns Filed",
+                  Blue: "Clients Served",
+                  Yellow: "Years of Expertise",
+                  Green: "Countries Served",
+                };
+                return ` ${value}+ ${descriptions[label] || ""}`;
+              },
+            },
+          },
+        },
+      },
+    });
+  </script>
+</section>
+
+<!-- key financial analytics -->
+<style>
+  .category-section {
+    /* Bootstrap variables */
+    --bs-body-color: #28303b;
+    --bs-body-bg: rgb(255, 255, 255);
+
+    /* Easy Frontend variables */
+    --ezy-theme-color: rgb(13, 110, 253);
+    --ezy-theme-color-rgb: 13, 110, 253;
+    --ezy-card-bg: #ffffff;
+    --ezy-card-box-shadow: 0px 6px 44px rgba(173, 174, 197, 0.2);
+
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    overflow: hidden;
+    /* padding: 60px 0; */
+  }
+
+  @media (min-width: 768px) {
+    .category-section {
+      /* padding: 100px 0; */
+    }
+  }
+
+  /* Gray Block Style */
+  .gray .category-section,
+  .category-section.gray {
+    --bs-body-bg: rgb(246, 246, 246);
+  }
+
+  /* Dark Gray Block Style */
+  .dark-gray .category-section,
+  .category-section.dark-gray {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(30, 39, 53);
+
+    --ezy-card-bg: rgb(30, 39, 53);
+    --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Dark Block Style */
+  .dark .category-section,
+  .category-section.dark {
+    --bs-body-color: #ffffff;
+    --bs-body-bg: rgb(11, 23, 39);
+
+    --ezy-card-bg: rgb(30, 39, 53);
+    --ezy-card-box-shadow: 0px 6px 44px rgba(0, 0, 0, 0.2);
+  }
+
+  .category-section-card {
+    background-color: var(--ezy-card-bg);
+    box-shadow: var(--ezy-card-box-shadow);
+    border-radius: 10px !important;
+    transition: 0.4s;
+    min-height: 100px;
+  }
+
+  .category-section-card-icon {
+    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .category-section-row
+    [class*="col-"]:nth-of-type(1n)
+    .category-section-card-icon {
+    color: rgb(255, 193, 7);
+    background-color: rgba(255, 193, 7, 0.1);
+  }
+
+  .category-section-row
+    [class*="col-"]:nth-of-type(2n)
+    .category-section-card-icon {
+    color: rgb(58, 189, 187);
+    background-color: rgba(58, 189, 187, 0.1);
+  }
+
+  .category-section-row
+    [class*="col-"]:nth-of-type(3n)
+    .category-section-card-icon {
+    color: rgb(47, 128, 237);
+    background-color: rgba(47, 128, 237, 0.1);
+  }
+
+  .category-section-row
+    [class*="col-"]:nth-of-type(4n)
+    .category-section-card-icon {
+    color: rgb(255, 100, 0);
+    background-color: rgba(255, 100, 0, 0.1);
+  }
+
+  .category-section-row
+    [class*="col-"]:nth-of-type(5n)
+    .category-section-card-icon {
+    color: rgb(4, 0, 77);
+    background-color: rgba(4, 0, 77, 0.1);
+  }
+
+  .category-section a {
+    text-decoration: none;
+    color: var(--bs-body-color);
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.5s;
+  }
+  .category-section a:hover {
+    text-decoration: underline;
+    color: var(--ezy-theme-color);
+  }
+</style>
+
+<section class="category-section">
+  <div class="container">
+    <div class="row" data-aos="zoom-in" data-aos-delay="500">
+      <div class="col-12 col-lg-9">
+        <h3 class="custom-heading">
+          Key Financial Analytics Tools and Platforms We Specialize In
+        </h3>
+      </div>
+    </div>
+    <div class="row category-section-row">
+      <!-- card start -->
+      <div
+        class="col-sm-6 col-lg-4 mt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <div class="card category-section-card p-2 px-xl-3 border-0 rounded-0">
+          <div class="card-body p-0 d-flex align-items-center">
+            <div class="category-section-card-icon me-3">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h5>Advanced FP&A dashboards</h5>
+          </div>
+        </div>
+      </div>
+      <!-- card end -->
+
+      <!-- card start -->
+      <div
+        class="col-sm-6 col-lg-4 mt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <div class="card category-section-card p-2 px-xl-3 border-0 rounded-0">
+          <div class="card-body p-0 d-flex align-items-center">
+            <div class="category-section-card-icon me-3">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h5>Onestream Predictive Analytics</h5>
+          </div>
+        </div>
+      </div>
+      <!-- card end -->
+
+      <!-- card start -->
+      <div
+        class="col-sm-6 col-lg-4 mt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <div class="card category-section-card p-2 px-xl-3 border-0 rounded-0">
+          <div class="card-body p-0 d-flex align-items-center">
+            <div class="category-section-card-icon me-3">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <h5>Zephyr Portfolio Analytics</h5>
+          </div>
+        </div>
+      </div>
+      <!-- card end -->
+
+      <!-- card start -->
+      <div
+        class="col-sm-6 col-lg-4 mt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <div class="card category-section-card p-2 px-xl-3 border-0 rounded-0">
+          <div class="card-body p-0 d-flex align-items-center">
+            <div class="category-section-card-icon me-3">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h5>Bloomberg Sales & Analytics</h5>
+          </div>
+        </div>
+      </div>
+      <!-- card end -->
+
+      <!-- card start -->
+      <div
+        class="col-sm-6 col-lg-4 mt-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
+        <div class="card category-section-card p-2 px-xl-3 border-0 rounded-0">
+          <div class="card-body p-0 d-flex align-items-center">
+            <div class="category-section-card-icon me-3">
+              <i class="fas fa-newspaper"></i>
+            </div>
+            <h5>Refinitiv News Analytics</h5>
+          </div>
+        </div>
+      </div>
+      <!-- card end -->
+    </div>
+  </div>
+</section>
+
+<!-- why choose  -->
+<style>
+  .our-expertise {
+    --bs-body-bg: rgb(255, 255, 255);
+
+    --ezy-theme-color: rgb(13, 110, 253);
+    --ezy-theme-color-rgb: 13, 110, 253;
+    --ezy-item-bg: #ffffff;
+    --ezy-item-icon-bg: #ffffff;
+    --ezy-item-shadow: 0px 8px 44px rgba(227, 238, 255, 0.48);
+    --ezy-shape-color: #ffe7e7;
+
+    background: var(--bs-body-bg);
+    overflow: hidden;
+
+    position: relative;
+    z-index: 1;
+    margin-bottom: 100px;
+  }
+  .our-expertise-title {
+    line-height: 1.3;
+  }
+
+  .our-expertise-heading {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+  .our-expertise-card .card {
+    border: 1px solid #ccc;
+  }
+  .our-expertise-card .card-body ul {
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .our-expertise-card .card-body li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    /* line-height: 1.4; */
+    color: rgb(50, 62, 80);
+    opacity: 0.8;
+  }
+
+  .our-expertise-card .card-body ul li::before {
+    content: "\f105";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    color: var(--ezy-theme-color);
+    font-size: 16px;
+  }
+  .card.our-expertise-item .card-body:first-of-type {
+    max-height: 60px;
+    min-height: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .our-expertise-heading {
+      font-size: 32px;
+      /* line-height: 45px; */
+      line-height: 1.3;
+    }
+  }
+
+  .our-expertise-sub-heading {
+    font-size: 18px;
+    line-height: 25px;
+
+    opacity: 0.8;
+  }
+
+  .our-expertise-item {
+    background-color: var(--ezy-item-bg);
+    box-shadow: var(--ezy-item-shadow);
+    border-radius: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .our-expertise-icon {
+    background-color: var(--ezy-item-icon-bg);
+    box-shadow: 0 4px 34px 0 rgba(163, 190, 241, 0.12);
+    color: var(--ezy-theme-color);
+    border: 1px solid #ccc;
+  }
+  .our-expertise-icon {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    font-size: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -42px;
+  }
+</style>
+<section class="our-expertise">
+  <div class="container position-relative">
+    <div class="row" data-aos="zoom-in" data-aos-delay="500">
+      <div class="col-lg-9">
+        <h1 class="our-expertise-heading my-4">Our Due Diligence Expertise</h1>
+      </div>
+    </div>
+    <div class="row our-expertise-card">
+      <!-- Card 1: Financial Due Diligence for M&A -->
+      <div
+        class="col-lg-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        style="margin-top: 50px"
+      >
+        <div class="card our-expertise-item h-100">
+          <div class="card-body py-0 d-flex justify-content-center">
+            <div class="our-expertise-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+          </div>
+          <div class="card-body px-lg-4 pt-4 pb-lg-5">
+            <h4 class="our-expertise-title fs-4 mb-3 text-center">
+              Financial Due Diligence for M&A
+            </h4>
+            <ul>
+              <li>
+                Every merger or acquisition carries financial risks. Our M&A
+                financial due diligence services ensure buyers and investors
+                gain a complete understanding of the target company’s financial
+                health, liabilities, earnings quality, and future cash flows.
+              </li>
+              <li>
+                We have worked on projects aligned with best practices followed
+                by firms like PwC, Deloitte, KPMG, and EY, ensuring no detail is
+                overlooked.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Tax Due Diligence & Compliance Review -->
+      <div
+        class="col-lg-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        style="margin-top: 50px"
+      >
+        <div class="card our-expertise-item h-100">
+          <div class="card-body py-0 d-flex justify-content-center">
+            <div class="our-expertise-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+          </div>
+          <div class="card-body px-lg-4 pt-4 pb-lg-5">
+            <h4 class="our-expertise-title fs-4 mb-3 text-center">
+              Tax Due Diligence & Compliance Review
+            </h4>
+            <ul>
+              <li>
+                In complex tax landscapes, even a small oversight can cause
+                large penalties. Our tax due diligence services assess potential
+                tax exposures, compliance with local tax authorities, and risks
+                associated with mergers and acquisitions.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Customer Due Diligence for Banks & Financial Institutions -->
+      <div
+        class="col-lg-4"
+        data-aos="fade-up"
+        data-aos-delay="500"
+        style="margin-top: 50px"
+      >
+        <div class="card our-expertise-item h-100">
+          <div class="card-body py-0 d-flex justify-content-center">
+            <div class="our-expertise-icon">
+              <i class="fas fa-university"></i>
+            </div>
+          </div>
+          <div class="card-body px-lg-4 pt-4 pb-lg-5">
+            <h4 class="our-expertise-title fs-4 mb-3 text-center">
+              Customer Due Diligence for Banks & Financial Institutions
+            </h4>
+            <ul>
+              <li>
+                We support financial institutions in meeting regulatory
+                obligations under frameworks such as FATF, Basel Committee, and
+                BSA (Bank Secrecy Act).
+              </li>
+              <li>
+                Services include Know Your Customer (KYC), Customer Due
+                Diligence (CDD), and Enhanced Due Diligence (EDD).
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FEATURE -->
+<style>
+  .custom-heading h1 {
+    margin-left: 71px;
+    margin-bottom: 25px;
+    font-size: 32px !important;
+  }
+  .custom-img {
+    height: 450px !important;
+    border-radius: 20px;
+  }
+  @media screen and (max-width: 992px) {
+    .custom-img {
+      height: auto !important;
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .custom-heading h1 {
+      margin-top: 25px;
+      margin-left: 0px;
+    }
+  }
+</style>
+<section class="ledgerman__features light">
+  <div class="container">
+    <div class="row">
+      <!--  heading-->
+      <!-- <div class="col-12 col-lg-6" data-aos="zoom-in" data-aos-delay="500">
+            <div class="">
+              <h1 class="industry-services-heading mb-3">
+                Why Professional Bookkeeping Services Matter
+              </h1>
+            </div>
+          </div> -->
+    </div>
+    <div class="row justify-content-around">
+      <div
+        class="col-12 col-lg-6 order-1 order-lg-2 d-flex align-items-center mb-3 mb-lg-0"
+      >
+        <img
+          src="https://tekalgo.com/new_images/bookkeeping-intro.jpg"
+          alt="Accounting & Bookkeeping Feature"
+          class="img-fluid custom-img"
+          style="border-radius: 20px"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        />
+      </div>
+      <div
+        class="col-12 col-lg-6 order-2 order-lg-1 ledgerman__features-cards-wrapper"
+      >
+        <div data-aos="zoom-in" data-aos-delay="500">
+          <h1 class="industry-services-heading mb-3">
+            Why Professional Bookkeeping Services Matter
+          </h1>
+        </div>
+        <!-- Feature 1 -->
+        <div
+          class="d-flex align-items-center ledgerman__feature-card mt-3"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div class="me-3">
+            <span class="ledgerman__feature-icon">
+              <i class="fas fa-business-time"></i>
+            </span>
+          </div>
+          <div>
+            <p class="ledgerman__feature-content mb-0">
+              Managing a growing business is challenging—especially when
+              financial accuracy and compliance are at stake, and small errors
+              can compound into cash flow gaps, penalties, and strategic blind
+              spots over time.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div
+          class="d-flex align-items-center ledgerman__feature-card mt-3"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div class="me-3">
+            <span class="ledgerman__feature-icon">
+              <i class="fas fa-balance-scale"></i>
+            </span>
+          </div>
+          <div>
+            <p class="ledgerman__feature-content mb-0">
+              Bookkeeping isn’t just recording numbers; it’s building the
+              financial backbone for pricing, margins, funding, and tax planning
+              decisions that actually move the business forward.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div
+          class="d-flex align-items-center ledgerman__feature-card mt-3"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div class="me-3">
+            <span class="ledgerman__feature-icon">
+              <i class="fas fa-user-tie"></i>
+            </span>
+          </div>
+          <div>
+            <p class="ledgerman__feature-content mb-0">
+              With 15+ years of experience, the founding team has helped small
+              businesses, startups, and multi-location operations streamline
+              systems and close books on time with audit-ready confidence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div
+          class="d-flex align-items-center ledgerman__feature-card mt-3"
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
+          <div class="me-3">
+            <span class="ledgerman__feature-icon">
+              <i class="fas fa-laptop-house"></i>
+            </span>
+          </div>
+          <div>
+            <p class="ledgerman__feature-content mb-0">
+              Whether searching for bookkeeping services for small business, an
+              online accountant for small business, or a virtual bookkeeper, the
+              operating model prioritizes efficiency, compliance, and cost
+              control.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-subscribe position-relative">
+  <div class="cta-subscribe-shape position-absolute start-0 top-0"></div>
+  <div class="cta-subscribe-shape position-absolute end-0 bottom-0"></div>
+
+  <div class="container position-relative">
+    <div
+      class="row justify-content-center text-center text-white"
+      data-aos="zoom-in"
+      data-aos-delay="500"
+    >
+      <div class="col-lg-6">
+        <h2 class="cta-subscribe-heading mb-4">NRI with Global Income?</h2>
+        <p class="cta-subscribe-subheading mb-5">
+          Ensure seamless compliance with Indian and international tax laws. Get
+          started today with our expert-led services.
+        </p>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+          <button type="submit" class="btn btn-light cta-subscribe-btn">
+            Talk to an Expert
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHART  -->
+<div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  // Flag to make sure chart is created only once
+  let chartCreated = false;
+
+  // Function to create the chart
+  function createChart() {
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: [
+          "Returns Filed",
+          "Clients Served",
+          "Years of Expertise",
+          "Countries Served",
+        ],
+        datasets: [
+          {
+            data: [1500, 500, 12, 20],
+            backgroundColor: [
+              "rgb(255, 99, 132)",
+              "rgb(54, 162, 235)",
+              "rgb(255, 205, 86)",
+              "rgb(75, 192, 192)",
+            ],
+            borderColor: "#fff",
+            borderWidth: 2,
+            hoverOffset: 8,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        animation: {
+          duration: 1500,
+        },
+        plugins: {
+          legend: { position: "bottom" },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const label = context.label || "";
+                const value = context.parsed;
+                return ` ${value}+ ${label}`;
+              },
+            },
+          },
+        },
+      },
+    });
+  }
+
+  // Intersection Observer to detect when chart enters viewport
+  const chartSection = document.getElementById("myChart");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !chartCreated) {
+          createChart();
+          chartCreated = true; // Ensure it runs only once
+        }
+      });
+    },
+    { threshold: 0.5 }
+  ); // Trigger when 30% of canvas is visible
+
+  observer.observe(chartSection);
+</script>

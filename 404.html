@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assests/css/404.css" />
+    <link rel="stylesheet" href="assests/css/navbar.css" />
+    <link rel="stylesheet" href="assests/css/footer.css" />
+    <link rel="stylesheet" href="assests/css/theme.css" />
+    <!-- Font Awesome CDN for icons -->
+    <script
+      src="https://kit.fontawesome.com/cdf9a174a4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>404 Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Montserrat, Arial, sans-serif;
+      }
+
+      .wrapper {
+        width: 70%;
+        /* border: 2px solid red; */
+        margin: 110px auto 0px;
+        display: flex;
+        align-items: flex-start;
+      }
+      .wrapper-child {
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+      }
+      .wrapper-child-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .wrapper strong {
+        font-size: 3rem;
+        line-height: 60px;
+        font-family: "Montserrat-Bold", sans-serif;
+      }
+      .wrapper span {
+        background-color: yellow;
+      }
+      .wrapper p {
+        margin-top: 20px;
+        font-size: 18px;
+        font-family: "Montserrat-Regular", sans-serif;
+        line-height: 30px;
+      }
+
+      .wrapper a {
+        text-decoration: none;
+      }
+      .wrapper img {
+        height: auto;
+      }
+      @media screen and (max-width: 1000px) {
+        .wrapper {
+          width: 100%;
+          padding: 0px 20px;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .wrapper {
+          width: 100%;
+          flex-direction: column;
+        }
+        .wrapper-child {
+          width: 100%;
+        }
+        .wrapper strong {
+          font-size: 2rem;
+          line-height: 45px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .wrapper {
+          width: 100%;
+          padding: 0px 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="wrapper-child wrapper-child-text">
+        <strong>
+          <span>Sorry</span>, The Page You Are Looking For Is Not
+          Available</strong
+        >
+        <p>
+          The link you followed may be broken, or the page may have been
+          removed. Go back to <a href="./home.php">homepage.</a>
+        </p>
+      </div>
+      <div class="wrapper-child">
+        <img src="images/sorry.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
