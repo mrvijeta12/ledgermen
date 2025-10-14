@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /   # Change if in subfolder
+
+    # Redirect .html URLs to extensionless (optional but recommended)
+    RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+    RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+
+    # Internally serve .html files for clean URLs
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.html -f
+    RewriteRule ^([^.]+)$ $1.html [L]
+
+    # Custom 404 page (not working now)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ 404.html [L]
+</IfModule>

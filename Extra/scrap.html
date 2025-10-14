@@ -2639,3 +2639,67 @@
     </div>
   </div>
 </div>
+
+<!-- hraccess  -->
+# ------------------------------------------------------- # ✅ Enable Rewrite
+Engine # -------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On # ----------------------------------------------------- # ✅
+  Force HTTPS and WWW # -----------------------------------------------------
+  RewriteCond %{HTTPS} off [OR] RewriteCond %{HTTP_HOST} !^www\.ledgermen\.com$
+  [NC] RewriteRule ^(.*)$ https://www.ledgermen.com/$1 [R=301,L] #
+  ----------------------------------------------------- # ✅ Remove .html from
+  URLs # Example: /about → /about.html #
+  ----------------------------------------------------- RewriteCond
+  %{REQUEST_FILENAME} !-d RewriteCond %{REQUEST_FILENAME}\.html -f RewriteRule
+  ^([^/]+)/?$ $1.html [L] #
+  ----------------------------------------------------- # ✅ Redirect empty URL
+  to index.html # (ensures home page loads properly) #
+  ----------------------------------------------------- DirectoryIndex
+  index.html # ----------------------------------------------------- # ✅ Custom
+  404 page handling # -----------------------------------------------------
+  ErrorDocument 404 /404.html
+</IfModule>
+
+<!-- working / -->
+<IfModule mod_rewrite.c>
+  RewriteEngine On # Root URL → home.html RewriteRule ^$ home.html [L] # Remove
+  .html extension RewriteCond %{REQUEST_FILENAME} !-d RewriteCond
+  %{REQUEST_FILENAME}\.html -f RewriteRule ^([^/]+)/?$ $1.html [L] # Redirect
+  unmatched URLs to 404 RewriteCond %{REQUEST_FILENAME} !-f RewriteCond
+  %{REQUEST_FILENAME} !-d RewriteRule ^.*$ 404.html [L]
+</IfModule>
+
+<!-- ---- as discuss with aman sir  -->
+<IfModule mod_rewrite.c>
+  RewriteEngine On # ----------------------------------------------------- # ✅
+  Force HTTPS and WWW # -----------------------------------------------------
+  RewriteCond %{HTTPS} off [OR] RewriteCond %{HTTP_HOST} !^www\.ledgermen\.com$
+  [NC] RewriteRule ^(.*)$ https://www.ledgermen.com/$1 [R=301,L] #
+  ----------------------------------------------------- # ✅ Root URL →
+  home.html # ----------------------------------------------------- RewriteRule
+  ^$ index.html [L] # ----------------------------------------------------- # ✅
+  Remove .html extension # -----------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-d RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^([^/]+)/?$ $1.html [L] #
+  ----------------------------------------------------- # ✅ Redirect unmatched
+  URLs to 404 # -----------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^.*$ 404.html [L] #
+  ----------------------------------------------------- # ✅ Directory index #
+  ----------------------------------------------------- DirectoryIndex
+  index.html # ----------------------------------------------------- # ✅ Custom
+  404 page # ----------------------------------------------------- ErrorDocument
+  404 /404.html
+</IfModule>
+
+<!-- best working  -->
+<IfModule mod_rewrite.c>
+  RewriteEngine On RewriteBase / # Change if in subfolder # Redirect .html URLs
+  to extensionless (optional but recommended) RewriteCond %{THE_REQUEST}
+  /([^.]+)\.html [NC] RewriteRule ^([^.]+)\.html$ /$1 [R=301,L] # Internally
+  serve .html files for clean URLs RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f RewriteRule ^([^.]+)$ $1.html [L] #
+  Custom 404 page RewriteCond %{REQUEST_FILENAME} !-f RewriteCond
+  %{REQUEST_FILENAME} !-d RewriteRule ^.*$ 404.html [L]
+</IfModule>
