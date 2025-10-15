@@ -1,18 +1,29 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /   # Change if in subfolder
+    RewriteBase /
 
-    # Redirect .html URLs to extensionless (optional but recommended)
+    # --- Force HTTPS and www ---
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} !^www\.ledgermen\.com$ [NC]
+    RewriteRule ^(.*)$ https://www.ledgermen.com/$1 [R=301,L]
+
+    # --- Redirect .html URLs to extensionless (optional but recommended) ---
     RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
     RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
 
-    # Internally serve .html files for clean URLs
+    # --- Internally serve .html files for clean URLs ---
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME}\.html -f
     RewriteRule ^([^.]+)$ $1.html [L]
 
-    # Custom 404 page (not working now)
+    # --- Force root URL to open home.html ---
+    RewriteRule ^$ home.html [L]
+
+    # --- Custom 404 page ---
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^.*$ 404.html [L]
 </IfModule>
+
+# Default index file
+DirectoryIndex home.html

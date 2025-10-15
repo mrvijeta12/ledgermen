@@ -1835,9 +1835,13 @@
         </div>
         <div class="row">
           <div class="col-md-8 mx-auto">
-            <form action="" method="" id="contactForm">
+            <form
+              action="./API/web-lead-submission.php"
+              method="POST"
+              id="contactForm"
+            >
               <div class="row">
-                <input type="hidden" name="form_type" value="homepage" />
+                <input type="hidden" name="page" value="homepage" />
                 <div class="col-12">
                   <div class="form-group mb-3">
                     <label for="name" class="mb-2">Name*</label>
@@ -1908,6 +1912,47 @@
                 </div>
               </div>
             </form>
+            <script>
+              document
+                .getElementById("contactForm")
+                .addEventListener("submit", async function (e) {
+                  e.preventDefault();
+                  const form = e.target;
+                  const formData = new FormData(form);
+
+                  try {
+                    // Step 1: Get user location via IP API
+                    const res = await fetch("https://ipapi.co/json/");
+                    if (!res.ok) throw new Error("Location fetch failed");
+
+                    const data = await res.json();
+                    const location = `${data.city}, ${data.region}, ${data.country_name}`;
+                    formData.append("location", location);
+                  } catch (err) {
+                    console.warn("Could not fetch location:", err);
+                    formData.append("location", "Unknown");
+                  }
+
+                  try {
+                    // Step 2: Send data to backend
+                    const response = await fetch(
+                      "./API/web-lead-submission.php",
+                      {
+                        method: "POST",
+                        body: formData,
+                      }
+                    );
+
+                    const msg = await response.json();
+                    console.log(msg);
+                    alert(msg.success);
+                    form.reset();
+                  } catch (err) {
+                    console.error("Form submission failed:", err);
+                    alert("Something went wrong. Please try again later.");
+                  }
+                });
+            </script>
           </div>
         </div>
 
