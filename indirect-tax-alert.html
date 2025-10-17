@@ -195,11 +195,12 @@
     <!-- HERO  -->
     <style>
       .hero_insight {
-        background-image: linear-gradient(
+        /* background-image: linear-gradient(
           89.2deg,
           rgba(255, 255, 255, 1) -1.3%,
           rgba(253, 109, 38, 1) 281.6%
-        );
+        ); */
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 
         height: 300px;
         /* color: #283851; */
@@ -236,12 +237,28 @@
           /* overflow: hidden; */
           padding: 60px 0;
           /* position: relative; */
+          padding-top: 10px;
+          padding-bottom: 0px;
         }
         .insight-item {
           cursor: pointer;
         }
         .insight-item span {
           color: rgb(50, 62, 80) !important;
+        }
+        .insight-social i {
+          transition: all 0.3s linear;
+          border-radius: 50%;
+          border: 1px solid black;
+          padding: 6px;
+        }
+        .insight-social i:hover {
+          color: #fecc00;
+          border: 1px solid #fecc00;
+        }
+        .tax-alert-image {
+          max-height: 450px;
+          min-width: 100px;
         }
 
         @media (max-width: 768px) {
@@ -293,9 +310,9 @@
       </style>
       <section class="insight" id="insight">
         <div class="container">
-          <div class="float-start me-3">
-            <div class="d-flex justify-content-between my-2">
-              <div
+          <div class="row mb-4">
+            <div class="d-flex justify-content-end my-2">
+              <!-- <div
                 class="d-flex flex-column flex-xl-row align-items-center"
                 data-aos="zoom-in"
                 data-aos-delay="200"
@@ -304,12 +321,13 @@
                   <p class="mb-0">By <b>Shivam Arya</b></p>
                 </div>
                 <p class="mb-0 ms-3">October 14th, 2025</p>
-              </div>
+              </div> -->
               <div
-                class="insight-social"
+                class="insight-social d-flex align-items-center justify-content-center"
                 data-aos="zoom-in"
                 data-aos-delay="200"
               >
+                <h6 class="mb-0">Share:</h6>
                 <ul class="nav ezy__footer13_vZyfysIX-quick-links">
                   <!-- Facebook -->
                   <a
@@ -317,7 +335,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="fab fa-facebook me-3"></i>
+                    <i class="fab fa-facebook ms-3"></i>
                   </a>
 
                   <!-- LinkedIn -->
@@ -326,35 +344,40 @@
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="fab fa-linkedin-in me-3"></i>
+                    <i class="fab fa-linkedin-in ms-3"></i>
                   </a>
 
                   <!-- WhatsApp -->
                   <a
-                    href="https://api.whatsapp.com/send?text=Indirect%20Tax%20Alert%20-%20CBIC%20Withdraws%20ITC%20Verification%20Circular%20https://ledgermen.com/indirect-tax-alert"
+                    href="https://api.whatsapp.com/send?text=Indirect%20Tax%20Alert:%20CBIC%20Withdraws%20ITC%20Verification%20Circular%20https://ledgermen.com/indirect-tax-alert"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <i class="fab fa-whatsapp me-3"></i>
+                    <i class="fab fa-whatsapp ms-3"></i>
+                  </a>
+                  <!-- Twitter / X -->
+                  <a
+                    href="https://twitter.com/intent/tweet?text=Indirect%20Tax%20Alert:%20CBIC%20Withdraws%20ITC%20Verification%20Circular&url=https://ledgermen.com/indirect-tax-alert"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <i class="fab fa-twitter ms-3"></i>
                   </a>
                 </ul>
               </div>
             </div>
+          </div>
+          <div class="float-md-start me-md-3 me-0">
             <img
               src="images/indirect-tax-alert-feature.webp"
               alt="Indirect Tax Alert"
-              class="img-fluid rounded tax-alert-image"
+              class="img-fluid rounded tax-alert-image w-100"
               data-aos="zoom-in"
               data-aos-delay="200"
             />
           </div>
 
-          <div
-            class="insight-content"
-            style="padding-top: 60px"
-            data-aos="zoom-in"
-            data-aos-delay="200"
-          >
+          <div class="insight-content" data-aos="zoom-in" data-aos-delay="200">
             <p>
               Section 15(3)(b) of the Central Goods and Services Tax Act, 2017
               (“CGST Act”), allows exclusion of post-supply discounts from the
@@ -463,6 +486,265 @@
         </div>
       </section>
 
+      <!-- CTA  -->
+      <style>
+        .home-cta {
+          margin-top: 60px;
+          margin-bottom: 100px;
+        }
+        .home-cta-btn {
+          color: #fff;
+          padding: 12px 28px !important;
+          background: #283851;
+          border: none;
+          border-radius: 6px !important;
+          font-size: 16px !important;
+          font-weight: 700;
+          position: relative;
+          cursor: pointer;
+          /* animation */
+          /* animation: pulse 1.5s ease-in-out infinite; */
+        }
+
+        /* scale up and down infinitely */
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.03); /* slightly bigger */
+            box-shadow: 0 5px 25px 5px rgba(34, 133, 245, 0.35);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .home-cta-btn:hover {
+          color: #fff;
+          background-color: #3b4d6a;
+          border-color: #3b4d6a;
+        }
+        .home-cta input,
+        .home-cta textarea {
+          border-radius: 6px;
+          border: none;
+          padding: 10px;
+        }
+        .home-cta input::placeholder,
+        .home-cta textarea::placeholder {
+          font-size: 14px;
+        }
+        .home-cta input:focus,
+        .home-cta textarea:focus,
+        .home-cta input:hover,
+        .home-cta textarea:hover {
+          outline: none;
+          box-shadow: none;
+        }
+        /* .form-control:hover,
+      .form-control:focus {
+        border: none;
+        outline: none;
+      } */
+      </style>
+      <div
+        class="container-fluid py-5 home-cta"
+        style="background-color: #f7f7f7"
+      >
+        <div class="container">
+          <div class="row mb-2 text-center">
+            <div class="col-md-8 mx-auto">
+              <h2 class="common-faq-heading mb-3">
+                Let us know how we can assist you
+              </h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 mx-auto">
+              <form
+                action="api/web-lead-submission.php"
+                method="POST"
+                id="contactForm"
+              >
+                <div class="row">
+                  <input type="hidden" name="page" value="insightpage" />
+                  <div class="col-12">
+                    <div class="form-group mb-3">
+                      <label for="name" class="mb-2">Name*</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="first-name"
+                        placeholder="Enter Your  Name"
+                        name="name"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group mb-3">
+                      <label for="email" class="mb-2">Email*</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter Your Email "
+                        name="email"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <div class="form-group mb-3">
+                      <label for="phone" class="mb-2">Contact Number</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        placeholder="+91 Phone No. With Country Code"
+                        name="phone"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="message" class="mb-2">Message</label>
+                    <textarea
+                      name="message"
+                      id="animatedTextarea"
+                      placeholder="Enter Your Message"
+                      rows="4"
+                      class="form-control"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div
+                    class="col-md-6 mb-2 mx-auto d-flex justify-content-center mt-4"
+                  >
+                    <button type="submit" class="home-cta-btn w-50">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <script>
+                document
+                  .getElementById("contactForm")
+                  .addEventListener("submit", async function (e) {
+                    e.preventDefault();
+                    const form = e.target;
+                    const formData = new FormData(form);
+
+                    // Function to show toast messages
+                    function showToast(message, type = "success") {
+                      const toastContainer =
+                        document.getElementById("toast-container");
+                      const bgColor =
+                        type === "success" ? "bg-success" : "bg-danger";
+                      const textColor = "text-white";
+
+                      const toast = document.createElement("div");
+                      toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+                      toast.role = "alert";
+                      toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+
+                      toastContainer.appendChild(toast);
+
+                      // Automatically remove the toast after 4 seconds
+                      setTimeout(() => {
+                        toast.classList.remove("show");
+                        toast.remove();
+                      }, 4000);
+                    }
+
+                    try {
+                      // Step 1: Get user location via IP API
+                      const res = await fetch("https://ipapi.co/json/");
+                      if (!res.ok) throw new Error("Location fetch failed");
+
+                      const data = await res.json();
+                      const location = `${data.city}, ${data.region}, ${data.country_name}`;
+                      formData.append("location", location);
+                    } catch (err) {
+                      console.warn("Could not fetch location:", err);
+                      formData.append("location", "Unknown");
+                    }
+
+                    try {
+                      // Step 2: Send data to backend
+                      const response = await fetch(
+                        "api/web-lead-submission.php",
+                        {
+                          method: "POST",
+                          body: formData,
+                        }
+                      );
+
+                      const msg = await response.json();
+
+                      if (msg.success) {
+                        showToast(msg.success, "success");
+                        form.reset();
+                      } else {
+                        showToast(
+                          msg.error || "Something went wrong.",
+                          "error"
+                        );
+                      }
+                    } catch (err) {
+                      console.error("Form submission failed:", err);
+                      showToast(
+                        "Something went wrong. Please try again later.",
+                        "error"
+                      );
+                    }
+                  });
+              </script>
+            </div>
+          </div>
+
+          <script>
+            const textarea = document.getElementById("animatedTextarea");
+            const text = "Share your thoughts or questions…"; // placeholder text
+            let i = 0;
+            let forward = true;
+
+            function animatePlaceholder() {
+              if (forward) {
+                // typing forward
+                textarea.setAttribute("placeholder", text.substring(0, i + 1));
+                i++;
+                if (i === text.length) {
+                  forward = false;
+                  setTimeout(animatePlaceholder, 1000); // wait before deleting
+                  return;
+                }
+              } else {
+                // deleting backward
+                textarea.setAttribute("placeholder", text.substring(0, i - 1));
+                i--;
+                if (i === 0) {
+                  forward = true;
+                }
+              }
+              setTimeout(animatePlaceholder, 30); // speed of typing/deleting
+            }
+
+            // start animation
+            animatePlaceholder();
+          </script>
+        </div>
+      </div>
+
       <!-- cta  -->
       <style>
         .site-cta {
@@ -474,7 +756,7 @@
 
           background-color: var(--bs-body-bg);
           /* overflow: hidden; */
-          padding-bottom: 80px;
+          padding-bottom: 60px;
         }
         @media screen and (max-width: 992px) {
           .site-cta-form-card-media img {
@@ -612,6 +894,13 @@
       </section>
     </main>
 
+    <!-- Toast container (you already have it) -->
+    <div
+      id="toast-container"
+      class="position-fixed top-0 start-50 translate-middle-x p-3"
+      style="z-index: 1100"
+    ></div>
+
     <!-- footer  -->
     <div id="footer-placeholder"></div>
 
@@ -675,7 +964,7 @@
         once: "true",
       });
     </script>
-    <script defer src="main.js"></script>
+    <script defer src="main.js?v=2"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>

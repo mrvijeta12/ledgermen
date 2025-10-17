@@ -2702,3 +2702,132 @@
 <!-- 5:44  -->
 
 # Default index file DirectoryIndex home.html
+
+<!-- php working but not html  -->
+<IfModule mod_rewrite.c>
+  RewriteEngine On RewriteBase / # --- Force HTTPS and www (optional, disable on
+  localhost) --- # RewriteCond %{HTTPS} off [OR] # RewriteCond %{HTTP_HOST}
+  !^www\.ledgermen\.com$ [NC] # RewriteRule ^(.*)$ https://www.ledgermen.com/$1
+  [R=301,L] # --- Allow access to existing files or directories --- RewriteCond
+  %{REQUEST_FILENAME} -f [OR] RewriteCond %{REQUEST_FILENAME} -d RewriteRule ^ -
+  [L] # --- Redirect .html URLs to extensionless --- RewriteCond %{THE_REQUEST}
+  \s/+([^.]+)\.html [NC] RewriteRule ^([^.]+)\.html$ /$1 [R=301,L] # --- Serve
+  .html files for clean URLs --- RewriteCond %{REQUEST_FILENAME} !-d RewriteCond
+  %{REQUEST_FILENAME}.html -f RewriteRule ^([^.]+)$ $1.html [L] # --- Force root
+  URL to home.html --- RewriteRule ^$ home.html [L] # --- Custom 404 page ---
+  RewriteCond %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule .? 404.html [L]
+</IfModule>
+
+# Default index files DirectoryIndex home.html index.php
+
+<!-- home page script  -->
+<script>
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      try {
+        // Step 1: Get user location via IP API
+        const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) throw new Error("Location fetch failed");
+
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location);
+      } catch (err) {
+        console.warn("Could not fetch location:", err);
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        // Step 2: Send data to backend
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const msg = await response.json();
+        console.log(msg);
+        alert(msg.success);
+        form.reset();
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        alert("Something went wrong. Please try again later.");
+      }
+    });
+</script>
+
+<!-- toast  -->
+<script>
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+
+      try {
+        const resp = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await resp.json();
+
+        if (data.status === "success") {
+          showToast(data.message, "success");
+          form.reset();
+        } else {
+          showToast(data.message, "error");
+        }
+      } catch (err) {
+        showToast("Submission failed: " + err.message, "error");
+      }
+    });
+
+  function showToast(message, type = "success") {
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+
+    toast.className = `toast align-items-center text-white bg-${
+      type === "success" ? "success" : "danger"
+    }`;
+    toast.setAttribute("role", "alert");
+    toast.setAttribute("aria-live", "assertive");
+    toast.setAttribute("aria-atomic", "true");
+
+    toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+
+    container.appendChild(toast);
+
+    const bsToast = new bootstrap.Toast(toast, {
+      delay: 3000,
+    });
+    bsToast.show();
+
+    toast.addEventListener("hidden.bs.toast", () => toast.remove());
+  }
+</script>
+
+<!-- chnage  -->
+// Wait until the injected popup form actually exists // function
+waitForPopupForm() { // const form =
+document.getElementById("popupContactForm"); // if (form) { //
+console.log("Popup form found, initializing..."); // initPopupForm(); // } else
+{ // console.log("Waiting for popup form..."); // setTimeout(waitForPopupForm,
+200); // } // } // document.addEventListener("DOMContentLoaded", () => { //
+const modalPlaceholder = document.getElementById("contact-modal-placeholder");
+// if (modalPlaceholder) { // fetch("popupForm.html") // .then((res) =>
+res.text()) // .then((data) => { // modalPlaceholder.innerHTML = data; //
+waitForPopupForm(); // ensure form exists before init // }) // .catch((err) =>
+console.error("Error loading contact modal:", err)); // } // });

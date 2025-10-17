@@ -260,7 +260,7 @@
                     <div class="row">
                       <div class="col-12">
                         <form
-                          action="./API/web-lead-submission.php"
+                          action="api/web-lead-submission.php"
                           method="POST"
                           id="contactForm"
                         >
@@ -340,6 +340,35 @@
                               const form = e.target;
                               const formData = new FormData(form);
 
+                              // Function to show toast messages
+                              function showToast(message, type = "success") {
+                                const toastContainer =
+                                  document.getElementById("toast-container");
+                                const bgColor =
+                                  type === "success"
+                                    ? "bg-success"
+                                    : "bg-danger";
+                                const textColor = "text-white";
+
+                                const toast = document.createElement("div");
+                                toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+                                toast.role = "alert";
+                                toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+
+                                toastContainer.appendChild(toast);
+
+                                // Automatically remove the toast after 4 seconds
+                                setTimeout(() => {
+                                  toast.classList.remove("show");
+                                  toast.remove();
+                                }, 4000);
+                              }
+
                               try {
                                 // Step 1: Get user location via IP API
                                 const res = await fetch(
@@ -357,27 +386,47 @@
                               }
 
                               try {
-                                // Step 2: Send data to backend
                                 const response = await fetch(
-                                  "./API/web-lead-submission.php",
+                                  "api/web-lead-submission.php",
                                   {
                                     method: "POST",
                                     body: formData,
                                   }
                                 );
+                                const text = await response.text();
 
-                                const msg = await response.json();
-                                console.log(msg);
-                                alert(msg.success);
-                                form.reset();
+                                let msg = {}; // <--- Declare msg in this scope
+
+                                try {
+                                  msg = JSON.parse(text);
+                                } catch (err) {
+                                  console.error("Invalid JSON:", text);
+                                  showToast(
+                                    "Unexpected response from server.",
+                                    "error"
+                                  );
+                                  return; // Stop execution if invalid JSON
+                                }
+
+                                if (msg.success) {
+                                  showToast(msg.success, "success");
+                                  form.reset();
+                                } else if (msg.error) {
+                                  showToast(msg.error, "error");
+                                } else {
+                                  showToast("Something went wrong.", "error");
+                                }
                               } catch (err) {
                                 console.error("Form submission failed:", err);
-                                alert(
-                                  "Something went wrong. Please try again later."
+                                showToast(
+                                  "Something went wrong. Please try again later.",
+                                  "error"
                                 );
                               }
                             });
                         </script>
+
+                        <!-- animated placeholder  -->
                         <script>
                           const textarea =
                             document.getElementById("animatedTextarea");
@@ -578,26 +627,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- Twitter -->
-            <!-- <div class="col-md-6 col-xl-3 mt-4 mb-4">
-              <div
-                class="card social-card p-4 border-0 rounded-0 h-100"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div class="card-body pt-4">
-                  <div class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </div>
-                </div>
-                <div class="card-body pb-4">
-                  <a href="">
-                    <h5 class="social-title mb-3">Twitter</h5>
-                  </a>
-                </div>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -669,69 +698,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-
-          const form = e.target;
-          const formData = new FormData(form);
-
-          try {
-            const resp = await fetch(form.action, {
-              method: "POST",
-              body: formData,
-            });
-
-            const data = await resp.json();
-
-            if (data.status === "success") {
-              showToast(data.message, "success");
-              form.reset();
-            } else {
-              showToast(data.message, "error");
-            }
-          } catch (err) {
-            showToast("Submission failed: " + err.message, "error");
-          }
-        });
-
-      function showToast(message, type = "success") {
-        const container = document.getElementById("toast-container");
-        const toast = document.createElement("div");
-
-        toast.className = `toast align-items-center text-white bg-${
-          type === "success" ? "success" : "danger"
-        }`;
-        toast.setAttribute("role", "alert");
-        toast.setAttribute("aria-live", "assertive");
-        toast.setAttribute("aria-atomic", "true");
-
-        toast.innerHTML = `
-        <div class="d-flex">
-            <div class="toast-body">${message}</div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-        </div>
-    `;
-
-        container.appendChild(toast);
-
-        const bsToast = new bootstrap.Toast(toast, {
-          delay: 3000,
-        });
-        bsToast.show();
-
-        toast.addEventListener("hidden.bs.toast", () => toast.remove());
-      }
-    </script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
         once: "true",
       });
     </script>
-    <script defer src="main.js"></script>
+    <script defer src="main.js?v=2"></script>
   </body>
 </html>

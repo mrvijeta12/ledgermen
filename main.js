@@ -168,7 +168,86 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.text())
       .then((data) => {
         modalPlaceholder.innerHTML = data;
+
+        // After HTML is inserted, initialize the popup form
+        initPopupForm();
       })
       .catch((err) => console.error("Error loading contact modal:", err));
   }
 });
+
+function initPopupForm() {
+  const form = document.getElementById("popupContactForm");
+  console.log("Form element after injection:", form);
+
+  if (!form) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // stop normal navigation
+
+    const formData = new FormData(form);
+
+    function showToast(message, type = "success") {
+      const container = document.getElementById("toast-container");
+      const toast = document.createElement("div");
+      toast.className = `toast align-items-center ${
+        type === "success" ? "bg-success" : "bg-danger"
+      } text-white border-0 show mb-2`;
+      toast.role = "alert";
+      toast.innerHTML = `<div class="d-flex"><div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 4000);
+    }
+
+    // Get location
+    try {
+      const res = await fetch("https://ipapi.co/json/").catch(() => null);
+      if (res) {
+        const data = await res.json();
+        formData.append(
+          "location",
+          `${data.city}, ${data.region}, ${data.country_name}`
+        );
+      } else formData.append("location", "Unknown");
+    } catch {
+      formData.append("location", "Unknown");
+    }
+
+    // Send form data via fetch
+    try {
+      const response = await fetch("api/web-lead-submission.php", {
+        method: "POST",
+        body: formData,
+      });
+      const text = await response.text();
+      let msg = {};
+      try {
+        msg = JSON.parse(text);
+      } catch {
+        showToast("Unexpected response from server", "error");
+        return;
+      }
+
+      if (msg.success) {
+        showToast(msg.success, "success");
+        form.reset();
+
+        const popupModal = document.getElementById("contactModal");
+        const bsModal =
+          bootstrap.Modal.getInstance(popupModal) ||
+          new bootstrap.Modal(popupModal);
+        bsModal.hide();
+      } else if (msg.error) {
+        showToast(msg.error, "error");
+      } else {
+        showToast("Something went wrong", "error");
+      }
+    } catch (err) {
+      console.error(err);
+      showToast("Something went wrong", "error");
+    }
+  });
+}
