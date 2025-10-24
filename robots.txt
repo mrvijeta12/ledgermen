@@ -7,8 +7,10 @@ Disallow: /login/
 Disallow: /tmp/
 Disallow: /search/
 Disallow: /cgi-bin/
-Disallow: /script.js
-Disallow: /style.css
+
+# Allow main JS and CSS
+Allow: /script.js
+Allow: /style.css
 
 # Sitemap location
 Sitemap: https://ledgermen.com/sitemap.xml

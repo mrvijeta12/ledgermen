@@ -32,6 +32,7 @@
           id="popupContactForm"
         >
           <input type="hidden" name="page" value="popup" />
+          <input type="hidden" name="cta" id="popupcta" value="" />
           <!-- Name Field -->
           <div class="mb-3">
             <label for="name" class="mb-2">Name*</label>
@@ -88,7 +89,18 @@
           </div>
 
           <!-- Submit Button -->
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
+          <button
+            type="submit"
+            name="submit"
+            id="popupSubmitBtn"
+            class="btn w-100"
+          >
+            <span
+              class="spinner-border spinner-border-sm me-2 d-none"
+              id="popupSubmitSpinner"
+            ></span>
+            Submit
+          </button>
         </form>
       </div>
     </div>

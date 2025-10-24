@@ -2831,3 +2831,822 @@ const modalPlaceholder = document.getElementById("contact-modal-placeholder");
 res.text()) // .then((data) => { // modalPlaceholder.innerHTML = data; //
 waitForPopupForm(); // ensure form exists before init // }) // .catch((err) =>
 console.error("Error loading contact modal:", err)); // } // });
+
+<!-- home page form script  -->
+<script>
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      // Function to show toast messages
+      function showToast(message, type = "success") {
+        const toastContainer = document.getElementById("toast-container");
+        const bgColor = type === "success" ? "bg-success" : "bg-danger";
+        const textColor = "text-white";
+
+        const toast = document.createElement("div");
+        toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+        toast.role = "alert";
+        toast.innerHTML = `
+                    <div class="d-flex">
+                      <div class="toast-body">${message}</div>
+                      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                  `;
+
+        toastContainer.appendChild(toast);
+
+        // Automatically remove the toast after 4 seconds
+        setTimeout(() => {
+          toast.classList.remove("show");
+          toast.remove();
+        }, 4000);
+      }
+
+      try {
+        // Step 1: Get user location via IP API
+        const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) throw new Error("Location fetch failed");
+
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location);
+      } catch (err) {
+        console.warn("Could not fetch location:", err);
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        // Step 2: Send data to backend
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(msg.success, "success");
+          form.reset();
+        } else {
+          showToast(msg.error || "Something went wrong.", "error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      }
+    });
+</script>
+
+<!-- calendly work fine after form submit  -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const instantCallBtn = document.getElementById("instantCallBtn");
+
+    // Toast function (shared by both submit and instant call)
+    function showToast(message, type = "success") {
+      const toastContainer = document.getElementById("toast-container");
+      const bgColor = type === "success" ? "bg-success" : "bg-danger";
+      const textColor = "text-white";
+
+      const toast = document.createElement("div");
+      toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+      toast.role = "alert";
+      toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+
+      toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        toast.remove();
+      }, 4000);
+    }
+
+    // ✅ Normal form submission
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        // Step 1: Get user location
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        // Step 2: Send data to backend
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(msg.success, "success");
+          form.reset();
+        } else {
+          showToast(msg.error || "Something went wrong.", "error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      }
+    });
+
+    // ✅ Instant Call button behavior
+    instantCallBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      // 1️⃣ Check form validity first
+      if (!form.checkValidity()) {
+        showToast(
+          "Please fill out all required fields before scheduling a call.",
+          "error"
+        );
+        form.reportValidity();
+        return;
+      }
+
+      // 2️⃣ If valid — collect and send form first
+      const formData = new FormData(form);
+
+      try {
+        // Try to get location
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        // Submit form data to backend
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(
+            "Form submitted successfully! Opening Calendly...",
+            "success"
+          );
+          form.reset();
+          // 3️⃣ Open Calendly link after success
+          setTimeout(() => {
+            window.open(
+              "https://calendly.com/ledgermen-support/30min",
+              "_blank"
+            );
+          }, 1200);
+        } else {
+          showToast(
+            msg.error || "Submission failed. Please try again.",
+            "error"
+          );
+        }
+      } catch (err) {
+        console.error("Instant Call submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      }
+    });
+  });
+</script>
+
+<!-- // web lead all work without phpmailer  -->
+<?php
+if (ob_get_length()) ob_clean();
+header("Content-Type: application/json");
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/db.php'; 
+
+// --- Set server timezone (optional, adjust as needed) ---
+date_default_timezone_set('Asia/Kolkata');
+
+// --- Get and sanitize form data ---
+$name = trim($_POST['name'] ?? "");
+$email = trim($_POST['email'] ?? "");
+$contact_number = trim($_POST['phone'] ?? "");
+$message = trim($_POST['message'] ?? "");
+$page = trim($_POST['page'] ?? "");
+$location = trim($_POST['location'] ?? "Unknown");
+$cta = trim($_POST['cta'] ?? "");
+
+// --- Generate current date and time ---
+$date = date("Y-m-d");      // MySQL DATE format
+$time = date("H:i:s");      // MySQL TIME format
+$created_at = date("Y-m-d H:i:s");
+
+// --- Use prepared statement for security ---
+$stmt = $conn->prepare( "INSERT INTO website_lead_form (name, email,
+contact_number, message, page, location,cta, date, time, created_at) VALUES (?,
+?, ?, ?, ?, ?, ?, ?,?,?)" ); if (!$stmt) { http_response_code(500); echo
+json_encode(["error" => "Prepare failed: " . $conn->error]); exit; }
+$stmt->bind_param( "ssssssssss", $name, $email, $contact_number, $message,
+$page, $location, $cta, $date, $time, $created_at ); if ($stmt->execute()) { //
+--- Save in JSON file as well --- $file = __DIR__ . '/user_submissions.json';
+$data = [ "name" => $name, "email" => $email, "phone" => $contact_number,
+"message" => $message, "page" => $page, "location" => $location, "cta" => $cta,
+"date" => $date, "time" => $time, "created_at" => $created_at ]; $allData = [];
+if (file_exists($file)) { $json = file_get_contents($file); $allData =
+json_decode($json, true) ?: []; } $allData[] = $data; // Save JSON with lock to
+prevent race conditions file_put_contents($file, json_encode($allData,
+JSON_PRETTY_PRINT), LOCK_EX); echo json_encode(["success" => "Your details have
+been submitted successfully!"]); } else { http_response_code(500); echo
+json_encode(["error" => "Failed to save data. Please try again."]); }
+$stmt->close(); $conn->close(); ?>
+
+<!-- all good database save, user saved and mail work  -->
+<?php
+
+if (ob_get_length()) ob_clean();
+header("Content-Type: application/json; charset=UTF-8");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+require_once __DIR__ . '/db.php'; 
+require_once __DIR__ . '/../phpmailer/PHPMailer.php';
+require_once __DIR__ . '/../phpmailer/SMTP.php';
+require_once __DIR__ . '/../phpmailer/Exception.php';
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+
+// --- Set timezone ---
+date_default_timezone_set('Asia/Kolkata');
+
+// --- Get and sanitize form data ---
+$name = trim($_POST['name'] ?? "");
+$email = trim($_POST['email'] ?? "");
+$contact_number = trim($_POST['phone'] ?? "");
+$message = trim($_POST['message'] ?? "");
+$page = trim($_POST['page'] ?? "");
+$location = trim($_POST['location'] ?? "Unknown");
+$cta = trim($_POST['cta'] ?? "");
+
+// --- Current date and time ---
+$date = date("Y-m-d");
+$time = date("H:i:s");
+$created_at = date("Y-m-d H:i:s");
+
+// --- Insert into MySQL ---
+$stmt = $conn->prepare( "INSERT INTO website_lead_form (name, email,
+contact_number, message, page, location, cta, date, time, created_at) VALUES (?,
+?, ?, ?, ?, ?, ?, ?, ?, ?)" ); if (!$stmt) { http_response_code(500); echo
+json_encode(["error" => "Prepare failed: " . $conn->error]); exit; }
+$stmt->bind_param( "ssssssssss", $name, $email, $contact_number, $message,
+$page, $location, $cta, $date, $time, $created_at ); if ($stmt->execute()) { //
+--- Save in JSON file --- $file = __DIR__ . '/user_submissions.json'; $data = [
+"name" => $name, "email" => $email, "phone" => $contact_number, "message" =>
+$message, "page" => $page, "location" => $location, "cta" => $cta, "date" =>
+$date, "time" => $time, "created_at" => $created_at ]; $allData = []; if
+(file_exists($file)) { $json = file_get_contents($file); $allData =
+json_decode($json, true) ?: []; } $allData[] = $data; file_put_contents($file,
+json_encode($allData, JSON_PRETTY_PRINT), LOCK_EX); // --- Send emails using
+PHPMailer --- try { $mail = new PHPMailer(true); // SMTP configuration
+$mail->isSMTP(); $mail->Host = 'smtp.gmail.com'; $mail->SMTPAuth = true;
+$mail->Username = 'aaravmahima4@gmail.com'; // your email $mail->Password =
+'xsdciteithgwpzeh'; // app password $mail->SMTPSecure = 'tls'; $mail->Port =
+587; $mail->CharSet = 'UTF-8'; $mail->setFrom('aaravmahima4@gmail.com', 'Aarav
+Mahima'); // --- 1️⃣ Email to the user --- $mail->clearAllRecipients();
+$mail->addAddress($email, $name); $mail->isHTML(true); $mail->Subject = "Thank
+you for contacting us!"; $mail->Body = "
+<h3>Hello {$name},</h3>
+<p>
+  Thank you for filling out our contact form. We have received your request and
+  will contact you shortly.
+</p>
+<p>Best Regards,<br />Aarav Mahima</p>
+"; $mail->send(); // --- 2️⃣ Email to company / internal team ---
+$mail->clearAllRecipients(); $mail->addAddress('vijetavarma1@gmail.com', 'Vijeta
+Varma'); // primary company email $mail->addAddress('sonishreyans2@gmail.com');
+// additional team member $mail->isHTML(true); $mail->Subject = "New Website
+Lead: {$name}"; $mail->Body = "
+<h3>New Lead Submitted</h3>
+<p><strong>Name:</strong> {$name}</p>
+<p><strong>Email:</strong> {$email}</p>
+<p><strong>Phone:</strong> {$contact_number}</p>
+<p><strong>Message:</strong> {$message}</p>
+<p><strong>Page URL:</strong> {$page}</p>
+<p><strong>Location:</strong> {$location}</p>
+<p><strong>CTA:</strong> {$cta}</p>
+<p><strong>Date/Time:</strong> {$created_at}</p>
+"; $mail->send(); } catch (Exception $e) { error_log("Mailer Error:
+{$mail->ErrorInfo}"); } echo json_encode(["success" => "Your details have been
+submitted successfully!"]); } else { http_response_code(500); echo
+json_encode(["error" => "Failed to save data. Please try again."]); }
+$stmt->close(); $conn->close(); ?>
+
+<!-- home page cta script all wortking  -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const instantCallBtn = document.getElementById("instantCallBtn");
+    const ctaInput = document.getElementById("cta");
+
+    function showToast(message, type = "success") {
+      const toastContainer = document.getElementById("toast-container");
+      const bgColor = type === "success" ? "bg-success" : "bg-danger";
+      const textColor = "text-white";
+
+      const toast = document.createElement("div");
+      toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+      toast.role = "alert";
+      toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+
+      toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        toast.remove();
+      }, 4000);
+    }
+
+    //  Handle normal form submission (Request a Call Back)
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      ctaInput.value = "Submit";
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(msg.success, "success");
+          form.reset();
+        } else {
+          showToast(msg.error || "Something went wrong.", "error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      }
+    });
+
+    //  Handle Instant Call CTA
+    instantCallBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      ctaInput.value = "Schedule an Instant Call"; // set CTA for this button
+
+      if (!form.checkValidity()) {
+        showToast(
+          "Please fill out all required fields before scheduling a call.",
+          "error"
+        );
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(
+            "Form submitted successfully! Opening Calendly...",
+            "success"
+          );
+          form.reset();
+          setTimeout(() => {
+            window.open(
+              "https://calendly.com/ledgermen-support/30min",
+              "_blank"
+            );
+          }, 1200);
+        } else {
+          showToast(
+            msg.error || "Submission failed. Please try again.",
+            "error"
+          );
+        }
+      } catch (err) {
+        console.error("Instant Call submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      }
+    });
+  });
+</script>
+
+home page js 24
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const ctaInput = document.getElementById("cta");
+    const submitSpinner = document.getElementById("submitSpinner");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      //Email Validation
+
+      const emailInput = form.querySelector('input[name="email"]');
+      const email = emailInput.value.trim();
+
+      // Basic validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        showToast("Please enter a valid email address.", "error");
+        emailInput.focus();
+        return; // stop submission
+      }
+
+      // Always set CTA as "Submit"
+      ctaInput.value = "Submit";
+
+      const formData = new FormData(form);
+      submitBtn.disabled = true;
+      submitSpinner.classList.remove("d-none");
+
+      // --- Toast message function ---
+      function showToast(message, type = "success") {
+        const toastContainer = document.getElementById("toast-container");
+        const bgColor = type === "success" ? "bg-success" : "bg-danger";
+        const textColor = "text-white";
+
+        const toast = document.createElement("div");
+        toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+        toast.role = "alert";
+        toast.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" 
+            data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      `;
+
+        toastContainer.appendChild(toast);
+        setTimeout(() => {
+          toast.classList.remove("show");
+          toast.remove();
+        }, 4000);
+      }
+
+      // --- Step 1: Get user location ---
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) throw new Error("Location fetch failed");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location);
+      } catch (err) {
+        console.warn("Could not fetch location:", err);
+        formData.append("location", "Unknown");
+      }
+
+      // --- Step 2: Send data to backend ---
+      try {
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        const text = await response.text();
+        let msg = {};
+
+        try {
+          msg = JSON.parse(text);
+        } catch (err) {
+          console.error("Invalid JSON:", text);
+          showToast("Unexpected response from server.", "error");
+          return;
+        }
+
+        if (msg.success) {
+          showToast(msg.success, "success");
+          form.reset();
+        } else if (msg.error) {
+          showToast(msg.error, "error");
+        } else {
+          showToast("Something went wrong.", "error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitSpinner.classList.add("d-none"); // hide spinner
+      }
+    });
+  });
+</script>
+
+web-lead working 24
+<?php
+
+if (ob_get_length()) ob_clean();
+header("Content-Type: application/json; charset=UTF-8");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/db.php'; 
+require_once __DIR__ . '/../phpmailer/PHPMailer.php';
+require_once __DIR__ . '/../phpmailer/SMTP.php';
+require_once __DIR__ . '/../phpmailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// --- Set timezone ---
+date_default_timezone_set('Asia/Kolkata');
+
+// --- Get and sanitize form data ---
+$name = trim($_POST['name'] ?? "");
+$email = trim($_POST['email'] ?? "");
+$contact_number = trim($_POST['phone'] ?? "");
+$message = trim($_POST['message'] ?? "");
+$page = trim($_POST['page'] ?? "");
+$location = trim($_POST['location'] ?? "Unknown");
+$cta = trim($_POST['cta'] ?? "");
+
+// --- Current date and time ---
+$date = date("Y-m-d");
+$time = date("H:i:s");
+$created_at = date("Y-m-d H:i:s");
+
+// --- Insert into MySQL ---
+$stmt = $conn->prepare( "INSERT INTO website_lead_form (name, email,
+contact_number, message, page, location, cta, date, time, created_at) VALUES (?,
+?, ?, ?, ?, ?, ?, ?, ?, ?)" ); if (!$stmt) { http_response_code(500); echo
+json_encode(["error" => "Prepare failed: " . $conn->error]); exit; }
+$stmt->bind_param( "ssssssssss", $name, $email, $contact_number, $message,
+$page, $location, $cta, $date, $time, $created_at ); if ($stmt->execute()) { //
+--- Save in JSON file --- $file = __DIR__ . '/user_submissions.json'; $data = [
+"name" => $name, "email" => $email, "phone" => $contact_number, "message" =>
+$message, "page" => $page, "location" => $location, "cta" => $cta, "date" =>
+$date, "time" => $time, "created_at" => $created_at ]; $allData = []; if
+(file_exists($file)) { $json = file_get_contents($file); $allData =
+json_decode($json, true) ?: []; } $allData[] = $data; file_put_contents($file,
+json_encode($allData, JSON_PRETTY_PRINT), LOCK_EX); // --- Send emails using
+PHPMailer --- try { $mail = new PHPMailer(true); // SMTP configuration
+$mail->isSMTP(); $mail->Host = 'smtp.gmail.com'; $mail->SMTPAuth = true;
+$mail->Username = 'aaravmahima4@gmail.com'; // your email $mail->Password =
+'xsdciteithgwpzeh'; // app password $mail->SMTPSecure = 'tls'; $mail->Port =
+587; $mail->CharSet = 'UTF-8'; $mail->setFrom('aaravmahima4@gmail.com', 'Aarav
+Mahima'); // --- 1️⃣ Email to the user --- $mail->clearAllRecipients();
+$mail->addAddress($email, $name); $mail->isHTML(true); $mail->Subject = "Thank
+you for contacting us!"; $mail->Body = "
+<h3>Hello {$name},</h3>
+<p>
+  Thank you for filling out our contact form. We have received your request and
+  will contact you shortly.
+</p>
+<p>Best Regards,<br />Aarav Mahima</p>
+"; $mail->send(); // --- 2️⃣ Email to company / internal team ---
+$mail->clearAllRecipients(); $mail->addAddress('vijetavarma1@gmail.com', 'Vijeta
+Varma'); // primary company email $mail->addAddress('sonishreyans2@gmail.com');
+// additional team member $mail->isHTML(true); $mail->Subject = "New Website
+Lead: {$name}"; $mail->Body = "
+<h3>New Lead Submitted</h3>
+<p><strong>Name:</strong> {$name}</p>
+<p><strong>Email:</strong> {$email}</p>
+<p><strong>Phone:</strong> {$contact_number}</p>
+<p><strong>Message:</strong> {$message}</p>
+<p><strong>Page URL:</strong> {$page}</p>
+<p><strong>Location:</strong> {$location}</p>
+<p><strong>CTA:</strong> {$cta}</p>
+<p><strong>Date/Time:</strong> {$created_at}</p>
+"; $mail->send(); } catch (Exception $e) { error_log("Mailer Error:
+{$mail->ErrorInfo}"); } echo json_encode(["success" => "Your details have been
+submitted successfully!"]); } else { http_response_code(500); echo
+json_encode(["error" => "Failed to save data. Please try again."]); }
+$stmt->close(); $conn->close(); ?>
+
+<!-- home page form  -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const submitSpinner = document.getElementById("submitSpinner");
+    const instantCallBtn = document.getElementById("instantCallBtn");
+    const instantSpinner = document.getElementById("instantSpinner");
+    const ctaInput = document.getElementById("cta");
+
+    function showToast(message, type = "success") {
+      const toastContainer = document.getElementById("toast-container");
+      const bgColor = type === "success" ? "bg-success" : "bg-danger";
+      const textColor = "text-white";
+
+      const toast = document.createElement("div");
+      toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
+      toast.role = "alert";
+      toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    `;
+
+      toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        toast.remove();
+      }, 4000);
+    }
+
+    //  Handle normal form submission (Request a Call Back)
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      ctaInput.value = "Submit";
+
+      const formData = new FormData(form);
+      submitBtn.disabled = true;
+      submitSpinner.classList.remove("d-none");
+      instantCallBtn.disabled = true;
+      // instantSpinner.classList.remove("d-none");
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(msg.success, "success");
+          form.reset();
+        } else {
+          showToast(msg.error || "Something went wrong.", "error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitSpinner.classList.add("d-none");
+        instantCallBtn.disabled = false;
+        // instantSpinner.classList.add("d-none");
+      }
+    });
+
+    //  Handle Instant Call CTA
+    instantCallBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      ctaInput.value = "Schedule an Instant Call";
+
+      if (!form.checkValidity()) {
+        showToast(
+          "Please fill out all required fields before scheduling a call.",
+          "error"
+        );
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      submitBtn.disabled = true;
+      // submitSpinner.classList.remove("d-none");
+      instantCallBtn.disabled = true;
+      instantSpinner.classList.remove("d-none");
+
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+        const location = `${data.city}, ${data.region}, ${data.country_name}`;
+        formData.append("location", location || "Unknown");
+      } catch {
+        formData.append("location", "Unknown");
+      }
+
+      try {
+        const response = await fetch("api/web-lead-submission.php", {
+          method: "POST",
+          body: formData,
+        });
+        const msg = await response.json();
+
+        if (msg.success) {
+          showToast(
+            "Form submitted successfully! Opening Calendly...",
+            "success"
+          );
+          form.reset();
+          setTimeout(() => {
+            window.open(
+              "https://calendly.com/ledgermen-support/30min",
+              "_blank"
+            );
+          }, 1200);
+        } else {
+          showToast(
+            msg.error || "Submission failed. Please try again.",
+            "error"
+          );
+        }
+      } catch (err) {
+        console.error("Instant Call submission failed:", err);
+        showToast("Something went wrong. Please try again later.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        // submitSpinner.classList.add("d-none");
+        instantCallBtn.disabled = false;
+        instantSpinner.classList.add("d-none");
+      }
+    });
+  });
+</script>
+
+<!-- popup working 24  -->
+function initPopupForm() { const form =
+document.getElementById("popupContactForm"); const popupcta =
+document.getElementById("popupcta"); const popupSubmitSpinner =
+document.getElementById("popupSubmitSpinner"); const popupSubmitBtn =
+document.getElementById("popupSubmitBtn"); if (!form) return;
+form.addEventListener("submit", async function (e) { e.preventDefault(); // stop
+normal navigation popupcta.value = "Submit"; const formData = new
+FormData(form); popupSubmitBtn.disabled = true;
+popupSubmitSpinner.classList.remove("d-none"); function showToast(message, type
+= "success") { const container = document.getElementById("toast-container");
+const toast = document.createElement("div"); toast.className = `toast
+align-items-center ${ type === "success" ? "bg-success" : "bg-danger" }
+text-white border-0 show mb-2`; toast.role = "alert"; toast.innerHTML = `
+<div class="d-flex">
+  <div class="toast-body">${message}</div>
+  <button
+    type="button"
+    class="btn-close btn-close-white me-2 m-auto"
+    data-bs-dismiss="toast"
+    aria-label="Close"
+  ></button>
+</div>
+`; container.appendChild(toast); setTimeout(() => { toast.remove(); }, 4000); }
+// Get location try { const res = await fetch("https://ipapi.co/json/").catch(()
+=> null); if (res) { const data = await res.json(); formData.append( "location",
+`${data.city}, ${data.region}, ${data.country_name}` ); } else
+formData.append("location", "Unknown"); } catch { formData.append("location",
+"Unknown"); } // Send form data via fetch try { const response = await
+fetch("api/web-lead-submission.php", { method: "POST", body: formData, }); const
+text = await response.text(); let msg = {}; try { msg = JSON.parse(text); }
+catch { showToast("Unexpected response from server", "error"); return; } if
+(msg.success) { showToast(msg.success, "success"); form.reset(); const
+popupModal = document.getElementById("contactModal"); const bsModal =
+bootstrap.Modal.getInstance(popupModal) || new bootstrap.Modal(popupModal);
+bsModal.hide(); } else if (msg.error) { showToast(msg.error, "error"); } else {
+showToast("Something went wrong", "error"); } } catch (err) {
+console.error(err); showToast("Something went wrong", "error"); } finally {
+popupSubmitBtn.disabled = false; popupSubmitSpinner.classList.add("d-none"); //
+hide spinner } }); }

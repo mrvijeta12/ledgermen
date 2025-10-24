@@ -1842,6 +1842,8 @@
             >
               <div class="row">
                 <input type="hidden" name="page" value="homepage" />
+                <input type="hidden" name="cta" id="cta" value="" />
+
                 <div class="col-12">
                   <div class="form-group mb-3">
                     <label for="name" class="mb-2">Name*</label>
@@ -1893,19 +1895,35 @@
                   ></textarea>
                 </div>
               </div>
-
               <div class="row d-flex justify-content-center mt-4">
                 <div class="col-md-6 mb-2">
-                  <button type="submit" class="home-cta-btn w-100">
+                  <button
+                    type="submit"
+                    id="submitBtn"
+                    class="home-cta-btn w-100"
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-2 d-none"
+                      id="submitSpinner"
+                    ></span>
                     Request a Call Back
                   </button>
                 </div>
+
                 <div class="col-md-6 mb-2">
                   <a
                     href="https://calendly.com/ledgermen-support/30min"
                     target="_blank"
                   >
-                    <button type="button" class="home-cta-btn w-100">
+                    <button
+                      type="button"
+                      id="instantCallBtn"
+                      class="home-cta-btn w-100"
+                    >
+                      <span
+                        class="spinner-border spinner-border-sm me-2 d-none"
+                        id="instantSpinner"
+                      ></span>
                       Schedule an Instant Call
                     </button>
                   </a>
@@ -1913,79 +1931,153 @@
               </div>
             </form>
             <script>
-              document
-                .getElementById("contactForm")
-                .addEventListener("submit", async function (e) {
-                  e.preventDefault();
-                  const form = e.target;
-                  const formData = new FormData(form);
+              document.addEventListener("DOMContentLoaded", () => {
+                const form = document.getElementById("contactForm");
+                const ctaInput = document.getElementById("cta");
+                const submitBtn = document.getElementById("submitBtn");
+                const submitSpinner = document.getElementById("submitSpinner");
+                const instantCallBtn =
+                  document.getElementById("instantCallBtn");
+                const instantSpinner =
+                  document.getElementById("instantSpinner"); // add spinner for instant call if exists
 
-                  // Function to show toast messages
-                  function showToast(message, type = "success") {
-                    const toastContainer =
-                      document.getElementById("toast-container");
-                    const bgColor =
-                      type === "success" ? "bg-success" : "bg-danger";
-                    const textColor = "text-white";
-
-                    const toast = document.createElement("div");
-                    toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
-                    toast.role = "alert";
-                    toast.innerHTML = `
+                function showToast(message, type = "success") {
+                  const toastContainer =
+                    document.getElementById("toast-container");
+                  const bgColor =
+                    type === "success" ? "bg-success" : "bg-danger";
+                  const toast = document.createElement("div");
+                  toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
+                  toast.role = "alert";
+                  toast.innerHTML = `
       <div class="d-flex">
         <div class="toast-body">${message}</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    `;
+        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+          data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>`;
+                  toastContainer.appendChild(toast);
+                  setTimeout(() => {
+                    toast.classList.remove("show");
+                    toast.remove();
+                  }, 4000);
+                }
 
-                    toastContainer.appendChild(toast);
+                function isValidEmail(email) {
+                  const emailRegex =
+                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                  return emailRegex.test(email);
+                }
 
-                    // Automatically remove the toast after 4 seconds
-                    setTimeout(() => {
-                      toast.classList.remove("show");
-                      toast.remove();
-                    }, 4000);
+                async function handleFormSubmission(
+                  ctaValue,
+                  clickedButton,
+                  clickedSpinner,
+                  openCalendly = false
+                ) {
+                  const emailInput = form.querySelector('input[name="email"]');
+                  const email = emailInput.value.trim();
+
+                  if (!isValidEmail(email)) {
+                    showToast("Please enter a valid email address.", "error");
+                    emailInput.focus();
+                    return;
                   }
 
+                  ctaInput.value = ctaValue;
+                  const formData = new FormData(form);
+
+                  // Disable both buttons
+                  submitBtn.disabled = true;
+                  instantCallBtn.disabled = true;
+
+                  // Show spinner only for the clicked button
+                  if (clickedSpinner) clickedSpinner.classList.remove("d-none");
+
+                  // Step 1: Get user location
                   try {
-                    // Step 1: Get user location via IP API
                     const res = await fetch("https://ipapi.co/json/");
                     if (!res.ok) throw new Error("Location fetch failed");
-
                     const data = await res.json();
                     const location = `${data.city}, ${data.region}, ${data.country_name}`;
                     formData.append("location", location);
                   } catch (err) {
-                    console.warn("Could not fetch location:", err);
                     formData.append("location", "Unknown");
                   }
 
+                  // Step 2: Submit to backend
                   try {
-                    // Step 2: Send data to backend
                     const response = await fetch(
                       "api/web-lead-submission.php",
-                      {
-                        method: "POST",
-                        body: formData,
-                      }
+                      { method: "POST", body: formData }
                     );
-
-                    const msg = await response.json();
+                    const text = await response.text();
+                    let msg = {};
+                    try {
+                      msg = JSON.parse(text);
+                    } catch {
+                      showToast("Unexpected server response.", "error");
+                      return;
+                    }
 
                     if (msg.success) {
                       showToast(msg.success, "success");
                       form.reset();
+                      if (openCalendly) {
+                        setTimeout(() => {
+                          window.open(
+                            "https://calendly.com/ledgermen-support/30min",
+                            "_blank"
+                          );
+                        }, 1000);
+                      }
+                    } else if (msg.error) {
+                      showToast(msg.error, "error");
                     } else {
-                      showToast(msg.error || "Something went wrong.", "error");
+                      showToast("Something went wrong.", "error");
                     }
                   } catch (err) {
-                    console.error("Form submission failed:", err);
                     showToast(
                       "Something went wrong. Please try again later.",
                       "error"
                     );
+                  } finally {
+                    // Re-enable both buttons and hide the clicked spinner only
+                    submitBtn.disabled = false;
+                    instantCallBtn.disabled = false;
+                    if (clickedSpinner) clickedSpinner.classList.add("d-none");
                   }
+                }
+
+                // Request a Call Back button
+                form.addEventListener("submit", (e) => {
+                  e.preventDefault();
+                  handleFormSubmission(
+                    "Submit",
+                    submitBtn,
+                    submitSpinner,
+                    false
+                  );
                 });
+
+                // Schedule an Instant Call button
+                instantCallBtn.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  if (!form.checkValidity()) {
+                    showToast(
+                      "Please fill out all required fields before scheduling a call.",
+                      "error"
+                    );
+                    form.reportValidity();
+                    return;
+                  }
+                  handleFormSubmission(
+                    "Schedule an Instant Call",
+                    instantCallBtn,
+                    instantSpinner,
+                    true
+                  );
+                });
+              });
             </script>
           </div>
         </div>

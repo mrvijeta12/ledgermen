@@ -178,31 +178,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initPopupForm() {
   const form = document.getElementById("popupContactForm");
-  console.log("Form element after injection:", form);
+  const popupcta = document.getElementById("popupcta");
+  const popupSubmitSpinner = document.getElementById("popupSubmitSpinner");
+  const popupSubmitBtn = document.getElementById("popupSubmitBtn");
 
   if (!form) return;
+
+  function showToast(message, type = "success") {
+    const container = document.getElementById("toast-container");
+    const toast = document.createElement("div");
+    toast.className = `toast align-items-center ${
+      type === "success" ? "bg-success" : "bg-danger"
+    } text-white border-0 show mb-2`;
+    toast.role = "alert";
+    toast.innerHTML = `
+      <div class="d-flex">
+        <div class="toast-body">${message}</div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" 
+          data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>`;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 4000);
+  }
+
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault(); // stop normal navigation
 
-    const formData = new FormData(form);
-
-    function showToast(message, type = "success") {
-      const container = document.getElementById("toast-container");
-      const toast = document.createElement("div");
-      toast.className = `toast align-items-center ${
-        type === "success" ? "bg-success" : "bg-danger"
-      } text-white border-0 show mb-2`;
-      toast.role = "alert";
-      toast.innerHTML = `<div class="d-flex"><div class="toast-body">${message}</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button></div>`;
-      container.appendChild(toast);
-      setTimeout(() => {
-        toast.remove();
-      }, 4000);
+    // --- Email Validation ---
+    const emailInput = form.querySelector('input[name="email"]');
+    const email = emailInput ? emailInput.value.trim() : "";
+    if (!isValidEmail(email)) {
+      showToast("Please enter a valid email address.", "error");
+      if (emailInput) emailInput.focus();
+      return; // stop submission
     }
 
-    // Get location
+    popupcta.value = "Submit";
+    const formData = new FormData(form);
+    popupSubmitBtn.disabled = true;
+    popupSubmitSpinner.classList.remove("d-none");
+
+    // --- Get location ---
     try {
       const res = await fetch("https://ipapi.co/json/").catch(() => null);
       if (res) {
@@ -216,7 +237,7 @@ function initPopupForm() {
       formData.append("location", "Unknown");
     }
 
-    // Send form data via fetch
+    // --- Send form data ---
     try {
       const response = await fetch("api/web-lead-submission.php", {
         method: "POST",
@@ -248,6 +269,9 @@ function initPopupForm() {
     } catch (err) {
       console.error(err);
       showToast("Something went wrong", "error");
+    } finally {
+      popupSubmitBtn.disabled = false;
+      popupSubmitSpinner.classList.add("d-none"); // hide spinner
     }
   });
 }

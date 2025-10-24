@@ -942,3 +942,20 @@ button[type="submit"].btn:active {
   background-position: bottom left;
   color: #fff !important;
 }
+
+/* Style for disabled submit button */
+#submitBtn:disabled,
+#instantCallBtn:disabled,
+#popupSubmitBtn:disabled {
+  opacity: 0.6; /* make it look faded */
+  cursor: not-allowed; /* show "not allowed" cursor */
+  pointer-events: none; /* prevent hover effects */
+  transition: opacity 0.2s ease;
+}
+#popupSubmitBtn:disabled {
+  background-color: #283851 !important;
+  color: white !important;
+}
+#popupSubmitSpinner {
+  color: white !important;
+}
