@@ -286,9 +286,11 @@ header {
   }
   .menu-open {
     display: block;
+    cursor: pointer;
   }
   .menu-close {
     display: none;
+    cursor: pointer;
   }
   .menu-icon.open .menu-open {
     display: none;

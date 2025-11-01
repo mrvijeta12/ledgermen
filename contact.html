@@ -271,6 +271,7 @@
                               value="contactpage"
                             />
                             <input type="hidden" name="cta" id="cta" value="" />
+
                             <div class="col-12">
                               <div class="form-group mb-4">
                                 <label for="name" class="mb-2"> Name*</label>
@@ -292,12 +293,13 @@
                                   type="email"
                                   class="form-control"
                                   id="email"
-                                  placeholder="Enter Your Email "
+                                  placeholder="Enter Your Email"
                                   name="email"
                                   required
                                 />
                               </div>
                             </div>
+
                             <div class="col-12 col-lg-6">
                               <div class="form-group mb-4">
                                 <label for="phone" class="mb-2"
@@ -338,6 +340,7 @@
                             Submit
                           </button>
                         </form>
+
                         <script>
                           document.addEventListener("DOMContentLoaded", () => {
                             const form = document.getElementById("contactForm");
@@ -356,17 +359,22 @@
                               toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
                               toast.role = "alert";
                               toast.innerHTML = `
-      <div class="d-flex">
-        <div class="toast-body">${message}</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto"
-          data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-    `;
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>`;
                               toastContainer.appendChild(toast);
                               setTimeout(() => {
                                 toast.classList.remove("show");
                                 toast.remove();
                               }, 4000);
+                            }
+
+                            function isValidEmail(email) {
+                              const emailRegex =
+                                /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                              return emailRegex.test(email);
                             }
 
                             form.addEventListener("submit", async function (e) {
@@ -376,11 +384,8 @@
                                 'input[name="email"]'
                               );
                               const email = emailInput.value.trim();
-                              // ✅ Updated regex to allow +, %, _
-                              const emailRegex =
-                                /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-                              if (!emailRegex.test(email)) {
+                              if (!isValidEmail(email)) {
                                 showToast(
                                   "Please enter a valid email address.",
                                   "error"
@@ -394,21 +399,13 @@
                               submitBtn.disabled = true;
                               submitSpinner.classList.remove("d-none");
 
-                              // Step 1: Get user location
-                              try {
-                                const res = await fetch(
-                                  "https://ipapi.co/json/"
-                                );
-                                if (!res.ok)
-                                  throw new Error("Location fetch failed");
-                                const data = await res.json();
-                                const location = `${data.city}, ${data.region}, ${data.country_name}`;
-                                formData.append("location", location);
-                              } catch (err) {
-                                formData.append("location", "Unknown");
-                              }
+                              // ✅ Step 1: Use globally stored location
+                              let location =
+                                localStorage.getItem("userLocation");
+                              if (!location) location = "Unknown";
+                              formData.append("location", location);
 
-                              // Step 2: Submit to backend
+                              // ✅ Step 2: Submit to backend
                               try {
                                 const response = await fetch(
                                   "api/web-lead-submission.php",
@@ -417,12 +414,11 @@
                                     body: formData,
                                   }
                                 );
-
                                 const text = await response.text();
                                 let msg = {};
                                 try {
                                   msg = JSON.parse(text);
-                                } catch (err) {
+                                } catch {
                                   showToast(
                                     "Unexpected response from server.",
                                     "error"
@@ -439,6 +435,7 @@
                                   showToast("Something went wrong.", "error");
                                 }
                               } catch (err) {
+                                console.error(err);
                                 showToast(
                                   "Something went wrong. Please try again later.",
                                   "error"

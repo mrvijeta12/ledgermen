@@ -1,3 +1,137 @@
+//! 🌍 GLOBAL LOCATION HELPER
+
+window.UserLocation = (function () {
+  let cachedLocation = null;
+  const LS_KEY_PROMPT = "locationPromptShown";
+  const LS_KEY_LOCATION = "userLocation";
+
+  // ✅ Get browser-based geolocation (with proper user gesture handling)
+  async function getGeolocation() {
+    return new Promise((resolve) => {
+      if (!navigator.geolocation) return resolve(null);
+
+      navigator.geolocation.getCurrentPosition(
+        async (pos) => {
+          const { latitude, longitude } = pos.coords;
+          try {
+            const res = await fetch(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+            );
+            const data = await res.json();
+
+            const city = data.city || data.locality || "";
+            const state = data.principalSubdivision || "";
+            const country = data.countryName || "";
+            const loc =
+              city || state || country
+                ? `${city}${city && state ? ", " : ""}${state}${
+                    country ? ", " + country : ""
+                  }`
+                : `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
+
+            resolve(loc);
+          } catch {
+            resolve(
+              `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`
+            );
+          }
+        },
+        async (err) => {
+          console.warn("Geolocation error:", err);
+          resolve(null);
+        },
+        { timeout: 8000 } // Increased timeout for slower devices
+      );
+    });
+  }
+
+  // ✅ Fallback to IP-based location
+  async function getIPLocation() {
+    try {
+      const res = await fetch("https://ipapi.co/json/");
+      const data = await res.json();
+      return `${data.city}, ${data.region}, ${data.country_name}`;
+    } catch {
+      return "Unknown";
+    }
+  }
+
+  // ✅ Decide which location method to use
+  async function detectLocation() {
+    if (cachedLocation) return cachedLocation;
+
+    let location = await getGeolocation();
+
+    // If browser denied or failed → fallback to IP
+    if (!location) location = await getIPLocation();
+
+    cachedLocation = location;
+    localStorage.setItem(LS_KEY_LOCATION, location);
+    return location;
+  }
+
+  // ✅ Custom modal prompt
+  function showPrompt() {
+    if (localStorage.getItem(LS_KEY_PROMPT)) return;
+
+    const modal = document.createElement("div");
+    modal.innerHTML = `
+      <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center" style="z-index:1060;">
+        <div class="bg-white p-4 rounded-3 shadow text-center mx-3" style="max-width: 400px;">
+          <h5>Allow Location Access?</h5>
+          <p class="text-muted mb-3">
+            We use your location to enhance your browsing experience and display content relevant to your region and preferences.
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <button id="allowLocation" class="animated-button" style="padding:6px 12px;color:#000;border-radius:6px;border:none;">Allow</button>
+            <button id="denyLocation" class="animated-button" style="padding:6px 12px;color:#000;border-radius:6px;border:none;">Deny</button>
+          </div>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    // ✅ When user clicks "Allow"
+    modal
+      .querySelector("#allowLocation")
+      .addEventListener("click", async () => {
+        localStorage.setItem(LS_KEY_PROMPT, "true");
+        modal.remove();
+
+        // Browser’s own permission prompt appears here
+        const loc = (await getGeolocation()) || (await getIPLocation());
+        localStorage.setItem(LS_KEY_LOCATION, loc);
+      });
+
+    // ✅ When user clicks "Deny"
+    modal.querySelector("#denyLocation").addEventListener("click", async () => {
+      localStorage.setItem(LS_KEY_PROMPT, "true");
+      modal.remove();
+
+      const loc = await getIPLocation();
+      localStorage.setItem(LS_KEY_LOCATION, loc);
+    });
+  }
+
+  // ✅ Delay showing modal slightly after page load
+  setTimeout(() => {
+    if (!localStorage.getItem(LS_KEY_PROMPT)) showPrompt();
+  }, 5000);
+
+  // ✅ Public methods
+  return {
+    async getLocation() {
+      const stored = localStorage.getItem(LS_KEY_LOCATION);
+      if (stored) return stored;
+      return await detectLocation();
+    },
+    async refreshLocation() {
+      localStorage.removeItem(LS_KEY_LOCATION);
+      cachedLocation = null;
+      return await detectLocation();
+    },
+  };
+})();
+
 //! GLOBAL HEADER
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -224,18 +358,22 @@ function initPopupForm() {
     popupSubmitSpinner.classList.remove("d-none");
 
     // --- Get location ---
-    try {
-      const res = await fetch("https://ipapi.co/json/").catch(() => null);
-      if (res) {
-        const data = await res.json();
-        formData.append(
-          "location",
-          `${data.city}, ${data.region}, ${data.country_name}`
-        );
-      } else formData.append("location", "Unknown");
-    } catch {
-      formData.append("location", "Unknown");
-    }
+    // try {
+    //   const res = await fetch("https://ipapi.co/json/").catch(() => null);
+    //   if (res) {
+    //     const data = await res.json();
+    //     formData.append(
+    //       "location",
+    //       `${data.city}, ${data.region}, ${data.country_name}`
+    //     );
+    //   } else formData.append("location", "Unknown");
+    // } catch {
+    //   formData.append("location", "Unknown");
+    // }
+
+    // --- Get location (from global UserLocation helper) ---
+    const location = await UserLocation.getLocation();
+    formData.append("location", location);
 
     // --- Send form data ---
     try {

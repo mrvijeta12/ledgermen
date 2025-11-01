@@ -794,55 +794,58 @@
                     document.getElementById("submitSpinner");
                   const submitBtn = document.getElementById("submitBtn");
 
+                  function showToast(message, type = "success") {
+                    const toastContainer =
+                      document.getElementById("toast-container");
+                    const bgColor =
+                      type === "success" ? "bg-success" : "bg-danger";
+                    const toast = document.createElement("div");
+                    toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
+                    toast.role = "alert";
+                    toast.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>`;
+                    toastContainer.appendChild(toast);
+                    setTimeout(() => {
+                      toast.classList.remove("show");
+                      toast.remove();
+                    }, 4000);
+                  }
+
+                  function isValidEmail(email) {
+                    const emailRegex =
+                      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                    return emailRegex.test(email);
+                  }
+
                   form.addEventListener("submit", async function (e) {
                     e.preventDefault();
 
-                    // Always set CTA as "Submit"
-                    ctaInput.value = "Submit";
+                    const emailInput = form.querySelector(
+                      'input[name="email"]'
+                    );
+                    const email = emailInput.value.trim();
 
+                    if (!isValidEmail(email)) {
+                      showToast("Please enter a valid email address.", "error");
+                      emailInput.focus();
+                      return;
+                    }
+
+                    ctaInput.value = "Submit";
                     const formData = new FormData(form);
                     submitBtn.disabled = true;
                     submitSpinner.classList.remove("d-none");
 
-                    // --- Toast message function ---
-                    function showToast(message, type = "success") {
-                      const toastContainer =
-                        document.getElementById("toast-container");
-                      const bgColor =
-                        type === "success" ? "bg-success" : "bg-danger";
-                      const textColor = "text-white";
+                    // ✅ Step 1: Use globally stored location
+                    let location = localStorage.getItem("userLocation");
+                    if (!location) location = "Unknown";
+                    formData.append("location", location);
 
-                      const toast = document.createElement("div");
-                      toast.className = `toast align-items-center ${bgColor} ${textColor} border-0 show mb-2`;
-                      toast.role = "alert";
-                      toast.innerHTML = `
-        <div class="d-flex">
-          <div class="toast-body">${message}</div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto" 
-            data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      `;
-
-                      toastContainer.appendChild(toast);
-                      setTimeout(() => {
-                        toast.classList.remove("show");
-                        toast.remove();
-                      }, 4000);
-                    }
-
-                    // --- Step 1: Get user location ---
-                    try {
-                      const res = await fetch("https://ipapi.co/json/");
-                      if (!res.ok) throw new Error("Location fetch failed");
-                      const data = await res.json();
-                      const location = `${data.city}, ${data.region}, ${data.country_name}`;
-                      formData.append("location", location);
-                    } catch (err) {
-                      console.warn("Could not fetch location:", err);
-                      formData.append("location", "Unknown");
-                    }
-
-                    // --- Step 2: Send data to backend ---
+                    // ✅ Step 2: Submit to backend
                     try {
                       const response = await fetch(
                         "api/web-lead-submission.php",
@@ -851,14 +854,11 @@
                           body: formData,
                         }
                       );
-
                       const text = await response.text();
                       let msg = {};
-
                       try {
                         msg = JSON.parse(text);
-                      } catch (err) {
-                        console.error("Invalid JSON:", text);
+                      } catch {
                         showToast("Unexpected response from server.", "error");
                         return;
                       }
@@ -872,14 +872,14 @@
                         showToast("Something went wrong.", "error");
                       }
                     } catch (err) {
-                      console.error("Form submission failed:", err);
+                      console.error(err);
                       showToast(
                         "Something went wrong. Please try again later.",
                         "error"
                       );
                     } finally {
                       submitBtn.disabled = false;
-                      submitSpinner.classList.add("d-none"); // hide spinner
+                      submitSpinner.classList.add("d-none");
                     }
                   });
                 });

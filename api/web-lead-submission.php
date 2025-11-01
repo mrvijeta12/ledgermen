@@ -64,12 +64,12 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'sender@gmail.com';
-    $mail->Password = 'sender app password'; 
+     $mail->Username = '.com';
+    $mail->Password = ''; 
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
-    $mail->setFrom('sender@gmail.com', 'sender name');
+    $mail->setFrom('.com', 'Aarav');
 
     // --- Email to user ---
     $mail->clearAllRecipients();
@@ -95,7 +95,9 @@ try {
 
 } catch(Exception $e) {
     error_log("Mailer Error: " . $mail->ErrorInfo);
-    echo json_encode(["error" => "Email could not be sent."]);
+    // echo json_encode(["error" => "Email could not be sent."]);
+    echo json_encode(["error" => "Email could not be sent: " . $mail->ErrorInfo]);
+
 }
 
 $stmt->close();
