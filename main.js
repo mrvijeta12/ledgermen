@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const menuIcon = document.getElementById("menu-icon");
       const navLinks = document.getElementById("nav-links");
       const overlay = document.getElementById("overlay");
+      const policies = document.querySelectorAll(".company-policy");
 
       // 3️⃣ Highlight current page (top-level nav-links only)
       const currentPath = window.location.pathname;
@@ -186,8 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
       window.addEventListener("scroll", () => {
         if (window.scrollY >= 56) {
           header.classList.add("fixed");
+          policies.forEach((policy) => (policy.style.paddingTop = "60px"));
         } else {
           header.classList.remove("fixed");
+          policies.forEach((policy) => (policy.style.paddingTop = ""));
         }
       });
 
