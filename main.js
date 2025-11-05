@@ -18,10 +18,12 @@ window.UserLocation = (function () {
               `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
             );
             const data = await res.json();
+            console.log(data);
 
             const city = data.city || data.locality || "";
             const state = data.principalSubdivision || "";
             const country = data.countryName || "";
+            const countryCode = data.countryCode || "";
             const loc =
               city || state || country
                 ? `${city}${city && state ? ", " : ""}${state}${
@@ -29,16 +31,19 @@ window.UserLocation = (function () {
                   }`
                 : `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
 
-            resolve(loc);
+            resolve({ location: loc, countryCode });
           } catch {
-            resolve(
-              `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`
-            );
+            resolve({
+              location: `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(
+                6
+              )}`,
+              countryCode: null,
+            });
           }
         },
         async (err) => {
           console.warn("Geolocation error:", err);
-          resolve(null);
+          resolve({ location: null, countryCode: null });
         },
         { timeout: 8000 } // Increased timeout for slower devices
       );
@@ -50,9 +55,12 @@ window.UserLocation = (function () {
     try {
       const res = await fetch("https://ipapi.co/json/");
       const data = await res.json();
-      return `${data.city}, ${data.region}, ${data.country_name}`;
+      return {
+        location: `${data.city}, ${data.region}, ${data.country_name}`,
+        countryCode: data.country_code,
+      };
     } catch {
-      return "Unknown";
+      return { location: null, countryCode: null };
     }
   }
 
@@ -60,14 +68,14 @@ window.UserLocation = (function () {
   async function detectLocation() {
     if (cachedLocation) return cachedLocation;
 
-    let location = await getGeolocation();
+    let { location, countryCode } = await getGeolocation();
 
     // If browser denied or failed → fallback to IP
-    if (!location) location = await getIPLocation();
+    if (!location) ({ location, countryCode } = await getIPLocation());
 
-    cachedLocation = location;
-    localStorage.setItem(LS_KEY_LOCATION, location);
-    return location;
+    cachedLocation = { location, countryCode };
+    localStorage.setItem(LS_KEY_LOCATION, JSON.stringify(cachedLocation));
+    return cachedLocation;
   }
 
   // ✅ Custom modal prompt
@@ -98,8 +106,8 @@ window.UserLocation = (function () {
         modal.remove();
 
         // Browser’s own permission prompt appears here
-        const loc = (await getGeolocation()) || (await getIPLocation());
-        localStorage.setItem(LS_KEY_LOCATION, loc);
+        const locObj = (await getGeolocation()) || (await getIPLocation());
+        localStorage.setItem(LS_KEY_LOCATION, JSON.stringify(locObj));
       });
 
     // ✅ When user clicks "Deny"
@@ -107,8 +115,8 @@ window.UserLocation = (function () {
       localStorage.setItem(LS_KEY_PROMPT, "true");
       modal.remove();
 
-      const loc = await getIPLocation();
-      localStorage.setItem(LS_KEY_LOCATION, loc);
+      const locObj = await getIPLocation();
+      localStorage.setItem(LS_KEY_LOCATION, JSON.stringify(locObj));
     });
   }
 
@@ -121,7 +129,7 @@ window.UserLocation = (function () {
   return {
     async getLocation() {
       const stored = localStorage.getItem(LS_KEY_LOCATION);
-      if (stored) return stored;
+      if (stored) return JSON.parse(stored);
       return await detectLocation();
     },
     async refreshLocation() {
@@ -360,23 +368,12 @@ function initPopupForm() {
     popupSubmitBtn.disabled = true;
     popupSubmitSpinner.classList.remove("d-none");
 
-    // --- Get location ---
-    // try {
-    //   const res = await fetch("https://ipapi.co/json/").catch(() => null);
-    //   if (res) {
-    //     const data = await res.json();
-    //     formData.append(
-    //       "location",
-    //       `${data.city}, ${data.region}, ${data.country_name}`
-    //     );
-    //   } else formData.append("location", "Unknown");
-    // } catch {
-    //   formData.append("location", "Unknown");
-    // }
-
-    // --- Get location (from global UserLocation helper) ---
-    const location = await UserLocation.getLocation();
-    formData.append("location", location);
+    let locObj = JSON.parse(
+      localStorage.getItem("userLocation") ||
+        '{"location":"Unknown","countryCode":""}'
+    );
+    formData.append("location", locObj.location);
+    formData.append("countryCode", locObj.countryCode);
 
     // --- Send form data ---
     try {

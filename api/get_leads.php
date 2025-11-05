@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Kolkata');
 
 try {
     // Prepare and execute the SQL query
-    $sql = "SELECT id, name, email, contact_number, message, page, location, cta, date, time, created_at 
+    $sql = "SELECT id, name, email, contact_number, message, page, location, country_code ,cta, date, time, created_at 
             FROM website_lead_form 
             ORDER BY created_at DESC";
 

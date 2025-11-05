@@ -20,6 +20,7 @@ $contact_number = trim($_POST['phone'] ?? "");
 $message = trim($_POST['message'] ?? "");
 $page = trim($_POST['page'] ?? "");
 $location = trim($_POST['location'] ?? "Unknown");
+$countryCode = trim($_POST['countryCode'] ?? "Unknown");
 $cta = trim($_POST['cta'] ?? "");
 $date = date("Y-m-d");
 $time = date("H:i:s");
@@ -40,17 +41,17 @@ if (!checkdnsrr($domain, "MX")) {
 
 // --- Insert into MySQL ---
 $stmt = $conn->prepare(
-    "INSERT INTO website_lead_form (name,email,contact_number,message,page,location,cta,date,time,created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)"
+    "INSERT INTO website_lead_form (name,email,contact_number,message,page,location,country_code,cta,date,time,created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)"
 );
 if (!$stmt) {
     echo json_encode(["error" => "Prepare failed: " . $conn->error]);
     exit;
 }
 
-$stmt->bind_param("ssssssssss",
+$stmt->bind_param("sssssssssss",
     $name, $email, $contact_number, $message,
-    $page, $location, $cta,$date, $time, $created_at
+    $page, $location, $countryCode, $cta,$date, $time, $created_at
 );
 
 if (!$stmt->execute()) {
@@ -64,12 +65,12 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-     $mail->Username = '.com';
-    $mail->Password = ''; 
+   $mail->Username = '@gmail.com';
+    $mail->Password = 'x'; 
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
     $mail->CharSet = 'UTF-8';
-    $mail->setFrom('.com', 'Aarav');
+    $mail->setFrom('@gmail.com', 'Aarav');
 
     // --- Email to user ---
     $mail->clearAllRecipients();
@@ -87,7 +88,7 @@ try {
     $mail->Subject = "New Website Lead: {$name}";
     $mail->Body = "<p><strong>Name:</strong> {$name}<br><strong>Email:</strong> {$email}<br>
     <strong>Phone:</strong> {$contact_number}<br><strong>Message:</strong> {$message}<br>
-    <strong>Page:</strong> {$page}<br><strong>Location:</strong> {$location}<br>
+    <strong>Page:</strong> {$page}<br><strong>Location:</strong> {$location}<br><strong>Country Code:</strong> {$countryCode}<br>
     <strong>CTA:</strong> {$cta}<br><strong>Submitted At:</strong> {$created_at}</p>";
     $mail->send();
 

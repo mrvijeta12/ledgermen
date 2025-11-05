@@ -359,11 +359,11 @@
                               toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
                               toast.role = "alert";
                               toast.innerHTML = `
-        <div class="d-flex">
-          <div class="toast-body">${message}</div>
-          <button type="button" class="btn-close btn-close-white me-2 m-auto"
-            data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>`;
+                          <div class="d-flex">
+                            <div class="toast-body">${message}</div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                              data-bs-dismiss="toast" aria-label="Close"></button>
+                          </div>`;
                               toastContainer.appendChild(toast);
                               setTimeout(() => {
                                 toast.classList.remove("show");
@@ -400,10 +400,15 @@
                               submitSpinner.classList.remove("d-none");
 
                               // ✅ Step 1: Use globally stored location
-                              let location =
-                                localStorage.getItem("userLocation");
-                              if (!location) location = "Unknown";
-                              formData.append("location", location);
+                              let locObj = JSON.parse(
+                                localStorage.getItem("userLocation") ||
+                                  '{"location":"Unknown","countryCode":""}'
+                              );
+                              formData.append("location", locObj.location);
+                              formData.append(
+                                "countryCode",
+                                locObj.countryCode
+                              );
 
                               // ✅ Step 2: Submit to backend
                               try {
@@ -726,6 +731,6 @@
         once: "true",
       });
     </script>
-    <script defer src="main.js?v=2.3"></script>
+    <script defer src="main.js?v=2.3.1"></script>
   </body>
 </html>

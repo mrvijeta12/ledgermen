@@ -3,7 +3,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://ledgermen.com/index.html</loc>
+    <loc>https://ledgermen.com/home.html</loc>
     <lastmod>2025-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -127,6 +127,41 @@
     <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- New Pages -->
+  <url>
+    <loc>https://ledgermen.com/every-startup-needs-a-solid-foundation.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/indirect-tax-alert.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+   <url>
+    <loc>https://ledgermen.com/what-happens-if-you-do-not-maintain-proper-books.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/privacy-policy.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/terms-conditions.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
