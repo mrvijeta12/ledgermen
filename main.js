@@ -84,8 +84,8 @@ window.UserLocation = (function () {
 
     const modal = document.createElement("div");
     modal.innerHTML = `
-      <div class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-center justify-content-center" style="z-index:1060;">
-        <div class="bg-white p-4 rounded-3 shadow text-center mx-3" style="max-width: 400px;">
+       <div class="position-fixed top-0 bottom-0 w-100 h-100 bg-dark bg-opacity-50  d-flex align-items-end  justify-content-center" style="z-index:1060;">
+        <div class="bg-white p-2 text-center mx-3 container location-modal" >
           <h5>Allow Location Access?</h5>
           <p class="text-muted mb-3">
             We use your location to enhance your browsing experience and display content relevant to your region and preferences.

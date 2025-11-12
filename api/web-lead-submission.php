@@ -77,7 +77,9 @@ try {
     $mail->addAddress($email, $name);
     $mail->isHTML(true);
     $mail->Subject = "Thank you for contacting us!";
-    $mail->Body = "<h3>Hello {$name}</h3><p>Thank you for contacting us. We will reach you soon.</p>";
+     $mail->Body = "<h3>Hello {$name}</h3><p>Thank you for reaching out to us. Your request has been successfully received.</p><p>Our team is reviewing your details and will get in touch within one business day to understand your needs and guide you through the next steps.
+</p><p>Meanwhile, sit back and relax — your finances are in good hands.
+</p><p>Best Regards,</p><p>Vinita Goyal</p><p>Ledgermen — Do what you do best, and outsource the rest.</p>";
     $mail->send();
 
     // --- Email to internal team ---
