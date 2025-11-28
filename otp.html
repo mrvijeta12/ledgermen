@@ -1,0 +1,42 @@
+<div class="otp-card">
+  <div class="otp-title">Enter verification code</div>
+  <p class="otp-lead">
+    We sent a 6-digit code to
+    <strong id="otpEmail">{{emailMasked}}</strong>.
+  </p>
+
+  <form>
+    <div class="otp-row">
+      <input maxlength="1" class="otp-input" />
+      <input maxlength="1" class="otp-input" />
+      <input maxlength="1" class="otp-input" />
+      <input maxlength="1" class="otp-input" />
+      <input maxlength="1" class="otp-input" />
+      <input maxlength="1" class="otp-input" />
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 10px">
+      <button
+        type="button"
+        class="animated-button"
+        style="padding: 10px 14px; border-radius: 10px"
+        id="verifyOtpBtn"
+      >
+        Verify
+      </button>
+      <button type="reset" class="otp-btn secondary">Clear</button>
+    </div>
+
+    <div class="small mt-4">
+      <span class="resend">Didn't receive it?</span>
+      <button
+        type="button"
+        class="btn secondary resend-btn"
+        style="margin-left: 8px"
+        id="resendOtpBtn"
+      >
+        Resend
+      </button>
+    </div>
+  </form>
+</div>

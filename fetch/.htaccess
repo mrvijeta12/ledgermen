@@ -1,0 +1,19 @@
+# Enable URL rewriting
+RewriteEngine On
+RewriteBase /
+
+DirectoryIndex home.html
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+ErrorDocument 404 https://www.ledgermen.com/404
+
+
+<Files ".htaccess">
+  Order Allow,Deny
+  Deny from all
+</Files>

@@ -1,0 +1,16 @@
+# robots.txt for https://ledgermen.com/
+
+# Allow all search engines
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Disallow: /search/
+Disallow: /cgi-bin/
+
+# Allow main JS and CSS
+Allow: /script.js
+Allow: /style.css
+
+# Sitemap location
+Sitemap: https://ledgermen.com/sitemap.xml

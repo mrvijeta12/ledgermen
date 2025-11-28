@@ -26,13 +26,12 @@
         </button>
       </div>
       <div class="modal-body">
-        <form
-          action="api/web-lead-submission.php"
-          method="POST"
-          id="popupContactForm"
-        >
+        <form id="popupContactForm">
+          <!-- Removed action & method -->
           <input type="hidden" name="page" value="popup" />
           <input type="hidden" name="cta" id="popupcta" value="" />
+          <input type="hidden" name="otp" id="verifiedOtp" />
+
           <!-- Name Field -->
           <div class="mb-3">
             <label for="name" class="mb-2">Name*</label>
@@ -40,7 +39,7 @@
               type="text"
               class="form-control"
               id="first-name"
-              placeholder="Enter Your  Name"
+              placeholder="Enter Your Name"
               name="name"
               required
             />
@@ -55,7 +54,7 @@
                 type="email"
                 class="form-control"
                 id="email"
-                placeholder="Enter Your Email "
+                placeholder="Enter Your Email"
                 name="email"
                 required
               />

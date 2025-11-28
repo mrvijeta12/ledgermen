@@ -931,7 +931,7 @@ button[type="submit"].btn:active {
 }
 
 /* ANIMATED BUTTON  */
-.animated-button {
+/* .animated-button {
   background: linear-gradient(to bottom left, #fecc00 50%, #3b4d6a 50%);
   background-size: 200% 200%;
   background-position: top right;
@@ -942,6 +942,36 @@ button[type="submit"].btn:active {
 
 .animated-button:hover {
   background-position: bottom left;
+  color: #fff !important;
+} */
+
+/* Force button to always use gradient (override inline + Bootstrap) */
+.animated-button,
+.animated-button:hover,
+.animated-button:focus,
+.animated-button:active {
+  background-image: linear-gradient(
+    to bottom left,
+    #fecc00 50%,
+    #3b4d6a 50%
+  ) !important;
+  background-size: 200% 200% !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Normal state */
+.animated-button {
+  background-position: top right !important;
+  transition: background-position 0.3s ease-in-out;
+  color: #000 !important;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Hover animation */
+.animated-button:hover {
+  background-position: bottom left !important;
   color: #fff !important;
 }
 
@@ -977,4 +1007,132 @@ button[type="submit"].btn:active {
   50% {
     transform: translateY(-5%);
   }
+}
+
+#otpModal {
+  z-index: 2000 !important; /* ensure OTP is above popup */
+}
+
+.otp-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 9999 !important; */
+  border: 2px solid red;
+}
+
+/* The white popup box */
+.otp-modal-content {
+  position: relative;
+  background: #ffffff;
+  padding: 0;
+  border-radius: 14px;
+  width: 420px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Close button */
+.otp-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 26px;
+  color: #444;
+  cursor: pointer;
+  font-weight: bold;
+}
+.otp-card {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 28px;
+  width: 100%;
+  /* max-width: 420px; */
+  /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25); */
+  color: #1e293b;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.otp-title {
+  font-size: 20px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.otp-lead {
+  color: #475569;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.otp-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.otp-input {
+  width: 56px;
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fecc00;
+}
+
+.otp-input:focus {
+  border-color: #fecc00;
+  box-shadow: 0 6px 18px rgba(254, 204, 0, 0.3); /* yellow shadow matching border */
+
+  outline: none;
+}
+
+.otp-btn {
+  background: #7c3aed;
+  padding: 10px 14px !important;
+  color: white;
+  border-radius: 10px !important;
+  border: none;
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+
+.otp-btn.secondary {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  transition: all 0.3s ease-in-out;
+}
+.otp-btn.secondary:hover {
+  background-color: #283851;
+  color: white;
+}
+.resend-btn {
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #cbd5e1;
+}
+.resend-btn:hover {
+  background-color: #283851;
+  color: white;
+}
+
+.verify {
+  padding: 10px 14px !important;
+  border-radius: 10px !important;
+}
+
+.small-text {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
 }

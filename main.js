@@ -1,5 +1,22 @@
-//! 🌍 GLOBAL LOCATION HELPER
+//! Global toast
+// main.js (top of file)
+window.showToast = function (message, type = "success") {
+  const toastContainer = document.getElementById("toast-container");
+  if (!toastContainer) return;
 
+  const bgColor = type === "success" ? "bg-success" : "bg-danger";
+  const toast = document.createElement("div");
+  toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
+  toast.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>`;
+  toastContainer.appendChild(toast);
+  setTimeout(() => toast.remove(), 4000);
+};
+
+//! 🌍 GLOBAL LOCATION HELPER
 window.UserLocation = (function () {
   let cachedLocation = null;
   const LS_KEY_PROMPT = "locationPromptShown";
@@ -49,6 +66,53 @@ window.UserLocation = (function () {
       );
     });
   }
+  // async function getGeolocation() {
+  //   return new Promise((resolve) => {
+  //     if (!navigator.geolocation) return resolve(null);
+
+  //     navigator.geolocation.getCurrentPosition(
+  //       async (pos) => {
+  //         const { latitude, longitude } = pos.coords;
+
+  //         try {
+  //           const res = await fetch(
+  //             `https://api-bdc.com/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+  //           );
+
+  //           const data = await res.json();
+  //           console.log("BDC Data:", data);
+
+  //           const city = data.city || data.locality || "";
+  //           const state = data.principalSubdivision || "";
+  //           const country = data.countryName || "";
+  //           const countryCode = data.countryCode || "";
+
+  //           const loc =
+  //             city || state || country
+  //               ? `${city}${city && state ? ", " : ""}${state}${
+  //                   country ? ", " + country : ""
+  //                 }`
+  //               : `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(6)}`;
+
+  //           resolve({ location: loc, countryCode });
+  //         } catch (e) {
+  //           console.warn("BDC Fetch Error:", e);
+  //           resolve({
+  //             location: `Lat: ${latitude.toFixed(6)}, Lon: ${longitude.toFixed(
+  //               6
+  //             )}`,
+  //             countryCode: null,
+  //           });
+  //         }
+  //       },
+  //       (err) => {
+  //         console.warn("Geolocation error:", err);
+  //         resolve({ location: null, countryCode: null });
+  //       },
+  //       { timeout: 8000 }
+  //     );
+  //   });
+  // }
 
   // ✅ Fallback to IP-based location
   async function getIPLocation() {
@@ -69,6 +133,8 @@ window.UserLocation = (function () {
     if (cachedLocation) return cachedLocation;
 
     let { location, countryCode } = await getGeolocation();
+    console.log(location);
+    console.log(countryCode);
 
     // If browser denied or failed → fallback to IP
     if (!location) ({ location, countryCode } = await getIPLocation());
@@ -304,112 +370,439 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //! GLOBAL POPUP FORM
-// Load Contact Modal dynamically
+
 document.addEventListener("DOMContentLoaded", () => {
   const modalPlaceholder = document.getElementById("contact-modal-placeholder");
+  if (!modalPlaceholder) return;
 
-  if (modalPlaceholder) {
-    fetch("popupForm.html")
-      .then((res) => res.text())
-      .then((data) => {
-        modalPlaceholder.innerHTML = data;
+  fetch("popupForm.html")
+    .then((res) => res.text())
+    .then((data) => {
+      modalPlaceholder.innerHTML = data;
 
-        // After HTML is inserted, initialize the popup form
-        initPopupForm();
-      })
-      .catch((err) => console.error("Error loading contact modal:", err));
-  }
-});
+      const form = document.getElementById("popupContactForm");
+      const popupSubmitBtn = document.getElementById("popupSubmitBtn");
+      const popupSubmitSpinner = document.getElementById("popupSubmitSpinner");
+      const popupModalEl = document.getElementById("contactModal");
 
-function initPopupForm() {
-  const form = document.getElementById("popupContactForm");
-  const popupcta = document.getElementById("popupcta");
-  const popupSubmitSpinner = document.getElementById("popupSubmitSpinner");
-  const popupSubmitBtn = document.getElementById("popupSubmitBtn");
+      if (!form) return;
 
-  if (!form) return;
+      let popupOtpVerified = false; // Track OTP success
 
-  function showToast(message, type = "success") {
-    const container = document.getElementById("toast-container");
-    const toast = document.createElement("div");
-    toast.className = `toast align-items-center ${
-      type === "success" ? "bg-success" : "bg-danger"
-    } text-white border-0 show mb-2`;
-    toast.role = "alert";
-    toast.innerHTML = `
-      <div class="d-flex">
-        <div class="toast-body">${message}</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" 
-          data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>`;
-    container.appendChild(toast);
-    setTimeout(() => toast.remove(), 4000);
-  }
-
-  function isValidEmail(email) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  }
-
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // stop normal navigation
-
-    // --- Email Validation ---
-    const emailInput = form.querySelector('input[name="email"]');
-    const email = emailInput ? emailInput.value.trim() : "";
-    if (!isValidEmail(email)) {
-      showToast("Please enter a valid email address.", "error");
-      if (emailInput) emailInput.focus();
-      return; // stop submission
-    }
-
-    popupcta.value = "Submit";
-    const formData = new FormData(form);
-    popupSubmitBtn.disabled = true;
-    popupSubmitSpinner.classList.remove("d-none");
-
-    let locObj = JSON.parse(
-      localStorage.getItem("userLocation") ||
-        '{"location":"Unknown","countryCode":""}'
-    );
-    formData.append("location", locObj.location);
-    formData.append("countryCode", locObj.countryCode);
-
-    // --- Send form data ---
-    try {
-      const response = await fetch("api/web-lead-submission.php", {
-        method: "POST",
-        body: formData,
-      });
-      const text = await response.text();
-      let msg = {};
-      try {
-        msg = JSON.parse(text);
-      } catch {
-        showToast("Unexpected response from server", "error");
-        return;
+      /* -----------------------------------------------------
+              ⭐ UPDATED → Email-Based 24hr Cooldown
+                 ----------------------------------------------------- */
+      function setEmailCooldown(email) {
+        const cooldownData = JSON.parse(
+          localStorage.getItem("emailCooldown") || "{}"
+        );
+        cooldownData[email] = Date.now();
+        localStorage.setItem("emailCooldown", JSON.stringify(cooldownData));
       }
 
-      if (msg.success) {
-        showToast(msg.success, "success");
-        form.reset();
+      function isEmailCooldownActive(email, hours = 24) {
+        const cooldownData = JSON.parse(
+          localStorage.getItem("emailCooldown") || "{}"
+        );
+        if (!cooldownData[email]) return false;
 
-        const popupModal = document.getElementById("contactModal");
-        const bsModal =
-          bootstrap.Modal.getInstance(popupModal) ||
-          new bootstrap.Modal(popupModal);
-        bsModal.hide();
-      } else if (msg.error) {
-        showToast(msg.error, "error");
+        const last = cooldownData[email];
+        const now = Date.now();
+        const diffHours = (now - last) / (1000 * 60 * 60);
+        return diffHours < hours;
+      }
+
+      function showToast(message, type = "success") {
+        const container = document.getElementById("toast-container");
+        if (!container) return;
+        const toast = document.createElement("div");
+        toast.className = `toast align-items-center ${
+          type === "success" ? "bg-success" : "bg-danger"
+        } text-white border-0 show mb-2`;
+        toast.innerHTML = `
+          <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+          </div>`;
+        container.appendChild(toast);
+        setTimeout(() => toast.remove(), 4000);
+      }
+
+      function isValidEmail(email) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+      }
+
+      async function submitLead() {
+        const formData = new FormData(form);
+        const locObj = JSON.parse(
+          localStorage.getItem("userLocation") ||
+            '{"location":"Unknown","countryCode":""}'
+        );
+        formData.append("location", locObj.location);
+        formData.append("countryCode", locObj.countryCode);
+
+        try {
+          const res = await fetch("api/web-lead-submission.php", {
+            method: "POST",
+            body: formData,
+          });
+          const text = await res.text();
+          let msg = {};
+          try {
+            msg = JSON.parse(text);
+          } catch {
+            showToast("Unexpected server response", "error");
+            return;
+          }
+
+          if (msg.success) {
+            showToast(msg.success, "success");
+            /* -----------------------------------------------------
+                     ⭐ Set Email Cooldown AFTER successful submission
+                       ----------------------------------------------------- */
+            const email = form
+              .querySelector('input[name="email"]')
+              .value.trim();
+
+            setEmailCooldown(email);
+            form.reset();
+            bootstrap.Modal.getInstance(popupModalEl)?.hide();
+          } else {
+            showToast(msg.error || "Something went wrong", "error");
+          }
+        } catch (err) {
+          console.error(err);
+          showToast("Server error. Try again later.", "error");
+        } finally {
+          popupSubmitBtn.disabled = false;
+          popupSubmitSpinner.classList.add("d-none");
+        }
+      }
+
+      // ---------------- OTP Cancel Handling ----------------
+      // ---------------- OTP Cancel Handling ----------------
+      const otpModalEl = document.getElementById("otpModal");
+      otpModalEl.addEventListener("hidden.bs.modal", () => {
+        if (!popupOtpVerified) {
+          // User manually closed/cancelled OTP modal
+          popupSubmitBtn.disabled = false;
+          popupSubmitSpinner.classList.add("d-none");
+
+          // Remove leftover modal backdrop and restore body
+          document
+            .querySelectorAll(".modal-backdrop")
+            .forEach((b) => b.remove());
+          document.body.classList.remove("modal-open");
+          document.body.style.overflow = ""; // restore scrolling
+        }
+        popupOtpVerified = false; // reset for next OTP
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const emailInput = form.querySelector('input[name="email"]');
+        const email = emailInput.value.trim();
+        /* -----------------------------------------------------
+       ⭐ EMAIL COOLDOWN CHECK
+        ----------------------------------------------------- */
+        if (isEmailCooldownActive(email)) {
+          return showToast(
+            "Your query is already submitted. We will reach out to you within 24 hours.",
+            "error"
+          );
+        }
+
+        if (!isValidEmail(email)) {
+          showToast("Please enter a valid email address.", "error");
+          emailInput.focus();
+          return;
+        }
+
+        popupSubmitBtn.disabled = true;
+        popupSubmitSpinner.classList.remove("d-none");
+
+        // ---------------- SEND OTP ----------------
+        const sendOtpRes = await fetch("api/send_otp.php", {
+          method: "POST",
+          body: new URLSearchParams({ email }),
+        });
+        const sendOtpData = await sendOtpRes.json();
+
+        if (!sendOtpData.success) {
+          popupSubmitBtn.disabled = false;
+          popupSubmitSpinner.classList.add("d-none");
+          showToast(sendOtpData.error || "Failed to send OTP", "error");
+          return;
+        }
+
+        // ---------------- LOAD OTP MODAL CONTENT ----------------
+        const otpContent = document.getElementById("otpContent");
+        const otpHTML = await fetch("otp.html").then((r) => r.text());
+        otpContent.innerHTML = otpHTML;
+
+        const emailSpan = document.getElementById("otpEmail");
+        if (emailSpan) emailSpan.innerText = email;
+
+        const otpInputs = otpContent.querySelectorAll(".otp-input");
+        otpInputs.forEach((inp, i) => {
+          inp.addEventListener("input", () => {
+            if (inp.value.length === 1 && i < otpInputs.length - 1)
+              otpInputs[i + 1].focus();
+          });
+        });
+
+        bootstrap.Modal.getInstance(popupModalEl)?.hide();
+        const otpModal = new bootstrap.Modal(otpModalEl, {
+          backdrop: "static",
+          keyboard: false,
+        });
+        otpModal.show();
+
+        // ---------------- RESEND OTP ----------------
+        const resendBtn = document.getElementById("resendOtpBtn");
+        let resendTimer = null;
+
+        function startResendTimer() {
+          if (!resendBtn) return;
+          let timer = 60;
+          resendBtn.disabled = true;
+          resendBtn.innerText = `Resend in ${timer}s`;
+
+          clearInterval(resendTimer);
+          resendTimer = setInterval(() => {
+            timer--;
+            resendBtn.innerText = `Resend in ${timer}s`;
+            if (timer <= 0) {
+              clearInterval(resendTimer);
+              resendBtn.disabled = false;
+              resendBtn.innerText = "Resend";
+            }
+          }, 1000);
+        }
+
+        startResendTimer();
+
+        resendBtn.onclick = async () => {
+          if (resendBtn.disabled) return;
+          await fetch("api/send_otp.php", {
+            method: "POST",
+            body: new URLSearchParams({ email }),
+          });
+          startResendTimer();
+        };
+
+        // ---------------- VERIFY OTP ----------------
+        document.getElementById("verifyOtpBtn").onclick = async () => {
+          let otp = "";
+          otpInputs.forEach((i) => (otp += i.value));
+
+          if (otp.length !== 6) return;
+
+          const verifyRes = await fetch("api/verify_otp.php", {
+            method: "POST",
+            body: new URLSearchParams({ email, otp }),
+          });
+          const verifyData = await verifyRes.json();
+
+          if (verifyData.success) {
+            popupOtpVerified = true; // ✅ mark OTP verified
+            document.getElementById("verifiedOtp").value = otp;
+
+            otpModal.hide();
+            document
+              .querySelectorAll(".modal-backdrop")
+              .forEach((b) => b.remove());
+            document.body.classList.remove("modal-open");
+            document.body.style = "";
+
+            new bootstrap.Modal(popupModalEl).show();
+
+            await submitLead();
+          } else {
+            showToast(verifyData.error, "error");
+          }
+        };
+      });
+    });
+});
+
+// -----------------------------
+//! OTPManager (Reusable)
+// -----------------------------
+const OTPManager = (() => {
+  let otpInputs, resendBtn, emailInput, otpEmail;
+  let resendTimer = null;
+  let timer = 60;
+  let verifiedCallback = null; // callback to run after OTP verified
+
+  function initOtpModal() {
+    otpInputs = document.querySelectorAll(".otp-input");
+    resendBtn = document.getElementById("resendOtpBtn");
+    emailInput = document.getElementById("email");
+    otpEmail = document.getElementById("otpEmail");
+
+    // Mask email
+    if (otpEmail && emailInput) {
+      otpEmail.innerText = emailInput.value.replace(
+        /(.{2}).+(@.+)/,
+        "$1****$2"
+      );
+    }
+
+    // Auto-focus & numbers only
+    otpInputs.forEach((input, idx) => {
+      input.addEventListener("input", () => {
+        input.value = input.value.replace(/\D/g, "");
+        if (input.value && idx < otpInputs.length - 1)
+          otpInputs[idx + 1].focus();
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Backspace" && !input.value && idx > 0)
+          otpInputs[idx - 1].focus();
+      });
+      input.addEventListener("paste", (e) => {
+        const paste = e.clipboardData.getData("text").trim();
+        if (/^\d{6}$/.test(paste)) {
+          otpInputs.forEach((box, i) => (box.value = paste[i] || ""));
+          otpInputs[5].focus();
+        }
+        e.preventDefault();
+      });
+    });
+
+    startResendTimer();
+
+    // Resend OTP
+    if (resendBtn) {
+      resendBtn.addEventListener("click", async () => {
+        if (!emailInput.value)
+          return window.showToast("Email missing", "error");
+        await sendOtp(emailInput.value, verifiedCallback);
+      });
+    }
+
+    const verifyBtn = document.getElementById("verifyOtpBtn");
+    verifyBtn?.addEventListener("click", async (e) => {
+      e.preventDefault();
+      const verified = await verifyOtp();
+      if (verified && typeof verifiedCallback === "function") {
+        verifiedCallback(); // run page-specific form submission
+        verifiedCallback = null; // reset
+      }
+    });
+
+    otpInputs[0]?.focus();
+  }
+
+  function startResendTimer() {
+    if (!resendBtn) return;
+    resendBtn.disabled = true;
+    timer = 60;
+    resendBtn.innerText = `Resend in ${timer}s`;
+
+    clearInterval(resendTimer);
+    resendTimer = setInterval(() => {
+      timer--;
+      resendBtn.innerText = `Resend in ${timer}s`;
+      if (timer <= 0) {
+        clearInterval(resendTimer);
+        resendBtn.disabled = false;
+        resendBtn.innerText = "Resend";
+      }
+    }, 1000);
+  }
+
+  async function loadModal() {
+    const box = document.getElementById("otpContent");
+    if (!box) return;
+    box.innerHTML = "Loading…";
+    try {
+      const res = await fetch("./otp.html");
+      const html = await res.text();
+      box.innerHTML = html;
+      initOtpModal();
+      document.querySelectorAll(".modal-backdrop").forEach((b) => b.remove());
+      new bootstrap.Modal("#otpModal").show();
+    } catch (err) {
+      console.error("Failed to load OTP:", err);
+      box.innerHTML = "Failed to load OTP.";
+    }
+  }
+
+  async function sendOtp(email, callback) {
+    if (!email) return false;
+    verifiedCallback = callback; // store the page-specific submit function
+    try {
+      const res = await fetch("api/send_otp.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "email=" + encodeURIComponent(email),
+      });
+      const data = await res.json();
+      if (data.success) {
+        await loadModal();
+        return true;
       } else {
-        showToast("Something went wrong", "error");
+        window.showToast(data.error || "OTP sending failed", "error");
+        return false;
       }
     } catch (err) {
       console.error(err);
-      showToast("Something went wrong", "error");
-    } finally {
-      popupSubmitBtn.disabled = false;
-      popupSubmitSpinner.classList.add("d-none"); // hide spinner
+      window.showToast("Server error. Try again later.", "error");
+      return false;
     }
-  });
-}
+  }
+
+  async function verifyOtp() {
+    const otp = Array.from(document.querySelectorAll(".otp-input"))
+      .map((i) => i.value)
+      .join("");
+    if (otp.length !== 6)
+      return window.showToast("Enter complete 6-digit OTP", "error");
+
+    const email = emailInput.value;
+    try {
+      const res = await fetch("api/verify_otp.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body:
+          "email=" +
+          encodeURIComponent(email) +
+          "&otp=" +
+          encodeURIComponent(otp),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        const modalEl = document.getElementById("otpModal");
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        modalInstance?.hide();
+        setTimeout(() => {
+          document
+            .querySelectorAll(".modal-backdrop")
+            .forEach((b) => b.remove());
+          document.body.classList.remove("modal-open");
+          document.body.style = "";
+        }, 300);
+        return true;
+      } else {
+        window.showToast(data.error || "Invalid OTP", "error");
+        return false;
+      }
+    } catch (err) {
+      console.error(err);
+      window.showToast("Verification failed", "error");
+      return false;
+    }
+  }
+
+  return {
+    sendOtp,
+    verifyOtp,
+    cancel() {
+      verifiedCallback = null;
+      clearInterval(resendTimer);
+    },
+  };
+})();
