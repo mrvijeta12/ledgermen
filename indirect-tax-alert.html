@@ -593,7 +593,7 @@
                 id="contactForm"
               >
                 <div class="row">
-                  <input type="hidden" name="page" value="insightpage" />
+                  <input type="hidden" name="page" value="insight" />
                   <input type="hidden" name="cta" id="cta" value="" />
                   <div class="col-12">
                     <div class="form-group mb-3">
@@ -604,8 +604,12 @@
                         id="first-name"
                         placeholder="Enter Your  Name"
                         name="name"
-                        required
                       />
+                      <span
+                        id="name-err"
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
                     </div>
                   </div>
 
@@ -618,8 +622,12 @@
                         id="email"
                         placeholder="Enter Your Email "
                         name="email"
-                        required
                       />
+                      <span
+                        id="email-err"
+                        class="error-message"
+                        style="color: red; font-size: 12px"
+                      ></span>
                     </div>
                   </div>
                   <div class="col-12 col-lg-6">
@@ -646,6 +654,14 @@
                     ></textarea>
                   </div>
                 </div>
+                <div
+                  class="g-recaptcha mt-2"
+                  data-sitekey="6Lc2wR8sAAAAAGG_PgbYhMpCZkEGMS3PgW6KQGFd"
+                ></div>
+                <span
+                  id="captcha-error"
+                  style="color: red; font-size: 12px"
+                ></span>
 
                 <div class="row">
                   <div
@@ -653,7 +669,7 @@
                   >
                     <button
                       type="submit"
-                      class="home-cta-btn w-50"
+                      class="home-cta-btn w-100"
                       id="submitBtn"
                       name="submit"
                     >
@@ -666,283 +682,40 @@
                   </div>
                 </div>
               </form>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  const form = document.getElementById("contactForm");
-                  const submitBtn = document.getElementById("submitBtn");
-                  const submitSpinner =
-                    document.getElementById("submitSpinner");
-
-                  window.__otpVerified = false;
-                  /* -----------------------------------------------------
-                          ⭐ UPDATED → Email-Based 24hr Cooldown
-                             ----------------------------------------------------- */
-                  function setEmailCooldown(email) {
-                    const cooldownData = JSON.parse(
-                      localStorage.getItem("emailCooldown") || "{}"
-                    );
-                    cooldownData[email] = Date.now();
-                    localStorage.setItem(
-                      "emailCooldown",
-                      JSON.stringify(cooldownData)
-                    );
-                  }
-
-                  function isEmailCooldownActive(email, hours = 24) {
-                    const cooldownData = JSON.parse(
-                      localStorage.getItem("emailCooldown") || "{}"
-                    );
-                    if (!cooldownData[email]) return false;
-
-                    const last = cooldownData[email];
-                    const now = Date.now();
-                    const diffHours = (now - last) / (1000 * 60 * 60);
-                    return diffHours < hours;
-                  }
-
-                  function showToast(msg, type = "success") {
-                    const container =
-                      document.getElementById("toast-container");
-                    if (!container) return;
-                    const bg = type === "success" ? "bg-success" : "bg-danger";
-
-                    const toast = document.createElement("div");
-                    toast.className = `toast align-items-center ${bg} text-white border-0 show mb-2`;
-                    toast.innerHTML = `
-                                         <div class="d-flex">
-                                         <div class="toast-body">${msg}</div>
-                                         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-                                         </div>`;
-                    container.appendChild(toast);
-                    setTimeout(() => toast.remove(), 4000);
-                  }
-
-                  function isValidEmail(email) {
-                    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-                      email
-                    );
-                  }
-
-                  async function submitLead() {
-                    const formData = new FormData(form);
-                    const locObj = JSON.parse(
-                      localStorage.getItem("userLocation") ||
-                        '{"location":"Unknown","countryCode":""}'
-                    );
-
-                    formData.append("location", locObj.location);
-                    formData.append("countryCode", locObj.countryCode);
-                    formData.append("otp_verified", "1");
-
-                    try {
-                      const res = await fetch("api/web-lead-submission.php", {
-                        method: "POST",
-                        body: formData,
-                      });
-
-                      const text = await res.text();
-                      let msg = {};
-
-                      try {
-                        msg = JSON.parse(text);
-                      } catch {
-                        showToast("Unexpected server response", "error");
-                        return;
-                      }
-
-                      if (msg.success) {
-                        showToast(msg.success, "success");
-                        const email = form
-                          .querySelector('input[name="email"]')
-                          .value.trim();
-                        setEmailCooldown(email);
-                        form.reset();
-                      } else if (msg.error) {
-                        showToast(msg.error, "error");
-                      } else {
-                        showToast("Something went wrong.", "error");
-                      }
-                    } catch (err) {
-                      console.error(err);
-                      showToast("Server error, try later.", "error");
-                    } finally {
-                      submitBtn.disabled = false;
-                      submitSpinner.classList.add("d-none");
-                    }
-                  }
-
-                  form.addEventListener("submit", async (e) => {
-                    e.preventDefault();
-
-                    const emailInput = form.querySelector(
-                      'input[name="email"]'
-                    );
-                    const email = emailInput.value.trim();
-                    /* -----------------------------------------------------
-                           ⭐ EMAIL COOLDOWN CHECK
-                              ----------------------------------------------------- */
-                    if (isEmailCooldownActive(email)) {
-                      return showToast(
-                        "Your query is already submitted. We will reach out to you within 24 hours.",
-                        "error"
-                      );
-                    }
-
-                    if (!isValidEmail(email)) {
-                      showToast("Please enter a valid email address.", "error");
-                      emailInput.focus();
-                      return;
-                    }
-
-                    submitBtn.disabled = true;
-                    submitSpinner.classList.remove("d-none");
-
-                    const sent = await OTPManager.sendOtp(email, async () => {
-                      window.__otpVerified = true;
-                      await submitLead();
-                    });
-
-                    if (!sent) {
-                      submitBtn.disabled = false;
-                      submitSpinner.classList.add("d-none");
-                    }
-                  });
-
-                  // ⭐ OTP Modal Logic
-                  const otpModalEl = document.getElementById("otpModal");
-                  otpModalEl.addEventListener("hidden.bs.modal", () => {
-                    if (window.__otpVerified) {
-                      window.__otpVerified = false;
-                      return;
-                    }
-
-                    OTPManager.cancel();
-                    submitBtn.disabled = false;
-                    submitSpinner.classList.add("d-none");
-                  });
-                });
-              </script>
             </div>
           </div>
-
-          <script>
-            document.addEventListener("DOMContentLoaded", () => {
-              const form = document.getElementById("contactForm");
-              const submitBtn = document.getElementById("submitBtn");
-              const submitSpinner = document.getElementById("submitSpinner");
-
-              window.__otpVerified = false; // ⭐ added
-
-              function showToast(msg, type = "success") {
-                const container = document.getElementById("toast-container");
-                if (!container) return;
-                const bg = type === "success" ? "bg-success" : "bg-danger";
-                const toast = document.createElement("div");
-                toast.className = `toast align-items-center ${bg} text-white border-0 show mb-2`;
-                toast.role = "alert";
-                toast.innerHTML = `
-      <div class="d-flex">
-        <div class="toast-body">${msg}</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>`;
-                container.appendChild(toast);
-                setTimeout(() => {
-                  toast.remove();
-                }, 4000);
-              }
-
-              function isValidEmail(email) {
-                return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-                  email
-                );
-              }
-
-              async function submitLead() {
-                const formData = new FormData(form);
-
-                const locObj = JSON.parse(
-                  localStorage.getItem("userLocation") ||
-                    '{"location":"Unknown","countryCode":""}'
-                );
-                formData.append("location", locObj.location);
-                formData.append("countryCode", locObj.countryCode);
-                formData.append("otp_verified", "1");
-
-                try {
-                  const res = await fetch("api/web-lead-submission.php", {
-                    method: "POST",
-                    body: formData,
-                  });
-                  const text = await res.text();
-                  let msg = {};
-                  try {
-                    msg = JSON.parse(text);
-                  } catch {
-                    showToast("Unexpected server response", "error");
-                    return;
-                  }
-
-                  if (msg.success) {
-                    showToast(msg.success, "success");
-                    form.reset();
-                  } else if (msg.error) {
-                    showToast(msg.error, "error");
-                  } else {
-                    showToast("Something went wrong.", "error");
-                  }
-                } catch (err) {
-                  console.error(err);
-                  showToast("Server error. Please try again later.", "error");
-                } finally {
-                  submitBtn.disabled = false;
-                  submitSpinner.classList.add("d-none");
-                }
-              }
-
-              form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                const emailInput = form.querySelector('input[name="email"]');
-                const email = emailInput.value.trim();
-
-                if (!isValidEmail(email)) {
-                  showToast("Please enter a valid email address.", "error");
-                  emailInput.focus();
-                  return;
-                }
-
-                submitBtn.disabled = true;
-                submitSpinner.classList.remove("d-none");
-
-                const sent = await OTPManager.sendOtp(email, async () => {
-                  window.__otpVerified = true; // ⭐ added
-                  await submitLead();
-                });
-
-                if (!sent) {
-                  submitBtn.disabled = false;
-                  submitSpinner.classList.add("d-none");
-                }
-              });
-
-              // ⭐⭐ ADDED: Correct modal close logic (same as working version)
-              const otpModalEl = document.getElementById("otpModal");
-
-              otpModalEl.addEventListener("hidden.bs.modal", () => {
-                if (window.__otpVerified) {
-                  window.__otpVerified = false; // reset flag
-                  return; // prevent cancel logic
-                }
-
-                // User manually closed modal => cancel OTP flow
-                OTPManager.cancel();
-
-                submitBtn.disabled = false;
-                submitSpinner.classList.add("d-none");
-              });
-            });
-          </script>
         </div>
       </div>
+      <script>
+        const textarea = document.getElementById("animatedTextarea");
+        const text = "Share your thoughts or questions…"; // placeholder text
+        let i = 0;
+        let forward = true;
+
+        function animatePlaceholder() {
+          if (forward) {
+            // typing forward
+            textarea.setAttribute("placeholder", text.substring(0, i + 1));
+            i++;
+            if (i === text.length) {
+              forward = false;
+              setTimeout(animatePlaceholder, 1000); // wait before deleting
+              return;
+            }
+          } else {
+            // deleting backward
+            textarea.setAttribute("placeholder", text.substring(0, i - 1));
+            i--;
+            if (i === 0) {
+              forward = true;
+            }
+          }
+          setTimeout(animatePlaceholder, 30); // speed of typing/deleting
+        }
+
+        // start animation
+        animatePlaceholder();
+      </script>
 
       <!-- cta  -->
       <style>
@@ -1177,6 +950,8 @@
       });
     </script>
     <!-- WHATSAPP END  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1184,8 +959,6 @@
         once: "true",
       });
     </script>
-    <script defer src="main.js?v=2.3.4"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="captcha.js"></script>
   </body>
 </html>

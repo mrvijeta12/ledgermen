@@ -1841,7 +1841,7 @@
               id="contactForm"
             >
               <div class="row">
-                <input type="hidden" name="page" value="homepage" />
+                <input type="hidden" name="page" value="home" />
                 <input type="hidden" name="cta" id="cta" value="" />
 
                 <div class="col-12">
@@ -1851,10 +1851,14 @@
                       type="text"
                       class="form-control"
                       id="first-name"
-                      placeholder="Enter Your  Name"
+                      placeholder="Enter Your Name"
                       name="name"
-                      required
                     />
+                    <span
+                      id="name-err"
+                      class="error-message"
+                      style="color: red; font-size: 12px"
+                    ></span>
                   </div>
                 </div>
 
@@ -1865,12 +1869,18 @@
                       type="email"
                       class="form-control"
                       id="email"
-                      placeholder="Enter Your Email "
+                      placeholder="Enter Your Email"
                       name="email"
-                      required
                     />
+                    <!-- Error span for email -->
+                    <span
+                      id="email-err"
+                      class="error-message"
+                      style="color: red; font-size: 12px"
+                    ></span>
                   </div>
                 </div>
+
                 <div class="col-12 col-lg-6">
                   <div class="form-group mb-3">
                     <label for="phone" class="mb-2">Contact Number</label>
@@ -1881,6 +1891,8 @@
                       placeholder="+91 Phone No. With Country Code"
                       name="phone"
                     />
+
+                    <!-- Error span -->
                   </div>
                 </div>
 
@@ -1893,8 +1905,20 @@
                     rows="4"
                     class="form-control"
                   ></textarea>
+
+                  <!-- Error span -->
                 </div>
               </div>
+              <div
+                class="g-recaptcha mt-2"
+                data-sitekey="6Lc2wR8sAAAAAGG_PgbYhMpCZkEGMS3PgW6KQGFd"
+              ></div>
+
+              <span
+                id="captcha-error"
+                style="color: red; font-size: 12px"
+              ></span>
+
               <div class="row d-flex justify-content-center mt-4">
                 <div class="col-md-6 mb-2">
                   <button
@@ -1911,244 +1935,20 @@
                 </div>
 
                 <div class="col-md-6 mb-2">
-                  <a
-                    href="https://calendly.com/ledgermen-support/30min"
-                    target="_blank"
+                  <button
+                    type="button"
+                    id="instantCallBtn"
+                    class="home-cta-btn w-100"
                   >
-                    <button
-                      type="button"
-                      id="instantCallBtn"
-                      class="home-cta-btn w-100"
-                    >
-                      <span
-                        class="spinner-border spinner-border-sm me-2 d-none"
-                        id="instantSpinner"
-                      ></span>
-                      Schedule an Instant Call
-                    </button>
-                  </a>
+                    <span
+                      class="spinner-border spinner-border-sm me-2 d-none"
+                      id="instantSpinner"
+                    ></span>
+                    Start an Instant Call
+                  </button>
                 </div>
               </div>
             </form>
-            <script>
-              document.addEventListener("DOMContentLoaded", () => {
-                const form = document.getElementById("contactForm");
-                const ctaInput = document.getElementById("cta");
-                const submitBtn = document.getElementById("submitBtn");
-                const submitSpinner = document.getElementById("submitSpinner");
-                const instantCallBtn =
-                  document.getElementById("instantCallBtn");
-                const instantSpinner =
-                  document.getElementById("instantSpinner");
-
-                window.__otpVerified = false;
-
-                /* -----------------------------------------------------
-              ⭐ UPDATED → Email-Based 24hr Cooldown
-                 ----------------------------------------------------- */
-                function setEmailCooldown(email) {
-                  const cooldownData = JSON.parse(
-                    localStorage.getItem("emailCooldown") || "{}"
-                  );
-                  cooldownData[email] = Date.now();
-                  localStorage.setItem(
-                    "emailCooldown",
-                    JSON.stringify(cooldownData)
-                  );
-                }
-
-                function isEmailCooldownActive(email, hours = 24) {
-                  const cooldownData = JSON.parse(
-                    localStorage.getItem("emailCooldown") || "{}"
-                  );
-                  if (!cooldownData[email]) return false;
-
-                  const last = cooldownData[email];
-                  const now = Date.now();
-                  const diffHours = (now - last) / (1000 * 60 * 60);
-                  return diffHours < hours;
-                }
-
-                /* ----------------------------------------------------- */
-
-                function showToast(message, type = "success") {
-                  const toastContainer =
-                    document.getElementById("toast-container");
-                  if (!toastContainer) return;
-                  const bgColor =
-                    type === "success" ? "bg-success" : "bg-danger";
-                  const toast = document.createElement("div");
-                  toast.className = `toast align-items-center ${bgColor} text-white border-0 show mb-2`;
-                  toast.innerHTML = `
-                 <div class="d-flex">
-                 <div class="toast-body">${message}</div>
-                 <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-                 </div>`;
-                  toastContainer.appendChild(toast);
-                  setTimeout(() => toast.remove(), 4000);
-                }
-
-                function isValidEmail(email) {
-                  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-                    email
-                  );
-                }
-
-                // submitt
-
-                async function submitLead(openCalendly = false) {
-                  const formData = new FormData(form);
-                  const locObj = JSON.parse(
-                    localStorage.getItem("userLocation") ||
-                      '{"location":"Unknown","countryCode":""}'
-                  );
-                  formData.append("location", locObj.location);
-                  formData.append("countryCode", locObj.countryCode);
-                  formData.append("otp_verified", "1");
-
-                  try {
-                    const res = await fetch("api/web-lead-submission.php", {
-                      method: "POST",
-                      body: formData,
-                    });
-                    const text = await res.text();
-                    let msg = {};
-                    try {
-                      msg = JSON.parse(text);
-                    } catch {
-                      console.error("Invalid JSON response:", text);
-                      showToast("Unexpected server response", "error");
-                      return;
-                    }
-
-                    if (msg.success) {
-                      showToast(msg.success, "success");
-
-                      /* -----------------------------------------------------
-                     ⭐ Set Email Cooldown AFTER successful submission
-                       ----------------------------------------------------- */
-                      const email = form
-                        .querySelector('input[name="email"]')
-                        .value.trim();
-
-                      setEmailCooldown(email);
-                      form.reset();
-
-                      if (openCalendly) {
-                        setTimeout(() => {
-                          window.open(
-                            "https://calendly.com/ledgermen-support/30min",
-                            "_blank"
-                          );
-                        }, 500);
-                      }
-                    } else if (msg.error) {
-                      showToast(msg.error, "error");
-                    } else {
-                      showToast("Something went wrong", "error");
-                    }
-                  } catch (err) {
-                    console.error(err);
-                    showToast("Server error. Try again later.", "error");
-                  } finally {
-                    submitBtn.disabled = false;
-                    instantCallBtn.disabled = false;
-                    submitSpinner.classList.add("d-none");
-                    instantSpinner.classList.add("d-none");
-                  }
-                }
-
-                // -------------------------
-                // Form Submit → Send OTP
-                // -------------------------
-                form.addEventListener("submit", async (e) => {
-                  e.preventDefault();
-                  const email = form
-                    .querySelector('input[name="email"]')
-                    .value.trim();
-
-                  if (!isValidEmail(email))
-                    return showToast("Please enter a valid email.", "error");
-
-                  /* -----------------------------------------------------
-                 ⭐ EMAIL COOLDOWN CHECK
-                  ----------------------------------------------------- */
-                  if (isEmailCooldownActive(email)) {
-                    return showToast(
-                      "Your query is already submitted. We will reach out to you within 24 hours.",
-                      "error"
-                    );
-                  }
-
-                  ctaInput.value = "Submit";
-                  submitBtn.disabled = true;
-                  instantCallBtn.disabled = true;
-                  submitSpinner.classList.remove("d-none");
-
-                  await OTPManager.sendOtp(email, async () => {
-                    window.__otpVerified = true;
-                    await submitLead(false);
-                  });
-                });
-
-                // -------------------------
-                // Instant Call → Send OTP
-                // -------------------------
-                instantCallBtn.addEventListener("click", async (e) => {
-                  e.preventDefault();
-
-                  if (!form.checkValidity()) {
-                    showToast("Please fill all required fields.", "error");
-                    form.reportValidity();
-                    return;
-                  }
-
-                  const email = form
-                    .querySelector('input[name="email"]')
-                    .value.trim();
-
-                  /* -----------------------------------------------------
-                 ⭐ EMAIL COOLDOWN CHECK
-                   ----------------------------------------------------- */
-                  if (isEmailCooldownActive(email)) {
-                    return showToast(
-                      "Your query is already submitted. We will reach out to you within 24 hours.",
-                      "error"
-                    );
-                  }
-
-                  ctaInput.value = "Schedule an Instant Call";
-                  instantCallBtn.disabled = true;
-                  submitBtn.disabled = true;
-                  instantSpinner.classList.remove("d-none");
-
-                  await OTPManager.sendOtp(email, async () => {
-                    window.__otpVerified = true;
-                    await submitLead(true);
-                  });
-                });
-
-                // -------------------------
-                // OTP Modal Close Logic
-                // -------------------------
-                const otpModalEl = document.getElementById("otpModal");
-
-                otpModalEl.addEventListener("hidden.bs.modal", () => {
-                  if (window.__otpVerified) {
-                    window.__otpVerified = false;
-                    return;
-                  }
-
-                  OTPManager.cancel();
-
-                  submitBtn.disabled = false;
-                  instantCallBtn.disabled = false;
-
-                  submitSpinner.classList.add("d-none");
-                  instantSpinner.classList.add("d-none");
-                });
-              });
-            </script>
           </div>
         </div>
 
@@ -2183,25 +1983,6 @@
           // start animation
           animatePlaceholder();
         </script>
-      </div>
-    </div>
-
-    <!-- OTP Modal -->
-    <div class="modal fade" id="otpModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-white border-0 p-3">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-
-          <div class="modal-body p-0 text-center mb-3" id="otpContent">
-            Sending OTP…
-          </div>
-        </div>
       </div>
     </div>
 
@@ -2269,28 +2050,16 @@
     </script>
     <!-- WHATSAPP END  -->
 
-    <!-- Bootstrap JS (must be AFTER modal HTML) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Your custom script (for loading otp.html) -->
-    <!-- <script>
-      function loadOTP() {
-        fetch("otp.html")
-          .then((res) => res.text())
-          .then((html) => {
-            document.getElementById("otpContent").innerHTML = html;
-          });
-      }
-    </script> -->
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
       AOS.init({
         once: "true",
       });
     </script>
-    <script defer src="main.js?v=2.3.4"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="captcha.js"></script>
   </body>
 </html>

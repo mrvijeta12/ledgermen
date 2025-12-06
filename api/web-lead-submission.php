@@ -36,10 +36,24 @@ use PHPMailer\PHPMailer\Exception;
 date_default_timezone_set('Asia/Kolkata');
 
 // ---------------------------------------------------------------
-// 🔐 1. BLOCK submission if OTP is NOT verified
+// 1. Verify Google reCAPTCHA
 // ---------------------------------------------------------------
-if (!isset($_SESSION['email_verified']) || $_SESSION['email_verified'] !== true) {
-    echo json_encode(["error" => "Please verify your email using OTP before submitting."]);
+$recaptchaSecret = '6Lc2wR8sAAAAAC1z2-xEHW7B-7pg-o4qBbejOeMv'; // Replace with your Google reCAPTCHA secret key
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+if (empty($recaptchaResponse)) {
+    echo json_encode(["error" => "Please complete the CAPTCHA."]);
+    exit;
+}
+
+// Verify the response with Google
+$verifyResponse = file_get_contents(
+    "https://www.google.com/recaptcha/api/siteverify?secret={$recaptchaSecret}&response={$recaptchaResponse}"
+);
+$responseData = json_decode($verifyResponse);
+
+if (!$responseData->success) {
+    echo json_encode(["error" => "CAPTCHA verification failed. Please try again."]);
     exit;
 }
 
@@ -131,17 +145,17 @@ try {
     $mail->addAddress('vijetavarma1@gmail.com');
     // $mail->addAddress('sonishreyans2@gmail.com');
     $mail->Subject = "New Website Lead: {$name}";
-    $mail->Body = "
-        <p><strong>Name:</strong> {$name}<br>
-        <strong>Email:</strong> {$email}<br>
-        <strong>Phone:</strong> {$contact_number}<br>
-        <strong>Message:</strong> {$message}<br>
-        <strong>Page:</strong> {$page}<br>
-        <strong>Location:</strong> {$location}<br>
-        <strong>Country Code:</strong> {$countryCode}<br>
-        <strong>CTA:</strong> {$cta}<br>
-        <strong>Submitted At:</strong> {$created_at}</p>
-    ";
+   $mail->Body = "
+    <p><strong>Name:</strong> {$name}<br>
+    <strong>Email:</strong> {$email}<br>
+    <strong>Phone:</strong> {$contact_number}<br>
+    <strong>Message:</strong> {$message}<br>
+    <strong>Page:</strong> {$page}<br>
+    <strong>Location:</strong> {$location}<br>
+    <strong>Country Code:</strong> {$countryCode}<br>
+    <strong>CTA:</strong> {$cta}<br>
+    <strong>Submitted At:</strong> {$created_at}</p>
+";
     $mail->send();
 
     // ---------------------------------------------------------------

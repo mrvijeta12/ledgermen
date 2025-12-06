@@ -8,8 +8,10 @@ function ensureGrecaptchaReady(callback) {
 }
 
 function loadCaptcha(containerId) {
-  if (!document.getElementById(containerId)) return;
-  grecaptcha.render(containerId, {
+  const container = document.getElementById(containerId);
+  if (!container) return null;
+
+  return grecaptcha.render(container, {
     sitekey: "6Lc2wR8sAAAAAGG_PgbYhMpCZkEGMS3PgW6KQGFd",
     theme: "light",
   });
@@ -36,7 +38,7 @@ window.UserLocation = (function () {
           try {
             // Fetch the location from the PHP proxy (hosted on your server)
             const res = await fetch(
-              `http://localhost/ledcom/api/location.php?lat=${latitude}&lon=${longitude}`
+              `https://ledgermen.com/api/location.php?lat=${latitude}&lon=${longitude}`
             );
 
             // Check if the response is successful
@@ -624,8 +626,21 @@ async function setupPopupForm() {
 
   if (!form) return;
 
-  // Render reCAPTCHA in popup
-  ensureGrecaptchaReady(() => loadCaptcha(captchaContainerId));
+  let popupCaptchaId = null;
+
+  // 3️⃣ Render the popup CAPTCHA safely
+  function renderPopupCaptcha() {
+    const container = document.getElementById(captchaContainerId);
+    if (!container) {
+      // Retry until container exists
+      setTimeout(renderPopupCaptcha, 50);
+      return;
+    }
+    popupCaptchaId = loadCaptcha(captchaContainerId); // Use the helper
+  }
+
+  // 4️⃣ Ensure grecaptcha is loaded before rendering
+  ensureGrecaptchaReady(renderPopupCaptcha);
 
   // Validation functions
   function isValidEmail(email) {
@@ -676,6 +691,7 @@ async function setupPopupForm() {
   // Submit handler
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+    document.getElementById("popupcta").value = "Submit";
     clearErrors();
 
     const nameInput = form.querySelector('input[name="name"]');
@@ -703,9 +719,8 @@ async function setupPopupForm() {
       return;
     }
 
-    const captchaResponse = grecaptcha.getResponse();
-    console.log(captchaResponse);
-
+    const captchaResponse = grecaptcha.getResponse(popupCaptchaId);
+    console.log("Popup CAPTCHA response:", captchaResponse);
     if (!captchaResponse) {
       showError("popup-captcha-error", "Please verify the CAPTCHA.");
       return;
@@ -741,9 +756,14 @@ async function setupPopupForm() {
         toastFn(msg.success, "success");
         setEmailCooldown(email);
         form.reset();
-        grecaptcha.reset();
+        if (popupCaptchaId) {
+          grecaptcha.reset(popupCaptchaId); // reset the popup CAPTCHA
+        }
         const bootstrapModal = bootstrap.Modal.getInstance(modalEl);
-        if (bootstrapModal) bootstrapModal.hide();
+        if (bootstrapModal) {
+          bootstrapModal.hide();
+          setTimeout(() => ensureGrecaptchaReady(renderPopupCaptcha), 100);
+        }
       } else if (msg.error) {
         toastFn(msg.error, "error");
       } else {

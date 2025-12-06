@@ -244,6 +244,38 @@
 
     <!-- Contact Form Modal -->
     <div id="contact-modal-placeholder"></div>
-    <script defer src="main.js?v=2.3.4"></script>
+    <script>
+      const textarea = document.getElementById("animatedTextarea");
+      const text = "Share your thoughts or questions…"; // placeholder text
+      let i = 0;
+      let forward = true;
+
+      function animatePlaceholder() {
+        if (forward) {
+          // typing forward
+          textarea.setAttribute("placeholder", text.substring(0, i + 1));
+          i++;
+          if (i === text.length) {
+            forward = false;
+            setTimeout(animatePlaceholder, 1000); // wait before deleting
+            return;
+          }
+        } else {
+          // deleting backward
+          textarea.setAttribute("placeholder", text.substring(0, i - 1));
+          i--;
+          if (i === 0) {
+            forward = true;
+          }
+        }
+        setTimeout(animatePlaceholder, 30); // speed of typing/deleting
+      }
+
+      // start animation
+      animatePlaceholder();
+    </script>
+
+    <script defer src="captcha.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </body>
 </html>
