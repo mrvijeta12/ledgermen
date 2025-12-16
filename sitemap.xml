@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- About page -->
+  <!-- About -->
   <url>
     <loc>https://ledgermen.com/about.html</loc>
     <lastmod>2025-10-06</lastmod>
@@ -49,7 +49,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Financial Planning & Analysis -->
+  <!-- FP&A -->
   <url>
     <loc>https://ledgermen.com/financial-planning-analysis.html</loc>
     <lastmod>2025-10-06</lastmod>
@@ -73,15 +73,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Insight -->
-  <url>
-    <loc>https://ledgermen.com/insight.html</loc>
-    <lastmod>2025-10-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- Insights -->
+  <!-- Insights Main -->
   <url>
     <loc>https://ledgermen.com/insights.html</loc>
     <lastmod>2025-10-06</lastmod>
@@ -129,7 +121,7 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- New Pages -->
+  <!-- Blog Articles -->
   <url>
     <loc>https://ledgermen.com/every-startup-needs-a-solid-foundation.html</loc>
     <lastmod>2025-10-06</lastmod>
@@ -143,13 +135,50 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-   <url>
+
+  <url>
     <loc>https://ledgermen.com/what-happens-if-you-do-not-maintain-proper-books.html</loc>
     <lastmod>2025-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Added Missing Articles -->
+  <url>
+    <loc>https://ledgermen.com/india-just-entered-a-new-era-of-work.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/understanding-tds-and-its-compliance-requirements-for-businesses.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/your-startup-is-not-official-until-It-is-incorporated.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/your-startup-might-be-growing-but-is-it-legally-sound.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+   <url>
+    <loc>https://ledgermen.com/carrying-cash-across-borders.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal Pages -->
   <url>
     <loc>https://ledgermen.com/privacy-policy.html</loc>
     <lastmod>2025-10-06</lastmod>
@@ -159,6 +188,20 @@
 
   <url>
     <loc>https://ledgermen.com/terms-conditions.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/disclaimer.html</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://ledgermen.com/teams.html</loc>
     <lastmod>2025-10-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
